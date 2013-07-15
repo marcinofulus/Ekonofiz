@@ -1,4 +1,5 @@
-Ekonofiz
-========
+Repozytorium skryptów z ekonofizyki
+===================================
 
-Skrypty z Ekonofizyki v2.0
+W tym repozytorium znajdują się skrypty tworzone w ramach projektu UPGOW.
+
