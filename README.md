@@ -11,4 +11,5 @@ Sposob pracy
 Marek ma głowne repo i może:
 
 1) Akceprować zmiany (pull requesty od klonów) 
+
 *) Edytować "online" tekst. 
