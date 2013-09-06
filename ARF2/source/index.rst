@@ -51,7 +51,10 @@ Spis treści
 .. toctree::
    :maxdepth: 1
 
-   test_template
+   forex
 
+   ..
+      test_template
+   
 
 
