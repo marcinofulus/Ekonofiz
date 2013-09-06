@@ -99,20 +99,20 @@ zakwotował jednak 85 za dolar czyli jest możliwość zarobienia. Jak?
 
 Sprzedać nasze dolary za funty:
 
-Przykładowo przy kwocie wyjściowej 100 000 funtów: 100 000 GBP po 1,5
-USD = 150 000 USD
+Przykładowo przy kwocie wyjściowej 100.000 funtów: 100.000 GBP po 1,5
+USD = 150.000 USD
 
 Sprzedajemy bankowi B jeny po kursie 85 jenów za dolara:
 
-Przykładowo:  150 000x 85 = 1 275 000 jenów
+Przykładowo:  150.000x 85 = 1.275.000 jenów
 
 Jeny sprzedajemy po 120 za funta i otrzymujemy
 
-Przykładowo :  1 275 000/ 120 = 106 250 funtów
+Przykładowo :  1.275.000/ 120 = 106.250 funtów
 
 Czyli zarobić można było
 
-106 250 – 100 000 = 6 250 funta.
+106.250 – 100.000 = 6.250 funta.
 
 Dlaczego czas przeszły????
 
@@ -157,7 +157,7 @@ P$ = W$/€ P€= 1,25 x 240 = 300 USD
 
 Cena złota jest taka sama bez względu gdzie je kupujemy. 
 
-No tak, złoto nie budzi wątpliwości ale ile jest warte moje np. 100
+No tak, złoto nie budzi wątpliwości, ale ile jest warte moje np. 100
 PLN w porównaniu do innych walut?
 
 W zasadzie najlepiej to widać jeśli porównany co możemy kupić za te
@@ -198,7 +198,7 @@ się
    S_t ^{D/F} = \frac{PI_{D,t}}{PI_{F,t}}
 
 
-Gdzie PI to indeks cenowy w kraju (d) i za granicą (f) w chwili t.
+Gdzie :math:`PI` to indeks cenowy w kraju (d) i za granicą (f) w chwili :math:`t`.
 
 Względne PPP pokazuje ze ruch zmian kursu powinien odzwierciedlać
 różnice inflacji miedzy krajami.
@@ -208,7 +208,8 @@ różnice inflacji miedzy krajami.
    \frac{S_{t+1}^{D/F}}{S_t ^{D/F}} = \frac{1+ \pi _D}{1+ \pi _F}
 
 
-Czyli w chwili t+1 relacja kursów powinna spełniać powyższe równanie.
+Czyli w chwili :math:`t+1` relacja kursów powinna spełniać powyższe
+równanie.
 
 Czyli:
 
@@ -325,26 +326,26 @@ czasie. Nominalna stopa zwrotu będzie taka sama.
 
 Cytując H. Allen i M. Taylora w ich artykule *„Charts, Noise and
 Fundamentals in the London Exchange Market” - Economic Journal .1990
-no. 100 Suplement.- … “ podczas gdy prawa fizyki sa stałe I dobrze
+no. 100 Suplement.- ... "podczas gdy prawa fizyki sa stałe I dobrze
 zdefiniowane, prawa rządzące rynkami finansowymi pozostawaj dużej
-mierze tajemnicą”* .. Jak widać rynek walutowy jest tego najlepszym
+mierze tajemnicą”* ... Jak widać rynek walutowy jest tego najlepszym
 przykładem. Na tym rynku hipoteza rynku efektywnego zdaje się
 sprawdzać najsłabiej.
 
 Stwierdzenie „w odpowiednio długim czasie” prosi się o komentarz ,ze
-jedno jest pewne w odpowiednio długim czasie to, że
-umrzemy. Świetnym komentarzem do uwagi 1.  jest
-komentarz A. Sławińskiego zawarty w jego książce ”Rynki Finansowe” PWE
-2006 i dotyczący związku kursów walut z czynnikami fundamentalnymi a
-właściwie jej braku. Komentarz ten mówi, ze związki kursów walut z
-czynnikami fundamentalnymi przypominają pijanego marynarza, który
-schodzi ze wzgórza, Siła grawitacji „w odpowiednio długim czasie”
-sprowadzi go do podnóża wzgórza ale droga jaką się będzie poruszał
-może być skomplikowana i nie do przewidzenia.
+jedno jest pewne w odpowiednio długim czasie to, że umrzemy. Świetnym
+komentarzem do pierwszej uwagi jest komentarz A. Sławińskiego zawarty
+w jego książce ”Rynki Finansowe” PWE 2006 i dotyczący związku kursów
+walut z czynnikami fundamentalnymi a właściwie jej braku. Komentarz
+ten mówi, ze związki kursów walut z czynnikami fundamentalnymi
+przypominają pijanego marynarza, który schodzi ze wzgórza, Siła
+grawitacji „w odpowiednio długim czasie” sprowadzi go do podnóża
+wzgórza, ale droga jaką się będzie poruszał może być skomplikowana i
+nie do przewidzenia.
 
 Dealerzy walutowi raczej nie bazują na wiadomościach fundamentalnych
 (stopy procentowe, PKB, etc.) w swych decyzjach dotyczących
-podejmowanych decyzji kupna / sprzedaży walut. Kierują się raczej
+podejmowanych decyzji kupna/sprzedaży walut. Kierują się raczej
 trendami, analizą techniczną i tym podobnymi aspektami zmienności
 rynków.
 
