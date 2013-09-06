@@ -332,7 +332,7 @@ przykładem. Na tym rynku hipoteza rynku efektywnego zdaje się
 sprawdzać najsłabiej.
 
 Stwierdzenie „w odpowiednio długim czasie” prosi się o komentarz ,ze
-jedno jest pewne w odpowiednio długim czasie, to , że
+jedno jest pewne w odpowiednio długim czasie to, że
 umrzemy. Świetnym komentarzem do uwagi 1.  jest
 komentarz A. Sławińskiego zawarty w jego książce ”Rynki Finansowe” PWE
 2006 i dotyczący związku kursów walut z czynnikami fundamentalnymi a
