@@ -2,7 +2,7 @@
 ----------------
 
 Wiele firm oferuje możliwość prowadzenia transakcji na tym rynku. W
-Internecie można znaleźć szereg podręczników handlu na tym rynku,
+Internecie można znaleźć szereg podręczników handlu,
 spekulacji i odkrywania przygód i emocji związanych z handlowaniem na
 tym rynku przez każdego osobiście.
 
@@ -206,17 +206,17 @@ się
 
 .. math::
 
-   S_t ^{D/F} = \frac{PI_{D,t}}{PI_{F,t}}
+   S_t ^{D/F} = \frac{Pi_{D,t}}{Pi_{F,t}}
 
 
-Gdzie :math:`PI` to indeks cenowy w kraju (d) i za granicą (f) w chwili :math:`t`.
+Gdzie :math:`Pi` to indeks cenowy w kraju (d) i za granicą (f) w chwili :math:`t`.
 
 Względne PPP pokazuje ze ruch zmian kursu powinien odzwierciedlać
 różnice inflacji miedzy krajami.
 
 .. math::
 
-   \frac{S_{t+1}^{D/F}}{S_t ^{D/F}} = \frac{1+ \pi _D}{1+ \pi _F}
+   \frac{S_{t+1}^{D/F}}{S_t ^{D/F}} = \frac{1+ I_f}{1+ I_f}
 
 
 Czyli w chwili :math:`t+1` relacja kursów powinna spełniać powyższe
@@ -226,7 +226,7 @@ Czyli:
 
 .. math::
 
-   \frac{S_{t+1}^{D/F} - S_t ^{D/F}}{S_t ^{D/F}} = \frac{\pi _D - \pi _F}{1 + \pi _F}
+   \frac{S_{t+1}^{D/F} - S_t ^{D/F}}{S_t ^{D/F}} = \frac{I_d - I_f}{1 + I_f}
 
 
 Albo inaczej:
