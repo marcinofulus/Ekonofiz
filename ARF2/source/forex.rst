@@ -2,7 +2,7 @@
 ----------------
 
 Wiele firm oferuje możliwość prowadzenia transakcji na tym rynku. W
-Internecie można znaleźć szereg podręczników handlu na tym rynku,
+Internecie można znaleźć szereg podręczników handlu,
 spekulacji i odkrywania przygód i emocji związanych z handlowaniem na
 tym rynku przez każdego osobiście.
 
