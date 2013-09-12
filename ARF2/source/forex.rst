@@ -122,6 +122,17 @@ wiemy czy będzie za chwilę. Systemy komputerowe transakcji
 arbitrażowych pracują bez przerwy.
 
 
+Równowaga szczegółowa
+~~~~~~~~~~~~~~~~~~~~~
+
+Układ spełniający warunek :eq:`F1` znany jest w fizyce jako układ
+równowagowy a samo równanie :eq:`F1` jest określane jako równowaga
+szczegółowa (ang. detailed balance). 
+
+
+
+
+
 Parytet Siły Nabywczej (PPP)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
