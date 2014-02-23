@@ -34,7 +34,7 @@ Spis treści
      - modele gaussowskie (np. Vasicek’a).
      - modele wielofaktorowe (np. HJM).
 #. Parytet: S+P = B+C jako podstawa tworzenia instrumentów syntetycznych.
-   - Symulacja parytetu z wybranych  danych historycznych.
+   - Symulacja parytetu z wybranych xdanych historycznych.
    - Swapy, FRA, caps  floors, etc.
 #. Praktyczne metody wyceny pewnych opcji (m.in.metodą Monte-Carlo).
 #. Hedging – potrzeba  zabezpieczenia niezmienności ceny.
@@ -52,6 +52,10 @@ Spis treści
    :maxdepth: 1
 
    forex
+   Hedging.rst  
+   Instrumenty_syntetyczne.rst  
+   var.rst
+   Opcje.rst
 
    ..
       test_template
