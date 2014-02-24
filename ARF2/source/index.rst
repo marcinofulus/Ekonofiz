@@ -52,10 +52,11 @@ Spis treści
    :maxdepth: 1
 
    forex
+   var.rst
    Hedging.rst  
    Instrumenty_syntetyczne.rst  
-   var.rst
    Opcje.rst
+   stopy_procentowe.rst
 
    ..
       test_template

@@ -1,5 +1,15 @@
-﻿VaR
-Zarządzanie portfelem to proces ustawicznej analizy sytuacji na rynku i zachowania się cen aktywów, proces optymalizacji  składu posiadanego portfela tak by zysk z niego był wysoki oraz szukanie sposobów by ewentualna strata  wartości  portfela była możliwie najmniej bolesna. Ograniczanie strat, to podstawowe oczekiwanie zarządzania ryzykiem a źródłem tego ryzyka jest zmienność cen aktywów. Generalnie, optymalizacja w procesie  zarządzania portfelem sprowadza się do maksymalizacji dochodu przy niezmiennym ryzyku albo do zmniejszania ryzyka przy ustalonym dochodzie.
+VaR
+
+Zarządzanie portfelem to proces ustawicznej analizy sytuacji na rynku
+i zachowania się cen aktywów, proces optymalizacji składu posiadanego
+portfela tak by zysk z niego był wysoki oraz szukanie sposobów by
+ewentualna strata wartości portfela była możliwie najmniej
+bolesna. Ograniczanie strat, to podstawowe oczekiwanie zarządzania
+ryzykiem a źródłem tego ryzyka jest zmienność cen aktywów. Generalnie,
+optymalizacja w procesie zarządzania portfelem sprowadza się do
+maksymalizacji dochodu przy niezmiennym ryzyku albo do zmniejszania
+ryzyka przy ustalonym dochodzie.
+
 Coraz większe skomplikowanie instrumentów finansowych i transakcji wymagało stworzenia w miarę prostego, ale jednocześnie elastycznego narzędzia kontroli ekspozycji na ryzyko.  
 Przykładowo w koncepcji CAPM takim parametrem charakteryzującym poziom ryzyka akcji jest współczynnik beta. VaR jako metoda (a także wskaźnik podejmowanego ryzyka), powstała w związku z koniecznością wyceny ryzyka instrumentów, portfeli instrumentów, które to stają się coraz bardziej wyrafinowane i skomplikowane gdyż nowe instrumenty pojawiające się na rynku są coraz bardziej wyrafinowane. Wartość VaR wyraża stopień ekspozycji podmiotu na ryzyko w zakresie posiadania określonego portfela aktywów. Zadaniem VaRu jest określenie pewnej wartości potencjalnej straty (przy założonym poziomie prawdopodobieństwa, przedziale czasowym, normalnych warunkach rynkowych i przy wycenie aktywów po cenach ostatnich zawartych rynkowo transakcji czyli Mark-to-Market).  VaR informuje, na jaki poziom strat narażona jest pula aktywów, przy określonych warunkach pomiaru.
 VaR (wartość narażona na ryzyko, wartość zagrożona)  jest to kwota, jaką można stracić w wyniku inwestycji w portfel w określonym horyzoncie czasowym i przy założonym poziomie ufności. VaR jest statystyczną miarą ryzyka, która szacuje stratę na portfelu, jaka może wystąpić przy założonym poziomie ufności. VAR zawsze określa prawdopodobieństwo, zgodnie z którym straty (dotkliwość ryzyka) przy zadanym prawdopodobieństwie (przedział ufności) statystycznie nie powinny być  większe od wyliczone kwoty. 
@@ -169,3 +179,6 @@ VaR jest liczony dla „ normalnych”  warunków  rynku. Normalny rynek to ryne
 Istnieją lepsze, alternatywne metody pomiaru ryzyka  np. oczekiwana wartość strat większych od VaR w danym przedziale czasowym  czyli warunkowa wartość oczekiwanych strat
 Podsumowując warto podkreślić. Jest to najbardziej popularne obecnie narzędzie oceny ryzyka.
  Jednakże, żadne narzędzie używane w finansach nie jest rynkowo neutralne. VaR jest uproszczeniem  modelowym rynku.   Zależy od jakości tego uproszczenia. „Modelowa matematyczność” wyceny oraz ustalenie poziomu ufności VaR na stosunkowo wysokim poziomie, powoduje  złudzenie posiadania kontroli, podczas gdy należy mieć duży szacunek do rynku, oraz pamiętać ,że zerowe prawdopodobieństwo nie istnieje. 
+
+
+
