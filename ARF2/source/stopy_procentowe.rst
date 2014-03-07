@@ -60,7 +60,7 @@ Stąd wynika wzór:
 .. math::
    :label: srednia_roczna
 
-   r_s = \prod_{i=1}^n (1+ r_i) - 1
+   r_s = \sqrt[n]{\prod_{i=1}^n (1+ r_i)} - 1
 
 
 Inaczej :math:`r_s` nosi nazwę średniej geometrycznej stopy zwrotu
@@ -116,18 +116,24 @@ wartość nominalna jednakową – powiedzmy 100 000.
 *???Są hipotetyczne
 wiec dlatego założenia jest to możliwe. *
 
-Tak wiec bierzemy pod uwagę jednoroczny bon skarbowy sprzedawany na
-rynku po 86 956.  Skarbowa obligacje dwuletnią wypłacającą kupon 15,5%
-i handlowana po 100\ 060 oraz trzyletnią obligacje skarbową o kuponie
-16,2% handlowana po 770730.  Aby określić stopy forward postępuje się
-następująco: Z danych bonu skarbowego wyliczamy stopę roczną: 
+Tak wiec bierzemy pod uwagę:
+
+1.  Jednoroczny bon skarbowy sprzedawany na rynku po 86 956. 
+2.  Skarbowa obligacje dwuletnią wypłacającą kupon 15,5% i handlowana po 100\ 060 
+3.  Trzyletnią obligacje skarbową o kuponie 16,2% handlowana po 100680. 
+
+Aby określić stopy forward postępuje się następująco. Z danych bonu
+skarbowego wyliczamy stopę roczną:
 
 .. math::
 
-   TB 86956 = \frac{100 000}{1+r_1} 
+   86956 = \frac{100 000}{1+r_1} 
 
 
-stąd :math:`r_1 = 15%`. Z danych obligacji dwuletniej:
+stąd :math:`r_1 = 15%`. 
+
+Z danych obligacji dwuletniej wyliczamy stopę roczną za drugi rok -
+:math:`r_2`:
 
 .. math::
 
@@ -140,25 +146,27 @@ Z danych obligacji trzyletniej otrzymujemy:
 
 .. math::
 
-    770730 = \frac{16200}{1 + r_1} + \frac{16200}{ (1+r_1) (1+r_2)} + \frac{116200}{(1+r_1)(1+r_2)(1+r_3)}
+   100680 = \frac{16200}{1 + r_1} + \frac{16200}{ (1+r_1) (1+r_2)} + \frac{116200}{(1+r_1)(1+r_2)(1+r_3)}
 
 Stad :math:`r_3 = 17%`.  
 
 
+Sprawdźmy te obliczenia wykorzystując Sage:
 
 .. sagecellserver::
 
+   var('r1,r2,r3')
    s =solve( [86956  == 100000./(1+r1),\
         100060 == 15500/(1 + r1)+115500/((1+r1)*(1+r2)),\
-        770730 == 16200/(1+r1)+16200/((1+r1)*(1+r2))+116200/((1+r1)*(1+r2)*(1+r3)) ] ,[r1,r2,r3] )
+        100680 == 16200/(1+r1)+16200/((1+r1)*(1+r2))+116200/((1+r1)*(1+r2)*(1+r3)) ] ,[r1,r2,r3] )
 
    print map(lambda x:x.rhs().n()*100,s[0])
 
 
-Przy czym należy podkreślić, że :math:`r_2`
-to stopa roczna dla roku drugiego życia obligacji, a :math:`r_3` to
-roczna stopa oprocentowania "za dwa lata"  na rok trzeci.
-
+Przy czym należy podkreślić, że :math:`r_2` to stopa roczna dla roku
+drugiego życia obligacji, a :math:`r_3` to roczna stopa oprocentowania
+"za dwa lata" na rok trzeci.
+ 
 W przypadku stóp  forward użytecznym jest następujące oznaczenie:
 
 Stopy forward to oprocentowanie dla pożyczki zawartej w przyszłości - :math:`F`: 
@@ -169,7 +177,7 @@ Stopy forward to oprocentowanie dla pożyczki zawartej w przyszłości - :math:`
   - :math:`F(2,1)`  oprocentowanie jedno rocznej pożyczki zawartej w terminie 2 lat od dziś 
 
 
-Stopa spot  to szczególny przypadek   -    :math:`S(1) = F(0,1)`
+Stopa spot  to szczególny przypadek - :math:`S(1) = F(0,1)`
 
 Zasadę tę  ilustruje  rysunek poniżej:
 
@@ -177,15 +185,14 @@ Zasadę tę  ilustruje  rysunek poniżej:
    :align: left
    :figwidth: 340px
    :width: 320px
-..   :height: 230px
 
    Zbiór stóp forward i związanych z nimi stóp "spot".
 
 
-Przyjmijmy ,ze na rynku znajdujemy dwuletni bon skarbowy A o
+Przyjmijmy, że na rynku znajdujemy dwuletni bon skarbowy A o
 rentowności rocznej 3,52% a bon roczny B, ma roczną rentowność równa
-3,12%. Aby określić stopę forward :math:`F(1,1)`, widzimy że inwestując w bon
-A jednostkę pieniędzy otrzymujemy: 
+3,12%. Aby określić stopę forward :math:`F(1,1)`, widzimy że
+inwestując w bon A jednostkę pieniędzy otrzymujemy:
 
 .. math::
 
@@ -238,9 +245,9 @@ Stąd
 
 .. math::
 
-   (1+S(2)) = [(1+ 0,02)(1+0,032)]1/2= 1,027
+   (1+S(2)) = \frac{1}{2}[(1+ 0,02)(1+0,032)]= 1,027
 
-czyli :math `S(2) = 2,7%`. 
+czyli :math:`S(2) = 2,7%`. 
 
 W ostatnim przykładzie wyliczona stopa spot jest średnia geometryczna
 stóp zwrotu forward.  Czego należało się spodziewać, mając na uwadze
@@ -251,7 +258,7 @@ Wiedząc, że:
  
 .. math::
 
-   \sqrt^n{a_1 a_2\dotsa_n} <=\frac{1}{n}\sum_{i=1}^n a_i
+   \sqrt[n]{a_1 a_2\dots a_n} \le \frac{1}{n}\sum_{i=1}^n a_i
 
 
 Możemy używać średniej matematycznej szacowania średniej
@@ -279,64 +286,322 @@ okresowo poprzez wzrost lub zmalenie) albo modelu trójmiennego, gdy
 wartośc stopy w kolejnym okresie czasu z określonym prawdopodobieństwem
 zmienia się w górę lub w dół albo nie zmienia się w ogóle.
 
+Rozważając modele dwumienne, należy odróżnić dwa zasadnicze typu -
+drzewa rekombinujące i nierekombinujące. Te pierwsze mają w każdym
+kolejnym okresię dokładnie o jedną unikalną wartość stopy procentowej
+więcej. Te drugie mają po każdym okresie dwa razy więcej wartości
+stopy procentowej, co implikuje wzrost liczby stanów z licznbą okresów
+jak :math:`2^n`.
+
+Rozważmy przykład drzewa binarnego rekombinującego. Niech w chwili
+:math:`t=0` stopa procentowa wynosi :math:`4\%`.  Czyli :math:`F(0,1)
+= S(1)`. Stopa może ewoluować w czasie i przyjmujęmy regułę, że z
+prawdopodobieństwem :math:`50\%` może wzrosnąć o :math:`0.7\%` do
+wartości :math:`4,7\%` albo spaść o :math:`0.2\%` do wartość
+:math:`3,8\%` z tym samym prawdopodobieństwem :math:`50\%`.
+Graficznie przedstawiamy to w następujący sposób:
 
 
-.. figure:: figs/tree.png
-   :align: left
-   :figwidth: 340px
-   :height: 230px
+.. figure:: figs/tree1.png
+   :align: center
+   :figwidth: 240px
+   :height: 220px
 
-   Krzywa rentowności
+   Ewolucja stopy procentowej po pierwszym roku w modelu binarnym.
 
+Mamy więc dwa scenariusze, nazywane tutaj ścieżkami: 
 
-Przykładowo: Niech w chwili :math:`t=0` stopa procentowa wynosi 4%.  Czyli
-:math:`F(0,1) = S(1)`. Stopa może ewoluować w czasie i albo wzrosnąć z
-prawdopodobieństwem 50% do wartości 4,7% albo spaść do wartość 3,8% z
-prawdopodobieństwem 50%.  4,7 4,0 3,8 
-W kolejnym okresie: 5,4 4,7 4,0
-4,2 3,8 3,6 Każda z osiągniętych wartości może wzrosnąć o 0,7 z
-prawdopodobieństwem 50% lub spaść o 0,2 z prawdopodobieństwem też 50%.
-Policzmy rentowności 4,7 Ścieżka 1. 1,04x 1,047 = 1,09 9% 4,0 3,8
-Ścieżka 2. 1,04 x 1,038 =1.079 8% S(1) Skumulowany zwrot z dwu lat 0,5
-Ścieżka 1 + 0,5 Ścieżka2 = 0,5 x 1,09 + 0,5 x 1,079 =1,085 czyli 8,5%
-A zanualizowany zwrot czyli S(2) jest równy (1,085) ½= 1,042 czyli
-4,2% 5,4 Scieżka1 = 1,04 x 1,047 x 1,054 = 1,148 14,8 %
-			
-4,7				Ścieżka 2 = 1,04 x 1.047 x 1,042 = 1,1346   13,5%
-4,0				4,2		Ścieżka 3 = 1,04 x 1,038 x1,042 = 1.125      11,25%
-3,8
-3,6			Ścieżka 4= 1,04 x 1,038 x 1,036 = 1,118  11,18%
+ 	
+Ścieżka 1, w której stopa wzrasta ze skumulowanym zwrotem :math:`1.04\times1.047 = 1.089`
 
-Skumulowany zwrot po trzech okresach ( np.latach)
-Wynosi:
-0,25 x1,148 +0,25 x 1,1346 + 0,25 x 1.125 + 0,25 x 1,118 =1.128
-Zanualizowany zwrot po trzech okresach S(3) wynosi
-(1.128)1/3 = S(3) =   około 4,2%
+Ścieżka 2, w której stopa maleje  ze skumulowanym zwrotem :math:`1.04\times1.038 = 1.08`.
 
 
- W podobny sposób dla dowolnych ścieżek możemy obliczać  odpowiednie stopy.
- Dla tak przyjętego drzewka  dwumiennego  wspólna zależność to :
+Skumulowany średni zwrot z dwu lat będzie średnią arytmetyczną z dwóch
+powyższych scenariuszy i wynosi:
+
+.. math::
+
+   \frac{1}{2} \text{Ścieżka 1} + \frac{1}{2} \text{Ścieżka 2} = \frac{1}{2} 1,09 + \frac{1}{2} 1,079 = 1,085 
 
 
-		(1 +σ)it  z prawdopodobieństwem 0,5
-It+1 = 
-		ii/ ( 1+σ)z prawdopodobieństwem 0,5
+czyli :math:`8,5\%.` Zanualizowany zwrot czyli :math:`S(2)` jest równy:
 
 
-gdzie sigma jest miara zmienności .
- Duza zmienność ma wpływ na prawdopodobieństwo wystąpienia dużych lub małych stóp procentowych. Ilustruje to rysunek poniżej.
+.. math::
+
+   1,085\frac{1}{2} = 1,042 
+
+czyli :math:`4,2\%`.
 
 
-W modelowaniu struktury terminowej najczęściej przyjmuje się  że mamy do czynienia z  procesem Ito  n – wymiarowego ruchu Browna.
- Dla prostego modelu jednowymiarowego  załóżmy ,ze dynamika ma postać:
- 
-di ( t, T) = α( t,T) dt +_ σdBt
-Przykładem takiego jednofaktorowego modelu stopy procentowej jest model Vasicka.
+W kolejnym okresie mamy trzy stany i cztery różne scenariusze dojścia do nich:
 
 
-I TUTAJ  Marcinie  w profesorski  sposób opisz stochastycznym równaniem  model Vasicka  i jak się go robi dla różnych sigma i etc
-A ja  zamiszcam tutaj taki obrazek( Nie mój  ) symulacji Vasicka
+.. figure:: figs/tree2.png
+   :align: center
+   :figwidth: 240px
+   :height: 207px
 
- a do tego w dodatkowym  załączniku arkusz Excela z danymi
+   Ewolucja stopy procentowej po drugim roku w modelu binarnym.
 
 
+Policzmy rentowności.
+
+
+Ścieżka  1 :math:`1.04\times1.047\times1.054 = 1.148 \text{czyli } 14.8 \%`
+
+Ścieżka  2 :math:`1.04\times1.047\times1.045 = 1.138 \text{czyli }13.8 \%`
+
+Ścieżka  3 :math:`1.04\times1.038\times1.045 = 1.128 \text{czyli }12.8 \%`
+
+Ścieżka  4 :math:`1.04\times1.038\times1.036 = 1.118 \text{czyli } 11.8 \%`
+
+
+Skumulowany zwrot po trzech okresach (np. latach) wynosi:
+
+.. math::
+
+   \frac{1}{2} \langle( 1,148 + 1.138 + 1.128 + 0,25 x 1,118\rangle = 1.133
+
+Zanualizowany zwrot po trzech okresach :math:`S(3)` wynosi:
+
+.. math::
+
+   \sqrt[3]{ 1.128} - 1 = S(3) \text{ czyli  około } 4,25%
+
+
+
+W podobny sposób dla dowolnych ścieżek możemy obliczać odpowiednie
+stopy. Jednak ze względu na wykładniczy wzrost liczby ścieżek z liczbą
+okresów warto zastosować komputer do obliczenia średniej po
+ścieżkach. Spróbujmy więc zaimplementować powyższy algorytm
+korzystając z systemu Sage.
+
+Po pierwsze zdefiniujmy sobie procedurę, która będzie generowała
+drzewo binarne. W pierwszej wersji możemy założyć, że drzewgo nie
+będzie rekombinowało, czyli liczba gałęzi po :math:`n` iteracjach
+będzie wynosiła :math:`2^n`. Nazwijmy ta funkcję `gen_all()`:
+
+
+.. sagecellserver::
+
+    def gen_all(niter,SP = 4.0,q=0.175,delta1=None,delta2=None):
+        SP = [[SP]]
+
+        for i in range(niter):
+            tmp = []
+            for s in SP[-1]:
+                if delta1==None or delta2==None:
+                    tmp+= [ (1+q)*s, s/(1+q) ]
+                else:    
+                    tmp+= [ s+delta1, s-delta2 ]
+            SP.append(tmp)
+        return SP
+
+    
+
+
+Struktura danych w której będziemy przechowywać dane będzie listą
+wartości stopy procentowej w każdym okresie.
+
+
+
+Należy też zaimplementować procedurę, która będzie tworzyć drzewo w
+którym wszystkie wartości rekombinują, tzn. będziemy mieli :math:`n+1`
+wartosci w :math:`n`-tym sezonie. Mamy dwie proste reguły prowadzące
+do tego typu drzew. Jedną jest odejmowanie i dodawania tych samych
+wartości. Ma to jednak wadę, że możemy wygenerować ujemnę stopy
+procentowe. Drugą możliwością jest mnożenie wartości stopy procentowej
+w przypadku wzrostu przez pewną liczbę większą od jednego, a w
+przypadku zmalenia przez jej odwrotność. Łatwo się przekonać, że takie
+
+
+.. sagecellserver::
+
+    def gen_recombining(niter,SP = 4.0,q=0.175,delta1=None,delta2=None):
+        SP = [[SP]]
+
+        for i in range(niter):
+            tmp = []
+            for s in SP[-1]:
+                if delta1==None or delta2==None:
+                    tmp+= [ (1+q)*s]
+                else:    
+                    tmp+= [ s+delta1]
+
+            if delta1==None or delta2==None:
+                tmp+= [ s/(1+q)]
+            else:    
+                tmp+= [ s-delta2]
+
+
+            SP.append(tmp)
+        return SP
+
+Proceduury te generują te same dane, a różnica między nimi jest widoczna na przykładzie:
+
+
+.. code-block:: python
+
+   print gen_all(3)
+
+daje:
+
+.. math::
+
+    \left[4.0\right]
+    \left[4.7, 3.4\right]
+    \left[5.5, 4.0, 4.0, 2.9\right]
+    \left[6.5, 4.7, 4.7, 3.4, 4.7, 3.4, 3.4, 2.5\right]
+
+a wywołanie:
+
+.. code-block:: python
+
+   print gen_recombining(3)
+
+
+.. math::
+
+    \left[4.0\right]
+    \left[4.7, 3.4\right]
+    \left[5.5, 4.0, 2.9\right]
+    \left[6.5, 4.7, 3.4, 2.5\right]
+
+
+Do wizualizacji danych możemy wykorzystać również system Sage i
+przykładowa procedura rysującą drzewa w obu formatach ma następującą
+postać:
+
+.. sagecellserver::
+
+    def plot_tree(SP):
+        plt = point( (0,SP[0][0]),size=244,color='gray',alpha=0.2,zorder=0)
+
+        if len(SP) == len(SP[-1]):
+            for l,prices in enumerate(SP):
+                for i,p in enumerate(prices):
+                    if l>0:
+                        plt+=point2d( (l,p),size=244,color='gray',alpha=0.2,zorder=0,faceted=True )
+                        plt+= text("%0.1f"%p,(l,p),color='black',figsize=(5,3))
+
+            for l in range(len(SP)-1):
+                for i in range(l+1):
+                    plt+=arrow2d( (l,SP[l][i]),(l+1,SP[l+1][i]), arrowshorten=16)
+                    plt+=arrow2d( (l,SP[l][i]),(l+1,SP[l+1][i+1]), arrowshorten=16)
+        else:
+            for l,prices in enumerate(SP):
+                for i,p in enumerate(prices):
+                    if l>0:
+                        plt+=arrow2d( (l-1,SP[l-1][int(i/2)]),(l,p), arrowshorten=16)
+                        plt+=point2d( (l,p),size=244,color='gray',alpha=0.2,zorder=0,faceted=True )
+                        plt+= text("%0.1f"%p,(l,p),color='black',figsize=(5,3))
+        plt.axes_labels(["rok","stopa procentowa [%]"])
+        plt.axes_range(xmin=-.2, xmax = len(SP)-1+0.2,ymin=0,ymax=SP[-1][0]+1)
+        return plt
+
+
+Teraz możemy narysować drzewo do np. czwartej generacji:
+
+
+.. sagecellserver::
+
+   plot_tree(gen_recombining(4)),plot_tree(gen_all(4))
+
+
+Zauważmy, że w pełnym drzewie binarnym mamy w :math:`n`-tym okresie
+:math:`2^n` wartości, z których tylko :math:`n` jest liczbowo
+różnych. Procedura rysująca wszystkie wartości, rysuje stopy
+procentowe w kółkach o kolorze jasnoszarym, przy czym jeżeli
+narysujemy więcej niż raz jasnoszare kółko jedno na drugim to kolor
+będzie ciemniejszy (związane jest to z opcją alpha=0.2). Wynika z
+tego, że im ciemniejszy kolor tym więcej elementów pełnego drzewa
+dwumiennego ma daną wartość. Zobaczmy na oniższym rysunku:
+
+
+.. figure:: figs/tree4.png
+   :align: center
+   :figwidth: 240px
+   :height: 227px
+
+   Ewolucja stopy procentowej.
+
+Z drugiej strony w pełnym drzewie binarnym istnieje tylko jedna
+ścieżką realizująca każdą gałąź. Wobec tego można powiedzieć, że
+liczba ścieżek realizujących stopę procentową jest proporcjonalna do
+odcienia na powyższym rysunku. Wyraźnie widzimy, że skrajne wartości
+są dużo mniej prawdopodobne od tych w środku.
+
+Obliczanie wartości średnich w modelu dwumiennym wiąże się z
+sumowaniem po wszystkich ścieżkach. Ponieważ rozważania dla stóp
+procentowych mają sens dla kilku - maksymalnie kilkunastu lat to można
+sobie pozwolić na dokładne wykonanie takich obliczeń. Liczba
+składników sum będzie np. :math:`65536` dla :math:`n=16`.
+
+
+Mając drzewo binarne, policzmy więc zannulizowaną stopę
+procentową. Dla przykładu wykonamy obliczenia na tym samym
+scenariuszu, który rozwiązaliśmy wcześniej krok po kroku.
+
+
+.. sagecellserver::
+
+   SP = gen_recombining(N,delta1=0.7,delta2=0.2)
+   all_paths = map(lambda x:[0]+np.cumsum(x).tolist(), CartesianProduct(*( N*[[0,1]]) ).list() )
+   mean( [prod([(1+0.01*SP[i][p]) for i,p in enumerate(path_)]) for path_ in all_paths] ) 
+
+
+Krzywa dochodowości
+-------------------
+
+
+Policzmy krzywą dochodowości w modelu dwumiennym:
+
+
+
+.. sagecellserver::
+
+
+    def forward_rate(N = 2,**kpars):
+
+        SP = gen_recombining(N,**kpars)
+        all_paths = map(lambda x:[0]+np.cumsum(x).tolist(),CartesianProduct(*( N*[[0,1]]) ).list() )
+
+        r_avg = mean( [prod([(1+0.01*SP[i][p]) for i,p in enumerate(path_)]) for path_ in all_paths] ) 
+        rs  =((r_avg)^(1/(N+1))-1)*100
+        return  rs
+
+
+    point( [(i,forward_rate(i,q=0.1)) for i in range(12)],figsize=5)+\
+     point( [(i,forward_rate(i,q=0.2)) for i in range(12)],color='red')
+
+
+Modele ciągłe
+-------------
+
+
+
+.. sagecellserver::
+
+    import numpy as np
+
+    N=10000;
+    M=10000;
+    T=100.;
+    h=T/N;
+
+    S0=8
+    sigma=0.2
+    k = 0.1
+    theta = 6.0
+    x=np.zeros((M,N))
+    x[:,0]=S0*np.ones(M)
+    for i in range(1,N):
+      x[:,i]=x[:,i-1] + k*(theta-x[:,i-1])*h + sigma*np.sqrt(h)*np.random.randn(M)
+
+
+    line( zip(time,x[13,:]) ) + point(zip(time[::100],x[13,::100]),color='red')
+    (np.prod(1+np.average(x[:,::100],axis=0)*0.01)**(0.1)-1)*100
+    rav  = np.average(x[:,::100],axis=0)*0.01
+    point([(n,100*(np.prod(1+rav[:n])**(1.0/n)-1)) for n in range(1,100+1)])
