@@ -2,17 +2,16 @@
 ----------------
 
 Wiele firm oferuje możliwość prowadzenia transakcji na tym rynku. W
-Internecie można znaleźć szereg podręczników handlu,
-spekulacji i odkrywania przygód i emocji związanych z handlowaniem na
-tym rynku przez każdego osobiście.
-
-Zachęcają możliwością osiągania znaczących zysków. Rynek jako taki ani
-prowadzenie transakcji nie jest niczym złym. Pamiętać jednak należy,
-że podobnie jak w przypadku jazdy samochodem gdzie warto najpierw
-nauczyć się jeździć na kursie by potem czerpać przyjemność z
-samodzielnej jazdy tak i w przypadku samodzielnych operacji na rynku
-finansowym należy unikać „przygód„ samodzielnych prób i błędów, które
-to błędy i pomyłki mogą być kosztowne.
+Internecie można znaleźć szereg podręczników handlu, spekulacji i
+odkrywania przygód i emocji związanych z handlowaniem na tym rynku
+przez każdego osobiście. Zachęcają możliwością osiągania znaczących
+zysków. Rynek jako taki ani prowadzenie transakcji nie jest niczym
+złym. Pamiętać jednak należy, że podobnie jak w przypadku jazdy
+samochodem gdzie warto najpierw nauczyć się jeździć na kursie by potem
+czerpać przyjemność z samodzielnej jazdy tak i w przypadku
+samodzielnych operacji na rynku finansowym należy unikać „przygód„
+samodzielnych prób i błędów, które to błędy i pomyłki mogą być
+kosztowne.
 
 Dostępność operacji jest duża i należy zwrócić uwagę na jeszcze jeden
 aspekt samodzielnej działalności na rynkach finansowych. Dokonując
@@ -59,7 +58,9 @@ przeszacowana?
 Przejrzyjmy kilka sposobów funkcjonujących na rynku i pozwalających na
 odpowiedzi na te pytania.
 
-Właściwe kursy wzajemne.
+Właściwe kursy wzajemne
++++++++++++++++++++++++
+
 
 W warunkach równowagi  między kursami  trzech walut zachodzi związek:
 
@@ -74,52 +75,53 @@ równowadze i spełniają pokazane równanie, czy też równanie nie jest
 spełnione i występuję możliwość arbitrażu. Arbitraż oznacza szanse na
 wygenerowanie dochodu z operacji rynkowej.
 
-**Przykładowo:**
 
-Niech to będzie przykładowo waluta 1- to dolar amerykański -USD,
-waluta 2 to funt brytyjski - GBP a waluta 3 to jen japoński – JPY.
+.. admonition:: Przykład
 
-Na rynku zauważyliśmy, że dealer z banku A (powiedzmy Deutsche Bank
-zamienił dolary na funty po kursie 1.5 dolara za funt. Dealer banku B
-(powiedzmy Citi) zamienił posiadane przez siebie funty na jeny
-japońskie po kursie 85 jenów za dolara. Dealer banku C (powiedzmy
-Barclays) zamienił posiadane jeny na funty po kursie 120 jenów za
-funta.
+    Niech to będzie przykładowo waluta 1- to dolar amerykański -USD,
+    waluta 2 to funt brytyjski - GBP a waluta 3 to jen japoński – JPY.
 
-Od razu widzimy ze wzór :eq:`F1` nie jest równością!!!  Czyli
-występuje możliwość arbitrażu.
+    Na rynku zauważyliśmy, że dealer z banku A (powiedzmy Deutsche Bank
+    zamienił dolary na funty po kursie 1.5 dolara za funt. Dealer banku B
+    (powiedzmy Citi) zamienił posiadane przez siebie funty na jeny
+    japońskie po kursie 85 jenów za dolara. Dealer banku C (powiedzmy
+    Barclays) zamienił posiadane jeny na funty po kursie 120 jenów za
+    funta.
 
-Porównując kursy z transakcji banku C i Banku A widzimy, że kurs jena
-do dolara powinien być:
+    Od razu widzimy ze wzór :eq:`F1` nie jest równością!!!  Czyli
+    występuje możliwość arbitrażu.
 
- 	£1,5/1 $ x 1$/120¥x80¥/£1= 1
+    Porównując kursy z transakcji banku C i Banku A widzimy, że kurs jena
+    do dolara powinien być:
 
-Czyli kurs jena do dolara powinien być 80 jenów za dolara. Bank B
-zakwotował jednak 85 za dolar czyli jest możliwość zarobienia. Jak?
+            £1.5/1 $ x 1$/120¥x80¥/£1= 1
 
-Sprzedać nasze dolary za funty:
+    Czyli kurs jena do dolara powinien być 80 jenów za dolara. Bank B
+    zakwotował jednak 85 za dolar czyli jest możliwość zarobienia. Jak?
 
-Przykładowo przy kwocie wyjściowej 100.000 funtów: 100.000 GBP po 1,5
-USD = 150.000 USD
+    Sprzedać nasze dolary za funty:
 
-Sprzedajemy bankowi B jeny po kursie 85 jenów za dolara:
+    Przykładowo przy kwocie wyjściowej 100.000 funtów: 100.000 GBP po 1,5
+    USD = 150.000 USD
 
-Przykładowo:  150.000x 85 = 1.275.000 jenów
+    Sprzedajemy bankowi B jeny po kursie 85 jenów za dolara:
 
-Jeny sprzedajemy po 120 za funta i otrzymujemy
+    Przykładowo:  150 000x 85 = 1 275 000 jenów
 
-Przykładowo :  1.275.000/ 120 = 106.250 funtów
+    Jeny sprzedajemy po 120 za funta i otrzymujemy
 
-Czyli zarobić można było
+    Przykładowo :  1 275 000/ 120 = 106 250 funtów
 
-106.250 – 100.000 = 6.250 funta.
+    Czyli zarobić można było
 
-Dlaczego czas przeszły????
+    106.250 – 100.000 = 6.250 funta.
 
-Niestety nie mamy pewności czy takie kwotowanie nadal będzie
-akceptowane przez strony transakcji. Tak było przed chwilą ale nie
-wiemy czy będzie za chwilę. Systemy komputerowe transakcji
-arbitrażowych pracują bez przerwy.
+    Dlaczego czas przeszły????
+
+    Niestety nie mamy pewności czy takie kwotowanie nadal będzie
+    akceptowane przez strony transakcji. Tak było przed chwilą ale nie
+    wiemy czy będzie za chwilę. Systemy komputerowe transakcji
+    arbitrażowych pracują bez przerwy.
 
 
 Równowaga szczegółowa
@@ -191,7 +193,7 @@ http://www.economist.com/media/audio/burgernomics.ram
 
 Porównywanie siły nabywczej waluty (PPP) przy pomocy Big Maca wydaję
 się być ryzykowną podstawa inwestycji na rynku Forex.  Ale jest to
-jakaś metoda wyceny. Pakko i Pollard wykazali w swych badaniach, ze
+jakaś metoda wyceny. Pakko i Pollard [1]_ wykazali w swych badaniach, ze
 zasada siły nabywczej na podstawie Hamburgera obowiązuje w długim
 okresie czasu jednakże odchylenia kursów walut również otrzymują się
 długo. Cóż bariery celne istnieją więc i założenia PPP nie są w pełni
@@ -205,6 +207,7 @@ inflacje w kraju i w inflacje waluty obcej. Realny kurs wymiany równa
 się
 
 .. math::
+   :label: st
 
    S_t ^{D/F} = \frac{Pi_{D,t}}{Pi_{F,t}}
 
@@ -335,13 +338,13 @@ Jeśli rynek jest w równowadze to inwestycje w czasowe depozyty w
 różnych walutach powinny dać ten sam wynik finansowy, w tym samym
 czasie. Nominalna stopa zwrotu będzie taka sama.
 
-Cytując H. Allen i M. Taylora w ich artykule *„Charts, Noise and
-Fundamentals in the London Exchange Market” - Economic Journal .1990
-no. 100 Suplement.- ... "podczas gdy prawa fizyki sa stałe I dobrze
-zdefiniowane, prawa rządzące rynkami finansowymi pozostawaj dużej
-mierze tajemnicą”* ... Jak widać rynek walutowy jest tego najlepszym
-przykładem. Na tym rynku hipoteza rynku efektywnego zdaje się
-sprawdzać najsłabiej.
+Cytując H. Allen i M. Taylora w ich artykule [allentaylor]_:
+
+*"podczas gdy prawa fizyki sa stałe i dobrze zdefiniowane, prawa
+rządzące rynkami finansowymi pozostawaj dużej mierze tajemnicą"*
+
+Jak widać rynek walutowy jest tego najlepszym przykładem. Na tym
+rynku hipoteza rynku efektywnego zdaje się sprawdzać najsłabiej.
 
 Stwierdzenie „w odpowiednio długim czasie” prosi się o komentarz ,ze
 jedno jest pewne w odpowiednio długim czasie to, że umrzemy. Świetnym
@@ -362,3 +365,5 @@ rynków.
 
 
 
+.. [1] \G. Strang, Introduction to Linear Algebra, Wellesley Cambridge Press, 4. edition, 2009.
+.. [allentaylor] H. Allen, M. Taylor, "Charts, Noise and Fundamentals in the London Exchange Market - Economic Journal .1990 no. 100 Suplement.-

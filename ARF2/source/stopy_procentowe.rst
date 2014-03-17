@@ -1,8 +1,8 @@
 ﻿Struktura  terminowa stóp procentowych
 ======================================
 
-Zamiast wstępu.
----------------
+Podstawowe zależności
+---------------------
 
 Jeśli mamy do czynienie z instrumentem dłużnym generującym określoną
 stopę zwrotu w określonym czasie . I jeśli ponadto inwestujemy kwotę
@@ -108,19 +108,16 @@ lepiej reinwestować środki na okresy krótsze czy dłuższe.
 Wyliczanie stop forward ilustrować może poniższy przykład.
 Przykładowo przyjmijmy hipotetycznie istniejące instrumenty dłużne,
 które obserwujemy na hipotetycznym rynku.  Instrumenty te są
-instrumentami emitowanymi przez Skarb Państwa (hipotetycznego) wiec
+instrumentami emitowanymi przez Skarb Państwa (hipotetycznego) więc
 możemy przyjąć, że są to instrumenty o minimalnym ryzyku na naszym
 rynku i ryzyku podobnym.  Przyjmijmy ponadto, że instrumenty te mają
 wartość nominalna jednakową – powiedzmy 100 000.  
 
-*???Są hipotetyczne
-wiec dlatego założenia jest to możliwe. *
-
-Tak wiec bierzemy pod uwagę:
+Tak więc bierzemy pod uwagę:
 
 1.  Jednoroczny bon skarbowy sprzedawany na rynku po 86 956. 
-2.  Skarbowa obligacje dwuletnią wypłacającą kupon 15,5% i handlowana po 100\ 060 
-3.  Trzyletnią obligacje skarbową o kuponie 16,2% handlowana po 100680. 
+2.  Skarbowa obligacje dwuletnią wypłacającą kupon 15.5% i handlowana po 100\ 060 
+3.  Trzyletnią obligacje skarbową o kuponie 16.2% handlowana po 100680. 
 
 Aby określić stopy forward postępuje się następująco. Z danych bonu
 skarbowego wyliczamy stopę roczną:
@@ -196,28 +193,28 @@ inwestując w bon A jednostkę pieniędzy otrzymujemy:
 
 .. math::
 
-   \text{Bon A: }\; ( 1 + 0,0352)( 1 + 0,0352)= 1,0716 
+   \text{Bon A: }\; ( 1 + 0.0352)( 1 + 0.0352)= 1.0716 
 
-Czyli ok. 7,2% zwrotu. Inwestując natomiast w bon B na rok jednostkę
-pieniędzy inwestujemy ja na 3,15% ale możemy otrzymany wynik
-reinwestować na kolejny rok na stopę :math:`F(1,1)`. Zakładając, że
+Czyli ok. 7.2% zwrotu. Inwestując natomiast w bon B na rok jednostkę
+pieniędzy inwestujemy ja na 3.15% ale możemy otrzymany wynik
+reinwestować na kolejny rok na stopę :math:`F(1.1)`. Zakładając, że
 na rynku nie istnieje możliwość arbitrażu, to obie te strategie muszą
 dać ten sam efekt inwestycji. Czyli: 
 
 .. math::
 
-   (1+ 0,0312) ( 1+ F(1,1)) = ( 1 +0,0352)( 1 + 0,0352) 
+   (1+ 0.0312) ( 1+ F(1.1)) = ( 1 +0.0352)( 1 + 0.0352) 
 
 Stąd:
 
 .. math::
-   ( 1 + F(1,1,) )= ( 1 + 0,0352)( 1 + 0,0352)/1,0312 = 1,0392 
+   ( 1 + F(1.1,) )= ( 1 + 0.0352)( 1 + 0.0352)/1.0312 = 1.0392 
 
-Czyli :math:`F(1,1)` musi wynosić 3,92 % rocznie.
+Czyli :math:`F(1.1)` musi wynosić 3.92 % rocznie.
 
 Można postąpić również odwrotnie. Znając zestaw stóp forward możemy
-wyliczyć stopy spot.  Załóżmy, że stopa :math:`F(0,1)` wynosi 2,5% a
-:math:`F(1,1)`) wynosi 3,2%. Należy wyliczyć :math:`S(2)`.
+wyliczyć stopy spot.  Załóżmy, że stopa :math:`F(0.1)` wynosi 2.5% a
+:math:`F(1.1)`) wynosi 3.2%. Należy wyliczyć :math:`S(2)`.
 Postępujemy tak jak poprzednio i porównujemy do siebie dwie możliwe
 strategie inwestycyjne.  Inwestujemy jednostkę pieniężną albo:
 
@@ -228,26 +225,28 @@ strategie inwestycyjne.  Inwestujemy jednostkę pieniężną albo:
         (1+ S(2))( 1+ S(2))= (1+ S(2))^2 
 
 
-2) Inwestujemy jednostkę pieniężna na pierwszy rok przy stopie :math:`F(0,1)` a następnie efekt inwestycji reinwestujemy na kolejny rok przy stopie :math:`F(1,1)` czyli:
+2) Inwestujemy jednostkę pieniężną na pierwszy rok przy stopie
+   :math:`F(0.1)` a następnie efekt inwestycji reinwestujemy na
+   kolejny rok przy stopie :math:`F(1.1)` czyli:
     .. math::
         
-       (1+ 0,02)(1+ 0,032)=1,05264 
+       (1+ 0.02)(1+ 0.032)=1.05264 
     
-    około 5,27% a to powinno być równe inwestycji 1. 
+    około 5.27% a to powinno być równe inwestycji 1. 
 
 Innymi słowy:
 
 .. math::
 
-   (1+ S(2))^22 = (1+ 0,02)(1+ 0,032). 
+   (1+ S(2))^22 = (1+ 0.02)(1+ 0.032). 
 
 Stąd
 
 .. math::
 
-   (1+S(2)) = \frac{1}{2}[(1+ 0,02)(1+0,032)]= 1,027
+   (1+S(2)) = \frac{1}{2}[(1+ 0.02)(1+0.032)]= 1.027
 
-czyli :math:`S(2) = 2,7%`. 
+czyli :math:`S(2) = 2.7%`. 
 
 W ostatnim przykładzie wyliczona stopa spot jest średnia geometryczna
 stóp zwrotu forward.  Czego należało się spodziewać, mając na uwadze
@@ -268,37 +267,40 @@ geometrycznej.
 Modelowanie ewolucji stóp procentowych
 --------------------------------------
 
-Stopa forward to stopa terminowa czyli „pojawiająca „
-się za pewien czas. Można interpretować ją jako ewolucje stopy
-spot. Gdyby nie istniała niepewność na rynku co do scenariusza
-dalszego jego rozwoju to stopa foward byłaby nielosowa i z góry
-znana. Jednakże istniejąca niepewność przyszłości zmusza nas do
-ustawicznego modelowania ewolucji stopy forward jako procesu
-stochastycznego.
+Modele dyskretne (drzewa binarne)
++++++++++++++++++++++++++++++++++
 
-Stopy forward pokazują ewolucje stóp na rynku. Wiec należy tą ewolucje
+Stopa forward to stopa terminowa czyli "pojawiająca" się za pewien
+czas. Można interpretować ją jako ewolucje stopy spot. Gdyby nie
+istniała niepewność na rynku co do scenariusza dalszego jego rozwoju
+to stopa foward byłaby nielosowa i z góry znana. Jednakże istniejąca
+niepewność przyszłości zmusza nas do ustawicznego modelowania ewolucji
+stopy forward jako procesu stochastycznego.
+
+Stopy forward pokazują ewolucje stóp na rynku. Więc należy tą ewolucje
 śledzić mając na uwadze efektywne zarządzanie portfelem instrumentów
 dłużnych. Temu celowi służy tworzenie modelu aby wyjaśnić ruch stóp
 forward. Następnie wyliczamy krzywa rentowności wynikającą ze stóp
 forward i porównujemy ja z krzywą stóp aktualnych.  Modelowania polega
 przykładowo na stworzeniu modelu dwumiennego (stopa zmieniać się może
 okresowo poprzez wzrost lub zmalenie) albo modelu trójmiennego, gdy
-wartośc stopy w kolejnym okresie czasu z określonym prawdopodobieństwem
-zmienia się w górę lub w dół albo nie zmienia się w ogóle.
+wartośc stopy w kolejnym okresie czasu z określonym
+prawdopodobieństwem zmienia się w górę lub w dół albo nie zmienia się
+w ogóle.
 
 Rozważając modele dwumienne, należy odróżnić dwa zasadnicze typu -
 drzewa rekombinujące i nierekombinujące. Te pierwsze mają w każdym
 kolejnym okresię dokładnie o jedną unikalną wartość stopy procentowej
 więcej. Te drugie mają po każdym okresie dwa razy więcej wartości
-stopy procentowej, co implikuje wzrost liczby stanów z licznbą okresów
+stopy procentowej, co implikuje wzrost liczby stanów z liczbą okresów
 jak :math:`2^n`.
 
 Rozważmy przykład drzewa binarnego rekombinującego. Niech w chwili
 :math:`t=0` stopa procentowa wynosi :math:`4\%`.  Czyli :math:`F(0,1)
 = S(1)`. Stopa może ewoluować w czasie i przyjmujęmy regułę, że z
 prawdopodobieństwem :math:`50\%` może wzrosnąć o :math:`0.7\%` do
-wartości :math:`4,7\%` albo spaść o :math:`0.2\%` do wartość
-:math:`3,8\%` z tym samym prawdopodobieństwem :math:`50\%`.
+wartości :math:`4.7\%` albo spaść o :math:`0.2\%` do wartość
+:math:`3.8\%` z tym samym prawdopodobieństwem :math:`50\%`.
 Graficznie przedstawiamy to w następujący sposób:
 
 
@@ -312,9 +314,12 @@ Graficznie przedstawiamy to w następujący sposób:
 Mamy więc dwa scenariusze, nazywane tutaj ścieżkami: 
 
  	
-Ścieżka 1, w której stopa wzrasta ze skumulowanym zwrotem :math:`1.04\times1.047 = 1.089`
+Ścieżka 1, 
+    w której stopa wzrasta ze skumulowanym zwrotem :math:`1.04\times1.047 = 1.089`
 
-Ścieżka 2, w której stopa maleje  ze skumulowanym zwrotem :math:`1.04\times1.038 = 1.08`.
+
+Ścieżka 2, 
+    w której stopa maleje  ze skumulowanym zwrotem :math:`1.04\times1.038 = 1.08`.
 
 
 Skumulowany średni zwrot z dwu lat będzie średnią arytmetyczną z dwóch
@@ -322,17 +327,17 @@ powyższych scenariuszy i wynosi:
 
 .. math::
 
-   \frac{1}{2} \text{Ścieżka 1} + \frac{1}{2} \text{Ścieżka 2} = \frac{1}{2} 1,09 + \frac{1}{2} 1,079 = 1,085 
+   \frac{1}{2} \text{Ścieżka 1} + \frac{1}{2} \text{Ścieżka 2} = \frac{1}{2} 1.09 + \frac{1}{2} 1.079 = 1.085 
 
 
-czyli :math:`8,5\%.` Zanualizowany zwrot czyli :math:`S(2)` jest równy:
+czyli :math:`8.5\%.` Zanualizowany zwrot czyli :math:`S(2)` jest równy:
 
 
 .. math::
 
-   1,085\frac{1}{2} = 1,042 
+   1.085\frac{1}{2} = 1.042 
 
-czyli :math:`4,2\%`.
+czyli :math:`4.2\%`.
 
 
 W kolejnym okresie mamy trzy stany i cztery różne scenariusze dojścia do nich:
@@ -340,8 +345,8 @@ W kolejnym okresie mamy trzy stany i cztery różne scenariusze dojścia do nich
 
 .. figure:: figs/tree2.png
    :align: center
-   :figwidth: 240px
-   :height: 207px
+   :figwidth: 280px
+   :height: 227px
 
    Ewolucja stopy procentowej po drugim roku w modelu binarnym.
 
@@ -349,26 +354,30 @@ W kolejnym okresie mamy trzy stany i cztery różne scenariusze dojścia do nich
 Policzmy rentowności.
 
 
-Ścieżka  1 :math:`1.04\times1.047\times1.054 = 1.148 \text{czyli } 14.8 \%`
+Ścieżka 1 
+    :math:`1.04\times1.047\times1.054 = 1.148 \text{ czyli } 14.8 \%`
 
-Ścieżka  2 :math:`1.04\times1.047\times1.045 = 1.138 \text{czyli }13.8 \%`
+Ścieżka 2 
+    :math:`1.04\times1.047\times1.045 = 1.138 \text{ czyli }13.8 \%`
 
-Ścieżka  3 :math:`1.04\times1.038\times1.045 = 1.128 \text{czyli }12.8 \%`
+Ścieżka 3 
+    :math:`1.04\times1.038\times1.045 = 1.128 \text{ czyli }12.8 \%`
 
-Ścieżka  4 :math:`1.04\times1.038\times1.036 = 1.118 \text{czyli } 11.8 \%`
+Ścieżka 4 
+    :math:`1.04\times1.038\times1.036 = 1.118 \text{ czyli } 11.8 \%`
 
 
 Skumulowany zwrot po trzech okresach (np. latach) wynosi:
 
 .. math::
 
-   \frac{1}{2} \langle( 1,148 + 1.138 + 1.128 + 0,25 x 1,118\rangle = 1.133
+   \frac{1}{2} \langle( 1.148 + 1.138 + 1.128 + 0.25 x 1.118\rangle = 1.133
 
 Zanualizowany zwrot po trzech okresach :math:`S(3)` wynosi:
 
 .. math::
 
-   \sqrt[3]{ 1.128} - 1 = S(3) \text{ czyli  około } 4,25%
+   \sqrt[3]{ 1.128} - 1 = S(3) \text{ czyli  około } 4.25%
 
 
 
@@ -379,9 +388,9 @@ okresów warto zastosować komputer do obliczenia średniej po
 korzystając z systemu Sage.
 
 Po pierwsze zdefiniujmy sobie procedurę, która będzie generowała
-drzewo binarne. W pierwszej wersji możemy założyć, że drzewgo nie
+drzewo binarne. W pierwszej wersji możemy założyć, że drzewo nie
 będzie rekombinowało, czyli liczba gałęzi po :math:`n` iteracjach
-będzie wynosiła :math:`2^n`. Nazwijmy ta funkcję `gen_all()`:
+będzie wynosiła :math:`2^n`. Nazwijmy ta funkcję :code:`gen_all()`:
 
 
 .. sagecellserver::
@@ -399,20 +408,26 @@ będzie wynosiła :math:`2^n`. Nazwijmy ta funkcję `gen_all()`:
             SP.append(tmp)
         return SP
 
+.. admonition:: Opis programu
+
+   Funkcja :code:`gen_all` generuje zadaną przez pierwszy parametr
+   liczbę poziomów drzewa binarnego. Startujemy z wartości
+   :code:`SP`. Z danej wartości w poprzednim okresie są generowane
+   dwie nowe. Zgodnie z regułą addytywną: :code:`s+delta1, s-delta2` a
+   z multiplikatywną mamy :code:`(1+q)*s, s/(1+q)`. Reguła
+   multiplikatywna jest domyśna, a funkcja użyje wersji addytynej
+   jesli na wejsciu podamy parametry :code:`delta1,delta2`. Struktura
+   danych w której będziemy przechowywać dane wyjsciowe (drzewo
+   binarne) to listą wartości stopy procentowej w każdym okresie
+   (czyli zagnieżdżona lista list). 
+
     
-
-
-Struktura danych w której będziemy przechowywać dane będzie listą
-wartości stopy procentowej w każdym okresie.
-
-
-
-Należy też zaimplementować procedurę, która będzie tworzyć drzewo w
-którym wszystkie wartości rekombinują, tzn. będziemy mieli :math:`n+1`
-wartosci w :math:`n`-tym sezonie. Mamy dwie proste reguły prowadzące
+Możemy też zaimplementować procedurę, tworzącą drzewo w którym
+wszystkie wartości rekombinują, tzn. będziemy mieli :math:`n+1`
+wartosci w :math:`n`-tym okresie. Mamy dwie proste reguły prowadzące
 do tego typu drzew. Jedną jest odejmowanie i dodawania tych samych
-wartości. Ma to jednak wadę, że możemy wygenerować ujemnę stopy
-procentowe. Drugą możliwością jest mnożenie wartości stopy procentowej
+wartości, co ma to jednak tę wadę, że możemy wygenerować ujemną stopę
+procentową. Drugą możliwością jest mnożenie wartości stopy procentowej
 w przypadku wzrostu przez pewną liczbę większą od jednego, a w
 przypadku zmalenia przez jej odwrotność. Łatwo się przekonać, że takie
 
@@ -434,12 +449,17 @@ przypadku zmalenia przez jej odwrotność. Łatwo się przekonać, że takie
                 tmp+= [ s/(1+q)]
             else:    
                 tmp+= [ s-delta2]
-
-
             SP.append(tmp)
         return SP
 
-Proceduury te generują te same dane, a różnica między nimi jest widoczna na przykładzie:
+.. admonition:: Opis programu
+
+    Funkcja :code:`gen_recombining` ma ten sam wywołania jak
+    :code:`gen_all`. Różnica polega na tym, że liczba możliwych stóp
+    procentowych w n-tym okresie wynosi :math:`n+1` a nie :math:`2 n`. 
+
+Najlepiej przyjrzeć się na przykładzie jak procedury te generują te
+dane startując od stopy procentowej np. wywołanie:
 
 
 .. code-block:: python
@@ -483,23 +503,32 @@ postać:
             for l,prices in enumerate(SP):
                 for i,p in enumerate(prices):
                     if l>0:
-                        plt+=point2d( (l,p),size=244,color='gray',alpha=0.2,zorder=0,faceted=True )
-                        plt+= text("%0.1f"%p,(l,p),color='black',figsize=(5,3))
+                        plt+=point2d( (l,p),size=244,\
+                         color='gray',alpha=0.2,zorder=0,faceted=True )
+                        plt+= text("%0.1f"%p,(l,p),color='black',\
+                         figsize=(5,3))
 
             for l in range(len(SP)-1):
                 for i in range(l+1):
-                    plt+=arrow2d( (l,SP[l][i]),(l+1,SP[l+1][i]), arrowshorten=16)
-                    plt+=arrow2d( (l,SP[l][i]),(l+1,SP[l+1][i+1]), arrowshorten=16)
+                    plt+=arrow2d( (l,SP[l][i]),(l+1,SP[l+1][i]),\
+                      arrowshorten=16)
+                    plt+=arrow2d( (l,SP[l][i]),(l+1,SP[l+1][i+1]),\
+                       arrowshorten=16)
         else:
             for l,prices in enumerate(SP):
                 for i,p in enumerate(prices):
                     if l>0:
-                        plt+=arrow2d( (l-1,SP[l-1][int(i/2)]),(l,p), arrowshorten=16)
-                        plt+=point2d( (l,p),size=244,color='gray',alpha=0.2,zorder=0,faceted=True )
-                        plt+= text("%0.1f"%p,(l,p),color='black',figsize=(5,3))
+                        plt+=arrow2d( (l-1,SP[l-1][int(i/2)]),(l,p),\
+                          arrowshorten=16)
+                        plt+=point2d( (l,p),size=244,color='gray',\
+                          alpha=0.2,zorder=0,faceted=True )
+                        plt+= text("%0.1f"%p,(l,p),color='black',\
+                          figsize=(5,3))
         plt.axes_labels(["rok","stopa procentowa [%]"])
-        plt.axes_range(xmin=-.2, xmax = len(SP)-1+0.2,ymin=0,ymax=SP[-1][0]+1)
+        plt.axes_range(xmin=-.2, xmax = len(SP)-1+0.2,\
+         ymin=0,ymax=SP[-1][0]+1)
         return plt
+
 
 
 Teraz możemy narysować drzewo do np. czwartej generacji:
@@ -515,9 +544,10 @@ Zauważmy, że w pełnym drzewie binarnym mamy w :math:`n`-tym okresie
 różnych. Procedura rysująca wszystkie wartości, rysuje stopy
 procentowe w kółkach o kolorze jasnoszarym, przy czym jeżeli
 narysujemy więcej niż raz jasnoszare kółko jedno na drugim to kolor
-będzie ciemniejszy (związane jest to z opcją alpha=0.2). Wynika z
-tego, że im ciemniejszy kolor tym więcej elementów pełnego drzewa
-dwumiennego ma daną wartość. Zobaczmy na oniższym rysunku:
+będzie ciemniejszy (związane jest to z opcją alpha=0.2, która określa
+stopnień przezroczystości koloru). Wynika z tego, że im ciemniejszy
+kolor tym więcej elementów pełnego drzewa dwumiennego ma daną
+wartość. Zobaczmy na poniższym rysunku:
 
 
 .. figure:: figs/tree4.png
@@ -527,11 +557,11 @@ dwumiennego ma daną wartość. Zobaczmy na oniższym rysunku:
 
    Ewolucja stopy procentowej.
 
-Z drugiej strony w pełnym drzewie binarnym istnieje tylko jedna
-ścieżką realizująca każdą gałąź. Wobec tego można powiedzieć, że
-liczba ścieżek realizujących stopę procentową jest proporcjonalna do
-odcienia na powyższym rysunku. Wyraźnie widzimy, że skrajne wartości
-są dużo mniej prawdopodobne od tych w środku.
+W pełnym drzewie binarnym istnieje tylko jedna ścieżką realizująca
+każdą gałąź. Wobec tego można powiedzieć, że liczba ścieżek
+realizujących stopę procentową jest proporcjonalna do odcienia na
+powyższym rysunku. Wyraźnie widzimy, że skrajne wartości są dużo mniej
+prawdopodobne od tych w środku.
 
 Obliczanie wartości średnich w modelu dwumiennym wiąże się z
 sumowaniem po wszystkich ścieżkach. Ponieważ rozważania dla stóp
@@ -550,6 +580,19 @@ scenariuszu, który rozwiązaliśmy wcześniej krok po kroku.
    SP = gen_recombining(N,delta1=0.7,delta2=0.2)
    all_paths = map(lambda x:[0]+np.cumsum(x).tolist(), CartesianProduct(*( N*[[0,1]]) ).list() )
    mean( [prod([(1+0.01*SP[i][p]) for i,p in enumerate(path_)]) for path_ in all_paths] ) 
+
+.. admonition:: Opis programu
+
+   Chcemy policzyć średnią z iloczynów :math:`\prod_{i=1}^{n} 1+r_i`
+   po wszystkich ścieżkach. Postępujęmy w następujący sposób:
+
+   - generujemy drzewo (rekombinujące) wszystkich wartości stóp:
+     :code:`SP = gen_recombining(N,...`
+   - wyliczamy wszystkie ścieżki w formacie np. [0,1,2,1,...], gdzie
+     kolejne liczby oznaczają pozycję danej stopy w odpowiednim
+     okresie. W przykładzie, w trzecim okresie mamy stopę numer "2" na
+     liście stóp. Obliczenia te wyokrzystują iloczyn kartezjanski 
+
 
 
 Krzywa dochodowości
@@ -578,7 +621,7 @@ Policzmy krzywą dochodowości w modelu dwumiennym:
 
 
 Modele ciągłe
--------------
++++++++++++++
 
 
 

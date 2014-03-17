@@ -1,4 +1,4 @@
-﻿Hedging
+Hedging
 =======
 
 
@@ -666,7 +666,14 @@ Czyli  ilość kontraktów futures potrzebna do zabezpieczenia pozycji na rynku 
 
 Ilość kontraktów = Wartość nominalna pozycji kasowej/wartość nominalna kontraktu futures  x h.
 
-W przypadku dyskutowanych przykładów powyżej zmiany ceny aktywa na rynku  futures były takie same jak zmiany ceny  aktywa na rynku kasowym. Niestety nie zawsze tak jest w praktyce. Dlatego współczynnik  zabezpieczenia h  może być reprezentowany przez współczynnik regresji ceny instrumentu kasowego od ceny instrumentu terminowego. Współczynnik ten jednak może lepiej  określać  powyższa zależność jeśli będzie traktowany jako zmienny w czasie niż jako niezmienny.
+W przypadku dyskutowanych przykładów powyżej zmiany ceny aktywa na
+rynku futures były takie same jak zmiany ceny aktywa na rynku
+kasowym. Niestety nie zawsze tak jest w praktyce. Dlatego współczynnik
+zabezpieczenia h może być reprezentowany przez współczynnik regresji
+ceny instrumentu kasowego od ceny instrumentu
+terminowego. Współczynnik ten jednak może lepiej określać powyższa
+zależność jeśli będzie traktowany jako zmienny w czasie niż jako
+niezmienny.
 
 W wielu pracach wykazano, ze prawdziwy związek między danymi finansowymi jest lepiej uchwycony, jeśli stosuje się modele o zmiennych w czasie parametrach niż modele o parametrach stałych. Często, w praktyce, stosuje  się podejście zwane  filtrem Kalmana  by oszacować zmienny w czasie współczynnik hedgingu. Takie podejście często jest statystycznie bardziej efektywne i ma lepsze własności przewidywania.
 

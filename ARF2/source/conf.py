@@ -184,8 +184,11 @@ latex_elements = {
 # The font size ('10pt', '11pt' or '12pt').
 'pointsize': '12pt',
 
+
 # Additional stuff for the LaTeX preamble.
-'preamble': '\usepackage{amsmath,amssymb}\n' + '\makeatletter\n\g@addto@macro\@verbatim\\footnotesize\n\makeatother',
+'preamble': '\usepackage{polski}\n\usepackage[utf8]{inputenc}'+\
+ '\usepackage{amsmath,amssymb}\n' +\
+ '\makeatletter\n\g@addto@macro\@verbatim\\footnotesize\n\makeatother',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
