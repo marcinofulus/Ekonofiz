@@ -1,4 +1,6 @@
-﻿Opcje 
+﻿.. _kontrakty_terminowe:
+
+Opcje 
 =====
 
 Tak, jak światło białe składa się z barw podstawowych. Tak i
@@ -11,6 +13,7 @@ Opcje to instrument finansowy, którego popularność szybko
 rośnie. Opcje to instrument mądry, użyteczny ale i
 niebezpieczny. Opcje to instrumenty coraz częściej stosowane. Ten
 wzrost stosowania opcji ma swe źródło w szczególnych cechach opcji
+
 
 
 Opcje:

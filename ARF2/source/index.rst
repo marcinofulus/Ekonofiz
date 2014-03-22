@@ -9,13 +9,6 @@ Praktyczny wstęp do komputerowej analizy Rynków Finansowych
 ===========================================================
 
 
-
-Spis treści
-===========
-
-
-
-
 1. Dane historyczne dotyczące rynków finansowych
    - Popularne źródła danych i ich dostępność.
    - Praktyczne sposoby pozyskiwania i pracy z danymi.

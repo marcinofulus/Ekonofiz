@@ -70,28 +70,51 @@ przy tym samym poziomie VaR, to należy się mu się odpowiednio większa
 premia. 
 
 
-VaR – metody obliczania
+VaR - metody obliczania
 =======================
 
-Wartość zagrożona (wartość narażona na ryzyko, Value at Risk, VaR)
-w chwili t jest to taka strata wartości rynkowej portfela, że prawdopodobieństwo osiągnięcia jej lub przekroczenia w rozpatrywanym okresie (t,) równe jest zadanemu poziomowi tolerancji α.
+Wartość zagrożona (wartość narażona na ryzyko, Value at Risk, VaR) w
+chwili t jest to taka strata wartości rynkowej portfela, że
+prawdopodobieństwo osiągnięcia jej lub przekroczenia w rozpatrywanym
+okresie (t,) równe jest zadanemu poziomowi tolerancji :math:`\alpha`.
 
-(Literatura ; Jorion P., Value at Risk,  2nd edition, McGraw-Hill, 2001,
- Krzysztof Piontek, Akademia Ekonomiczna
-im. Oskara Langego we Wrocławiu Katedra Inwestycji Finansowych i Ubezpieczeń - http://www.kpiontek.ue.wroc.pl/testyVaR.pdf).
+Literatura ; Jorion P., Value at Risk, 2nd edition, McGraw-Hill, 2001,
+Krzysztof Piontek, Akademia Ekonomiczna
+im. Oskara Langego we Wrocławiu Katedra Inwestycji Finansowych i Ubezpieczeń - `http://www.kpiontek.ue.wroc.pl/testyVaR.pdf`
 
 Powyższa definicje można zapisać w następujący sposób:
 
-Prawdopodobieństwo tego że  wartość portfela pod koniec  okresu będzie  nie mniejsza niż wartość portfela na początku okresu  pomniejszona o VaR jest równa α.
+Prawdopodobieństwo tego że wartość portfela pod koniec okresu będzie
+nie mniejsza niż wartość portfela na początku okresu pomniejszona o
+VaR jest równa :math:`\alpha`.
 
-Taka jest istota VaRu. Jednak wyliczenie tej wielkości to problem praktyczny który nie jest realizowany jednakowo. Stosuje się bowiem w praktyce wiele  metod aby oszacować tą wartość. 
-Wartość zagrożona w odniesieniu do portfela na rynku kapitałowym czy instrumentu finansowego, jest to taka strata jego wartości rynkowej, że prawdopodobieństwo jej osiągnięcia lub przekroczenia w zadanym okresie równe jest przyjętemu poziomowi tolerancji α. Zazwyczaj przyjmuje się α = 〈0,01;0,05]〉, przy czym im jest on niższy, tym wyższa jest wartość VaR. Tak wiec przyjmuje się najczęściej praktycznie przyjmowane prawdopodobieństwo przekroczenia VaR wynosi 5% lub 1%. Oczywiście, zakładamy  typowe warunki  rynkowej zmienności cen, znane z historii. Jest to pierwsze z założeń jakie są przyjmowane. Można by dyskutować czy warunki z okresu lat 2003 -  2005 można zastosować do sytuacji rynku w roku 2007, albo czy dane z okresu 1925_1928 będą reprezentatywne do tego co rynek pokazał pod koniec października 1929roku,  czyli w początku Wielkiego Kryzysu.
+Taka jest istota VaRu. Jednak wyliczenie tej wielkości to problem
+praktyczny który nie jest realizowany jednakowo. Stosuje się bowiem w
+praktyce wiele metod aby oszacować tą wartość.  Wartość zagrożona w
+odniesieniu do portfela na rynku kapitałowym czy instrumentu
+finansowego, jest to taka strata jego wartości rynkowej, że
+prawdopodobieństwo jej osiągnięcia lub przekroczenia w zadanym okresie
+równe jest przyjętemu poziomowi tolerancji :math:`\alpha`. Zazwyczaj przyjmuje się:
+
+.. math::
+
+  \alpha =  (0.01,0.05), 
+
+przy czym im jest on niższy, tym wyższa jest wartość VaR. Tak wiec
+przyjmuje się najczęściej praktycznie przyjmowane prawdopodobieństwo
+przekroczenia VaR wynosi 5% lub 1%. Oczywiście, zakładamy typowe
+warunki rynkowej zmienności cen, znane z historii. Jest to pierwsze z
+założeń jakie są przyjmowane. Można by dyskutować czy warunki z okresu
+lat 2003 - 2005 można zastosować do sytuacji rynku w roku 2007, albo
+czy dane z okresu 1925_1928 będą reprezentatywne do tego co rynek
+pokazał pod koniec października 1929roku, czyli w początku Wielkiego
+Kryzysu.
 
 
 Metody wariancji -  kowariancji
 +++++++++++++++++++++++++++++++
 
-Bez względu na metodę, Value at Risk – miarę straty można wyrazić jako
+Bez względu na metodę, Value at Risk - miarę straty można wyrazić jako
 wartość absolutną lub jako jej procentową wielkość w stosunku do
 wartości bazowej, bądź w odniesieniu do wartości średniej portfela.
 
@@ -133,24 +156,25 @@ gdzie:
 
    :math:`\sigma` - odchylenie  standardowe ceny aktywa
 
-   :math:`k` - liczba odchyleń standardowych poniżej średniej odpowiadające  (1-α) kwantylowi wystandaryzowanego rozkładu normalnego.
+   :math:`k` - liczba odchyleń standardowych poniżej średniej odpowiadające  (1-:math:`\alpha`) kwantylowi wystandaryzowanego rozkładu normalnego.
 
-Dla poziomu ufności :math:`95%` , :math:`c=0.95`
+Dla poziomu ufności :math:`95\%` , :math:`c=0.95`
 
 czyli :math:`(1-c)` jest piątym kwantylem (czyli 5%) standardowego rozkładu normalnego.
 
-Odpowiadająca temu wartość k = 1,645, a gdy 1 – α = 0,99, to c = 2,33.
+Odpowiadająca temu wartość :math:`k = 1.645`, a gdy  :math:`1- \alpha = 0.99`, to :math:`c = 2.33`.
 
 :math:`1-\alpha`.
 
 
-Wartość k dla dowolnego poziomu można odczytać z tablic albo skorzystać z  funkcji w arkuszu Excel NORMSINV.
+Wartość k dla dowolnego poziomu można odczytać z tablic albo
+skorzystać z funkcji w arkuszu Excel NORMSINV.
 
 .. admonition:: Przykład
 
-  Mamy portfel o wartości 100 000 jednostek pieniężnych składający się
+  Mamy portfel o wartości 100000 jednostek pieniężnych składający się
   z akcji spółki "Reflex. SA.". Załóżmy, że odchylenie standardowe
-  dziennego zwrotu na tych akcjach wynosi 0,0251 ( 2,51%)
+  dziennego zwrotu na tych akcjach wynosi 0.0251 ( 2.51%)
   dziennie. 
 
   Chcąc wiedzieć z pewnością 95% jaki jest VaR naszego portfela
@@ -220,25 +244,25 @@ wartość rozkładu wynosi zero). W ogólnym przypadku kwantyl jest równy:
 .. math::
    :label: var2a
 
-   R\alpha = \mu – k\sigma 
+   R\alpha = \mu - k\sigma 
 
 Czyli VaR jest równy: 
 
 .. math::
    :label: var2 
 
-   VaR = (\mu – k\sigma ) W  
+   VaR = (\mu - k\sigma ) W  
 
 
 Gdzie 
 
   :math:`W` - wartość portfela 
 
-  :math:`\mu` – średnia wartość rozkładu 
+  :math:`\mu` - średnia wartość rozkładu 
 
-  :math:`\sigma` – odchylenie standardowe stopy zwrotu 
+  :math:`\sigma` - odchylenie standardowe stopy zwrotu 
 
-  :math:`k` – stała rozkładu
+  :math:`k` - stała rozkładu
 
 Niech wielowymiarowy rozkład stóp zwrotów składników portfela
 (wymiarowość jest określona przez liczbę składników) jest
@@ -367,7 +391,7 @@ Metody symulacji historycznej
 Metoda ta sprowadza się do wykorzystania historycznych stóp zwrotu
 instrumentu finansowego (np.  portfela akcji). Najczęściej przyjmuje
 się dzienne historyczne stopy zwrotu. Obserwuje się stopy przez pewien
-(odpowiednio długi) okres czasu, przykładowo 1 rok – czyli około 225
+(odpowiednio długi) okres czasu, przykładowo 1 rok - czyli około 225
 obserwacji- z dni transakcyjnych. Historyczne stopy zwrotu pozwalają
 określić empiryczny rozkład. Umożliwia to oszacowanie kwantyla
 rozkładu i wyznaczenie wartości ryzykownej. Skuteczność symulacji
@@ -404,7 +428,7 @@ kwanty la tego rozkładu pozwala na estymacje VaR wg już omówionych
 metod.
 
  - Schemat obliczeń M-te Carlo Geometryczny Ruch Browna. 
- - VaR z uwzględnieniem wartości ekstremalnych – „Grube ogony  rozkładu”.
+ - VaR z uwzględnieniem wartości ekstremalnych - „Grube ogony  rozkładu”.
 
 
 
@@ -423,7 +447,7 @@ odchyleń standardowych).  W związku z powyższym konieczne jest
 poszukiwanie o nowych modeli. Na podstawie przeprowadzonych analiz (
 np. Katarzyna Brzozowska-Rup, Wiesław Dziubdziela „ESTYMACJA INDEKSU
 OGONA” WYBRANYCH SZEREGÓW FINANSOWYCH ZA POMOCĄ ENTROPII
-RENYI’EGO. –szukaj
+RENYI’EGO. -szukaj
 http://www.wne.sggw.pl/czasopisma/pdf/EIOGZ_2006_nr60_s69.pdf) oraz (
 Ewa Miłoś- Finansowy Kwartalnik Internetowy „e-Finanse” 2011, vol. 7,
 nr 1 www.e-finanse.com Wyższa Szkoła Informatyki i Zarządzania w
@@ -480,7 +504,7 @@ Wady jej biorą się z założeń stosowanych modeli do wyliczeń VaR.  VaR
 jest liczony dla „ normalnych” warunków rynku. Normalny rynek to rynek
 danych historycznych. Jeśli tylko rynek odchodzi od „ normalności”,
 model może zawieść.  Jak wykazuje historia rynków zachowanie typowe
-rynków występuje od czasu do czasu. Czy rynek w okresie 2004 – 2005
+rynków występuje od czasu do czasu. Czy rynek w okresie 2004 - 2005
 jest typowym rynkiem dla wycen w roku 2007?  W przypadku niepokojów na
 rynkach, rynki zachowują się „ nietypowo „ a straty wtedy są
 szczególnie duże. Przy gwałtownych zmianach na rynku VaR może być
