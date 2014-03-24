@@ -1,28 +1,28 @@
-﻿Forex – początek
-----------------
+﻿Forex - Foreing Currency Exchange
+---------------------------------
 
 Wiele firm oferuje możliwość prowadzenia transakcji na tym rynku. W
 Internecie można znaleźć szereg podręczników handlu, spekulacji i
 odkrywania przygód i emocji związanych z handlowaniem na tym rynku
-przez każdego osobiście. Zachęcają możliwością osiągania znaczących
-zysków. Rynek jako taki ani prowadzenie transakcji nie jest niczym
-złym. Pamiętać jednak należy, że podobnie jak w przypadku jazdy
-samochodem gdzie warto najpierw nauczyć się jeździć na kursie by potem
-czerpać przyjemność z samodzielnej jazdy tak i w przypadku
-samodzielnych operacji na rynku finansowym należy unikać „przygód„
-samodzielnych prób i błędów, które to błędy i pomyłki mogą być
-kosztowne.
+przez każdego osobiście. Liczne reklamy zachęcają możliwością
+osiągania znaczących zysków. Rynek jako taki ani prowadzenie
+transakcji nie jest niczym złym. Pamiętać jednak należy, że podobnie
+jak w przypadku jazdy samochodem gdzie warto najpierw nauczyć się
+jeździć na kursie by potem czerpać przyjemność z samodzielnej jazdy
+tak i w przypadku samodzielnych operacji na rynku finansowym należy
+unikać „przygód„ samodzielnych prób i błędów, które to błędy i pomyłki
+mogą być kosztowne.
 
 Dostępność operacji jest duża i należy zwrócić uwagę na jeszcze jeden
 aspekt samodzielnej działalności na rynkach finansowych. Dokonując
 operacji i generując zyski z transakcji należy zwrócić uwagę dodatkowe
 ograniczenia poza wspominanym na każdym kroku ryzyku inwestowania.
-Pamiętajmy, że w rzeczywistości występują bolesne ,a opuszczane w
+Pamiętajmy, że w rzeczywistości występują bolesne a opuszczane w
 podejściu dydaktycznym, koszty transakcyjne oraz pamiętać należy o
 obowiązku podatkowym. Zwracajmy uwagę na lokalizacje kont
 inwestycyjnych, które to w dobie Internetu mogą być zlokalizowane w
-dowolnym zakątku Świata. Lokalizacja ta może być szczególnie bolesna
-jeśli nie znamy dokładnie zasad opodatkowania na lokalizacje swoich
+dowolnym zakątku świata. Lokalizacja ta może być szczególnie bolesna
+jeśli nie znamy dokładnie zasad opodatkowania na lokalizacjach swoich
 kont ze względu na ograniczenia wynikające z regulacji
 podatkowych. Zasady te, podobnie jak i koszty transakcji mogą być
 różne dla rezydentów i nie rezydentów w danym kraju. Sprawdźmy
@@ -37,11 +37,13 @@ obu państw.
 Łatwość szukania arbitrażu - czyli kurs godziwy  waluty
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-W poprzednim rozdziale dotyczącym rynku wymiany walut można było
-zauważyć powiązanie miedzy przyszłym kursem wymiany a stopa procentową
-depozytów w krajach walut.  Widać powiązanie, ale nie jest to wiedza w
-pełni pozwalająca przewidzieć przyszłe zmiany wartości względnej
-walut.
+W `poprzednich tekstach
+<http://el.us.edu.pl/ekonofizyka/index.php/RF:Rynek_wymiany_walut>`_
+dotyczących wymiany walut rozdziale dotyczącym rynku wymiany walut
+można było zauważyć powiązanie miedzy przyszłym kursem wymiany a stopa
+procentową depozytów w krajach walut.  Widać powiązanie, ale nie jest
+to wiedza w pełni pozwalająca przewidzieć przyszłe zmiany wartości
+względnej walut.
 
 
 .. image:: figs/grafika.png
@@ -70,10 +72,10 @@ W warunkach równowagi  między kursami  trzech walut zachodzi związek:
    w^{12}w^{23}w^{31} = 1
 
 
-Czyli porównując kursy możemy określić czy kursy ich znajdują się w
-równowadze i spełniają pokazane równanie, czy też równanie nie jest
-spełnione i występuję możliwość arbitrażu. Arbitraż oznacza szanse na
-wygenerowanie dochodu z operacji rynkowej.
+Czyli porównując kursy walut możemy określić czy kursy ich znajdują
+się w równowadze i spełniają pokazane równanie, czy też równanie nie
+jest spełnione i występuję możliwość arbitrażu. Arbitraż oznacza
+szanse na wygenerowanie dochodu z operacji rynkowej.
 
 
 .. admonition:: Przykład
@@ -99,24 +101,24 @@ wygenerowanie dochodu z operacji rynkowej.
     Czyli kurs jena do dolara powinien być 80 jenów za dolara. Bank B
     zakwotował jednak 85 za dolar czyli jest możliwość zarobienia. Jak?
 
-    Sprzedać nasze dolary za funty:
+    - Sprzedać nasze funty za dolary:
 
-    Przykładowo przy kwocie wyjściowej 100.000 funtów: 100.000 GBP po 1,5
-    USD = 150.000 USD
+     - Przykładowo przy kwocie wyjściowej 100.000 funtów: 100.000 GBP
+       po 1,5 USD = 150.000 USD
 
-    Sprzedajemy bankowi B jeny po kursie 85 jenów za dolara:
+    - Sprzedajemy bankowi B dolary po kursie 85 jenów za dolara:
 
-    Przykładowo:  150 000x 85 = 1 275 000 jenów
+      - Przykładowo:  150 000x 85 = 1 275 000 jenów
 
-    Jeny sprzedajemy po 120 za funta i otrzymujemy
+    - Jeny sprzedajemy po 120 za funta i otrzymujemy
 
-    Przykładowo :  1 275 000/ 120 = 106 250 funtów
+      - Przykładowo:  1 275 000/ 120 = 106 250 funtów
 
-    Czyli zarobić można było
+    Czyli zarobić można było by:
 
-    106.250 – 100.000 = 6.250 funta.
+    106.250 - 100.000 = 6.250 funta.
 
-    Dlaczego czas przeszły????
+    **Dlaczego czas przeszły?**
 
     Niestety nie mamy pewności czy takie kwotowanie nadal będzie
     akceptowane przez strony transakcji. Tak było przed chwilą ale nie
@@ -124,14 +126,12 @@ wygenerowanie dochodu z operacji rynkowej.
     arbitrażowych pracują bez przerwy.
 
 
-Równowaga szczegółowa
-~~~~~~~~~~~~~~~~~~~~~
-
-Układ spełniający warunek :eq:`F1` znany jest w fizyce jako układ
-równowagowy a samo równanie :eq:`F1` jest określane jako równowaga
-szczegółowa (ang. detailed balance). 
+.. note:: Równowaga szczegółowa
 
 
+   Układ spełniający warunek :eq:`F1` znany jest w fizyce jako układ
+   równowagowy a samo równanie :eq:`F1` jest określane jako równowaga
+   szczegółowa (ang. detailed balance).
 
 
 
@@ -219,7 +219,10 @@ różnice inflacji miedzy krajami.
 
 .. math::
 
-   \frac{S_{t+1}^{D/F}}{S_t ^{D/F}} = \frac{1+ I_f}{1+ I_f}
+   \frac{S_{t+1}^{D/F}}{S_t ^{D/F}} = \frac{1+ I_d}{1+ I_f},
+
+gdzie :math:`I_d` to procentowa zmiania cen w kraju rodzimym a
+:math:`I_f` procentowa zmiania cen za granicą.
 
 
 Czyli w chwili :math:`t+1` relacja kursów powinna spełniać powyższe
@@ -236,15 +239,16 @@ Albo inaczej:
 
 .. math::
 
-   S_{t+1}^{PPP} = S_t ^{D/F} x \frac{1+ \pi _D}{1+ \pi _F}
+   S_{t+1}^{PPP} = S_t ^{D/F} x \frac{1+ I_d}{1+ I_f}
 
 
 Jeśli inflacja zagraniczna jest niska to zmiana kursu będzie równa:
 
 .. math::
 
-   \Delta S = \pi _D - \pi _F
+   \Delta S = I_d - I_f,
 
+gdzie :math:`\Delta S` to procentowa zmiana kursu.
 
 Tak, ale inflacje bardzo rzadko znamy w przyszłości. Znamy ją wstecz
 za dany okres.  To wszystko to nasza ocena jak się mogą zachowywać
@@ -260,8 +264,13 @@ kraju.
 
 .. math::
 
-   (1+r)=(1+r^*)(1+I)
+   (1+r)=(1+r^*)(1+I),
 
+gdzie:
+
+| :math:`r` - stopa nominalna
+| :math:`r^*` - stopa realna
+| :math:`I` - stopa inflacji
 
 Albo inaczej zapiszemy to równanie
 
@@ -284,7 +293,7 @@ Czyli możemy zapisać taką równość w postaci:
 
 .. math::
 
-   (1+r^d)/(1+I^d)=(1+r^*)= (1+r^f)/(1+I^f)
+   \frac{1+r^d}{1+I^d}=(1+r^*) =\frac{1+r^f}{1+I^f}
 
 
 Gdzie oznaczenie :math:`d` odnosi się do waluty krajowej a :math:`f`
@@ -294,27 +303,27 @@ Przepisując równanie inaczej :
 
 .. math::
 
-   (1+r^d)/((1+r^f)=(1+I^d)/(1+I^f)
+   \frac{1+r^d}{1+r^f}=\frac{1+I^d}{1+I^f}
 
 Pamiętając związek  Parytetu siły nabywczej (PPP)
 
 .. math::
 
-   S_{real} = S_{nominal} (1+I^f)/(1+I^d)
+   S_{real} = S_{nominal} \frac{1+I^f}{1+I^d}
 
 
 Otrzymujemy:
 
 .. math::
 
-   S_1/S_0=(1+I^d)/(1+I^f)= (1+r^d)/(1+r^f)
+   \frac{S_1}{S_0}=\frac{1+I^d}{1+I^f}= \frac{1+r^d}{1+r^f}
 
 
 co po pewnym prostym przekształceniu daje:
 
 .. math::
 
-   S_1- S_o/S_o = (r^d- r^f)/(1 +r^f)
+   S_1- \frac{S_o}{S_o} = \frac{r^d- r^f}{1 +r^f}
 
 Gdzie :
 
@@ -346,8 +355,8 @@ rządzące rynkami finansowymi pozostawaj dużej mierze tajemnicą"*
 Jak widać rynek walutowy jest tego najlepszym przykładem. Na tym
 rynku hipoteza rynku efektywnego zdaje się sprawdzać najsłabiej.
 
-Stwierdzenie „w odpowiednio długim czasie” prosi się o komentarz ,ze
-jedno jest pewne w odpowiednio długim czasie to, że umrzemy. Świetnym
+Stwierdzenie „w odpowiednio długim czasie”, prosi się o komentarz, że
+jedno jest pewne w odpowiednio długim czasie, to, że umrzemy. Świetnym
 komentarzem do pierwszej uwagi jest komentarz A. Sławińskiego zawarty
 w jego książce ”Rynki Finansowe” PWE 2006 i dotyczący związku kursów
 walut z czynnikami fundamentalnymi a właściwie jej braku. Komentarz

@@ -528,6 +528,88 @@ szacunek do rynku, oraz pamiętać ,że zerowe prawdopodobieństwo nie
 istnieje.
 
 
+Analizy Scenariuszy
++++++++++++++++++++
+
+
+Jak to już było podkreślane Var jest prostą miara ryzyka. To pewna
+wartość pieniędzy, które mogą być „stracone” przy niekorzystnej
+sytuacji zmienności rynku. Pierwsze co wydaje się koniecznym do
+zrobienia to weryfikacja otrzymanych wyników w ujęciu historycznym.
+
+Sposób myślenia zwany z angielska „ back testing” czyli porównanie
+historyczne. 
+
+Mając już opracowany model i sposób liczenia Var dla portfela warto
+popatrzeć wstecz jak wyliczony z metody i modelu VaR miał się do
+rzeczywistych wyników. Warto popatrzeć na np. 100 ostatnich wyliczeń
+VaR ( np. . 95%, jednodniowego) i porównać ten wynik z rzeczywistymi
+stratami portfela w tym okresie. Interesujacym jest odpowiedź na
+pytanie czy wyliczony VaR był przekraczany w przeszłości i jak często.
+
+Jeśli wyliczany VaR jest systematycznie za niski znaczy to, że
+przyjęty model nie dowartościowuje ryzyko i dlatego straty portfela
+przekraczają. Znaczy to, ze należy zwiększyć „mnożnik“ dla liczenia
+wymogów kapitałowych.  Jeśli VaR jest „za wysoki“ model przecenia
+ryzyko i wymagany kapitał jest może być za duży (czyli - za drogi).
+Kolejne kryterium analizy to Analiza Czułości. Znając skład portfela
+powinniśmy wyliczyć na jakie zmiany I jakich wielkości jest
+szczególnie czuły nasz portfel. Takiej analizie służy zróżniczkowanie
+równania na wartość portfela w zależności od zmiennych rynkowych.
+
+O ile analiza czułości jest daje dobre wyniki dla niewielkich zmian
+rynku to jeśli mamy do czynienie z warunkami kryzysowymi to nie jest
+dobrą aproksymacją ryzyka.
+
+**"Stress testing"** to metoda testowania w warunkach znacznych zmian
+otoczenia rynkowego.  W stress testing, stosujemy duże zmiany
+czynników, i wyliczamy dla nich wartość portfela.  Celem stress
+testing pokazanie w jasny sposób, co się może wydarzyć z ryzykiem i z
+czym będzie trzeba się zmierzyć. Przykładowo, typowe zdanie z
+stosowania metody stress testing może być „jeśli stopy procentowe
+wzrosną o 2%, możemy stracić $15 millionów; jeśli wzrosną o 4%,
+stracimy $28 millionów."
+
+
+Zazwyczaj, ruchy rynku podaje się w sposób standaryzowany, aby były
+lepiej rozumiane w firmie.  Na przykład, zmiany cen akcji przy zmianie
+o -20%, -10%, oraz +10% i +20% . Zasadnym jest podjęcie decyzji które
+dane będzie grupować razem co będzie lepiej ilustrowało problem.
+
+
+Metoda” scenariuszy awaryjnych”.
+
+Stress testing i analiza scenariuszy są podobnymi metodami i są
+stosowane celem wyliczenia co się może wydarzyć w określonej sytuacji
+na rynku. Jednakże, w metodzie stress testing, zmiany czynników ryzyka
+są zazwyczaj podobne i są niejako typowe i obiektywne. W analizie
+scenariuszy, zmiany są dobrane subiektywnie i celowo.  W metodzie
+scenariuszy awaryjnych, używa się takich danych by stworzyć kilka
+scenariuszy – najgorszego przypadku. Każdy scenariusz odpowiada
+szczególnemu przypadkowi kryzysu rynku, np. kryzys USA 2007, upadek
+gospodarki Chin, podniesienie cen przez OPEC, wstrzymanie eksportu
+surowców energetycznych przez Rosje, itd . Zazwyczaj wybiera się 5- 10
+najgorszych scenariuszy.
+
+
+Scenariusze zazwyczaj bazują na: poprzednich kryzysach, aktualnym
+portfelu firmy, opiniach ekspertów (scenariusze proponują: Risk
+Menedżer, szefowie pionów etc.) . Biorąc pod uwagi ubiegłe kryzysy,
+porównuje się dane historyczne z różnych rynków i sprawdza się co by
+się stało gdyby aktualnie to się nam przydarzyło dziś.  Przykładowo,
+jeśli 20% spadek w jeden dzień na rynku U.S.A. ( co miało miejsce
+w1987), wydarzył by się na rynkach euro?? Scenariusz konfliktu
+zbrojnego etc.
+
+Tak wiec, oprócz formalnego liczenia VaR dla statystycznych danych
+metoda powinna zostać przetestowana tak jak opisano powyżej i
+wyliczenia dla scenariuszy powinny uzupełniać formalne, codzienne
+wyliczenia VaR.
+
+Taki zestaw analiz pozwala na lepsze zrozumienie ryzyka.
+
+
+
 .. rubric:: Footnotes
 
 .. [#f1] VaR jest konstrukcja oparta o statystykę rynków czyli zdarzeń

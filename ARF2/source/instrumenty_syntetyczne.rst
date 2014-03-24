@@ -1,13 +1,37 @@
 ﻿Instrumenty syntetyczne
 =======================
 
-Tak jak światło składa się z elementów  składowych tak i instrumenty finansowe składają się z instrumentów  podstawowych. Jak już było wspomniane to na początku rozdziału o opcjach, opcje należą do tych składowych. Instrumenty syntetyczne to instrumenty składające (dające się rozłożyć) na składowe instrumenty. Instrumenty syntetyczne składają się z kombinacji dwu lub więcej elementów składowych. Konstrukcja takich instrumentów  nazywana jest inżynierią finansową. 
+Tak jak światło składa się z elementów składowych tak i instrumenty
+finansowe składają się z instrumentów podstawowych. Jak już było
+wspomniane to na początku rozdziału o opcjach, opcje należą do tych
+składowych. Instrumenty syntetyczne to instrumenty składające (dające
+się rozłożyć) na składowe instrumenty. Instrumenty syntetyczne
+składają się z kombinacji dwu lub więcej elementów
+składowych. Konstrukcja takich instrumentów nazywana jest inżynierią
+finansową.
 
-Oprócz opcji  „cegiełkami” tworzącymi inne instrumenty są  obligacje, akcje, opcje  call i put oraz swapy.
+Oprócz opcji „cegiełkami” tworzącymi inne instrumenty są obligacje,
+akcje, opcje call i put oraz swapy.
 
-Na początek  budujemy portfel inwestycyjny. Kupujemy  aktywo  i od momentu posiadania  aktywa obawiamy się spadku jego ceny i chcemy by wartość naszego portfela  nie zmalała w przypadku  spadku cen tego aktywa na rynku. Aby się zabezpieczyc przed spadkiem wartości portfela  kupujemy opcje put na wspomniane aktywo.  Kupienie opcji  put  i zapłacenie premii pozwala   na ograniczenie możliwych strat z dołu przy zachowaniu szans na wzrost wartości aktywa. W takiej strategii widać podobieństwo do płacenia  polisy ubezpieczeniowej za ograniczenie strat.
+Na początek budujemy portfel inwestycyjny. Kupujemy aktywo i od
+momentu posiadania aktywa obawiamy się spadku jego ceny i chcemy by
+wartość naszego portfela nie zmalała w przypadku spadku cen tego
+aktywa na rynku. Aby się zabezpieczyc przed spadkiem wartości portfela
+kupujemy opcje put na wspomniane aktywo.  Kupienie opcji put i
+zapłacenie premii pozwala na ograniczenie możliwych strat z dołu przy
+zachowaniu szans na wzrost wartości aktywa. W takiej strategii widać
+podobieństwo do płacenia polisy ubezpieczeniowej za ograniczenie
+strat.
 
-Ale  widać  strategie alternatywna   dla  opisanej sytuacji.  Zamiast kupować aktywo i opcje put zapewniającą  „atrakcyjna” cenę jego sprzedaży  możemy   kupić jedynie opcje call  na  „atrakcyjną” cenę aktywa.   Zaoszczędzone pieniądze (różnica miedzy ceną kupna aktywa i premia opcji put) możemy zainwestować  w   instrument dłużny oprocentowany stopa wolna od ryzyka.  Jeśli wartość aktywa wzrośnie  możemy kupić je wykorzystując opcje call  i swoją  inwestycje. Jeśli wartość aktywa spadnie można pozwolić wygasnąć opcji  i zachować  pieniądze w inwestycji w stopę wolną od ryzyka. 
+Ale widać strategie alternatywna dla opisanej sytuacji.  Zamiast
+kupować aktywo i opcje put zapewniającą „atrakcyjna” cenę jego
+sprzedaży możemy kupić jedynie opcje call na „atrakcyjną” cenę aktywa.
+Zaoszczędzone pieniądze (różnica miedzy ceną kupna aktywa i premia
+opcji put) możemy zainwestować w instrument dłużny oprocentowany stopa
+wolna od ryzyka.  Jeśli wartość aktywa wzrośnie możemy kupić je
+wykorzystując opcje call i swoją inwestycje. Jeśli wartość aktywa
+spadnie można pozwolić wygasnąć opcji i zachować pieniądze w
+inwestycji w stopę wolną od ryzyka.
 
 Porównując obie strategie widzimy, że 
 
@@ -47,9 +71,9 @@ To prowadzi do warunku równości (parytetu) put-call
 
 Gdzie
 
-| S – cena aktywa (1 akcji)
+| S - cena aktywa (1 akcji)
 | P - cena opcji put (1 opcja) na cenę wykonania X i czasie do wygaśnięcia T
-| C cena opcji  call (jedna  opcja)  na cene wykonania X i czasie do wygaśnięcia T – jak opcja put.
+| C cena opcji  call (jedna  opcja)  na cene wykonania X i czasie do wygaśnięcia T - jak opcja put.
 | PV(X)- jedna obligacja (instrument dyskontowy) z wartością w czasie zapadalności T równej X.
 
 Jeśli ten warunek nie zachodzi to mamy do czynienia z arbitrażem.  Możliwość arbitrażu nie będzie istnieć długo ale wtedy  opłacalnym będzie działanie: Kup stronę „niską” a sprzedaj „wysoka” 
@@ -81,7 +105,8 @@ Równania wartości pieniądza w czasie dla ciągłej kapitalizacji:
    FV = PVe^{Rt} 
 
 
-Równanie pokazujące związek ceny akcji I opcji call oraz put I obligacji o stopie  bez ryzyka :eq:`IS1` wygląda:
+Równanie pokazujące związek ceny akcji i opcji call oraz put i
+obligacji o stopie wolnej od ryzyka :eq:`IS1` wygląda:
 
 .. math::
 
@@ -93,27 +118,29 @@ Gdzie  X- to  wartość obligacji na stopę  wolna od ryzyka na datę wygaśnię
 Jeśli  aktywo (akcja) wypłaca dywidendę to zachodzi równość.
 
 
-cena opcji Put – cena opcji Call  = present value ceny wykonania  + present value dywidend  – cena akcji 
+cena opcji Put - cena opcji Call  = present value ceny wykonania  + present value dywidend  - cena akcji 
 
 
-Gdy  na  wykresie  zysków (strat) od ceny aktywa  naniesiemy zależności dla ceny akcji  opcji call I put  możemy łatwo  wykazać  zależność parytetu graficznie. 
+Gdy na wykresie zysków (strat) od ceny aktywa naniesiemy zależności
+dla ceny akcji opcji call i put możemy łatwo wykazać zależność
+parytetu graficznie.
 
 .. image
 
 
 Oznaczenia:
 
-| Zółty kolor – long call
+| Zółty kolor - long call
 | Czerwony  - long put
 | Niebieski- pozycja długa w aktywie (akcja)
-| Jasno niebieski przerywany – pozycja długa w obligacji.
+| Jasno niebieski przerywany - pozycja długa w obligacji.
 
 Analogicznie aby określić  cenę  opcji put  przekształcamy wzór :eq:`IS1` do postaci:
 
 .. math::
    :label: IS2
 
-   P = C – S + Xe^{-Rt}
+   P = C - S + Xe^{-Rt}
 
 
 Dlaczego?  Kupienie  call i sprzedaż aktywa (akcji)  replikuje  wypłatę z zakupu opcji  put.
@@ -163,7 +190,7 @@ Można utworzyć syntetyczną pozycja sprzedaży akcji  (short) poprzez sprzeda�
 
 .. math::
 
-   -S =  P – C - Xe^{-Rt}
+   -S =  P - C - Xe^{-Rt}
 
 
 Graficznie
@@ -195,7 +222,7 @@ Swap’y służą do zabezpieczania się przed ryzykiem zmiany stóp procentowyc
 
 Swap kuponowy
 
-Najbardziej typowy swap dotyczy wymiany płatności opartej na zmiennej stopie na płatność opartą o stopę stałą. Na ilustracji spółka A zgadza się wykonać płatność do spółki B liczoną w oparciu o zmienne oprocentowanie (np. LIBOR 6 – miesięczny) ustalonej kwoty. W zamian Spółka B zgadza się dokonać płatności odsetek od tej kwoty dla stałego oprocentowania (np. 10% na rok) Wymiana płatności nastąpi co 6 miesięcy. 
+Najbardziej typowy swap dotyczy wymiany płatności opartej na zmiennej stopie na płatność opartą o stopę stałą. Na ilustracji spółka A zgadza się wykonać płatność do spółki B liczoną w oparciu o zmienne oprocentowanie (np. LIBOR 6 - miesięczny) ustalonej kwoty. W zamian Spółka B zgadza się dokonać płatności odsetek od tej kwoty dla stałego oprocentowania (np. 10% na rok) Wymiana płatności nastąpi co 6 miesięcy. 
 
 Swap  bazowy 
 
@@ -260,7 +287,7 @@ W każdym swapie walutowym występują trzy ważne składowe:
 - Kurs wymiany
 - Dwie stopy oprocentowania
 
-Na początku swapu strony „wymieniają się” Kwotą Główną. Wymiana może być zarówno rzeczywista jak i „teoretyczna” (fizyczna wymiana nie ma miejsca). Kurs wymiany – kurs spot. Znaczenie kwoty głównej jest istotne dla określenia wielkości odsetek i wielkości wtórnej wymiany pod koniec transakcji swap. *Końcowa wymiana następuje po kursie wymiany początkowej.*
+Na początku swapu strony „wymieniają się” Kwotą Główną. Wymiana może być zarówno rzeczywista jak i „teoretyczna” (fizyczna wymiana nie ma miejsca). Kurs wymiany - kurs spot. Znaczenie kwoty głównej jest istotne dla określenia wielkości odsetek i wielkości wtórnej wymiany pod koniec transakcji swap. *Końcowa wymiana następuje po kursie wymiany początkowej.*
 
 Walutowy swap kuponowy.
 

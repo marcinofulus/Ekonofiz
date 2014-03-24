@@ -465,15 +465,16 @@ czas zabezpieczenia. Jeśli nie ma kontraktu futures na aktywo
 zabezpieczane należy wybierać kontrakt futures, którego cena jest
 najlepiej skorelowana z ceną zabezpieczanego aktywa.
 
-Zabezpieczenia najmniejszej wariancji
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Zabezpieczenia metodą najmniejszej wariancji
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Jednak jeśli okresy do zapadalności użytych instrumentów będą różne to
 zabezpieczenie nie będzie już tak idealne jak w przypadku gdy
-zapadalności na instrumentu kasowego i zapadalności instrumentu
-futures będą różne. Należy pamiętać o cost of carry. Szczególnie
-instrumenty dłużne mają skomplikowaną zależność generowanego dochodu
-od duration i stopy procentowej.
+zapadalności instrumentu kasowego i zapadalności instrumentu futures
+będą różne. Należy pamiętać o cost of carry. Szczególnie instrumenty
+dłużne mają skomplikowaną zależność generowanego dochodu od duration i
+stopy procentowej.
 
 Tak więc reakcja instrumentu kasowego i terminowego mogą być różne,
 tzn. ich zmiany mogą być inne na koniec okresu zabezpieczenia.
@@ -513,32 +514,63 @@ Innymi słowy takie h to hedging minimalizujący wariancje - hedging
 minimalnej wariancji.
 
 
-.. Wyprowadzenie???? Jeśli trzeba w *Hedging with Forwards and Futures*
 
-
-Popatrzmy jeszcze raz na :math:`\boldsymbol{W}` - zmianę wartości
-portfela zabezpieczonego. Jej wariancja jest równa:
+Popatrzmy jeszcze raz na :math:`\boldsymbol{\Delta W}` - zmianę
+wartości portfela zabezpieczonego:
 
 .. math::
 
-   V= \sigma ^2 P_k + \sigma ^2 P_f - 2 \sigma p_k \sigma p_f
+   \Delta \boldsymbol{W} = \Delta \boldsymbol{P_k} - h \Delta \boldsymbol{P_f} = 0
 
 
-Zabezpieczenie jest najlepsze jeśli
 
 .. math::
 
-   \boldsymbol{h} = \rho(\sigma p_k/ \sigma p_f)
+   \sigma^2_{\Delta W} = \sigma^2_{\Delta P_f} + h^2 \sigma^2_{\Delta P_f} - 2 h \langle \Delta P_f \Delta P_k\rangle 
 
+gdzie:
 
-gdzie :
-
- - :math:`\sigma p_k` jest odchyleniem standardowym zmiany ceny na
-   rynku kasowym :math:`\Delta P_{k}` w czasie trwania zabezpieczenia.
- - :math:`\sigma p_f` jest odchyleniem standardowym zmiany ceny na
+| :math:`\sigma_{P_k}` - jest odchyleniem standardowym zmiany ceny na rynku kasowym :math:`\Delta P_{k}` w czasie trwania zabezpieczenia.
+| :math:`\sigma_{P_f}` - jest odchyleniem standardowym zmiany ceny na
    rynku terminowym w czasie trwania zabezpieczenia.
- - :math:`\rho` jest współczynnikiem korelacji :math:`\Delta P_k` i
-   :math:`\Delta P_f`.
+
+
+Zabezpieczenie jest optymalne jeśli powyższa pochodna  cząstkowa wariancji zmian portfela po współczynniku hedgingu się zeruje, czyli:
+
+.. math::
+
+   \frac{\partial \sigma^2_{\Delta W}}{\partial h} = 2 h \sigma^2_{\Delta P_f} - 2 \langle \Delta P_f \Delta P_k\rangle   = 0
+
+
+
+
+
+.. math:: 
+
+   2 h \sigma^2_{\Delta P_f} - 2 \langle \Delta P_f \Delta P_k\rangle  = 0 
+
+stąd:
+
+.. math::
+
+   h = \frac{ \langle \Delta P_f \Delta P_k \rangle }{ \sigma^2_{\Delta P_f}}
+
+
+czyli biorąc pod uwagę, że współczynnik korelacji :math:`\Delta P_k` i
+   :math:`\Delta P_f` -  :math:`\rho` jest równy z definicji:
+
+.. math::
+
+   \rho = \frac{\langle \Delta P_f \Delta P_k\rangle}{ \sigma_{\Delta P_f}\sigma_{\Delta P_k}}
+
+otrzymujemy ostatecznie znany wzór:
+
+
+.. math::
+
+   h = \rho \frac{\sigma_{\Delta P_k} }{ \sigma_{\Delta P_f}}
+
+
 
 
 Można także oszacować optymalny współczynnik zabezpieczenia h używając
@@ -636,7 +668,6 @@ nominalnych wartości kontraktów na obu rynkach.
 Hedging portfela obligacji
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Kilka uwag o współczynniku  hedgingu - Filtr Kalmana**
 
 Podsumowując powyższe rozważania można stwierdzić:
 
@@ -695,7 +726,7 @@ podejście często jest statystycznie bardziej efektywne i ma lepsze
 własności przewidywania.
 
 
-**FILTR  KALMANA ???**
+.. **FILTR  KALMANA ???**
 
 **Zabezpieczanie przed ryzykiem stopy procentowej portfela  obligacji.**
 
@@ -714,7 +745,7 @@ kosztach transakcyjnych i o tym, ze może być niemożliwym odkupić
 wszystkie poprzednio posiadane obligacje. Może on również, kolejna
 tańsza możliwość, użyć kontraktu futures na obligacje. Na większości
 rynków futures taki kontrakt jest wyceniany na podstawie wyceny
-koszyka obligacji „cheapest -to- deliver„ (CDT).
+koszyka obligacji "cheapest -to- deliver" (CDT).
 
 Tak więc kluczowym jest kupienie właściwej ilości kontraktów do
 zabezpieczenia. Należy więc wyliczyć współczynnik zabezpieczenia
@@ -832,7 +863,6 @@ zabezpieczenia.
 
 Jak zwykle ilość kontraktów potrzebna do zabezpieczenia :math:`I_f` wynosi:
 
-
 .. math::
    :label: 2222
 
@@ -873,10 +903,10 @@ Gdzie
  - :math:`Y` - dochodowość do zapadalności (yield to maturity)
 
 
-Wyliczyć współczynnik zabezpieczenia w tej metodzie należy podzielić
+Aby wyliczyć współczynnik zabezpieczenia w tej metodzie należy podzielić
 zmianę ceny obligacji zabezpieczanej przez zmianę ceny obligacji CDT.
 
- - :math:`h_D` = współczynnik zabezpieczenia - duration.
+ - :math:`h_D` = współczynnik zabezpieczenia uwzględniający "duration".
  - :math:`h_D = \Delta P_H/ \Delta P_{CDT}`
 
 wpisując formalnie równanie :eq:`wzor` do powyższego wzoru i
@@ -955,8 +985,8 @@ ilość kontraktów potrzebnych do zabezpieczenia portfela obligacji:
 
 
 
-**Hedging przy pomocy opcji**
-
+Hedging przy pomocy opcji
+-------------------------
 
 Opcje wydaja się być bardziej elastycznymi narzędziami do
 zabezpieczania w porównaniu z kontraktami futures.  Jak to wynika z
@@ -1008,14 +1038,18 @@ dzisiaj + jej wartość w czasie. Oczywiście nie mamy dywidendy.  Które
 z dwu przepływów finansowych jest mniejszy, tę strategie
 stosujemy. Należy jeszcze uwzględnić w obliczeniach koszty transakcji.
 
-Generalnie stosuje się następującą zasadę zabezpieczania stosując
-opcje:
+.. note:: 
 
- - Jeśli pozycja jest zagrożona stratą w przypadku spadających cen to
-   kupujemy opcje put lub sprzedajemy call.
+   Generalnie stosuje się następującą zasadę zabezpieczania stosując
+   opcje:
 
- - Jeśli pozycja jest zagrożona stratą w przypadku rosnących cen
-   sprzedajemy opcje put lub kupujemy call.
+
+   - Jeśli pozycja jest zagrożona stratą w przypadku spadających cen to
+     kupujemy opcje put lub sprzedajemy call.
+
+   - Jeśli pozycja jest zagrożona stratą w przypadku rosnących cen
+     sprzedajemy opcje put lub kupujemy call.
+
 
 Należy pamiętać jakie zobowiązania ciążą na sprzedającym opcje
 (konieczność dostarczeni/ kupienia aktywa podstawowego po ustalonej
@@ -1042,12 +1076,12 @@ Strategia ta jest nazywana Straddle - stelaż.
   dowolna stronę.
 - Maksymalna strata to cena kupionych opcji.
 
-Należy podkreślić, że w przypadku używania opcji w celu zabezpieczenia
-możemy kupować opcje albo je wystawiać. Opcje nie są instrumentami o
-symetrycznym ryzyku. Wystawiając opcje ryzykujemy konieczność dostawy
-aktywa wiec koszty nabycia takiego aktywa są często znacznie wyższe
-niż premia za opcje a w przypadku kupna opcji ryzykujemy tylko stratę
-w wysokości jej ceny.
+Należy ponownie podkreślić, że w przypadku używania opcji w celu
+zabezpieczenia możemy kupować opcje albo je wystawiać. Opcje nie są
+instrumentami o symetrycznym ryzyku. Wystawiając opcje ryzykujemy
+konieczność dostawy aktywa wiec koszty nabycia takiego aktywa są
+często znacznie wyższe niż premia za opcje a w przypadku kupna opcji
+ryzykujemy tylko stratę w wysokości jej ceny.
 
 Powyższy przykład to strategia Long stradle czyli nabywamy opcje i
 nasze ryzyko jest ograniczone do sumy premii zapłaconych za opcje a
@@ -1116,28 +1150,28 @@ bazowego?
 
 .. math::
 
-   \Delta = \partial P_0 / \partial P_S 
+   \Delta = \frac{\partial P_0 }{ \partial P_S }
 
 
 Dla opcji call, korzystajac z modelu Blacka Scholesa 
 
 .. math::
 
-   \Delta = N(d_1) 
+   \Delta_{\text{call}} = N(d_1) 
 
 
 A dla opcji put:
 
 .. math::
 
-   \Delta_{put} = N(d_1) - 1
+   \Delta_{\text{put}} = N(d_1) - 1
 
 
 Korzystając z prostego przekształcenia widać, ze:
 
 .. math::
 
-   \Delta_{put} + \Delta_{call} = 1
+   \Delta_{\text{put}} + \Delta_{\text{call}} = 1
 
 
 Ponadto, delta wskazuje ilość akcji potrzebnych do otworzenia zwrotu z opcji. 
@@ -1147,17 +1181,19 @@ akcji. Jeśli cena akcji wzrośnie o 1, cena opcji call wzrośnie o 0.80.
 cecha ta pozwala na budowanie strategii zabezpieczających. Ale więcej
 o analizie wrażliwości można znaleźć w **Analiza wrażliwości opcji**.
 
-Budując strategie zabezpieczające bazujące na zachowaniu niezależności
-wartości od zmiany ceny (:math:`\Delta= 0`) kierujemy się zasadą,
-która to zasada jest następująca:
+.. note::
 
-Budując zabezpieczenie pozycji krótkiej/(długiej) w opcjach
-(europejskich) call polega na utrzymaniu pozycji długiej/(krótkiej) w
-N(d1) aktywach bazowych.
+    Budując strategie zabezpieczające bazujące na zachowaniu niezależności
+    wartości od zmiany ceny (:math:`\Delta= 0`) kierujemy się zasadą,
+    która to zasada jest następująca:
 
-W przypadku opcji put, (opcje europejskie - delta ujemna) pozycje
-długą /(krótka) w opcjach put zabezpieczamy pozycja długą/(krótką) w
-[N(d1) - 1] akcjach bazowych.
+    - Budując zabezpieczenie pozycji krótkiej/(długiej) w opcjach
+      (europejskich) call polega na utrzymaniu pozycji długiej/(krótkiej) w
+      N(d1) aktywach bazowych.
+
+    - W przypadku opcji put, (opcje europejskie - delta ujemna)
+      pozycje długą /(krótka) w opcjach put zabezpieczamy pozycja
+      długą/(krótką) w [N(d1) - 1] akcjach bazowych.
 
 Współczynnik delta zmienia się w wyniku upływu czasu do terminu
 wygaśnięcia opcji oraz zmiany wartości instrumentu bazowego.  Przy
