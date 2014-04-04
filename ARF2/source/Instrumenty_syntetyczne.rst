@@ -1,13 +1,37 @@
 ﻿Instrumenty syntetyczne
 =======================
 
-Tak jak światło składa się z elementów  składowych tak i instrumenty finansowe składają się z instrumentów  podstawowych. Jak już było wspomniane to na początku rozdziału o opcjach, opcje należą do tych składowych. Instrumenty syntetyczne to instrumenty składające (dające się rozłożyć) na składowe instrumenty. Instrumenty syntetyczne składają się z kombinacji dwu lub więcej elementów składowych. Konstrukcja takich instrumentów  nazywana jest inżynierią finansową. 
+Tak jak światło składa się z elementów składowych tak i instrumenty
+finansowe składają się z instrumentów podstawowych. Jak już było
+wspomniane to na początku rozdziału o opcjach, opcje należą do tych
+składowych. Instrumenty syntetyczne to instrumenty składające (dające
+się rozłożyć) na składowe instrumenty. Instrumenty syntetyczne
+składają się z kombinacji dwu lub więcej elementów
+składowych. Konstrukcja takich instrumentów nazywana jest inżynierią
+finansową.
 
-Oprócz opcji  „cegiełkami” tworzącymi inne instrumenty są  obligacje, akcje, opcje  call i put oraz swapy.
+Oprócz opcji „cegiełkami” tworzącymi inne instrumenty są obligacje,
+akcje, opcje call i put oraz swapy.
 
-Na początek  budujemy portfel inwestycyjny. Kupujemy  aktywo  i od momentu posiadania  aktywa obawiamy się spadku jego ceny i chcemy by wartość naszego portfela  nie zmalała w przypadku  spadku cen tego aktywa na rynku. Aby się zabezpieczyc przed spadkiem wartości portfela  kupujemy opcje put na wspomniane aktywo.  Kupienie opcji  put  i zapłacenie premii pozwala   na ograniczenie możliwych strat z dołu przy zachowaniu szans na wzrost wartości aktywa. W takiej strategii widać podobieństwo do płacenia  polisy ubezpieczeniowej za ograniczenie strat.
+Na początek budujemy portfel inwestycyjny. Kupujemy aktywo i od
+momentu posiadania aktywa obawiamy się spadku jego ceny i chcemy by
+wartość naszego portfela nie zmalała w przypadku spadku cen tego
+aktywa na rynku. Aby się zabezpieczyc przed spadkiem wartości portfela
+kupujemy opcje put na wspomniane aktywo.  Kupienie opcji put i
+zapłacenie premii pozwala na ograniczenie możliwych strat z dołu przy
+zachowaniu szans na wzrost wartości aktywa. W takiej strategii widać
+podobieństwo do płacenia polisy ubezpieczeniowej za ograniczenie
+strat.
 
-Ale  widać  strategie alternatywna   dla  opisanej sytuacji.  Zamiast kupować aktywo i opcje put zapewniającą  „atrakcyjna” cenę jego sprzedaży  możemy   kupić jedynie opcje call  na  „atrakcyjną” cenę aktywa.   Zaoszczędzone pieniądze (różnica miedzy ceną kupna aktywa i premia opcji put) możemy zainwestować  w   instrument dłużny oprocentowany stopa wolna od ryzyka.  Jeśli wartość aktywa wzrośnie  możemy kupić je wykorzystując opcje call  i swoją  inwestycje. Jeśli wartość aktywa spadnie można pozwolić wygasnąć opcji  i zachować  pieniądze w inwestycji w stopę wolną od ryzyka. 
+Ale widać strategie alternatywna dla opisanej sytuacji.  Zamiast
+kupować aktywo i opcje put zapewniającą „atrakcyjna” cenę jego
+sprzedaży możemy kupić jedynie opcje call na „atrakcyjną” cenę aktywa.
+Zaoszczędzone pieniądze (różnica miedzy ceną kupna aktywa i premia
+opcji put) możemy zainwestować w instrument dłużny oprocentowany stopa
+wolna od ryzyka.  Jeśli wartość aktywa wzrośnie możemy kupić je
+wykorzystując opcje call i swoją inwestycje. Jeśli wartość aktywa
+spadnie można pozwolić wygasnąć opcji i zachować pieniądze w
+inwestycji w stopę wolną od ryzyka.
 
 Porównując obie strategie widzimy, że 
 
@@ -20,7 +44,8 @@ Porównując obie strategie widzimy, że
     ====================	========================	=================
 
 
-Niech cena aktywa wynosi S a cena wykonania opcji X.  W zależności od tego ile wynosi cena aktywa na rynku postępujemy:
+Niech cena aktywa wynosi S a cena wykonania opcji X.  W zależności od
+tego ile wynosi cena aktywa na rynku postępujemy:
 
 w przypadku portfela:
 
@@ -35,7 +60,8 @@ Portfel  Call + PV(X)
 - Jeśli S < X, niech call wygaśnie a masz inwestycje, X
 - Jeśli S :math:`\geq` X, wykorzystaj call mając inwestycje i masz  S
 
-Jeśli te dwie pozycje są tyle samo warte na koniec inwestycji  to powinny być tyle samo warte na początku inwestycji. 
+Jeśli te dwie pozycje są tyle samo warte na koniec inwestycji to
+powinny być tyle samo warte na początku inwestycji.
 
 To prowadzi do warunku równości (parytetu) put-call 
 
@@ -47,30 +73,39 @@ To prowadzi do warunku równości (parytetu) put-call
 
 Gdzie
 
-| S – cena aktywa (1 akcji)
-| P - cena opcji put (1 opcja) na cenę wykonania X i czasie do wygaśnięcia T
-| C cena opcji  call (jedna  opcja)  na cene wykonania X i czasie do wygaśnięcia T – jak opcja put.
-| PV(X)- jedna obligacja (instrument dyskontowy) z wartością w czasie zapadalności T równej X.
+ - :math:`S` - cena aktywa (1 akcji)
+ - :math:`P` - cena opcji put (1 opcja) na cenę wykonania X i czasie do wygaśnięcia T
+ - :math:`C` - cena opcji  call (jedna  opcja)  na cene wykonania X i czasie do wygaśnięcia T – jak opcja put.
+ - :math:`PV(X)` - jedna obligacja (instrument dyskontowy) z wartością w czasie zapadalności T równej X.
 
-Jeśli ten warunek nie zachodzi to mamy do czynienia z arbitrażem.  Możliwość arbitrażu nie będzie istnieć długo ale wtedy  opłacalnym będzie działanie: Kup stronę „niską” a sprzedaj „wysoka” 
+Jeśli ten warunek nie zachodzi to mamy do czynienia z arbitrażem.
+Możliwość arbitrażu nie będzie istnieć długo ale wtedy opłacalnym
+będzie działanie: Kup stronę „niską” a sprzedaj „wysoka”
 
-Arbitraż  jest sytuacją wyjątkową i  ulotną  w stosunku do  sytuacji gdy rynek jest  w równowadze.  Jeśli rynek jest efektywny (a raczej jest) używamy tego równania do znalezienia wielkości przy pomocy danych pozostałych trzech instrumentów 
+Arbitraż jest sytuacją wyjątkową i ulotną w stosunku do sytuacji gdy
+rynek jest w równowadze.  Jeśli rynek jest efektywny (a raczej jest)
+używamy tego równania do znalezienia wielkości przy pomocy danych
+pozostałych trzech instrumentów
 
-Przykład:
+.. admonition:: Przykład:
 
-Z danych rynkowych widać, że :
+    Z danych rynkowych widać, że :
 
-Aktualna cena akcji = 50, cena opcji  Put = 1.15, z ceną wykonania = 45, stopa wolna od ryzyka = 5%, Termin wygaśnięcia 1 rok 
+    Aktualna cena akcji = 50, cena opcji Put = 1.15, z ceną wykonania
+    = 45, stopa wolna od ryzyka = 5%, Termin wygaśnięcia 1 rok
 
-Pytanie : Jaka jest cena  opcji Call?
+    Pytanie : Jaka jest cena  opcji Call?
 
-Korzystając z równania parytetu mamy 
+    Korzystając z równania parytetu mamy 
 
-50  1.15 = C + 45 / (1.05)
+    50  1.15 = C + 45 / (1.05)
 
-Czyli cena opcji call wynosi  C = 8.29. 
+    Czyli cena opcji call wynosi  C = 8.29. 
 
-Przy wycenie opcji podobnie jak w wielu przypadkach instrumentów dłużnych stosuje ciągłą kapitalizacje w czasie. 
+
+
+Przy wycenie opcji podobnie jak w wielu przypadkach instrumentów
+dłużnych stosuje ciągłą kapitalizacje w czasie.
 
 Równania wartości pieniądza w czasie dla ciągłej kapitalizacji:
 
@@ -81,22 +116,27 @@ Równania wartości pieniądza w czasie dla ciągłej kapitalizacji:
    FV = PVe^{Rt} 
 
 
-Równanie pokazujące związek ceny akcji I opcji call oraz put I obligacji o stopie  bez ryzyka :eq:`IS1` wygląda:
+Równanie pokazujące związek ceny akcji I opcji call oraz put I
+obligacji o stopie bez ryzyka :eq:`IS1` wygląda:
 
 .. math::
 
    S + P = C + Xe^{-Rt} 
 
 
-Gdzie  X- to  wartość obligacji na stopę  wolna od ryzyka na datę wygaśnięcia opcji. X to również cena wykonania opcji (obu) w czasie wygaśnięcia. 
+Gdzie :math:`X` - to wartość obligacji na stopę wolna od ryzyka na datę
+wygaśnięcia opcji. :math:`X` to również cena wykonania opcji (obu) w czasie
+wygaśnięcia.
 
-Jeśli  aktywo (akcja) wypłaca dywidendę to zachodzi równość.
+Jeśli aktywo (akcja) wypłaca dywidendę to zachodzi równość.
 
 
-cena opcji Put – cena opcji Call  = present value ceny wykonania  + present value dywidend  – cena akcji 
+cena opcji Put - cena opcji Call  = present value ceny wykonania  + present value dywidend  - cena akcji 
 
 
-Gdy  na  wykresie  zysków (strat) od ceny aktywa  naniesiemy zależności dla ceny akcji  opcji call I put  możemy łatwo  wykazać  zależność parytetu graficznie. 
+Gdy na wykresie zysków (strat) od ceny aktywa naniesiemy zależności
+dla ceny akcji opcji call I put możemy łatwo wykazać zależność
+parytetu graficznie.
 
 .. image
 
@@ -108,7 +148,8 @@ Oznaczenia:
 | Niebieski- pozycja długa w aktywie (akcja)
 | Jasno niebieski przerywany – pozycja długa w obligacji.
 
-Analogicznie aby określić  cenę  opcji put  przekształcamy wzór :eq:`IS1` do postaci:
+Analogicznie aby określić cenę opcji put przekształcamy wzór :eq:`IS1`
+do postaci:
 
 .. math::
    :label: IS2
@@ -116,22 +157,28 @@ Analogicznie aby określić  cenę  opcji put  przekształcamy wzór :eq:`IS1` d
    P = C – S + Xe^{-Rt}
 
 
-Dlaczego?  Kupienie  call i sprzedaż aktywa (akcji)  replikuje  wypłatę z zakupu opcji  put.
+Dlaczego?  Kupienie call i sprzedaż aktywa (akcji) replikuje wypłatę z
+zakupu opcji put.
 
-A co w przypadku istnienia  krótkiej sprzedaży?? 
+A co w przypadku istnienia krótkiej sprzedaży??
 
-Możemy pożyczyć  obligacje (na stopie wolnej od ryzyka). odsetki zarobione na pożyczonej obligacji (pozycja długa w obligacji) pozwolą na taki sam dochód jak w przypadku kupienia put. Korzystając z prawa jednej ceny  tak skonstruowany portfel i opcja put musi mieć taka sama wartość.
+Możemy pożyczyć obligacje (na stopie wolnej od ryzyka). odsetki
+zarobione na pożyczonej obligacji (pozycja długa w obligacji) pozwolą
+na taki sam dochód jak w przypadku kupienia put. Korzystając z prawa
+jednej ceny tak skonstruowany portfel i opcja put musi mieć taka sama
+wartość.
 
 Graficznie przedstawia to wykres
 
 .. image
 
 
-Korzystając ze wzoru :eq:`IS1` możemy tworzyć instrumenty syntetyczne korzystając z  cztere „cegieł„ wymienionych powyżej.
+Korzystając ze wzoru :eq:`IS1` możemy tworzyć instrumenty syntetyczne
+korzystając z cztere „cegieł„ wymienionych powyżej.
 
-Syntetyczna pozycja  Long Stock
-
-Można stworzyć syntetyczną pozycję posiadania akcji  poprzez kupienie  call, sprzedaż put, i zainwestowanie ceny wykonania  na stopę wolna od ryzyka do wygaśnięcia.
+Syntetyczna pozycja Long Stock można stworzyć syntetyczną pozycję
+posiadania akcji poprzez kupienie call, sprzedaż put, i zainwestowanie
+ceny wykonania na stopę wolna od ryzyka do wygaśnięcia.
 
 .. math::
 
@@ -195,15 +242,30 @@ Swap’y służą do zabezpieczania się przed ryzykiem zmiany stóp procentowyc
 
 Swap kuponowy
 
+
+
+.. figure:: figs/ARF2_swap_kuponowy.png
+   :align: left
+   :figwidth: 480px
+
+
+
 Najbardziej typowy swap dotyczy wymiany płatności opartej na zmiennej stopie na płatność opartą o stopę stałą. Na ilustracji spółka A zgadza się wykonać płatność do spółki B liczoną w oparciu o zmienne oprocentowanie (np. LIBOR 6 – miesięczny) ustalonej kwoty. W zamian Spółka B zgadza się dokonać płatności odsetek od tej kwoty dla stałego oprocentowania (np. 10% na rok) Wymiana płatności nastąpi co 6 miesięcy. 
 
 Swap  bazowy 
+
+.. figure:: figs/ARF2_swap_bazowy.png
+   :align: left
+   :figwidth: 480px
+
+
 
 Dotyczy wymiany płatności opartych o zmienne oprocentowanie, ale dla różnych rodzajów stóp procentowych. W przypadku swapu bazowego strony wymieniają płatności oparte na jednym rodzaju zmiennej stopy procentowej (np. 3- miesięczny LIBOR) na inne płatności oparte o inną zmienną stopę oprocentowania. (np. LIBOR 6- miesięczny) 
 
 SWAP jest transakcją zawierana przez dwie strony. Banki jednako pośredniczą w transakcjach i są stroną dla każdej części transakcji zawierając oddzielne kontrakty swap z obu stronami (klientami). Banki zarabiają na różnicy między tym, co płacą jednej ze stron a tym, co otrzymują od drugiej. 
 
 Swap stopy procentowej.
+
 
 Inaczej nazywany IRS (czyli interest rate swap).  Polega ten swap na tym, że płatności wynikające dla stron z kontraktu swap dotyczą tego samego nominału kwoty, ale nie następuje tu żaden transfer tejże kwoty ani inna forma zmiany własności. Raczej mówi się o wymianie oprocentowania, ale nie wynika z tego, że następuje tu jakaś pożyczka. 
 
@@ -223,9 +285,9 @@ Firmy zawierają kontrakt swap w ramach którego spółka B zaciąga kredyt na r
 
 Czyli :					
 
-
-.. image
-
+.. figure:: figs/ARF2_swap_irs.png
+   :align: center
+   :figwidth: 680px
 
 
 W wyniku zawartej transakcji Spółka **B płaci**:	-stałą stopę 6.5% 
