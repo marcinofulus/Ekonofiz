@@ -44,13 +44,17 @@ Praktyczny wstęp do komputerowej analizy Rynków Finansowych
 .. toctree::
    :maxdepth: 1
 
-   forex
-   var.rst
-   Hedging.rst  
+   
+   binarne.rst
+   opcje.rst
    Instrumenty_syntetyczne.rst  
-   Opcje.rst
-   stopy_procentowe.rst
+   stopy_procentowe.rst   
+   Hedging.rst  
+   var.rst
 
+   
+   
+   forex
    ..
       test_template
    

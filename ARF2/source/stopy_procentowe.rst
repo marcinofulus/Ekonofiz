@@ -93,7 +93,7 @@ oprocentowaniu, czy też biorąc pod uwagę stopę zwrotu do zapadalności.
 
 
 .. figure:: figs/krzywa_dochodowosci.png
-   :align: left
+   :align: center
    :figwidth: 340px
    :height: 230px
 
@@ -179,9 +179,9 @@ Stopa spot  to szczególny przypadek - :math:`S(1) = F(0,1)`
 Zasadę tę  ilustruje  rysunek poniżej:
 
 .. figure:: figs/stopy_fwd_ML.png 
-   :align: left
-   :figwidth: 340px
-   :width: 320px
+   :align: center
+   :figwidth: 240px
+   :width: 220px
 
    Zbiór stóp forward i związanych z nimi stóp "spot".
 
@@ -682,7 +682,7 @@ okresów i nanosimy otrzymane wartości na wykresię
 :math:`r_s(N)`. Mamy:
 
 .. figure:: figs/krzywa_dochodowosci1.png
-   :align: left
+   :align: center
    :figwidth: 340px
    :height: 230px
 
@@ -742,7 +742,7 @@ Vasicek'a, w którym chwilowa stopa zwrotu dana jest równaniem:
 .. math::
    :label: vasicek_sde
 
-   \frac{dr}{dt} = \lambda \left( \mu  - r(t) \right) + \sigma \ksi(t),
+   \frac{dr}{dt} = \lambda \left( \mu  - r(t) \right) + \sigma \xi(t),
 
 
 gdzie: 
@@ -781,6 +781,14 @@ Poniższy kod wykonuje :math:`N` kroków symulacji:
     for i in range(1,N):
       x[:,i]=x[:,i-1] + k*(theta-x[:,i-1])*h + sigma*np.sqrt(h)*np.random.randn(M)
 
+    line( zip(time,x[13,:]) ) + point(zip(time[::100],x[13,::100]),color='red')
+    (np.prod(1+np.average(x[:,::100],axis=0)*0.01)**(0.1)-1)*100
+
+    rav  = np.average(x[:,::100],axis=0)*0.01
+
+    point([(n,100*(np.prod(1+rav[:n])**(1.0/n)-1)) for n in range(1,100+1)])
+
+
 .. admonition:: Opis programu
 
     Wykorzystujemy stochastyczny algorytm Eulera w którym całka z
@@ -799,7 +807,3 @@ Poniższy kod wykonuje :math:`N` kroków symulacji:
 
 
 
-    line( zip(time,x[13,:]) ) + point(zip(time[::100],x[13,::100]),color='red')
-    (np.prod(1+np.average(x[:,::100],axis=0)*0.01)**(0.1)-1)*100
-    rav  = np.average(x[:,::100],axis=0)*0.01
-    point([(n,100*(np.prod(1+rav[:n])**(1.0/n)-1)) for n in range(1,100+1)])

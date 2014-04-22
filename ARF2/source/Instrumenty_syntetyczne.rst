@@ -192,7 +192,9 @@ Graficznie  pokazuje to rysunek poniżej
 
 Long Call
 
-Można zbudować pozycje syntetyczną  long call poprzez kupienie Put, kupienie akcji za pożyczoną kwotę równa cenie wykonania i spłacanej w chwili wygaśnięcia przy stopie wolnej od ryzyka.  
+Można zbudować pozycje syntetyczną long call poprzez kupienie Put,
+kupienie akcji za pożyczoną kwotę równa cenie wykonania i spłacanej w
+chwili wygaśnięcia przy stopie wolnej od ryzyka.
 
 .. math::
 
@@ -206,7 +208,9 @@ Na wykresie
 
 Syntetyczna sprzedaż  akcji  
 
-Można utworzyć syntetyczną pozycja sprzedaży akcji  (short) poprzez sprzedaż call, kupienie put,  kupienie obligacji (stopa wolna od ryzyka) za pożyczona  cenę wykonania  i trzymanie jej do zapadnięcia. 
+Można utworzyć syntetyczną pozycja sprzedaży akcji (short) poprzez
+sprzedaż call, kupienie put, kupienie obligacji (stopa wolna od
+ryzyka) za pożyczona cenę wykonania i trzymanie jej do zapadnięcia.
 
 .. math::
 
@@ -220,7 +224,8 @@ Graficznie
 
 Syntetyczna pozycja short Put
 
-Można stworzyć syntetyczną short put poprzez sprzedaż opcji  call, kupno aktywa za pożyczone na stopę wolna od ryzyka do wygaśnięcia. 
+Można stworzyć syntetyczną short put poprzez sprzedaż opcji call,
+kupno aktywa za pożyczone na stopę wolna od ryzyka do wygaśnięcia.
 
 .. math::
 
@@ -232,48 +237,89 @@ Graficznie przedstawia wykres
 .. image
 
 
-Jeśli  w miejsce  kontraktów  kasowych  na aktywo wstawimy  kontrakt futures to otrzymamy podobne zależności  dla rynku futures.
+Jeśli w miejsce kontraktów kasowych na aktywo wstawimy kontrakt
+futures to otrzymamy podobne zależności dla rynku futures.
+
 
 Swapy
+-----
 
-Transakcje  swapowe to  syntetyczne instrumenty  zbudowane z dwu podstawowych „cegiełek”  instrumentów finansowych. Przykładowo  polaczenia instrumenty dłużnego o stałym oprocentowaniu z instrumentem dłużnym o zmiennym oprocentowaniu. Często do tej kombinacji instrumentów  dochodzi transakcja wymiany walut.
+Transakcje swapowe to syntetyczne instrumenty zbudowane z dwu
+podstawowych „cegiełek” instrumentów finansowych. Przykładowo
+polaczenia instrumenty dłużnego o stałym oprocentowaniu z instrumentem
+dłużnym o zmiennym oprocentowaniu. Często do tej kombinacji
+instrumentów dochodzi transakcja wymiany walut.
 
-Swap’y służą do zabezpieczania się przed ryzykiem zmiany stóp procentowych na międzynarodowych rynkach finansowych. Typowy podział swapów to podział na swapy kuponowe i bazowe.
+Swap’y służą do zabezpieczania się przed ryzykiem zmiany stóp
+procentowych na międzynarodowych rynkach finansowych. Typowy podział
+swapów to podział na swapy kuponowe i bazowe.
+
 
 Swap kuponowy
-
+~~~~~~~~~~~~~
 
 
 .. figure:: figs/ARF2_swap_kuponowy.png
-   :align: left
+   :align: center
    :figwidth: 480px
 
 
 
-Najbardziej typowy swap dotyczy wymiany płatności opartej na zmiennej stopie na płatność opartą o stopę stałą. Na ilustracji spółka A zgadza się wykonać płatność do spółki B liczoną w oparciu o zmienne oprocentowanie (np. LIBOR 6 – miesięczny) ustalonej kwoty. W zamian Spółka B zgadza się dokonać płatności odsetek od tej kwoty dla stałego oprocentowania (np. 10% na rok) Wymiana płatności nastąpi co 6 miesięcy. 
+Najbardziej typowy swap dotyczy wymiany płatności opartej na zmiennej
+stopie na płatność opartą o stopę stałą. Na ilustracji spółka A zgadza
+się wykonać płatność do spółki B liczoną w oparciu o zmienne
+oprocentowanie (np. LIBOR 6 – miesięczny) ustalonej kwoty. W zamian
+Spółka B zgadza się dokonać płatności odsetek od tej kwoty dla stałego
+oprocentowania (np. 10% na rok) Wymiana płatności nastąpi co 6
+miesięcy.
+
 
 Swap  bazowy 
+~~~~~~~~~~~~
 
 .. figure:: figs/ARF2_swap_bazowy.png
-   :align: left
+   :align: center
    :figwidth: 480px
 
 
 
-Dotyczy wymiany płatności opartych o zmienne oprocentowanie, ale dla różnych rodzajów stóp procentowych. W przypadku swapu bazowego strony wymieniają płatności oparte na jednym rodzaju zmiennej stopy procentowej (np. 3- miesięczny LIBOR) na inne płatności oparte o inną zmienną stopę oprocentowania. (np. LIBOR 6- miesięczny) 
+Dotyczy wymiany płatności opartych o zmienne oprocentowanie, ale dla
+różnych rodzajów stóp procentowych. W przypadku swapu bazowego strony
+wymieniają płatności oparte na jednym rodzaju zmiennej stopy
+procentowej (np. 3- miesięczny LIBOR) na inne płatności oparte o inną
+zmienną stopę oprocentowania. (np. LIBOR 6- miesięczny)
 
-SWAP jest transakcją zawierana przez dwie strony. Banki jednako pośredniczą w transakcjach i są stroną dla każdej części transakcji zawierając oddzielne kontrakty swap z obu stronami (klientami). Banki zarabiają na różnicy między tym, co płacą jednej ze stron a tym, co otrzymują od drugiej. 
+SWAP jest transakcją zawierana przez dwie strony. Banki jednako
+pośredniczą w transakcjach i są stroną dla każdej części transakcji
+zawierając oddzielne kontrakty swap z obu stronami (klientami). Banki
+zarabiają na różnicy między tym, co płacą jednej ze stron a tym, co
+otrzymują od drugiej.
 
-Swap stopy procentowej.
+Swap stopy procentowej
+~~~~~~~~~~~~~~~~~~~~~~
 
+Inaczej nazywany IRS (czyli interest rate swap).  Polega ten swap na
+tym, że płatności wynikające dla stron z kontraktu swap dotyczą tego
+samego nominału kwoty, ale nie następuje tu żaden transfer tejże kwoty
+ani inna forma zmiany własności. Raczej mówi się o wymianie
+oprocentowania, ale nie wynika z tego, że następuje tu jakaś pożyczka.
 
-Inaczej nazywany IRS (czyli interest rate swap).  Polega ten swap na tym, że płatności wynikające dla stron z kontraktu swap dotyczą tego samego nominału kwoty, ale nie następuje tu żaden transfer tejże kwoty ani inna forma zmiany własności. Raczej mówi się o wymianie oprocentowania, ale nie wynika z tego, że następuje tu jakaś pożyczka. 
-
-Kontrakt swap reguluje okresowość płatności. Najczęściej są to okresy półroczne, ale mogą być i inne. Podstawą jest regulacja zawarta w kontrakcie. Chociaż strony umawiają się w kontrakcie co do dokonywania płatności w regularnych odstępach czasu to w praktyce, jednak, jest to każdorazowo, płatność jednej strony do drugiej równa różnicy zobowiązań. 
+Kontrakt swap reguluje okresowość płatności. Najczęściej są to okresy
+półroczne, ale mogą być i inne. Podstawą jest regulacja zawarta w
+kontrakcie. Chociaż strony umawiają się w kontrakcie co do dokonywania
+płatności w regularnych odstępach czasu to w praktyce, jednak, jest to
+każdorazowo, płatność jednej strony do drugiej równa różnicy
+zobowiązań.
 
 Mechanizm  swapu  na stopę procentową.
 
-Niech będą dwie firmy : Spółka A i spółka B. Spółka A  funkcjonuje na rynku długo  i jest uważana  za spółkę o  bardzo bezpiecznym  bilansie i bezpiecznej działalności finansowej. Dla tego na rynku  może otrzymać kredyt  stało procentowy o stopie 6% lub zmienno procentowy w oparciu o LIBOR + 0,5%. Spółka B  jest firma młodą i oferowany dla niej kredyt stało procentowy opiera się o stopę 8% albo kredyt o stopie zmiennej liczony według formuły LIBOR +1%.
+Niech będą dwie firmy : Spółka A i spółka B. Spółka A funkcjonuje na
+rynku długo i jest uważana za spółkę o bardzo bezpiecznym bilansie i
+bezpiecznej działalności finansowej. Dla tego na rynku może otrzymać
+kredyt stało procentowy o stopie 6% lub zmienno procentowy w oparciu o
+LIBOR + 0,5%. Spółka B jest firma młodą i oferowany dla niej kredyt
+stało procentowy opiera się o stopę 8% albo kredyt o stopie zmiennej
+liczony według formuły LIBOR +1%.
 
 Załóżmy że Spółka A, oczekując wzrostu stóp procentowych chce zaciągnąć kredyt o oprocentowaniu stałym, B zaś woli zaciągnąć kredyt o oprocentowaniu zmiennym.
 

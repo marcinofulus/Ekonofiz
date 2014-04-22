@@ -1,7 +1,274 @@
 ﻿.. _kontrakty_terminowe:
 
+
+Opcje i lekcja na ich temat,  jaka wynika z kłopotów  polskich firm z opcjami w roku 2008
+=========================================================================================
+
+
+
+
+W każdym rozdziale niniejszego opracowania, tam gdzie wspomina się o
+opcjach podkreślane jest, że opcja to świetny instrument do
+zabezpieczania się przed ryzykiem ale jeśli chodzi o relacje do tego
+ryzyka - asymetryczny. Asymetryczność przejawia się m.in. w tym, ze
+kupujący opcje czuje się jak posiadacz polisy
+ubezpieczeniowej. Zapłacił za nią, czyli poniósł koszt, ale wie, że za
+tą cenę może być spokojny o przyszłość. Bo jeśli ceny aktywa na które
+opiewa opcja zmienią się w sposób niekorzystny dla posiadacza opcji
+(ubezpieczenia) to opcja ochrania go i zmiany te nie będą odczuwalne
+dla niego. Jeśli zmiany pójdą w stronę korzystną pozwoli opcji
+wygasnąć ( tak jak w przypadku polisy- nie skorzysta z niej jeśli nie
+potrzebuje) i skorzysta z dobrodziejstw zmiany. Koszty opcji już
+poniósł w przeszłości i żadne dodatkowe koszty mu nie grożą.
+
+
+Niestety inaczej wygląda sytuacja wystawcy opcji. Wystawca opcji
+sprzedaje "ubezpieczenie" od niekorzystnej zmiany ceny na rynku i
+zobowiązuje się do zrealizowania w przyszłości transakcji w warunkach
+korzystnych dla nabywcy i przed zmianą których nabywca się
+zabezpieczał. Czyli kupić od nabywcy opcji put aktywo po określonej
+cenie lub sprzedać nabywcy opcji call aktywo po określonej
+cenie. Przypomnieć należy, że aby wystawić opcje nie jest wymagane
+posiadanie aktywa na które opcja opiewa. Wystawca opcji działa
+podobnie do firmy ubezpieczeniowej.  W zamian za premie , czyli cenę
+sprzedanej opcji zobowiązuje się „wyrównania” niekorzystnych zmian
+ceny.  Zarabia wtedy gdy nabywca nie skorzysta z opcji ale musi
+wywiązać się ze zobowiązania jeśli ten co kupił u niego opcje zażąda
+tego i to bez względu na to ile go to będzie kosztować. To znaczy, że
+sprzedając opcje powinien skalkulować sobie ile to może kosztować i
+wziął to pod uwagę roztropnie zanim wystawił opcję.
+
+Jak wynika z powyższego straty z nabycia opcji nie przekraczają
+kosztów jej kupna ale korzyść z jej posiadania znaczna i nie
+ograniczana żadnymi barierami poza wielkością zmiany ceny na rynku, a
+ta zmiana może być, przynajmniej teoretycznie, nieograniczona. Koszty
+z wystawienia opcji niestety mogą być wysokie, bo zależą od zmiany
+ceny na rynku , a ta, przynajmniej teoretycznie, może być
+nieograniczona. Korzyść natomiast ograniczona jest do wysokości premii
+czyli ceny za którą nabywca opcji kupił, opcje od wystawcy.
+
+
+Jeśli po lekturze powyższego tekstu pojawi się refleksja, że wystawcy
+opcji bardzo ryzykują to ta refleksja na tym poziomie wiedzy o rynku i
+opcjach jest w pełni słuszna ( i taką pozostaje). Żałować należy, że
+taką wiedzą albo inaczej, że do takiej konkluzji nie doszli
+zarządzający pewnymi spółkami w kraju w roku 2008. Spółki te popadły
+bowiem w tym czasie w duże kłopoty finansowe w związku z transakcjami
+opcyjnymi , które, zawarły. Zanim sytuacja roku 2008 zostanie
+przedstawiona istotnym jest zrobienie jeszcze jednego wyjaśnienia.
+
+
+Uwaga o tym ,ze ryzyko wystawcy opcji jest większe niż nabywającego
+jest prawdą na tym poziomie wiedzy i taką prawdą pozostaje, tak jak
+zasady zachowania mechaniki klasycznej przykładowo są ważne w fizyce
+kwantowej i innych bardziej zaawansowanych działach fizyki. Prawda ta
+jednak nie wyklucza wystawiania opcji. Aby można było nabyć opcje ,
+ktoś ja musi wystawić. Opcje są wystawiane i jest to robione w celach
+uzyskania zysku a nie straty. Zaleca się jednak by czytający ten tekst
+nie wystawiali opcji tak długo, jak długo będą odkrywać jakieś istotne
+informacje w niniejszym opracowaniu. Jeśli bowiem ich doświadczenie i
+wiedza o rynku będzie tak duża, że nie będą korzystać z takich
+opracowań, niech wystawiają opcje. Na rynku finansowym, jak i w życiu,
+nie można osiągnąć nic więcej bez podjęcia ryzyka. Tylko należy mieć
+świadomość istnienia ryzyka i umieć oszacować koszty podjęcia tego
+ryzyka i zarządzania nim tak by, ewentualne straty mieściły się w
+możliwościach ich pokrycia bez zdezorganizowania funkcjonowania firmy
+i jej działalności. Niemniej jednak, podmiot gospodarczy, który nie
+specjalizuje się w transakcjach na rynku instrumentów pochodnych, nie
+powinien wystawiać tego typu instrumentów.
+
+
+Sytuacja   na rynku walutowym w okolicach roku 2008 - uwarunkowania   eksporterów
+---------------------------------------------------------------------------------
+
+Od kilku lat polski złoty PLN generalnie umacniał się w stosunku do
+głównych walut i coraz mniej złotówek otrzymywali eksporterzy za każdy
+( przykładowo) dolar uzyskany z eksportu.  Koszty jednak ponosili w
+złotówkach.  Czyli z ich punktu widzenia eksport stawał się mniej
+opłacalny albo inaczej byli coraz mniej konkurencyjni na rynku.
+
+
+.. figure:: figs/USD_2008.png 
+   :align: center
+   :figwidth: 340px
+   :height: 230px
+
+   Kurs USD - PLN w okresie od kwietnia 2004 roku do kwietnia  2008 roku.
+
+Interesem eksporterów było zabezpieczenie się przed umacniającym się
+złotym czyli otrzymywanie jak najwięcej złotówek za np. dolara.
+
+Transakcja która mogła spełnić ich oczekiwania przykładowo wygladała
+następująco: 
+
+.. admonition:: Scenariusz 1
+
+                Firma Export S.A. chciała zabezpieczyć swój przyszły
+                przychód o wartości 1 miliona USD na wypadek wzrostu
+                wartości złotówki. Ponieważ działalność firmy to
+                eksport towarów a nie operacje finansowe skorzystała z
+                pomocy dostawcy usług finansowych np. Banku
+                International. Bank zaproponował sprzedaż opcji
+                walutowej – koszt opcji ( jakiś ułamek wartości
+                aktywa) – czyli 10 000 PLN. Kupiony instrument
+                zobowiązywał bank w określonym terminie ( np. 3
+                miesiące) do zakupu miliona dolarów po ustalonym
+                kursie ( korzystnym dla eksportera)- powiedzmy po 2,50
+                PLN za USD. W chwili zawarcia transakcji kurs oscyluje
+                około 2.48 PLN za dolara.  Firma nie martwi się w tym
+                przypadku o zmiany ceny dolara na rynku bo jeśli złoty
+                się umocni w stosunku do sytuacji opisanej w zawartej
+                transakcji i skorzysta z zakupionej opcji, jeśli
+                natomiast złoty się osłabi pozwoli opcji wygasnąć i
+                skorzysta z zaistniałej sytuacji na rynku. W tym
+                drugim przypadku można mówić o stracie w wysokości
+                opłaty za transakcje czyli ceny opcji , w tym
+                przypadku 10 000 PLN. Ten koszt już był poniesiony i
+                jest już zaksięgowany w kosztach i wielkość
+                ewentualnych kosztów nie wzrośnie.
+
+Właściwie do tego miejsca wszystko wydaje się jasne i zrozumiałe. Tak
+powinno działać zabezpieczenie.
+
+Tylko że z czasem firmie bardzo nie podoba się poziom kosztów
+transakcji zawieranych . Jeśli obroty wynoszą dziesiątki i setki
+milionów koszty te stanowią pokaźną pozycje.
+
+Bank, któremu klient zwierzył się ze swych obserwacji o kosztach i w
+obawie o stratę klienta a może w trosce o jego komfort??  wymyśla taką
+konstrukcję transakcji aby klient nie ponosił tych kosztów.
+Zaproponowana transakcja wygląda następująco:
+
+
+.. admonition:: Scenariusz  2
+
+                Firma Export S.A chcąc zabezpieczyć swój przyszły
+                przychód w wysokości 1 miliona USD na wypadek wzrostu
+                wartości złotówki. Ponieważ nie chce płacić bankowi
+                International za wykupienie opcji walutowej 10 000 PLN
+                bank International proponuje: ja sprzedam Ci opcję
+                walutową za 10 000 PLN w której zobowiążę się do
+                wykupienia Twojego miliona dolarów po korzystnym 2,50
+                PLN, to kosztować Cię będzie 10 000PLN ale Ty
+                sprzedasz mi opcję walutową wartą, powiedzmy 10 000
+                PLNy, i zgodnie z tą umową zobowiążesz się, że
+                sprzedasz bankowi 1 milion USD po kursie 2,50PLN za
+                USD. Ponieważ Klient ma płacić bankowi a bank
+                klientowi równe kwoty opłaty za opcje wiec sumaryczny
+                koszt dla klienta wynosi 0 PLN. Koszty takie
+                zadawalają klienta. Ponadto firma Export S.A nie musi
+                martwić się wzrastającą wartością złotówki
+                . Rozwiązanie wydaje się idealne. Co prawda przykład
+                jest teoretyczny wiec cena opcji sprzedaży i kupna są
+                identyczne. W praktyce tak nie jest ale od czego są
+                specjaliści od finansów. Można bowiem regulować tak
+                kwotą sprzedawanych przez klienta bankowi dolarów aby
+                kwoty opłat za opcje były równe czego oczekuje klient.
+                Zadowolenie klienta - wartością naczelna dla banku. To
+                ze Klient ma sprzedać więcej dolarów bankowi niż bank
+                zobowiązuję w swej opcji kupić jest
+                szczegółem. Przecież wystarczy popatrzeć na wykres by
+                zobaczyć, ze PLN się umacnia czyli bank i tak nie
+                wykorzysta swej opcji.
+
+
+I znów wszyscy są zadowoleni, tylko, że klient nie zauważa (może nie
+zauważył) , że wystawił opcje. Jako wystawca opcji ma obowiązek
+dostarczyć bankowi dolary po 2,50 jeśli bank tego zażąda.
+
+Sytuacja na rynku nagle uległa zmianie. Kryzys finansowy USA pojawił
+się w roku 2008 powodując duże perturbacje na rynkach, w tym na rynku
+walutowym.
+
+
+.. figure:: figs/USD_2008b.png 
+   :align: center
+   :figwidth: 340px
+   :height: 230px
+
+   Notowania  kursu  USD/PLN.
+
+
+
+Skutkiem wyprzedaży aktywów przez inwestorów zagranicznych w Polsce
+złoty uległ nagłemu osłabieniu.  
+
+Wtedy pojawił się problem dla posiadaczy złożonych opcji, kiedy
+wartość złotego idzie w dół. 1 milion dolarów jaki zarobi firma Export
+S.A.  bank International kupiłby po kursie 3,50 PLN za 1 USD. Tylko,
+że Firma Export S.A.  nie ma już wyboru – musi sprzedać swoje
+pieniądze bankowi International po kursie 2,50 za 1 USD. Ponadto
+często więcej dolarów niż zabezpieczała sobie kupując opcje put (
+pierwsza opcja) bo druga opcja zawarta celem zrównoważenia opłaty
+(kosztów opcji) za opcje put często opiewała na większą kwotę. Kolejny
+raz na rynku zdarzyła się sytuacja, której nie przewidzieli
+zawierający transakcje albo inaczej uznali prawdopodobieństwo
+wystąpienia jako bardzo niskie, wręcz niemożliwe do wystąpienia w
+realnym świecie. Kolejny raz rynek brutalnie nauczał pokory . Zerowe
+prawdopodobieństwo nie istnieje.  Ilość zawartych transakcji była
+znaczna. Patrz wykres poniżej.
+
+
+.. figure:: figs/tip.png
+   :align: center
+   :figwidth: 340px
+   :height: 230px
+
+
+
+Firmy wpadły w kłopoty finansowe. W mediach pojawiło się określenie
+„toksyczne opcje” jako określenie umów określenie umów zawieranych z
+bankami przez polskie przedsiębiorstwa w 2008 roku, które często
+doprowadzały je do kłopotów finansowych, z bankructwem włącznie. Jak
+to bywa z mediami określenie nie było precyzyjne bo firmy zawierały
+różne umowy z różnymi bankami, ale miało cel wywołania emocji.
+Zaistniała sytuacja była analizowana i omawiana szeroko bo i problem
+był spory i w przypadku niektórych firm zakończył się bankructwem [#f1]_.
+
+
+Konkluzje prawie wszystkich opracowań były zgodne i
+podobne. Wypracowując opisaną strategie zabezpieczającą przed ryzykiem
+kursowym i podpisując umowy z bankami firmy przyjęły na siebie jeszcze
+większe ryzyko kursowe niż to, przed którym szukały ochrony. A nawet
+wystawiły się na to ryzyko w stopniu większym niż były wystawione.
+Ponadto, asymetria umów, w których nominał opcji wystawionych
+przewyższa nominał opcji nabytych, wskazywał na brak orientacji w
+działaniu opcji albo brak zrozumienia wykonywanych transakcji( co
+wydaje się mało prawdopodobne) albo na działania spekulacyjne. Firmy
+jako podmioty nie zajmujące się działalnością na rynkach finansowych
+nie powinny były wystawiać opcji.  
+
+Zawsze, w każdej działalności, należy kierować się zasadą
+ograniczonego zaufania do partnerów ( a szczególnie finansowych i
+oferujących coś „ za darmo”) i nigdy nie wchodzić posiadanie
+instrumentów finansowych, których działania do końca się nie rozumie.
+Na rynku pojawiają się ciągle coraz bardziej skomplikowane i wymyślne
+instrumenty finansowe projektowane przez świetne wyszkolonych
+specjalistów posiadających znakomita wiedzę matematyczno- numeryczną,
+których działanie nie wszyscy do końca rozumieją a ryzyka których nie
+jest w pełni znane.
+ 
+Jednak należy podkreślić jedna pozytywną element omawianej
+sytuacji. Firmy Ne finansowe podeszły aktywnie do zarządzania ryzykiem
+finansowym, w tym przypadku , kursowym. Omówiony został przypadek firm
+, które nie zrobiły tego idealnie i popełniły pewne błędy na słusznej
+drodze słusznych decyzji o zabezpieczeniu. W powyższym przypadku nie
+mówiono o firmach, które zrobiły to zabezpieczenie właściwie.
+
+.. rubric:: Footnotes
+
+.. [#f1] Ciekawą analizę problemu można przykładowo znaleźć w pracy:
+         Danuta Dziagwo, Leszek Dziagwo. „RYZYKO INSTRUMENTÓW
+         POCHODNYCH W OBROCIE GOSPODARCZYM NA PRZYKŁADZIE „OPCJI
+         TOKSYCZNYCH””- ZESZYTY NAUKOWE UNIWERSYTETU SZCZECIŃSKIEGO NR
+         752 EKONOMICZNE PROBLEMY USŁUG NR 102 2013.
+
+
+
 Opcje 
 =====
+
+
 
 Opcje stanowią podstawowy element innych instrumentów finansowych.
 Opcje to instrument zwany instrumentem pochodnym, gdyż jego cena

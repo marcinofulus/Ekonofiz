@@ -2,6 +2,57 @@
 =======
 
 
+**Short hedge** jest często stosowana strategia zabezpieczania przez
+producentów (surowce, produkty spożywcze, etc.), którzy chętnie 
+poniosą pewne koszty "zamrażając" ceny w przyszłości.  
+
+Dla zobrazowania wyobrazić sobie należy producenta surowca (producent
+miedzi, gospodarstwo rolne, itd.), który musi w przyszłości dostarczyć
+wytwór swej pracy po cenie rynkowej i obawia by cena ta nie była
+niższa niż koszty wytwarzania produktu.  
+
+.. admonition:: Przykład 
+
+                Cena miedzi utrzymuje się na rynku kasowym wynosi 3.21
+                USD za funt (ok. 0.5kg) a wielkość kontraktu wynosi
+                25 000 funtów (notowania COMEX).  Producent wie, że
+                powinien dostarczyć za dwa miesiące 25 000 funtów
+                miedzi na rynek. Dla uproszczenia wielkość dostawy to
+                wielkość 1 kontraktu giełdowego na dostawę miedzi w
+                przyszłości.  Obawia się by cena rynkowa w chwili
+                dostawy nie była niższa niż jego koszty wytwarzania,
+                które wynoszą (powiedzmy) 2.89 USD za funt, czyli
+                72 250 za kontrakt.  Dzisiejsza cena miedzi na rynku
+                terminowym futures wynosi 3.18 USD za funt na miedz w
+                terminie dostawy za dwa miesiące. Chcąc się
+                zabezpieczyć producent sprzedaje kontakt futures na
+                dostawę za dwa miesiące za cenę 3.18 USD za funt czyli
+                79 500 USD za kontrakt.
+                
+                Za dwa miesiące cena miedzi na rynku kasowym (i na
+                dostawę w tym samym czasie na rynku futures) wynosi
+                2.8 USD za funt czyli 70 000 USD za kontrakt.  Czyli
+                zysk jaki odnotował ze sprzedaży futures wyniósł
+                79 500 - 70 000 = 9 500 USD Sprzedając miedź na rynku
+                kasowym odnotował wynik:
+
+                 - wpływ ze sprzedaż: 70 000 USD
+                 - koszty wytworzenia: 72 250 USD,
+
+                czyli stracił 70 000 - 72 250 = - 2 250
+                USD. Uwzględniając zyski z rynku futures całkowity
+                jego bilans jest dodatni:
+
+                - 9 500 - 2 250 = 7 250 USD 
+
+                Innymi słowy mimo, że rynek zmusił producenta do
+                sprzedaży poniżej kosztów wytworzenia jego wynik
+                finansowy jest dodatni, czyli odnotowuje zysk mimo
+                spadku ceny.
+
+                Zabezpieczenie zadziałało.
+ 
+
 
 Hedging: cel  operacji  zabezpieczenia przed ryzykiem
 -----------------------------------------------------
