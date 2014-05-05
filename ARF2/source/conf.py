@@ -196,7 +196,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'analiza_rynków_finansowych.tex', u'Analiza Rynków Finansowych',
+  ('index', u'analiza_rynków_finansowych.tex', u'Analiza Rynków Finansowych',
    u'Marek Łukaszewski i Marcin Kostur', 'manual'),
 ]
 
@@ -226,7 +226,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'analiza_rynków_finansowych', u'AnalizaRynkówFinansowych-Skrypt',
+    ('index', u'analiza_rynków_finansowych', u'AnalizaRynkówFinansowych-Skrypt',
      [u'ML and MK'], 1)
 ]
 

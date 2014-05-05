@@ -280,8 +280,8 @@ stopy forward jako procesu stochastycznego.
 Stopy forward pokazują ewolucje stóp na rynku. Więc należy tą ewolucje
 śledzić mając na uwadze efektywne zarządzanie portfelem instrumentów
 dłużnych. Temu celowi służy tworzenie modelu aby wyjaśnić ruch stóp
-forward. Następnie wyliczamy krzywa rentowności wynikającą ze stóp
-forward i porównujemy ja z krzywą stóp aktualnych.  Modelowania polega
+forward. Następnie wyliczamy krzywą rentowności wynikającą ze stóp
+forward i porównujemy ja z krzywą stóp aktualnych.  Modelowanie polega
 przykładowo na stworzeniu modelu dwumiennego (stopa zmieniać się może
 okresowo poprzez wzrost lub zmalenie) albo modelu trójmiennego, gdy
 wartośc stopy w kolejnym okresie czasu z określonym
