@@ -44,8 +44,13 @@ rekombinujących.
 
  - drzewa multiplikatywne: Jeśli cena aktywa po jednym okresie może
    wzrosnąć do :math:`S u` lub zmaleć do :math:`S d`, dla pewnych
-   liczb :math:`u>1` oraz :math:`0<d<1`, niezależnycg od ceny akcji i
+   liczb :math:`u>1` oraz :math:`0<d<1`, niezależnych od ceny akcji i
    czasu.
+
+
+Do operacji na drzewach użyjemy list zagnieżdżonych. Będziemy
+stosowali kilka funkcji pomocniczych, które będą generowały drzewa jak
+i przedstawiały je graficznie.
 
 
 .. sagecellserver::
@@ -131,9 +136,234 @@ rekombinujących.
 
 .. end of output
 
-Miara matryngałowa  :math:`Q`
------------------------------ 
 
+Procedury `gen_all` oraz `gen_recombining`
+
+Drzewa multyplikatywne mają kilka zalet. Po pierwsze cena nie będzie
+ujemna. Nie jest to prawdą w modelu addytywnym! Po drugie, założenie
+stałej zmiany, niezależnej od ceny aktywa wydaje się
+nierzeczywiste. Rozsądniejszym wydaje się podanie względnej zmienności
+ceny aktywa, co właśnie implementuje model multyplikatywny.
+
+Wygenerujmy więc drzewo z czterema rozgałęzieniami, multyplikatywne: 
+
+.. sagecellserver::
+
+    SP = gen_recombining(4,SP=30,q=0.1)
+    plt_sp = plot_tree(SP)
+    plt_sp
+
+
+Drzewa binarne, są fundamentalnym elementem modelowania rynku
+finansowego. Rozważania z zakresu teorii rynków finansowych mogą być
+łatwo zademnostrowane na rynkach skończonych, które są naturalnym
+rozszerzeniem rynku jednookresowego, dwustanowego.
+
+
+
+Kalibracja modelu binarnego
+---------------------------
+
+Rozważmy model dwustanowy - jednookresowy. Niech cenę aktywa określa
+reguła multyplikatywna.
+
+.. math::
+
+   S_{1} = \left\{\begin{array}\  S_0 u  \quad \mathrm{z\ prawdopodobieństwem }\; p \\ 
+   S_0 d \quad  \mathrm{z\ prawdopodobieństwem}\; 1-p \end{array}\right.
+
+
+Mamy więc trzy liczby: :math:`p,u,d`, które określają ten
+model. Chcemy zastosować go jako przybliżenie pewnego ciągłego procesu
+ewolucji ceny, który jest scharakteryzowany przez dwa parametry:
+
+- :math:`r t` - wolna od ryzyka stopa procentowa
+- :math:`\sigma^2 t=\log(\frac{S_1}{S_0})` - średniokwadratowe
+  odchylenie standardowe logarytmicznej stopy zwrotu (w modelu ciągłym).
+
+Dla procesu ciągłego opisywanego przez geometryczny proces Wienera:
+
+.. math::
+
+   dS = rSdt+\sigma S dW,
+
+prawdopodobieństwo ceny aktywa w czasie :math:`t` przy założeniu, że
+cena w czasie :math:`S(t=0)=S_0` jest dane rozkładem lognormalnym:
+
+.. math::
+   :label: eq:logn
+
+   P(S,t|S_0,0)= \frac{1}{\sqrt{2\pi\sigma^2 t S^2}} e^{-\displaystyle\frac{(\log(\frac{S}{S_0})-(r-\frac{1}{2}\sigma^2)t)^2}{2\sigma^2 t}}
+
+
+Wykorzystując wzory na średnią i wariancję (np. z `wikipedii
+<http://pl.wikipedia.org/wiki/Rozk%C5%82ad_logarytmicznie_normalny>`_)
+i porównując z postacią rozkładu :eq:`eq:logn` otrzymujemy wzory na
+wartość oczekiwaną i wariancję procesu ciągłego:
+
+.. math:: 
+   :label: eq:long_EV
+
+   E(S) = S_0 e^{r t} \\
+   Var(S)=   S_0^{2} {\left(e^{\sigma^{2} t} - 1\right)} e^{2 \, r t}
+
+
+Chcemy by jeden krok procesu binarnego odtwarzał przynajmniej dwa
+pierwsze momenty procesu ciągłego: średnią i wariancję. Tak
+więc proces dyskretny będzie musiał spełnić dwa równania:
+
+.. math::
+   :label: eq:cond
+
+   E(S) = p S_0 u+(1-p) S_0 d \\
+   Var(S)=  p (S_0 u)^2+(1-p) (S_0 d)^2 - E(S)
+
+gdzie podstawiamy wartości średniej i wariancji rozkładu lognormalnego
+korzystając z :eq:`eq:long_EV`.
+
+Mamy więc dwa warunki i trzy zmienne do ustalenia, co powoduje, że
+potencjalnie może być nieskończenie wiele rozwiązań. Rozważmy pierwszy
+przypadek w którym przyjmiemy:
+
+
+.. math::
+   :label: eq:crr1
+
+   d = \frac{1}{u}.
+
+
+Taki wariant drzewa binarnego jest znany jako model Cox-a, Ross-a i
+Rubinstein-a (CRR). Rozwiązując układ równań :eq:`eq:crr1`, w
+przybliżenie małego czasu :math:`t`, otrzymujemy wzory wiążące model ciągły z  drzewem binarnym:
+
+
+.. math::
+   :label: eq:crr
+
+   p &=& \frac{e^{rt}-d}{u-d} \\
+   u &=& e^{\sigma \sqrt{t}} \\
+   d &=& e^{-\sigma \sqrt{t}}.
+
+
+Wyprowadzenie tych wzorów można łatwo otrzymać na przykład stosując
+system algebry komputerowej. I tak, zdefiniujmy najpierw zmienne i
+wzory na średnią i wariancję rozkładu lognormalnego oraz zdefiniujmym
+układ :eq:`eq:cond`:
+
+.. sagecellserver::
+   
+    var('r,t,u,d,S0,p,sigma')
+    lognormE = S0*exp(r*t)
+    lognormVar = S0^2*exp(2*r*t)*(exp(sigma^2*t)-1)
+    show([lognormE,lognormVar])
+
+    eq1  = lognormE == p*S0*u+(1-p)*S0*d
+    eq2  = lognormVar ==(p*(S0*u)^2+(1-p)*(S0*d)^2) - lognormE^2
+
+    show([eq1,eq2])
+
+
+Rozwiążmy teraz pierwsze równanie ze względu na :math:`p`
+
+.. sagecellserver::
+
+    psol = solve(eq1,p,solution_dict=True)[0]
+    p.subs(psol).show()
+   
+a następnie podstawmy wynik do drugiego równania i skorzystajmy z
+założenia :eq:`eq:crr1`:
+
+.. sagecellserver::
+
+    solsu = (eq2).subs(psol).subs(d=1/u).solve(u)
+    expr = solsu[1].rhs()
+    expr.show()
+
+Ponieważ interesuje nas granica małych czasów to możemy rozwinąć ten
+nieco długi wzór w szereg Taylora w punktcie :math:`t=0` i ograniczyć
+się do wyrazów pierwszego rzędu w czasie. Zauważmy, że to rozwinięcie
+jest identyczne z rozwinięciem drugiego równania ze wzorów
+:eq:`eq:crr`, co kończy nasze wyprowadzenie:
+
+
+.. sagecellserver::
+
+    expr.taylor(t,0,1).show()
+    exp(sigma*sqrt(t)).taylor(t,0,1).show()
+
+
+Możemy też pokusić się o rozwiązanie układu równań w innej
+parametryzacji, w której mamy:
+
+.. math::
+   :label: eq:JR
+
+   p &=& \frac{1}{2} \\
+   u &=& e^{\sigma \sqrt{t}+(r-\frac{\sigma^2}{2})*t)}\\
+   d &=& e^{-\sigma \sqrt{t}+(r-\frac{\sigma^2}{2})*t)}. 
+
+
+
+Taki przypadek jest znany jako parametryzacja
+Jarrowa-Rudda. Sprawdźmy, czy rzeczywiście to zachodzi. W równaniach
+podstawmy więc od razu :math:`p = \frac{1}{2}` i porównajmy
+rozwinięcia w szereg wyników oraz rozwinięcia równań :eq:`eq:JR`:
+
+.. sagecellserver::
+
+   sols = solve([eq1.subs(p==1/2),eq2.subs(p==1/2)],[u,d])
+   print "pełne rozwiązanie:"
+   show(sols[1])
+   print "Rozwinięcia w t=0:"
+   sols[1][0].rhs().taylor(t,0,1).show()
+   sols[1][1].rhs().taylor(t,0,1).show()
+   print "Rozwinięcia wzorów w  t=0:"
+   exp(sigma*sqrt(t)+(r-sigma^2/2)*t).taylor(t,0,1).show()
+   exp(-sigma*sqrt(t)+(r-sigma^2/2)*t).taylor(t,0,1).show()
+
+
+Ważną uwagą jest to, że model drzewa binarnego i model ciągły jest
+równoważny tylko w granicy :math:`t\to 0.` Oznacza to, że wyceniając
+pewnien instrument jednookresowym modelem dyskretnym otrzymamy spore
+różnice w stosunku do modelu ciągłego, jeśli interesująca nas skala
+czasowa będzie duża.
+
+Sytuacja jednak się zmienia jeśli zastosujemy model
+wielookresowy. Wtedy nasz czas możemy podzielić na wiele odcinków a
+liczba tych podziałów będzie zależała od tego jaką dokładność chcemy
+osiągnąć. Wycena za pomocą modelu wielokresowego będzie dążyła do
+modelu ciągłego w granicy :math:`n\to \infty.`
+
+Przykład - wyceny opcji z danymi z rynku ciągłego.
+
+.. sagecellserver::
+
+   T = 5/12.
+   N = 123
+   sigma = 0.4
+   K = 50
+   r = 10.0
+
+   u = exp(sigma*sqrt(T/N))
+   d = 1.0/u
+   p = (exp(r/100*T/N)-d)/(u-d)
+   C  = exp(r/100*T/N).n()
+
+   SP = gen_recombining(N,SP=K,q=u-1.0)
+
+   OP = [ [max(0,s-K) for s in SP[N]] ]
+   for idx in range(N):
+   el = [ 1/C*(p*OP[-1][i]+(1-p)*OP[-1][i+1]) for i in range(len(OP[-1])-1)] 
+   OP.append(el)
+   print OP[-1]
+
+
+Drzewa binarne
+--------------
+
+Rozważmy drzewo binarne w którym aktywo zmienia się począwszy od
+wartości początkowej :math:`S_0=100` o 20 jednostek w górę lub w
+dół. Poniższy kod generuje takie drzewo:
 
 .. code-block:: python
 
@@ -147,21 +377,17 @@ Miara matryngałowa  :math:`Q`
     :align: center
 
 
+Możemy go samodzielnie uruchomić:
+
 .. sagecellserver::
 
     N = 3
     SP = gen_recombining(N,SP=100,delta1=20,delta2=20)
     plt_sp = plot_tree(SP)
     plt_sp.set_axes_range(ymax=170)
-    plt_sp
+    plt_sp.show()
+    print SP
 
-
-.. code-block:: python
-
-    sage: SP
-    [[100], [120, 80], [140, 100, 60], [160, 120, 80, 40]]
-
-.. end of output
 
 .. code-block:: python
 
@@ -171,7 +397,8 @@ Miara matryngałowa  :math:`Q`
 
 .. end of output
 
-Weźmy prawdopodobieństwa  :math:`q` jako wartości miary martyngałowej:
+Weźmy prawdopodobieństwa :math:`q` jako wartości miary (jeszcze nie
+wiemy czy martyngałowej):
 
 
 .. code-block:: python
@@ -183,7 +410,8 @@ Weźmy prawdopodobieństwa  :math:`q` jako wartości miary martyngałowej:
 
 .. end of output
 
-Wybierzmy sobie z naszego drzewa pewną cenę z okresu drugiego oraz dwie możliwości jej ewolucji w czasie.
+Wybierzmy sobie z naszego drzewa pewną cenę z okresu drugiego oraz
+dwie możliwości jej ewolucji w czasie.
 
 
 .. code-block:: python
@@ -193,7 +421,8 @@ Wybierzmy sobie z naszego drzewa pewną cenę z okresu drugiego oraz dwie możli
 
 .. end of output
 
-możemy sobie narysować to na drzewie, aby sprawdzić czy są to dokładnie te węzły o które nam chodzi.
+możemy sobie narysować to na drzewie, aby sprawdzić czy są to
+dokładnie te węzły o które nam chodzi.
 
 
 .. code-block:: python
@@ -207,7 +436,9 @@ możemy sobie narysować to na drzewie, aby sprawdzić czy są to dokładnie te 
 .. end of output
 
 
-Dla miary  :math:`q=\frac{1}{2}` możemy obliczyć jaka będzie stopa oprocentowanie wolnego od ryzyka, które zapewni to, że ta miara będzie miarą arbitrażową:
+Dla miary :math:`q=\frac{1}{2}` możemy obliczyć jaka będzie stopa
+oprocentowanie wolnego od ryzyka, które zapewni to, że ta miara będzie
+miarą arbitrażową:
 
 
 .. code-block:: python
@@ -262,22 +493,22 @@ Bedzie to zachodziło dla każdego węzła, sprawdźmy:
 .. end of output
 
 
-Definiujemy tablicę wszystkich ścieżek (historii) ewolucji ceny aktywa, z notają, że:
+Definiujemy tablicę wszystkich ścieżek (historii) ewolucji ceny
+aktywa, z notają, że:
 
 - 0 \- oznacza wzrost ceny 
-
 - 1 \- oznacza spadek ceny 
-
 
 
 .. code-block:: python
 
     sage: all_moves = CartesianProduct(*( N*[[0,1]]) ).list()
 
-
 .. end of output
 
-Ruchom tym przyporządkowujemy prawdopodobieństwa. Korzystamy z faktu, że miara martryngałowa jest taka sama w każdym punktcie drzewa binarnego.
+Ruchom tym przyporządkowujemy prawdopodobieństwa. Korzystamy z faktu,
+że miara martryngałowa jest taka sama w każdym punkcie drzewa
+binarnego.
 
 
 .. code-block:: python
@@ -310,7 +541,8 @@ Zobaczmy czy sumują się one do jedności:
 
 .. end of output
 
-Jeśli dla każdej ścieżki obliczymy jej koncową wartość \- biorąc pod uwagę rekombinacje to mamy po prostu sumę:
+Jeśli dla każdej ścieżki obliczymy jej koncową wartość - biorąc pod
+uwagę rekombinacje to mamy po prostu sumę:
 
 
 .. code-block:: python
@@ -330,7 +562,7 @@ To biorąc odpowiedznie prawdopodobieństwa zajścia ścieżek:
 
 .. end of output
 
-Otrzymamy \-  Rozkład dwumianowy (Bernoulliego!)
+Otrzymamy -  Rozkład dwumianowy (Bernoulliego!)
 
 
 .. code-block:: python
@@ -343,7 +575,7 @@ Otrzymamy \-  Rozkład dwumianowy (Bernoulliego!)
 
 .. end of output
 
-sprawdźmy np. z scipy
+sprawdźmy korzystając np. z jego implementacji w pakiecie scipy:
 
 
 .. code-block:: python
@@ -357,7 +589,7 @@ sprawdźmy np. z scipy
 
 .. end of output
 
-Obliczny średnią po ścieżkach:
+Możemy teraz obliczyć średnią z ceny aktywa po Obliczny średnią po ścieżkach:
 
 
 .. code-block:: python
@@ -386,14 +618,13 @@ Obliczny średnią po ścieżkach:
 
 gdzie oznaczyliśmy przez dla ścieżki  :math:`p` ze zbioru wszystkich scieżek  :math:`P` przez:
 
--  :math:`q_i` \- prawdopodobieństwo, skoku ceny między okresami  :math:`i` i  :math:`i+1` 
+- :math:`q_i` \- prawdopodobieństwo, skoku ceny między okresami
+   :math:`i` i :math:`i+1`
+- :math:`p_N` \- indeks w drzewie wartości aktywa na końcu ścieżki
+   :math:`p`
+- :math:`SP_{i,j}` jest tablicą cen aktywa, w :math:`i` oznacza okres
+   a :math:`j` indeks w drzewie wartości.
 
--  :math:`p_N` \- indeks w drzewie  wartości aktywa na końcu ścieżki  :math:`p` 
-
--  :math:`SP_{i,j}` jest tablicą cen aktywa,  w  :math:`i` oznacza okres a  :math:`j` indeks w drzewie wartości. 
-
-
- 
 
  
 
@@ -407,7 +638,9 @@ Na przykład mamy:
 
 .. end of output
 
-Mając takie narzędzie możemy policzyć średnią po realizacjach (ścieżkach) dowolnej funkcji ceny aktywa. Na przykład akcji sprzedaży, której cena jest dana przez:  :math:`\max(0,S-K)`
+Mając takie narzędzie możemy policzyć średnią po realizacjach
+(ścieżkach) dowolnej funkcji ceny aktywa. Na przykład akcji sprzedaży,
+której cena jest dana przez: :math:`\max(0,S-K)`
 
  
 
@@ -423,7 +656,9 @@ Mając takie narzędzie możemy policzyć średnią po realizacjach (ścieżkach
 Ewolucja portfela na drzewie binarnym.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Mamy portfel  :math:`P` \-  [akcje,obligacje] w chwili  :math:`t=0`. Obliczmy jego ewolucję czasową. Zanim to uczynimy, policzmy jak zmienia się cena aktywa na pewnej ścieżce:
+Mamy portfel :math:`P` \- [akcje,obligacje] w chwili
+:math:`t=0`. Obliczmy jego ewolucję czasową. Zanim to uczynimy,
+policzmy jak zmienia się cena aktywa na pewnej ścieżce:
 
 
 .. code-block:: python
@@ -494,18 +729,77 @@ co graficznie możemy przedstawić:
 .. end of output
 
 
+Wycena opcji na drzewie binarnym
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Rozważmy drzewo multyplikatywne i instrument o wartości początkowej
+:math:`S_0`. Narysujmy drzewo możliwych scenariuszy po pięciu
+miesiącach, przyjmując jeden okres modelu jako jeden miesiąc:
+
+.. sagecellserver::
+
+   N = 5
+   SP = gen_recombining(N,SP=50,q=0.1224)
+   plot_tree(SP)
+
+Niech roczna stopa procentowa wynosi 10% a cena wykupu opcji
+:math:`K=50`. Łatwo się przekonać, że takie drzewo jest wolne dla
+miary określonej przez :math:`q=0.5073`. 
+
+.. sagecellserver::
+
+   q = 0.5073
+   Q = [q,1-q]
+   K = 50
+   r = 10.0
+   C  = exp(r/100*1/12.).n()
+
+Aby wycenic opcje postępujemy w następujący sposób. W ostatnim okresie
+cena europejskiej opcji kupna (call) zależy tylko od ceny aktualnej
+aktywa oraz ceny wykupu i jest równa:
+
+.. sagecellserver::
+
+   [max(0,s-K) for s in SP[N]]
+
+Znając te liczby możemy obliczyć cenę opcji w przedostatnim okresie
+rozliczeniowym. Skorzystamy z faktu, że średnia z wartości opcji
+względem miary martyngałowej w okresie :math:`i+1` jest równa cenie
+tego samego instrumentu powiększonego o jego kapitalizację:
+
+.. math::
+
+   e^{r \delta t} S_{i} = p S^{+}_{i+1} +(1-p S^{-}_{i+1} 
+
+
+Możemy więc napisać następujący algorytm:
+
+.. sagecellserver::
+
+   OP = [ [max(0,s-K) for s in SP[N]] ]
+   for idx in range(N):
+   el = [ 1/C*(q*OP[-1][i]+(1-q)*OP[-1][i+1]) for i in range(len(OP[-1])-1)] 
+   OP.append(el)
+   OP.reverse()
+
+   print "Cena opcji:",OP[0]
+   plot_tree2(SP,OP)
 
 
 
 Hedging na drzewie binarnym:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Niech opcja będzie do kupienia po 16! Ponieważ jej wartość wynosi 15 powinniśmy moć na tym zarobić. Ale wystawiając opcje narażamy się na duże ryzyko. Nie interesuje nas ryzyko, ale pewny zysk. 
+Niech opcja będzie do kupienia po 16! Ponieważ jej wartość wynosi 15
+powinniśmy moć na tym zarobić. Ale wystawiając opcje narażamy się na
+duże ryzyko. Nie interesuje nas ryzyko, ale pewny zysk.
 
-Ideą hegdingu, jest taka gra odpowiednim portfelem by w KAZDYM przypadku otrzymać zysk = 1.
+Ideą hegdingu, jest taka gra odpowiednim portfelem by w KAZDYM
+przypadku otrzymać zysk = 1.
 
-Po pierwsze będziemy potrzebowali ceny opcji w każdym węźle drzewa. Niech drzewo cen opcji będzie w strukturze zagnieżdzonej listy OP.
+Po pierwsze będziemy potrzebowali ceny opcji w każdym węźle
+drzewa. Niech drzewo cen opcji będzie w strukturze zagnieżdzonej listy
+OP.
 
 
 .. code-block:: python
