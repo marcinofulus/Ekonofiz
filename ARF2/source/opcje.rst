@@ -268,6 +268,8 @@ mówiono o firmach, które zrobiły to zabezpieczenie właściwie.
 Opcje 
 =====
 
+Podstawowe cechy opcji
+----------------------
 
 
 Opcje stanowią podstawowy element innych instrumentów finansowych.
@@ -277,7 +279,7 @@ zależy (pochodzi) od ceny innego aktywa.
 Opcje to instrument finansowy, którego popularność szybko
 rośnie. Opcje to instrument mądry, użyteczny ale i
 niebezpieczny. Opcje to instrumenty coraz częściej stosowane. Ten
-wzrost stosowania opcji ma swe źródło w szczególnych cechach opcji
+wzrost stosowania opcji ma swe źródło w szczególnych cechach opcji.
 
 
 
@@ -311,10 +313,11 @@ dniach i cen opcji na zakup tych akcji w tym samym czasie.
 Jak widać w przypadku zmian cen akcji można było zarobić 13%
 dysponując kwotą około 100 jednostek a na opcjach 100% dysponując
 kwota około 10 jednostek. Opcja to niezłe narzędzie do spekulacji. Ale
-to jest właśnie w niej niebezpieczne. Opcje maja i inne
-zastosowania. Głownie stosuje się je do zabezpieczania przed
-niekorzystną zmianą cen instrumentów finansowych. Temu ich
-zastosowaniu będzie poświecony poniższy tekst.
+to jest właśnie w niej niebezpieczne. 
+
+Opcje maja i inne zastosowania. Głownie stosuje się je do
+zabezpieczania przed niekorzystną zmianą cen instrumentów
+finansowych. Temu ich zastosowaniu będzie poświecony poniższy tekst.
 
 Co dają opcje swym posiadaczom. Za co płacą pieniądze kupując opcje?
 Kupując opcje kupuje się możliwość wyboru w przyszłości. Prawo wyboru
@@ -323,12 +326,13 @@ aktywa. Opcje bowiem są oparte o prawo do aktywów.
 
 Właściciel opcji może:
 
-- Sprzedać ją komuś innemu 
-- Pozwolić jej wygasnąć (nie skorzystać z możliwości jakie  daje.)
+- Sprzedać ją komuś innemu. 
+- Pozwolić jej wygasnąć (nie skorzystać z możliwości jakie  daje).
 - Wykonać ją (czyli skorzystać z niej).
 
 
-Są dwa rodzaje opcji; opcja **call** i opcja **put**.
+Opcja **call** i opcja **put**
+------------------------------
 
 Opcja **call daje prawo (ale nie nakaz) do kupienia** w określonym
 okresie czasie aktywa za określoną cenę.
@@ -336,7 +340,7 @@ okresie czasie aktywa za określoną cenę.
 Nabywający opcji płaci pieniądze w wysokości **Premii** sprzedawcy
 opcji w zamian za to prawo.
 
-Sprzedawca opcji bierze pieniądze (Premia) za obowiązek sprzedaży w
+Sprzedawca opcji bierze pieniądze (**Premia**) za obowiązek sprzedaży w
 określonym okresie czasu, aktywa, za określona cenę, jeśli posiadacz
 opcji zechce skorzystać z tego prawa.
 
@@ -363,22 +367,31 @@ wystawi się opcję a nikt jej nie kupi można ją zniszczyć. Ilość opcji
 call w obrocie nie jest równa ilości opcji put. Ilość opcji w obrocie
 zmienia się w trakcie każdego dnia funkcjonowania rynku finansowego.
 
-Terminologia rynku opcji:
+
+Terminologia rynku opcji
+------------------------
 
 Cena wykonania: Cena za którą nabywca może kupić (w przypadku Call)
 lub sprzedać (w przypadku Put) aktywo podstawowe.
 
-**Premia**:     Cena opcji, płacona przez nabywającego, wystawcy opcji. 
+**Premia**:
+~~~~~~~~~~~
+
+Cena opcji, płacona przez nabywającego, wystawcy opcji. 
 
 Każda opcja posiada dwie ceny 
 
-- Cenę sprzedaży (**bid**) czyli najwyższa cenę, jaką ktoś chce zapłacić za opcje.  
-- Cenę kupna  (**ask**) czyli najniższą za którą ktoś chce sprzedać daną opcję. 
+- Cenę sprzedaży (**bid**) czyli najwyższa cenę, jaką ktoś chce
+  zapłacić za opcje.
+- Cenę kupna (**ask**) czyli najniższą za którą ktoś chce sprzedać
+  daną opcję.
 
 
-**Data wygaśnięcia/zapadalności** T: ostatni termin do wykorzystania
- opcji (jeśli to opcja amerykańska),jedyna data do wykorzystania opcji
- (jeśli jest to opcja europejska).
+**Data wygaśnięcia/zapadalności** T:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ostatni termin do wykorzystania opcji (jeśli to opcja amerykańska),
+jedyna data do wykorzystania opcji (jeśli jest to opcja europejska).
 
 Różnica miedzy opcją amerykańską a europejską jest taka, że opcje
 amerykańska możemy wykorzystać każdego dnia do terminu wygaśnięcia
@@ -396,10 +409,16 @@ kupić aktywo podstawowe. *Wystawca opcji* (sprzedający) ma wypełnić
 W przypadku kontraktu opcyjnego występują dwie transakcje związane z
 tym kontraktem. Transakcja otwierająca zależność opcyjną to sprzedaż
 opcji przez wystawiającego. Transakcja która kończy zobowiązanie
-opcyjne jest nazywana transakcją zamknięcia. **Opcja call nie jest
-odwrotną transakcją do put ani put nie jest odwrotna do call**.
+opcyjne jest nazywana transakcją zamknięcia. 
+
+.. admonition:: UWAGA!
+
+   Opcja call nie jest odwrotną transakcją do put ani put nie jest
+   odwrotna do call.
+
+
 Ryzyko stron nie jest bowiem symetryczne. Można pozbyć się ryzyka
-wystawienia opcji poprzez zawarcie transakcji odwrotnej –
+wystawienia opcji poprzez zawarcie transakcji odwrotnej -
 t.j. wystawca opcji może pozbyć sie zobowiązania poprzez kupienie
 identycznej opcji.
 
@@ -409,13 +428,17 @@ sprzedaży aktywa za określoną cenę. Jej wartość składa się z wartości
 oceniającej aktualne warunki rynkowe (wartość wewnętrzna – intristic
 value) oraz nadzieje na przyszłość, ocenę przyszłych warunków
 rynkowych - wartość czasową (time value). Na wartość opcji czyli na
-jej cenę składa się jej wartość wewnętrzna i + jej wartość czasowa. Im
+jej cenę składa się jej wartość wewnętrzna i jej wartość czasowa. Im
 opcja jest bliższa wygaśnięcia tym wartość czasowa maleje.
 
 Wartość wewnętrzna (*Intrinsic Value*)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- dla opcji call jest różnicą pomiędzy ceną instrumentu bazowego, a ceną wykonania,
-- dla opcji put jest różnicą pomiędzy ceną wykonania, a ceną instrumentu bazowego. 
+
+- dla opcji **call** jest różnicą pomiędzy ceną instrumentu bazowego,
+  a ceną wykonania,
+- dla opcji **put** jest różnicą pomiędzy ceną wykonania, a ceną
+  instrumentu bazowego.
 
 Wartość wewnętrzna przyjmuje tylko wartości dodatnie lub jest równa zero.
 
@@ -423,12 +446,6 @@ Opcja z zerowa wartością wewnętrzna nazywa się **out of the money**,
 opcja z wartości a wewnętrzną większą od zera nazywa się **in the
 money** a jeśli cena wykonania opcji jest równa cenie aktywa bazowego
 opcje nazywa się **at the Money**.
-
-
-.. image
-
-
-.. Nie wiem czy  nie ”narysowac” komputerowo taki wykres dla  różnych danych?????????
 
 
 
@@ -441,56 +458,132 @@ Inwestor wyszukuje właściwą opcje kierując się (w przypadku akcji
 spółki) Nazwą firmy, datą zapadalności (wygaśnięcia), ceną wykonania,
 i typem opcji:
 
-Przykładowo: 
+Przykładowo, mamy następującą informacje: 
 
-ABC  Stycz.22.50 Call
+Diora  Stycz.125.00 Call
 
 Gdzie:
 
-| ABC – nazwa spółki
-| Styczeń – data zapadalności
-| 22.50 – cena wykonania
-| *Call* – typ opcji.
+| Diora - nazwa spółki
+| Styczeń - data zapadalności
+| 125.00 - cena wykonania
+| *Call* - typ opcji.
 
 
-Przyjmijmy, ze cena takiej opcji cal wynosi 0,25 a cena opcji put 0,
-73 – jednostki monetarnej.
+Przyjmijmy, ze cena takiej opcji cal wynosi 3.25 a cena opcji put
+13.25 - jednostki monetarnej.
 
 
 Profile ryzyka w czterech przypadkach
+-------------------------------------
+
+Long Call - kupujemy prawo kupna
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Zanim przystąpimy do analizy profili wypłat, omówimy dokładnie co
+bedzie znajdowało się na poniższych wykresach. We wszyskich
+przypadkach będziemy rozważać ten sam przypadek opcji na aktywo o
+chwilowej cenie :math:`115`, i cenie wykonania w momencie czasu
+:math:`t=T` wynosi :math:`K=125`. Rynkowa cena takiej opcji call i put
+wynosi odpowiednio 3.25 i 13.25. Na poniższym rysunku znajdują się dwie
+krzywe. Grubą niebieską linią zaznaczono profil wypłaty w czasie
+:math:`t=T` od ceny jaką przyjmie aktywo w czasie :math:`t=T`. Cienką
+czerwoną linią zaznaczono cenę opcji w czasie :math:`t=0`.  
+
+
+.. figure:: figs/longcall0.png 
+   :align: center
+   :figwidth: 446px
+
+   Cena akcji w :math:`t=0` (cienka czerwona linia) oraz :math:`t=T`
+   (grubą niebieską linia).
+
+
+Załóżmy teraz, że nabędziemy taką opcje w momencie :math:`t=0`. Jej
+cena zgodnie z założeniami wynosi 3.25. Zakładając, że nie mamy
+żadnego kapitału, pod takim zakupie jesteśmy zadłużeni na 3.25 i mamy
+opcje z pewnym profilem wypłaty w okresie zapadalności
+:math:`t=T`. Jeżeli wieć przesuniemy wykres o 3.25 do góry, to wykres
+ceny opcji w czasie :math:`t=0` będzie przechodził przez zero
+dokładnie dla tej wartości ceny aktywa jaka akurat jest w
+:math:`t=0`. Dostaniemy więc wykres:
+
+
+.. figure:: figs/longcall.png 
+   :align: center
+   :figwidth: 446px
+
+   Long - Call: czyli nabyliśmy prawo do kupna po cenie :math:`K`.
+
+Punkt na wykresię :math:`(115,0)` możemy interpetować jako stan
+naszego portfela, mamy bowiem. na chwilę zakupu opcji :math:`t=0` mamy
+dokładnie zero a aktywo ma wartość 115. Czy zarobimy na kupnie tej
+opcji zależy od scenariusza ewolucji ceny aktywa na rynku w czasie do
+:math:`t=T`. W przypadku opcji europejskie, jedynie od jego koncowej
+wartości.
 
 Posiadacz opcji call, wystawca opcji call, posiadacz opcji put,
-wystawca opcji put.  Rysunki – zrobić (zbiór prostych...) long call,
-short call, long put, short put.
+wystawca opcji put.  
 
-Innymi słowy 
+Innymi słowy: 
 
 Profil zysku dla posiadacza opcji *call (long call)* w zależności od
-ceny wykonania aktywa jest następujący: jeśli cena aktywa jest niższa
-od ceny wykonania, posiadacz opcji ponosi koszt jej zakupu bo
-oczywiście pozwoli jej wygasnąć a kupi aktywo poniższych cenach
-rynkowych. W naszym przypadku - 0.25.  Gdy cena aktywa wzrośnie
-powyżej ceny wykonania + cena opcji (break even point) zysk będzie
-praktycznie nieograniczony i zależny od wzrostu.  Miedzy cena
-wykonania a cena wykonania + cena opcji zysk będzie równy ujemny ale
-ograniczony.
+ceny wykonania aktywa jest następujący: jeśli cena aktywa na czas
+wykonania jest niższa od ceny wykonania, posiadacz opcji ponosi koszt
+jej zakupu, bo oczywiście pozwoli jej wygasnąć a kupi aktywo
+poniższych cenach rynkowych. W naszym przypadku -3.25.  Gdy cena
+aktywa wzrośnie powyżej ceny wykonania + cena opcji (125+3.25=128.25)
+(break even point) zysk będzie praktycznie nieograniczony i zależny od
+wzrostu.  Miedzy cena wykonania a cena wykonania + cena opcji zysk
+będzie równy ujemny ale ograniczony. Te dwa punkty punkty zaznaczone
+są czerwonymi kropkami na osi odciętych na powyższym wykresie.
+
+
+Short Call - sprzedajemy prawo kupna
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 W przypadku strony wystawiającej (sprzedającego opcje call) zysk
 pojawia się w wysokości premii jeśli kupujący nie skorzysta z opcji.
 Jeśli cena aktywa będzie wyższa od ceny wykonania sprzedający ponosi
 stratę i jest ona zależna od ceny aktywa czyli jest nieograniczona.
 
-Kolejne profile dotyczą opcji *put*.
+.. figure:: figs/shortcall.png 
+   :align: center
+   :figwidth: 446px
 
-Posiadacz opcji *put (long put)* o cenie 0,73 i cenie wykonania 22,50
+   Short - Call: czyli sprzedaliśmy prawo do kupna po cenie
+   :math:`K` - wystawiliśmy opcję.
+
+
+Long Put - kupujemy prawo sprzedaży
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: figs/longput.png 
+   :align: center
+   :figwidth: 446px
+
+   Long - Put: czyli nabyliśmy prawo do sprzedaży po cenie :math:`K`.
+
+
+Posiadacz opcji *put (long put)* o cenie 13.25 i cenie wykonania 125
 nie będzie wykorzystywał opcji jeśli cena aktywa będzie wyższa niż
-22.50 bo sprzeda aktywo na rynku kasowym. W zakresie 22,50 - 21,87
+125 bo sprzeda aktywo na rynku kasowym. W zakresie 125 - 111.75
 zrealizuje opcje celem zminimalizowania straty. Zysk osiągnie jak cena
-spadnie poniżej 21,87.
+spadnie poniżej 111.75.
+
+
+.. figure:: figs/shortput.png 
+   :align: center
+   :figwidth: 446px
+
+   Short - Put: czyli sprzedaliśmy prawo do sprzedaży po cenie
+   :math:`K` - wystawiliśmy opcję.
+
+
 
 Wystawca opcji *put* natomiast realizuje zysk w wysokości premii jeśli
 nabywca nie zrealizuje opcji czyli gdy ceny aktywa będą powyżej
-22,50. Natomiast jeśli spadną poniżej 21,87 poniesie stratę.
+125.0. Natomiast jeśli spadną poniżej 117.5 poniesie stratę.
 
 Kupując opcje kupujący zabezpiecza się przed niekorzystna zmianą ceny
 aktywa. Wystawca opcji kupna zarabia, gdy nie zrealizujemy opcji,
@@ -504,12 +597,72 @@ posiadane aktywa za pomocą opcji. Takie strategie opcyjne są omówione
 w rozdziale - Hedging za pomoca opcji.
 
 
-.. Tutaj obrazki i  opis.
+Dwie opcje
+~~~~~~~~~~
 
+
+.. sagecellserver::
+
+   from scipy.stats import norm
+   import numpy as np 
+   def BlackScholes(S0,K,r,T,sigma):
+        d1=(np.log(S0/K)+(r+sigma**2/2)*T)/(sigma*np.sqrt(T));
+        d2=d1-sigma*np.sqrt(T);
+        C = S0*norm.cdf(d1)-K*exp(-r*T)*norm.cdf(d2);
+        P = K*np.exp(-r*T)*norm.cdf(-d2)-S0*norm.cdf(-d1);
+        return (C,P)
+
+   def plotOptions(OPTIONS=[longCALL,longPUT],Ks=[125,120], cs=['red','green'],alpha=None):
+      var('S')
+      S1,S2 = 100,140
+      sigma = 0.1
+      p = Graphics()
+      Osum,BSsum  = 0,0
+      if alpha==None:
+          a = [1.0]*len(OPTIONS)+[1.0]
+      else:
+          a = [alpha[1]]*len(OPTIONS)+[alpha[1]]
+          a[alpha[0]]=1.0        
+      for i,(OPTION,K,c) in enumerate(zip(OPTIONS,Ks,cs)):
+          if "CALL" in OPTION.__name__:
+              No = 0
+          else:
+              No = 1   
+          if "long" in OPTION.__name__:
+              C = +1.0
+          else:
+              C = -1.0    
+          P = BlackScholes(115,K,0.0,1,sigma)[No]
+          x = np.linspace(S1,S2,50)    
+          BS =  C*( BlackScholes(x,K,0.0,1,sigma)[No] - P)
+          p += plot( OPTION(S,K,P),(S,S1,S2),thickness=2.,color=c,alpha=a[i])
+          p += line(zip(x,BS),color=c,thickness=1.,alpha=a[i])
+          p += point([(K,0)],color=c,size=40,alpha=a[i])
+          p += text(r"$K_%d$"%(i+1),(K,2),fontsize=15,color=c)
+          Osum += OPTION(S,K,P)
+          BSsum += BS
+      p += plot( Osum,(S,S1,S2),color='black',thickness=3.,alpha=a[-1])
+      p += line(zip(x,BSsum),color='black',thickness=1.,alpha=a[-1])
+      p += point([(115,0)],color='brown',size=40,gridlines=[Ks,[]])
+      return p
+    
+    @interact
+    def _(K1 = slider(100,145,1,default=125),K2=slider(100,145,1,default=120),s=[0,1,2,'all']):
+        if s!='all':
+            alpha = (s,.1)
+        else:
+            alpha = None
+        p = plotOptions(OPTIONS=[longCALL,longPUT],Ks=[K1,K2], cs=['red','green'],alpha=alpha)
+        p.set_axes_range(ymin=-12,ymax=12)
+        p.show(figsize=6)
 
 Wycena opcji
+------------
 
-Na wartość opcji wpływają  czynniki rynkowe. Na przykładzie europejskiej opcji *call* (pierwszej opcji wycenionej teoretycznie) widać, ze wartość opcji zależy od pięciu czynników. Czynnikami tym są:
+
+Na wartość opcji wpływają czynniki rynkowe. Na przykładzie
+europejskiej opcji *call* (pierwszej opcji wycenionej teoretycznie)
+widać, ze wartość opcji zależy od pięciu czynników. Czynnikami tym są:
 
 - cena  aktywa podstawowego na rynku kasowym
 - cena wykonania
@@ -518,7 +671,8 @@ Na wartość opcji wpływają  czynniki rynkowe. Na przykładzie europejskiej op
 - zmienność ceny aktywa (*volatility*)
 
 
-W przypadku  ceny aktywa, im wyższa cena aktywa (np. akcji), tym wyższa cena opcji *call* a niższa cena opcji  *put*.
+W przypadku ceny aktywa, im wyższa cena aktywa (np. akcji), tym wyższa
+cena opcji *call* a niższa cena opcji *put*.
 
 W przypadku  ceny wykonania dla opcji *call*; im niższa cena aktywa tym wyższa wartość opcji.
 

@@ -60,3 +60,6 @@ Praktyczny wstęp do komputerowej analizy Rynków Finansowych
    
 
 
+   TODO:
+
+      trzy zestawy rys- hokeje dla 4 put/call/long/short 
