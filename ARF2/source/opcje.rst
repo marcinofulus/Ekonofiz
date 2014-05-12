@@ -445,7 +445,17 @@ Wartość wewnętrzna przyjmuje tylko wartości dodatnie lub jest równa zero.
 Opcja z zerowa wartością wewnętrzna nazywa się **out of the money**,
 opcja z wartości a wewnętrzną większą od zera nazywa się **in the
 money** a jeśli cena wykonania opcji jest równa cenie aktywa bazowego
-opcje nazywa się **at the Money**.
+opcje nazywa się **at the money**.
+
+
+.. figure:: figs/inatout.png 
+   :align: center
+   :figwidth: 629px
+
+   Ewolucja czasowa ceny aktywa. Jeśli mamy opcję Call o cenie wykupu
+   :math:`K=125` to w obszarze czerwonym jest ona *out of the money**,
+   w zielonym **in the money** a punktach w których kurs aktywa
+   przechodzi przez cenę wykonania **at the money**.
 
 
 
@@ -456,26 +466,30 @@ nabywca nie wykorzysta opcji.
 
 Inwestor wyszukuje właściwą opcje kierując się (w przypadku akcji
 spółki) Nazwą firmy, datą zapadalności (wygaśnięcia), ceną wykonania,
-i typem opcji:
+i typem opcji.
 
-Przykładowo, mamy następującą informacje: 
-
-Diora  Stycz.125.00 Call
-
-Gdzie:
-
-| Diora - nazwa spółki
-| Styczeń - data zapadalności
-| 125.00 - cena wykonania
-| *Call* - typ opcji.
-
-
-Przyjmijmy, ze cena takiej opcji cal wynosi 3.25 a cena opcji put
-13.25 - jednostki monetarnej.
 
 
 Profile ryzyka w czterech przypadkach
 -------------------------------------
+
+
+.. admonition:: Przykład
+   
+    Mamy następującą informacje:  Diora  Stycz.125.00 Call
+
+    Gdzie:
+
+    - Diora - nazwa spółki
+    - Styczeń - data zapadalności, 
+    - 125.00 - cena wykonania
+    - *Call* - typ opcji.
+
+
+    Przyjmijmy, ze cena takiej opcji cal wynosi **3.25** a cena opcji
+    put **13.25** - jednostki monetarnej. Będziemy także oznaczać datę
+    zapadalności jako :math:`t=T`, a chwilę obecną :math:`t=0`.
+
 
 Long Call - kupujemy prawo kupna
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -535,8 +549,8 @@ poniższych cenach rynkowych. W naszym przypadku -3.25.  Gdy cena
 aktywa wzrośnie powyżej ceny wykonania + cena opcji (125+3.25=128.25)
 (break even point) zysk będzie praktycznie nieograniczony i zależny od
 wzrostu.  Miedzy cena wykonania a cena wykonania + cena opcji zysk
-będzie równy ujemny ale ograniczony. Te dwa punkty punkty zaznaczone
-są czerwonymi kropkami na osi odciętych na powyższym wykresie.
+będzie równy ujemny ale ograniczony. Te punkty punkty zaznaczone są
+czerwonymi kropkami na osi odciętych na powyższym wykresie.
 
 
 Short Call - sprzedajemy prawo kupna
@@ -565,12 +579,12 @@ Long Put - kupujemy prawo sprzedaży
    Long - Put: czyli nabyliśmy prawo do sprzedaży po cenie :math:`K`.
 
 
-Posiadacz opcji *put (long put)* o cenie 13.25 i cenie wykonania 125
+Posiadacz opcji *put (long put)* o cenie **13.25** i cenie wykonania 125
 nie będzie wykorzystywał opcji jeśli cena aktywa będzie wyższa niż
 125 bo sprzeda aktywo na rynku kasowym. W zakresie 125 - 111.75
 zrealizuje opcje celem zminimalizowania straty. Zysk osiągnie jak cena
 spadnie poniżej 111.75.
-
+ 
 
 .. figure:: figs/shortput.png 
    :align: center
@@ -595,6 +609,90 @@ opcji - czyli; *long call, short call, long put, short put*, nasuwa
 się pomysł aby używać kombinacji opcji i w ten sposób chronić
 posiadane aktywa za pomocą opcji. Takie strategie opcyjne są omówione
 w rozdziale - Hedging za pomoca opcji.
+
+Jak zależy profil wypłaty od parametrów K,S?
+--------------------------------------------
+
+
+.. sagecellserver::
+
+    var('S')
+    def longCALL(S,K,P=0):
+        return max_symbolic(S-K,0)-P
+    def longPUT(S,K,P=0):
+        return max_symbolic(K-S,0)-P
+    def shortCALL(S,K,P=0):
+        return -max_symbolic(S-K,0)+P
+    def shortPUT(S,K,P=0):
+        return -max_symbolic(K-S,0)+P
+
+
+    var('sigma,S0,K,T,r')
+    cdf(x) = 1/2*(1+erf(x/sqrt(2)))
+    d1=(log(S0/K)+(r+sigma**2/2)*T)/(sigma*sqrt(T))
+    d2=d1-sigma*sqrt(T)
+    C(S0,K,r,T,sigma) = S0*cdf(d1)-K*exp(-r*T)*cdf(d2)
+    P(S0,K,r,T,sigma) = K*exp(-r*T)*cdf(-d2)-S0*cdf(-d1)
+
+    def plotOption(OPTION=longCALL,S0=115,K=125, c='red'):
+        var('S')
+        S1,S2 = 100,140
+        sigma = 0.1
+        if "CALL" in OPTION.__name__:
+            cena = C 
+        else:
+            cena = P
+        if "short" in OPTION.__name__:
+            k = -1.0
+        else:
+            k = 1.0    
+
+        SP = cena(S0,K,0.0,1,sigma).n()       
+        p  = plot( OPTION(S,K,SP),(S,S1,S2),color=c)
+        p += plot(k*(cena(x,K,0.0,1,sigma)-SP),(x,S1,S2),color='gray',thickness=0.5)
+        p += point([(K,0),(S0,0)],color='brown',size=40,gridlines=[[K],[]])
+        p += text(r"$K$",(K,2))
+        p += text(r"$S_0$",(S0,k*2))
+        return p
+
+.. sagecellserver::
+
+    @interact 
+    def _(K=slider(100,135,1,default=125),S0=slider(100,135,1,default=115)):
+        p = plotOption(OPTION=longCALL,S0=S0,K=K,c='green')
+        p.set_axes_range(xmin=100,xmax=140,ymin=-10,ymax=20)
+        p.show(figsize=5)
+
+
+
+.. sagecellserver::
+
+    @interact 
+    def _(K=slider(100,135,1,default=125),S0=slider(100,135,1,default=115)):
+        p = plotOption(OPTION=shortCALL,S0=S0,K=K,c='green')
+        p.set_axes_range(xmin=100,xmax=140,ymin=-10,ymax=20)
+        p.show(figsize=5)
+
+
+
+.. sagecellserver::
+
+    @interact 
+    def _(K=slider(100,135,1,default=125),S0=slider(100,135,1,default=115)):
+        p = plotOption(OPTION=longPUT,S0=S0,K=K,c='green')
+        p.set_axes_range(xmin=100,xmax=140,ymin=-10,ymax=20)
+        p.show(figsize=5)
+
+
+
+.. sagecellserver::
+
+    @interact 
+    def _(K=slider(100,135,1,default=125),S0=slider(100,135,1,default=115)):
+        p = plotOption(OPTION=shortPUT,S0=S0,K=K,c='green')
+        p.set_axes_range(xmin=100,xmax=140,ymin=-10,ymax=20)
+        p.show(figsize=5)
+
 
 
 Dwie opcje
@@ -666,6 +764,8 @@ Dwie opcje
          p = plotOptions(OPTIONS=[longCALL,longPUT],Ks=[K1,K2], cs=['red','green'],alpha=alpha)
          p.set_axes_range(ymin=-12,ymax=12)
          p.show(figsize=6)
+
+
 
 Wycena opcji
 ------------

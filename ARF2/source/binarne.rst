@@ -14,8 +14,12 @@ wartości:
 
 .. math::
 
-   S_{i+1} = \left\{\begin{matrix} S^{+} \ \mathrm{z\ prawdopodobieństwem }\ p \\ 
-   S^{-}  \ \mathrm{z\ prawdopodobieństwem}\ 1-p \end{matrix}\right.
+   S_{i+1} = \left\{ 
+    \begin{array}{l l}
+       S^{+} & \quad \text{z prawdopodobieństwem} \; p\\
+       S^{-}   & \quad \text{z prawdopodobieństwem} \; 1-p
+    \end{array} \right.
+
 
 Startując z pewnej wartości aktywa w chwili początkowej, w pierwszym
 okresie mamy dwi możliwości. W drugim okresie, każda z tych możliwości
@@ -167,10 +171,14 @@ Kalibracja modelu binarnego
 Rozważmy model dwustanowy - jednookresowy. Niech cenę aktywa określa
 reguła multyplikatywna.
 
+
 .. math::
 
-   S_{1} = \left\{\begin{array}\  S_0 u  \quad \mathrm{z\ prawdopodobieństwem }\; p \\ 
-   S_0 d \quad  \mathrm{z\ prawdopodobieństwem}\; 1-p \end{array}\right.
+   S_{1} = \left\{ 
+    \begin{array}{l l}
+       S_0 u   & \quad \text{z prawdopodobieństwem} \; p\\
+       S_0 d   & \quad \text{z prawdopodobieństwem} \; 1-p
+    \end{array} \right.
 
 
 Mamy więc trzy liczby: :math:`p,u,d`, które określają ten
@@ -240,9 +248,9 @@ przybliżenie małego czasu :math:`t`, otrzymujemy wzory wiążące model ciąg�
 .. math::
    :label: eq:crr
 
-   p &=& \frac{e^{rt}-d}{u-d} \\
-   u &=& e^{\sigma \sqrt{t}} \\
-   d &=& e^{-\sigma \sqrt{t}}.
+   p &= \frac{e^{rt}-d}{u-d} \\
+   u &= e^{\sigma \sqrt{t}} \\
+   d &= e^{-\sigma \sqrt{t}}.
 
 
 Wyprowadzenie tych wzorów można łatwo otrzymać na przykład stosując
@@ -298,9 +306,9 @@ parametryzacji, w której mamy:
 .. math::
    :label: eq:JR
 
-   p &=& \frac{1}{2} \\
-   u &=& e^{\sigma \sqrt{t}+(r-\frac{\sigma^2}{2})*t)}\\
-   d &=& e^{-\sigma \sqrt{t}+(r-\frac{\sigma^2}{2})*t)}. 
+   p &= \frac{1}{2} \\
+   u &= e^{\sigma \sqrt{t}+(r-\frac{\sigma^2}{2})*t)}\\
+   d &= e^{-\sigma \sqrt{t}+(r-\frac{\sigma^2}{2})*t)}. 
 
 
 
