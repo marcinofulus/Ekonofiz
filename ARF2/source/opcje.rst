@@ -371,15 +371,17 @@ zmienia się w trakcie każdego dnia funkcjonowania rynku finansowego.
 Terminologia rynku opcji
 ------------------------
 
-Cena wykonania: Cena za którą nabywca może kupić (w przypadku Call)
-lub sprzedać (w przypadku Put) aktywo podstawowe.
+Cena wykonania 
+~~~~~~~~~~~~~~
 
-**Premia**:
-~~~~~~~~~~~
+Cena za którą nabywca może kupić (w przypadku Call) lub sprzedać (w
+przypadku Put) aktywo podstawowe.
 
-Cena opcji, płacona przez nabywającego, wystawcy opcji. 
+Premia
+~~~~~~
 
-Każda opcja posiada dwie ceny 
+Cena opcji, płacona przez nabywającego, wystawcy opcji.  Każda opcja
+posiada dwie ceny:
 
 - Cenę sprzedaży (**bid**) czyli najwyższa cenę, jaką ktoś chce
   zapłacić za opcje.
@@ -387,24 +389,31 @@ Każda opcja posiada dwie ceny
   daną opcję.
 
 
-**Data wygaśnięcia/zapadalności** T:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Data wygaśnięcia/zapadalności T
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-ostatni termin do wykorzystania opcji (jeśli to opcja amerykańska),
-jedyna data do wykorzystania opcji (jeśli jest to opcja europejska).
+Jest to ostatni termin do wykorzystania opcji (jeśli to opcja
+amerykańska), jedyna data do wykorzystania opcji (jeśli jest to opcja
+europejska).
 
 Różnica miedzy opcją amerykańską a europejską jest taka, że opcje
 amerykańska możemy wykorzystać każdego dnia do terminu wygaśnięcia
 (zapadalności) a opcje europejska tylko w dzień zapadalności. Po tym
 terminie opcja wygasa.
 
-**Wykonanie**: Kupno podstawowego aktywa (w przypadku call), sprzedaż
-aktywa podstawowego (w przypadku put). Zazwyczaj jest jedna cena
-wykonania powyżej i jedna cena poniżej aktualnej ceny aktywa.
+Wykonanie
+~~~~~~~~~ 
 
-**Prawo**: tylko posiadacz opcji ma **prawo**. Prawo by sprzedać lub
-kupić aktywo podstawowe. *Wystawca opcji* (sprzedający) ma wypełnić
-**obowiązek** wynikający z prawa posiadacza opcji.
+Kupno podstawowego aktywa (w przypadku call), sprzedaż aktywa
+podstawowego (w przypadku put). Zazwyczaj jest jedna cena wykonania
+powyżej i jedna cena poniżej aktualnej ceny aktywa.
+
+Prawo
+~~~~~
+
+Tylko posiadacz opcji ma **prawo**. Prawo by sprzedać lub kupić aktywo
+podstawowe. *Wystawca opcji* (sprzedający) ma wypełnić **obowiązek**
+wynikający z prawa posiadacza opcji.
 
 W przypadku kontraktu opcyjnego występują dwie transakcje związane z
 tym kontraktem. Transakcja otwierająca zależność opcyjną to sprzedaż
@@ -414,13 +423,10 @@ opcyjne jest nazywana transakcją zamknięcia.
 .. admonition:: UWAGA!
 
    Opcja call nie jest odwrotną transakcją do put ani put nie jest
-   odwrotna do call.
-
-
-Ryzyko stron nie jest bowiem symetryczne. Można pozbyć się ryzyka
-wystawienia opcji poprzez zawarcie transakcji odwrotnej -
-t.j. wystawca opcji może pozbyć sie zobowiązania poprzez kupienie
-identycznej opcji.
+   odwrotna do call. Ryzyko stron nie jest bowiem symetryczne. Można
+   pozbyć się ryzyka wystawienia opcji poprzez zawarcie transakcji
+   odwrotnej - t.j. wystawca opcji może pozbyć sie zobowiązania
+   poprzez kupienie identycznej opcji.
 
 Posiadając opcje posiadamy prawo wyboru. Jaka jest wartość takiego
 prawa czyli co to jest wartość opcji? Opcja to prawo kupna lub
@@ -695,75 +701,6 @@ Jak zależy profil wypłaty od parametrów K,S?
 
 
 
-Dwie opcje
-~~~~~~~~~~
-
-
-.. sagecellserver::
-
-   from scipy.stats import norm
-   import numpy as np 
-   var('S')
-   def longCALL(S,K,P=0):
-       return max_symbolic(S-K,0)-P
-   def longPUT(S,K,P=0):
-       return max_symbolic(K-S,0)-P
-   def shortCALL(S,K,P=0):
-       return -max_symbolic(S-K,0)+P
-   def shortPUT(S,K,P=0):
-       return -max_symbolic(K-S,0)+P
-
-
-   def BlackScholes(S0,K,r,T,sigma):
-        d1=(np.log(S0/K)+(r+sigma**2/2)*T)/(sigma*np.sqrt(T));
-        d2=d1-sigma*np.sqrt(T);
-        C = S0*norm.cdf(d1)-K*exp(-r*T)*norm.cdf(d2);
-        P = K*np.exp(-r*T)*norm.cdf(-d2)-S0*norm.cdf(-d1);
-        return (C,P)
-
-   def plotOptions(OPTIONS=[longCALL,longPUT],Ks=[125,120], cs=['red','green'],alpha=None):
-       var('S')
-       S1,S2 = 100,140
-       sigma = 0.1
-       p = Graphics()
-       Osum,BSsum  = 0,0
-       if alpha==None:
-           a = [1.0]*len(OPTIONS)+[1.0]
-       else:
-           a = [alpha[1]]*len(OPTIONS)+[alpha[1]]
-           a[alpha[0]]=1.0        
-       for i,(OPTION,K,c) in enumerate(zip(OPTIONS,Ks,cs)):
-           if "CALL" in OPTION.__name__:
-               No = 0
-           else:
-               No = 1   
-           if "long" in OPTION.__name__:
-               C = +1.0
-           else:
-               C = -1.0    
-           P = BlackScholes(115,K,0.0,1,sigma)[No]
-           x = np.linspace(S1,S2,50)    
-           BS =  C*( BlackScholes(x,K,0.0,1,sigma)[No] - P)
-           p += plot( OPTION(S,K,P),(S,S1,S2),thickness=2.,color=c,alpha=a[i])
-           p += line(zip(x,BS),color=c,thickness=1.,alpha=a[i])
-           p += point([(K,0)],color=c,size=40,alpha=a[i])
-           p += text(r"$K_%d$"%(i+1),(K,2),fontsize=15,color=c)
-           Osum += OPTION(S,K,P)
-           BSsum += BS
-       p += plot( Osum,(S,S1,S2),color='black',thickness=3.,alpha=a[-1])
-       p += line(zip(x,BSsum),color='black',thickness=1.,alpha=a[-1])
-       p += point([(115,0)],color='brown',size=40,gridlines=[Ks,[]])
-       return p
-    
-   @interact
-   def _(K1 = slider(100,145,1,default=125),K2=slider(100,145,1,default=120),s=[0,1,2,'all']):
-         if s!='all':
-             alpha = (s,.1)
-         else:
-             alpha = None
-         p = plotOptions(OPTIONS=[longCALL,longPUT],Ks=[K1,K2], cs=['red','green'],alpha=alpha)
-         p.set_axes_range(ymin=-12,ymax=12)
-         p.show(figsize=6)
 
 
 
@@ -782,22 +719,43 @@ widać, ze wartość opcji zależy od pięciu czynników. Czynnikami tym są:
 - zmienność ceny aktywa (*volatility*)
 
 
-W przypadku ceny aktywa, im wyższa cena aktywa (np. akcji), tym wyższa
-cena opcji *call* a niższa cena opcji *put*.
+W przypadku **ceny aktywa**, im wyższa cena aktywa (np. akcji), tym wyższa
+cena opcji *call* a niższa cena opcji *put*. Odwrotna zależność
+zachodzi w przypadku ceny wykonania dla opcji *call*; im niższa cena
+aktywa tym wyższa wartość opcji.
 
-W przypadku  ceny wykonania dla opcji *call*; im niższa cena aktywa tym wyższa wartość opcji.
+**Czas do wygaśnięcia** (zapadalności) - Czas do wygaśnięcia jest
+mierzony jako część roku. Podobnie jak zmienność (*volatility*),
+dłuższy czas do wygaśnięcia zwiększa wartość wszelkich opcji. To
+dlatego, ze są większe szanse że opcja wygaśnie w cenie
+(*in-the-money*) w dłuższym czasie.
 
-Czas do wygaśnięcia:  Zarówno dla opcji *call* i *put* im dłuższy czas do wygaśnięcia, tym droższa cena opcji.
+**Stopa wolna od ryzyka** - Stopa wolna od ryzyka jest najmniej
+znaczącym parametrem. Jest ona używana do dyskontowania ceny
+wykonania, ale ponieważ czas do wygaśnięcia w praktyce jest dużo
+niższy niż 9 miesięcy to stopy te bywają niskie i mają niewielki wpływ
+na cenę opcji.  Jeśli stopa wzrasta, to w wyniku wzrostu obniża się
+cena wykonania.  Dlatego, jeśli stopa rośnie opcja *call* wzrasta w
+wartości a opcja *put* obniża wartość. *Im większa stopa wolna od
+ryzyka to większy przychód wygenerują pieniądze, które "zaoszczędzi"
+się kupując opcje a nie aktywo. Ta różnica zainwestowana do czasu
+wygaśnięcia opcji generuje wyższy przychód.*
 
-Stopa wolna od ryzyka; im wyższa stopa, tym wyższa cena opcji call. Im
-większa stopa wolna od ryzyka to większy przychód wygenerują
-pieniądze, które „ zaoszczędzi „ się kupując opcje a nie aktywo. Ta
-różnica zainwestowana do czasu wygaśnięcia opcji generuje wyższy
-przychód.
+**Zmienność** ceny aktywa podstawowego (*Volatility*) jest mierzona
+jako zanualizowane odchylenie standardowe zysku z aktywa podstawowego.
+Cena wszystkich opcji rośnie z rosnącą zmiennością (*volatility*). To
+dlatego, że opcje z wyższą zmiennością maja większą szanse na
+wygaśnięcie w cenie (*in-the-money*).
 
-Zmienność (*Volatility*) aktywa podstawowego; im większa zmienność,
-tym wyższa cena opcji *call* i *put*.  Tabela ilustruje te zależności
-dla opcji *call* i *put*.
+**Cena wykonania** jest ustalona na czas życia opcji, ale każde
+*aktywo* podstawowe może mieć kilka cen wykonania dla każdego miesiąca
+wykorzystania.  Dla *call*, im wyższa cena wykonania (*strike price*),
+tym niższa wartość *call*. Dla *put*, im wyzsza cena *strike*, tym
+wyższa wartość *put*.
+
+
+
+
 
 
      +-----------------------+------------------+------------+--------------------+------------+--------------------+
@@ -818,41 +776,29 @@ dla opcji *call* i *put*.
 Tabela (1).  Wpływ czynników rynkowych na cenę opcji *call* i *put*.
 
 
-Innymi słowy 
+Podsumowując, aktualna **cena aktywa** podstawowego jest najbardziej
+istotnym parametrem ceny. Dla opcji *call*, im wyższa cena aktywa
+podstawowego tym wyższa wartość *call*.
 
-Aktualna **cena aktywa** podstawowego jest najbardziej istotnym parametrem ceny.
 
-Dla opcji *call*, im wyższa cena aktywa podstawowego tym wyższa wartość *call*.
+Jak wyznaczyć cenę opcji?
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Dla opcji *put*, im niższa cena aktywa tym wyższa wartość opcji *put*.
-
-**Cena wykonania**  jest ustalona na czas życia opcji, ale każde *aktywo* podstawowe może mieć kilka cen wykonania dla każdego miesiąca  wykorzystania.
-
-Dla *call*, im wyższa cena wykonania (*strike price*), tym niższa wartość *call*. 
-
-Dla  *put*, im wyzsza cena *strike*, tym wyższa  wartość *put*.
-
-**Zmienność**  ceny aktywa podstawowego (*Volatility*) jest mierzona jako zanualizowane odchylenie standardowe zysku z aktywa podstawowego.  Cena wszystkich opcji rośnie z rosnącą  zmiennością  (*volatility*). To dlatego, że opcje z wyższą zmiennością maja większą szanse na wygaśnięcie w cenie (*in-the-money*).
-
-**Czas do wygaśnięcia** (zapadalności) - Czas do wygaśnięcia jest
-mierzony jako część roku. Podobnie jak zmienność (*volatility*),
-dłuższy czas do wygaśnięcia zwiększa wartość wszelkich opcji. To
-dlatego, ze są większe szanse że opcja wygaśnie w cenie
-(*in-the-money*) w dłuższym czasie.
-
-**Stopa wolna od ryzyka** - Stopa wolna od ryzyka jest najmniej znaczącym parametrem. Jest ona używana do dyskontowania ceny wykonania, ale ponieważ  czas do wygaśnięcia w praktyce jest dużo niższy niż 9 miesięcy to stopy te bywają niskie i mają niewielki wpływ na cenę opcji.  Jeśli stopa wzrasta, to w wyniku wzrostu obniża się  cena wykonania.  Dlatego, jeśli stopa rośnie opcja  *call* wzrasta w wartości a opcja *put* obniża wartość.
-
-Wyznaczenie ceny opcji polega na tym by wyznaczyć jej aktualna
-wartość, wartości wewnętrznej (*intrinsic value*) w chwili
-wygaśnięcia. Niestety, nie ma sposobu by znać tę wartość z
-wyprzedzeniem.
+Wyznaczenie ceny opcji polega na tym by wyznaczyć jej wartość
+wewnętrzną (*intrinsic value*) w chwili wygaśnięcia. Wartość zależy od
+ceny aktywa w przyszłości a ta z kolei zmienia się w losowy sposób. 
+Niestety, nie ma sposobu by znać tę wartość z wyprzedzeniem.
 
 Dlatego aby wyznaczyć cenę opcji posługujemy się modelami
 teoretycznymi.  Istnieje wiele modeli stosowanych do tego
-celu. Najprostszym modelem jest dwumianowy model wyceny opcji. (*Cox,
+celu. Wszystkie modele zakładają, że proces ewolucji ceny aktywa jest
+jest pewnym procesem losowym.  pewien sposób
+
+
+Najprostszym modelem jest dwumianowy model wyceny opcji. (*Cox,
 Ross,Rubinstein- Option pricing: Simplified Approach- Journal of
 Financial Economics- September 1979*). Ten model wycenia europejską
-opcję call na akcje spółki nie wypłacającej dywidendę.
+opcję call na akcje spółki nie wypłacającej dywidendę. 
 
 W modelu dwumianowym czas pozostały do wygaśnięcia opcji dzieli się na
 dyskretne Przedziały. W każdym przedziale czasu cena aktywa P zmienia

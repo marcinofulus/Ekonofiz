@@ -1116,6 +1116,78 @@ cen). Przykładem tego jest strategia, która polega na kupnie (bądź
 sprzedaży) zarówno opcji put i call (at the money) (w równych
 ilościach).
 
+
+Dwie opcje
+~~~~~~~~~~
+
+
+.. sagecellserver::
+
+   from scipy.stats import norm
+   import numpy as np 
+   var('S')
+   def longCALL(S,K,P=0):
+       return max_symbolic(S-K,0)-P
+   def longPUT(S,K,P=0):
+       return max_symbolic(K-S,0)-P
+   def shortCALL(S,K,P=0):
+       return -max_symbolic(S-K,0)+P
+   def shortPUT(S,K,P=0):
+       return -max_symbolic(K-S,0)+P
+
+
+   def BlackScholes(S0,K,r,T,sigma):
+        d1=(np.log(S0/K)+(r+sigma**2/2)*T)/(sigma*np.sqrt(T));
+        d2=d1-sigma*np.sqrt(T);
+        C = S0*norm.cdf(d1)-K*exp(-r*T)*norm.cdf(d2);
+        P = K*np.exp(-r*T)*norm.cdf(-d2)-S0*norm.cdf(-d1);
+        return (C,P)
+
+   def plotOptions(OPTIONS=[longCALL,longPUT],Ks=[125,120], cs=['red','green'],alpha=None):
+       var('S')
+       S1,S2 = 100,140
+       sigma = 0.1
+       p = Graphics()
+       Osum,BSsum  = 0,0
+       if alpha==None:
+           a = [1.0]*len(OPTIONS)+[1.0]
+       else:
+           a = [alpha[1]]*len(OPTIONS)+[alpha[1]]
+           a[alpha[0]]=1.0        
+       for i,(OPTION,K,c) in enumerate(zip(OPTIONS,Ks,cs)):
+           if "CALL" in OPTION.__name__:
+               No = 0
+           else:
+               No = 1   
+           if "long" in OPTION.__name__:
+               C = +1.0
+           else:
+               C = -1.0    
+           P = BlackScholes(115,K,0.0,1,sigma)[No]
+           x = np.linspace(S1,S2,50)    
+           BS =  C*( BlackScholes(x,K,0.0,1,sigma)[No] - P)
+           p += plot( OPTION(S,K,P),(S,S1,S2),thickness=2.,color=c,alpha=a[i])
+           p += line(zip(x,BS),color=c,thickness=1.,alpha=a[i])
+           p += point([(K,0)],color=c,size=40,alpha=a[i])
+           p += text(r"$K_%d$"%(i+1),(K,2),fontsize=15,color=c)
+           Osum += OPTION(S,K,P)
+           BSsum += BS
+       p += plot( Osum,(S,S1,S2),color='black',thickness=3.,alpha=a[-1])
+       p += line(zip(x,BSsum),color='black',thickness=1.,alpha=a[-1])
+       p += point([(115,0)],color='brown',size=40,gridlines=[Ks,[]])
+       return p
+    
+   @interact
+   def _(K1 = slider(100,145,1,default=125),K2=slider(100,145,1,default=120),s=[0,1,2,'all']):
+         if s!='all':
+             alpha = (s,.1)
+         else:
+             alpha = None
+         p = plotOptions(OPTIONS=[longCALL,longPUT],Ks=[K1,K2], cs=['red','green'],alpha=alpha)
+         p.set_axes_range(ymin=-12,ymax=12)
+         p.show(figsize=6)
+
+
 .. image
 
 
