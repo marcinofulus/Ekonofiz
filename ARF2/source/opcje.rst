@@ -661,8 +661,6 @@ Jak zależy profil wypłaty od parametrów K,S?
         p += text(r"$S_0$",(S0,k*2))
         return p
 
-.. sagecellserver::
-
     @interact 
     def _(K=slider(100,135,1,default=125),S0=slider(100,135,1,default=115)):
         p = plotOption(OPTION=longCALL,S0=S0,K=K,c='green')
@@ -673,12 +671,14 @@ Jak zależy profil wypłaty od parametrów K,S?
 
 .. sagecellserver::
 
+    try:
     @interact 
     def _(K=slider(100,135,1,default=125),S0=slider(100,135,1,default=115)):
         p = plotOption(OPTION=shortCALL,S0=S0,K=K,c='green')
         p.set_axes_range(xmin=100,xmax=140,ymin=-10,ymax=20)
         p.show(figsize=5)
-
+    except:
+        print "Wykonaj pierwszą komórkę!"
 
 
 .. sagecellserver::
@@ -782,7 +782,7 @@ podstawowego tym wyższa wartość *call*.
 
 
 Jak wyznaczyć cenę opcji?
-~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------
 
 Wyznaczenie ceny opcji polega na tym by wyznaczyć jej wartość
 wewnętrzną (*intrinsic value*) w chwili wygaśnięcia. Wartość zależy od
@@ -792,7 +792,7 @@ Niestety, nie ma sposobu by znać tę wartość z wyprzedzeniem.
 Dlatego aby wyznaczyć cenę opcji posługujemy się modelami
 teoretycznymi.  Istnieje wiele modeli stosowanych do tego
 celu. Wszystkie modele zakładają, że proces ewolucji ceny aktywa jest
-jest pewnym procesem losowym.  pewien sposób
+jest pewnym procesem losowym.  
 
 
 Najprostszym modelem jest dwumianowy model wyceny opcji. (*Cox,
