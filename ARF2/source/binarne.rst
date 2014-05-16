@@ -1,6 +1,7 @@
 Dwumianowe modele dyskretne
 ===========================
 
+.. _binarne:
 
 Modele zachowania zmienającej się w czasie ceny pewnego aktywa
 :math:`S`, dzielą się na te z czasem ciągłym i dyskretnym. W przypadku

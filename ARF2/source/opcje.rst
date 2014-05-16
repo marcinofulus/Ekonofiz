@@ -539,7 +539,7 @@ Punkt na wykresię :math:`(115,0)` możemy interpetować jako stan
 naszego portfela, mamy bowiem. na chwilę zakupu opcji :math:`t=0` mamy
 dokładnie zero a aktywo ma wartość 115. Czy zarobimy na kupnie tej
 opcji zależy od scenariusza ewolucji ceny aktywa na rynku w czasie do
-:math:`t=T`. W przypadku opcji europejskie, jedynie od jego koncowej
+:math:`t=T`. W przypadku opcji europejskiej, jedynie od jego końcowej
 wartości.
 
 Posiadacz opcji call, wystawca opcji call, posiadacz opcji put,
@@ -620,6 +620,17 @@ Jak zależy profil wypłaty od parametrów K,S?
 --------------------------------------------
 
 
+Poeksperymentujmy z wykresem zysku/straty na zakupie opcji w
+zależności od parametrów :math:`S_0,K`. Tak jak poprzednio, zakładamy,
+że w chwili początkowej nie mamy zadnego kapitału i jedyną operacją,
+którą wykonujemy jest zakup lub sprzedaż opcji. W przypadku zakupu
+stan naszego portfela jest obciąża nasz na kredyt, jeśli zaś
+sprzedajemy to mamy depozyt. Zakładamy, że w chwili początkowej
+istnieje pewna sprawiedliwa cena opcji, którą wliczamy w nasz
+początkowy bilans.
+
+Wykonajmy najpierw komórkę z definicjami:
+
 .. sagecellserver::
 
     var('S')
@@ -661,43 +672,65 @@ Jak zależy profil wypłaty od parametrów K,S?
         p += text(r"$S_0$",(S0,k*2))
         return p
 
-    @interact 
-    def _(K=slider(100,135,1,default=125),S0=slider(100,135,1,default=115)):
-        p = plotOption(OPTION=longCALL,S0=S0,K=K,c='green')
-        p.set_axes_range(xmin=100,xmax=140,ymin=-10,ymax=20)
-        p.show(figsize=5)
+Kupujemy opcję Call
+~~~~~~~~~~~~~~~~~~~
 
+.. sagecellserver::
+
+    try:
+        @interact 
+        def _(K=slider(100,135,1,default=125),S0=slider(100,135,1,default=115)):
+            p = plotOption(OPTION=longCALL,S0=S0,K=K,c='green')
+            p.set_axes_range(xmin=100,xmax=140,ymin=-10,ymax=20)
+            p.show(figsize=5)
+    except:
+        print "Wykonaj pierwszą komórkę!"
+
+
+Sprzedajemy opcję Call
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. sagecellserver::
+
+    try:
+        @interact 
+        def _(K=slider(100,135,1,default=125),S0=slider(100,135,1,default=115)):
+            p = plotOption(OPTION=shortCALL,S0=S0,K=K,c='green')
+            p.set_axes_range(xmin=100,xmax=140,ymin=-10,ymax=20)
+            p.show(figsize=5)
+    except:
+        print "Wykonaj pierwszą komórkę!"
+
+
+Kupujemy opcję Put
+~~~~~~~~~~~~~~~~~~
 
 
 .. sagecellserver::
 
     try:
-    @interact 
-    def _(K=slider(100,135,1,default=125),S0=slider(100,135,1,default=115)):
-        p = plotOption(OPTION=shortCALL,S0=S0,K=K,c='green')
-        p.set_axes_range(xmin=100,xmax=140,ymin=-10,ymax=20)
-        p.show(figsize=5)
+        @interact 
+        def _(K=slider(100,135,1,default=125),S0=slider(100,135,1,default=115)):
+            p = plotOption(OPTION=longPUT,S0=S0,K=K,c='green')
+            p.set_axes_range(xmin=100,xmax=140,ymin=-10,ymax=20)
+            p.show(figsize=5)
     except:
         print "Wykonaj pierwszą komórkę!"
 
 
-.. sagecellserver::
-
-    @interact 
-    def _(K=slider(100,135,1,default=125),S0=slider(100,135,1,default=115)):
-        p = plotOption(OPTION=longPUT,S0=S0,K=K,c='green')
-        p.set_axes_range(xmin=100,xmax=140,ymin=-10,ymax=20)
-        p.show(figsize=5)
-
-
+Sprzedajemy opcję Put
+~~~~~~~~~~~~~~~~~~~~~
 
 .. sagecellserver::
 
-    @interact 
-    def _(K=slider(100,135,1,default=125),S0=slider(100,135,1,default=115)):
-        p = plotOption(OPTION=shortPUT,S0=S0,K=K,c='green')
-        p.set_axes_range(xmin=100,xmax=140,ymin=-10,ymax=20)
-        p.show(figsize=5)
+    try:
+        @interact 
+        def _(K=slider(100,135,1,default=125),S0=slider(100,135,1,default=115)):
+            p = plotOption(OPTION=shortPUT,S0=S0,K=K,c='green')
+            p.set_axes_range(xmin=100,xmax=140,ymin=-10,ymax=20)
+            p.show(figsize=5)
+    except:
+        print "Wykonaj pierwszą komórkę!"
 
 
 
@@ -792,8 +825,9 @@ Niestety, nie ma sposobu by znać tę wartość z wyprzedzeniem.
 Dlatego aby wyznaczyć cenę opcji posługujemy się modelami
 teoretycznymi.  Istnieje wiele modeli stosowanych do tego
 celu. Wszystkie modele zakładają, że proces ewolucji ceny aktywa jest
-jest pewnym procesem losowym.  
-
+jest pewnym procesem losowym. Ponadto zakładamy, że mamy do czynienia
+z rynkiem wolnym od arbitrażu na którym można bez ograniczeń i
+prowizji handlowac dowolną ilością akcji.
 
 Najprostszym modelem jest dwumianowy model wyceny opcji. (*Cox,
 Ross,Rubinstein- Option pricing: Simplified Approach- Journal of
@@ -810,16 +844,17 @@ przeprowadzając rachunek wstecz, począwszy od daty wygaśnięcia.
 Obliczenia wykonuje się w kierunku początku drzewa od chwili T do T –
 1, dyskontując w tym przedziale czasowym wartość portfela bezpiecznego
 składającego się z aktywa i opcji, po stopie procentowej wolnej od
-ryzyka. Procedurę powtarza się aż do chwili wystawienia opcji.
+ryzyka. Procedurę powtarza się aż do chwili wystawienia opcji. Modele
+te są opisane w szczególach w rozdziale o opcjach binarnych :ref:`binarne`.
  
-
-.. Nie wiem co dalej to zalezy jaki i czy będzie jakis tu program do
-   liczenia opcji w modelu dwumiennym ?????????
-
+W tym rozdziale pozamy własności metody opartej o ciały proces
+losowy. Jest olbrzymią zaletą jest istnienie prostych analitycznych
+wzorów na cenę opcji Europejskich, co pozwala na łatwą ich analizę i
+poznanie własności.
 
 			 
-Model Blacka Scholesa dla europejskiej opcji call.
-
+Model Blacka Scholesa dla europejskiech opcji Call  i Put
+---------------------------------------------------------
 
 Model dwumianowy zakładał stacjonarny dwumianowy proces stochastyczny
 dla ruchu ceny aktywa (akcji) zachodzący w dyskretnych przedziałach
@@ -832,32 +867,26 @@ ze dywidenda może być wypłacana.Taki portfel generuje bezpieczna stopę
 zwrotu. Struktura zabezpieczonego portfela posiada formę zbliżoną do
 równania dyfuzji ciepła w fizyce.
 
-Dalej 
-
-Wzor Blacka Scholesa na wartość opcji (np. taki- ale należy uwzględnić   oznaczenia!!!!
+Wzór Blacka Scholesa na wartość opcji nie wypłacającej dywidendy przyjmuje postać:
 
 Opcja Call
 
 .. math::
 
-   C(S,K,\sigma,r,T,\delta) = S e^{(-\delta T)} N(d_1) - K e^{(-rT)} N(d_2)
+   C(S_0,K,r,T,\sigma,r) = S_0 F(d_1) - K e^{-rT} F(d_2)
 
-
-Opcja put
+a opcja Put
 
 .. math::
 
-   P(S,K,\sigma,r,T,\delta) = K e^{-rT} N(-d_2) - S e^{-\delta T} N(-d_1)
+   P(S_0,K,r,T,\sigma,r) = K e^{-rT} F(-d_2) - S_0  F(-d_1)
 
  
-Oznaczenia
-
-gdzie:
+gdzie symbole :math:`d_1,d_2` oznaczają:
 
 .. math::
 
-   d_1 = \frac{\ln (S/K) + (r- \delta + \frac{1}{2} \sigma ^2)T}{\sigma \sqrt{T}}
-
+   d_1 = \frac{\ln (S_0/K) + (r+\frac{1}{2} \sigma ^2)T}{\sigma \sqrt{T}}
 
 a
 
@@ -866,23 +895,126 @@ a
    d_2 = d_1 - \sigma \sqrt{T}
 
 
-.. Wpisywanie wzorów a raczej znaczenia oznaczeń- musimy to uzgodnić  co jak  oznaczamy!!!!!!!!!!!
+Funkcja :math:`F(x)` jest dystrybuantą `rozkładu normalnego
+<http://pl.wikipedia.org/wiki/Rozk%C5%82ad_normalny>`_ o średniej zero i
+jednostkowej variancji. Możemy więc wyrazić ją przez funkcja błędu Gaussa:
+
+.. math::
+
+   F(x) =  \frac{1}{2} \, \text{erf}\left(\frac{1}{2} \, \sqrt{2} x\right) + \frac{1}{2}
 
 
-Jest oczywiście więcej modeli do wyliczania ceny opcji. W praktyce do wyliczania wartości opcji posługuje się modelami pozwalającymi na  przybliżenie wartości opcji. Metody stosowane to: 
-
-**Metody numeryczne**
-
-- Monte Carlo
-- Metody: dwumienna, trójmienna
+Powyższe wzory możemy wprowadzić do systemu Sage i zbadać ich własności:
 
 
-Generalnie, przyjmuje się w stosowanych modelach założenie, że ceny
-podlegają procesowy stochastycznemu.
+.. sagecellserver::
+     
+    var('S')
+    def longCALL(S,K,P=0):
+        return max_symbolic(S-K,0)-P
+    def longPUT(S,K,P=0):
+        return max_symbolic(K-S,0)-P
+    def shortCALL(S,K,P=0):
+        return -max_symbolic(S-K,0)+P
+    def shortPUT(S,K,P=0):
+        return -max_symbolic(K-S,0)+P
 
 
-.. Tutaj te  możliwości  programów do liczenia  ceny opcji.
+    var('sigma,S0,K,T,r')
+    cdf(x) = 1/2*(1+erf(x/sqrt(2)))
+    d1=(log(S0/K)+(r+sigma**2/2)*T)/(sigma*sqrt(T))
+    d2=d1-sigma*sqrt(T)
+    C(S0,K,r,T,sigma) = S0*cdf(d1)-K*exp(-r*T)*cdf(d2)
+    P(S0,K,r,T,sigma) = K*exp(-r*T)*cdf(-d2)-S0*cdf(-d1)
 
+    def plotBS(OPTION=longCALL,K=125,sigma=.1,r=0.0,T=1, c='red'):
+        var('S')
+        S1,S2 = 100,160
+
+        if "CALL" in OPTION.__name__:
+            cena = C
+        else:
+            cena = P
+        if "short" in OPTION.__name__:
+            k = -1.0
+        else:
+            k = 1.0
+
+
+        p  = plot( OPTION(S,K),(S,S1,S2),color=c,thickness=2.5)
+        p += plot( OPTION(S,exp(-r*T)*K),(S,S1,S2),color='gray',thickness=.5)
+        p += plot(k*(cena(x,K,r,T,sigma)),(x,S1,S2),color='blue',thickness=1)
+        p += point([(K,0)],color='brown',size=40,gridlines=[[K],[]])
+        p += text(r"$K$",(K,2))
+
+        return p
+
+    @interact
+    def _(s=slider(0.001,0.5,0.02,label='volatility',default=0.1),r=slider(0,0.1,0.01),T=slider(1,12,1),K=slider(104,150,1,default=129)):
+
+        p = plotBS(OPTION=longCALL,K=K, c='red',sigma=s,r=r,T=T)
+        p.set_axes_range(ymax=50,ymin=0)
+        p.show(figsize=6)
+
+
+Opcję europejską możemy wycenić zarówno korzystając z analitycznego
+wzoru jak i bezpośrednio z symulacji procesu losowego.
+
+
+.. sagecellserver::
+
+    
+    var('sigma,S0,K,T,r')
+    cdf(x) = 1/2*(1+erf(x/sqrt(2)))
+    d1=(log(S0/K)+(r+sigma**2/2)*T)/(sigma*sqrt(T))
+    d2=d1-sigma*sqrt(T)
+    C(S0,K,r,T,sigma) = S0*cdf(d1)-K*exp(-r*T)*cdf(d2)
+
+
+    K = 125.0
+    
+    r,T,sigma = 0.1, 1, 0.1
+    S0 = 120   
+    print "Wycena ze wzoru:",C(S0,K,r,T,sigma).n()
+
+    import numpy as np 
+    N=100
+    M=1000
+    h=T/N;
+    S=np.zeros((M,N))
+    S[:,0]=S0*np.ones(M); 
+    for i in range(1,N):
+      S[:,i]=S[:,i-1] + r*S[:,i-1]*h + sigma*np.sqrt(h)*S[:,i-1]*np.random.randn(M)
+
+    call_MC=np.exp(-r*T)*np.mean( np.maximum(S[:,N-1]-K,0) )
+    put_MC=np.exp(-r*T)*np.mean( np.maximum(K-S[:,N-1],0) )
+    print "Wycena z symuacji Monte-Carlo:",call_MC,put_MC
+
+    sum([line(enumerate(S[i,:]),thickness=0.2,figsize=4) for i in range(123)])
+
+
+
+.. note::
+
+   Jest oczywiście więcej modeli do wyliczania ceny opcji. W praktyce do
+   wyliczania wartości opcji posługuje się modelami pozwalającymi na
+   przybliżenie wartości opcji. Metody stosowane to:
+
+   **Metody numeryczne**
+
+   - Monte Carlo
+     - Metody: dwumienna, trójmienna
+
+
+       Generalnie, przyjmuje się w stosowanych modelach założenie, że ceny
+       podlegają procesowy stochastycznemu.
+
+
+
+
+
+Analiza wrażliwości
+-------------------
 
 Analiza wrażliwości czyli jak czuła jest cena opcji na zmianę
 określających tę cenę wartości wielkości rynkowych.
@@ -926,39 +1058,95 @@ znaczenie praktyczne bedac używane i oznaczane swymi nazwami.
 .. Wzór przepisać bez ostatniego wyrazu  z oznaczeniami  uzgodnionymi. 
 
 
-**Delta opcji**
 
-Zmiana ceny opcji przy zmianie ceny aktywa podstawowego nosi nazwę  współczynnika  delta.
+Delta opcji
+~~~~~~~~~~~
+
+
+Zmiana ceny opcji przy zmianie ceny aktywa podstawowego nosi nazwę
+współczynnika delta.
 
 .. math::
 
    \Delta = \partial P_0/ \partial P^S = N(d_1) 
 
 
-dla  modelu BS opcji call (bez dywidendy)
-
-dla opcji put
+dla  modelu BS opcji Call (bez dywidendy) wynosi ona:
 
 .. math::
 
-   \Delta_{put} = N(d_1) - 1
+   \Delta_{Call} = N(d_1) 
 
 
-Korzystając z prostego przekształcenia widać, ze:
+a dla opcji Put
 
 .. math::
 
-   \Delta_{put} + \Delta_{call} = 1
+   \Delta_{Put} = N(d_1) - 1
+
+Powyższe wzory możemy otrzymać przez różniczkowanie wzrorów
+Blacka-Scholesa ze względu na :math:`S_0`. Sprawdźmy z pomocą systemu
+algebry komputerowej czy, rzeczywiście są spełnione.
+
+Po pierwsze wczytajmy sobie wzory Blacka-Scholesa:
+
+.. sagecellserver::
+
+    var('sigma,S0,K,T,r')
+    cdf(x) = 1/2*(1+erf(x/sqrt(2)))
+    d1=(log(S0/K)+(r+sigma**2/2)*T)/(sigma*sqrt(T))
+    d2=d1-sigma*sqrt(T)
+    C(sigma,S0,K,T,r) = S0*cdf(d1)-K*exp(-r*T)*cdf(d2)
+    P(sigma,S0,K,T,r) = K*exp(-r*T)*cdf(-d2)-S0*cdf(-d1)
 
 
-Ponadto, Delta wskazuje ilość akcji potrzebnych do otworzenia zwrotu z opcji. 
+.. sagecellserver::
 
-Np., :math:`\Delta_{call} = 0.80` znaczy ze działa jak  0.80 akcji. Jeśli cena akcji wzrośnie o 1, cena opcji  call wzrośnie o 0.80.  cecha ta pozwala na  budowanie strategii  zabezpieczających. Ale o zastosowania  analizy wrażliwości w strategii zabezpieczania przed ryzykiem można znaleźć w **Hedging za pomoca opcji**.
+    try:
+        print bool( C.diff(S0) == cdf(d1) ) 
+        print bool( P.diff(S0) == cdf(d1)-1 ) 
+        print bool( C.diff(S0) - P.diff(S0) == 1 ) 
+    except:
+        print "Wczytaj wzory Blacka-Scholesa!"
+"
+
+Widać, że zachodzi własność:
+
+.. math::
+
+   \Delta_{put} - \Delta_{call} = 1.
+
+która jest bezpośrednią konsekwencja parytetu kupna sprzedaży.
 
 
-**Współczynnik gamma.**
+Delta wskazuje ilość akcji potrzebnych do otworzenia zwrotu z opcji. 
 
-*Gamma* drugą pochodną ceny opcji względem ceny akcji. Gamma jest pierwsza pochodną delta w stosunku do ceny aktywa. Gamma jest także nazywana  *krzywizną*.
+Np., :math:`\Delta_{call} = 0.80` znaczy ze działa jak 0.80
+akcji. Jeśli cena akcji wzrośnie o 1, cena opcji call wzrośnie o 0.80.
+cecha ta pozwala na budowanie strategii zabezpieczających. Ale o
+zastosowania analizy wrażliwości w strategii zabezpieczania przed
+ryzykiem można znaleźć w **Hedging za pomoca opcji**.
+
+Narysujmy jak zależy dla pewnej opcji Call Delta od ceny instrumentu
+bazowego:
+
+.. sagecellserver::
+    
+    try:
+        p = plot( C.diff(S0)(0.1,S0,120,1,0.03),(S0,90,150),figsize=5)
+        p += plot( C(0.1,S0,120,1,0.03)/10,(S0,90,150),color='gray')
+        p.show()
+    except:
+        print "Wczytaj wzory Blacka-Scholesa!"
+
+
+
+Współczynnik gamma
+~~~~~~~~~~~~~~~~~~
+
+*Gamma* drugą pochodną ceny opcji względem ceny akcji. Gamma jest
+ pierwsza pochodną delta w stosunku do ceny aktywa. Gamma jest także
+ nazywana *krzywizną*.
 
 .. math::
 
@@ -969,29 +1157,53 @@ Np., :math:`\Delta_{call} = 0.80` znaczy ze działa jak  0.80 akcji. Jeśli cena
 
 Współczynnik gamma jest zatem miarą niestabilności współczynnika delta.
 
+.. sagecellserver::
+
+    try:   
+        p = plot( C.diff(S0,2)(0.1,S0,120,1,0.03),(S0,90,150),figsize=5)
+        p += plot( C.diff(S0)(0.1,S0,120,1,0.03)/10,(S0,90,150),color='gray')
+        p += plot( C(0.1,S0,120,1,0.03)/100,(S0,90,150),color='gray')
+        p.show()
+    except:
+        print "Wczytaj wzory Blacka-Scholesa!"
+
+
 Interpretacja 
 
-Jeżeli w wyniku zmiany kursu instrumentu bazowego współczynnik delta zmieni się z 0,5 do 0,52 to wówczas zmiana delty o 0,02 określać będzie wartość współczynnika gamma.
+Jeżeli w wyniku zmiany kursu instrumentu bazowego współczynnik delta
+zmieni się z 0.5 do 0.52 to wówczas zmiana delty o 0.02 określać
+będzie wartość współczynnika gamma.
 
-Przykład. Niech aktualna wartość instrumentu bazowego wynosi =75 jednostek pieniężnych. Aktualna wartość opcji  = 0,35. Delta opcji = 0,16 a gamma opcji  = 0,05.
+.. admonition:: Przykład. 
 
-Jaka jest wartość opcji jeżeli kurs instrumentu bazowego wzrośnie do 80? 
+   Niech aktualna wartość instrumentu bazowego wynosi =75 jednostek
+   pieniężnych. Aktualna wartość opcji = 0.35. Delta opcji = 0.16 a
+   gamma opcji = 0.05.  Jaka jest wartość opcji jeżeli kurs
+   instrumentu bazowego wzrośnie do 80?  
 
-A wiec zmiana ceny instrumentu bazowego = 5 a zmiana ceny wynikająca ze wsp. delta = 5 x 0,16 = 0,80. Wzrost wartości instrumentu bazowego o 5 powoduje wzrost wartości delty a zatem należy wyznaczyć dodatkową zmianę wartości opcji wynikającą z gamma. Zmiana ceny wynikająca z gamma = 0,5 x 0,05 x 52 = 0,62.
+   A wiec zmiana ceny
+   instrumentu bazowego = 5 a zmiana ceny wynikająca ze wsp. delta = 5
+   x 0.16 = 0.80. Wzrost wartości instrumentu bazowego o 5 powoduje
+   wzrost wartości delty a zatem należy wyznaczyć dodatkową zmianę
+   wartości opcji wynikającą z gamma. Zmiana ceny wynikająca z gamma =
+   0.5 x 0.05 x 52 = 0.62.
 
-Nowa wartość opcji to stara wartość + zmiana z delty + zmiany gamma
-czyli: 0,35 + 0,80 + 0,62 = 1,77
+   Nowa wartość opcji to stara wartość + zmiana z delty + zmiany gamma
+   czyli: 0.35 + 0.80 + 0.62 = 1.77
 
 
-**Współczynnik Theta.**
+Współczynnik Theta
+~~~~~~~~~~~~~~~~~~
 
 Kolejna pochodna cząstkowa jest wielkość zwana Theta. 
 
-Określa ona  jak się zachowa cena opcji call (put) jeśli zmieni się czas do wygaśnięcia, a wszystko inne zostanie stałe? 
+Określa ona jak się zachowa cena opcji call (put) jeśli zmieni się
+czas do wygaśnięcia, a wszystko inne zostanie stałe?
 
-Theta jest to pierwsza pochodna ceny względem czasu. 
+Theta jest to pierwsza pochodna ceny względem czasu.
 
-Opcje to „psujące się” aktywa, ponieważ wartość ich zanika po pewnym (wygaśnięcie).
+Opcje to „psujące się” aktywa, ponieważ wartość ich zanika po pewnym
+(wygaśnięcie).
 
 Wartość opcji = wartość wewnętrzna + premia czasowa.
 
@@ -1006,12 +1218,14 @@ Wielkość tę dla opcja call i put wylicza się:
 
 Theta większa od zera gdyż im więcej  jest czasu do wygaśnięcia tym większa wartość opcji. 
 
-Ale  ponieważ czas do wygaśnięcia może tylko maleć theta jest rozpatrywana  jako wartość ujemna.  Biorąc pod uwagę  możliwość zajmowanej pozycji w opcjach należy pamiętać, że: 
+Ale ponieważ czas do wygaśnięcia może tylko maleć theta jest
+rozpatrywana jako wartość ujemna.  Biorąc pod uwagę możliwość
+zajmowanej pozycji w opcjach należy pamiętać, że:
 
 - Upływ czasu szkodzi posiadaczowi opcji. 
 - Upływ czasu działa na korzyść temu co opcje wystawił. 
 
-Ze wzoru Blacka Scholes można wyliczyć wartość 
+Ze wzoru Blacka Scholes można wyliczyć wartość: 
 
 .. math::
 
@@ -1019,13 +1233,23 @@ Ze wzoru Blacka Scholes można wyliczyć wartość
 
    \Theta_p = \frac{S \sigma e^{-.5(d_1 ^2)}}{2\sqrt{2 \pi t}} +rKe^{-rt} N(d_2)
 
+.. sagecellserver::
+    
+    try:
+        p = plot( C.diff(T)(0.1,S0,120,1,0.03),(S0,90,150),figsize=5)
+        p += plot( C(0.1,S0,120,1,0.03)/10,(S0,90,150),color='gray')
+        p.show()
+    except:
+        print "Wczytaj wzory Blacka-Scholesa!"
 
 
 Liczenie  Theta - interpretacja 
 
-Równania określają  theta na rok. Np.  :math:`\Theta = -5.58`, znaczy, że opcja straci 5.58 w wartości ceny na rok - czyli  (0.02 na dzień). 
+Równania określają theta na rok. Np.  :math:`\Theta = -5.58`, znaczy,
+że opcja straci 5.58 w wartości ceny na rok - czyli (0.02 na dzień).
 
-Theta pozycji krótkich jest dodatnia. Theta pozycji długich jest ujemna. Opcje at-the-money mają największe wartości theta.
+Theta pozycji krótkich jest dodatnia. Theta pozycji długich jest
+ujemna. Opcje at-the-money mają największe wartości theta.
 
 Tabela poniżej  pokazuje znaki  pochodnych cząstkowych dla róznych pozycji opcji.
 
@@ -1043,9 +1267,10 @@ Znak gamma jest zawsze przeciwny do znaku theta
 
 
 
-**Czułość względem odchylenia standardowego - Vega**
+Czułość względem odchylenia standardowego - Vega
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Odpowiada na pytanie, jak się zmieni wartość opcji call (put) jeśli
+Odpowiada na pytanie, jak się zmieni wartość opcji Call (Put) jeśli
 zmieni się odchylenie standardowe zwrotu czyli czułość na zmienność
 (volatility) funkcji?
 
@@ -1057,6 +1282,8 @@ zmieni się odchylenie standardowe zwrotu czyli czułość na zmienność
    \text{vega}_c = \frac{\partial C}{\partial \sigma}
 
    \text{vega}_c = \frac{\partial P}{\partial \sigma}
+
+
 
 
 
@@ -1079,10 +1306,19 @@ opcji in- oraz out-of-the-money. **Vega**, maleje wraz z upływem czasu
 do terminu wygaśnięcia.
 
 
+.. sagecellserver::
+
+    var('sigma,S0,K,T,r')
+    cdf(x) = 1/2*(1+erf(x/sqrt(2)))
+    d1=(log(S0/K)+(r+sigma**2/2)*T)/(sigma*sqrt(T))
+    d2=d1-sigma*sqrt(T)
+    C(sigma,S0,K,T,r) = S0*cdf(d1)-K*exp(-r*T)*cdf(d2)
+    plot( C.diff(sigma,1)(.1,S0,125,1,.1),(S0,70,150),figsize=5)
 
 
-**Rho**
 
+Rho
+~~~
 
 *Rho* pierwsza pochodna ceny opcji względem stopy procentowej wolnej od ryzyka:
 
@@ -1093,9 +1329,17 @@ do terminu wygaśnięcia.
    \rho _p = -Kte^{-rt}N(-d_2)
 
 
-Rho  jest najmniej znaczącą  z pochodnych. Nawet jeśli opcja ma wyjątkowo długie życie, zmiany stopy procentowej wpływają na premie niewiele.
+Rho jest najmniej znaczącą z pochodnych. Nawet jeśli opcja ma
+wyjątkowo długie życie, zmiany stopy procentowej wpływają na premie
+niewiele.
 
 
-.. W zasadzie można by pokazac wykresy wartości  współczynników od czasu i ceny, etc.ale może o tym pomyslimy poźniej????????
+.. sagecellserver::
 
+    try:
+        p = plot( C.diff(r)(0.1,S0,120,1,0.03),(S0,90,150),figsize=5)
+        p += plot( C(0.1,S0,120,1,0.03)/10,(S0,90,150),color='gray')
+        p.show()
+    except:
+        print "Wczytaj wzory Blacka-Scholesa!"
 
