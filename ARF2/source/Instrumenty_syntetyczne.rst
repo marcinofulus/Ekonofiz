@@ -74,9 +74,17 @@ To prowadzi do warunku równości (parytetu) put-call
 Gdzie
 
  - :math:`S` - cena aktywa (1 akcji)
- - :math:`P` - cena opcji put (1 opcja) na cenę wykonania X i czasie do wygaśnięcia T
- - :math:`C` - cena opcji  call (jedna  opcja)  na cene wykonania X i czasie do wygaśnięcia T – jak opcja put.
- - :math:`PV(X)` - jedna obligacja (instrument dyskontowy) z wartością w czasie zapadalności T równej X.
+ - :math:`P` - cena opcji put (1 opcja) na cenę wykonania X i czasie
+   do wygaśnięcia T
+ - :math:`C` - cena opcji call (jedna opcja) na cene wykonania X i
+   czasie do wygaśnięcia T – jak opcja put.
+ - :math:`PV(X)` - jedna obligacja (instrument dyskontowy) z wartością
+   w czasie zapadalności T równej X.
+
+
+Możemy również rozumieć ten związek 
+
+
 
 Jeśli ten warunek nie zachodzi to mamy do czynienia z arbitrażem.
 Możliwość arbitrażu nie będzie istnieć długo ale wtedy opłacalnym
