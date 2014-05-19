@@ -4,7 +4,7 @@
 Tak jak światło składa się z elementów składowych tak i instrumenty
 finansowe składają się z instrumentów podstawowych. Jak już było
 wspomniane to na początku rozdziału o opcjach, opcje należą do tych
-składowych. Instrumenty syntetyczne to instrumenty składające (dające
+składowych. **Instrumenty syntetyczne** to instrumenty składające (dające
 się rozłożyć) na składowe instrumenty. Instrumenty syntetyczne
 składają się z kombinacji dwu lub więcej elementów
 składowych. Konstrukcja takich instrumentów nazywana jest inżynierią
@@ -82,8 +82,49 @@ Gdzie
    w czasie zapadalności T równej X.
 
 
-Możemy również rozumieć ten związek 
+Możemy również rozumieć ten związek jako konsekwencję matematycznej równości:
 
+.. math::
+   :label: CmP   
+
+   \max (S-K,0)  -    \max (K-S,0)  = S-K.
+
+Prześledźmy, jeśli :math:`S>K` to pierwszy składnik różnicy w równaniu
+:eq:`CmP` jest równy :math:`S-K`, a drugi jest zero. W przeciwnym
+przypadku :math:`K>S` pierwszy się zeruje a drugi daje
+:math:`-(K-S)=S-K` czyli w efekcie to samo co pierwszy. Funkcja
+wypłaty dla różnicy dwóch opcji - Call i Put, jest więc taka sama jak
+funkcja wypłaty dla posiadanej opcji i kredytu na wartość :math:`K`.
+
+Funkcja wypłady obowiązuje w czasie zapadalności obydwu opcji - czyli
+math:`t=T`).  Wyobrażmy sobie, że jesteśmy w dowolnym momencie przed
+tym czasem, (niech będzie on oznaczony przez :math:`t=0`). Wtedy cena
+akcji jest inna. Opcje przez ich czasem zapadalności możemy wycenić,
+np. za pomocą wzoru Blacka-Scholesa. Kredyt :math:`K` będzie trzeba
+zdyskontować ze stopą wolną od ryzyka :math:`r`. Dlatego możemy się
+spodziewać, że będzie zachodził wzór:
+
+.. math::
+
+    S + P_P =    P_C + e^{-rT} K,
+
+gdzie przez :math:`P_C,P_P` to ceny opcji Call i Put, odpowiednio, w
+czasie :math:`t=0`. 
+
+Wzór ten powinien zachodzić na wyceny opcji, sprawdźmy więc czy
+rzeczywiście tak jest. Możemy wykorzystać system algebry komputerowej
+by wykonal mozolną robotę za nas:
+
+
+.. sagecellserver::
+   
+   var("S0,K,r,T,sigma")
+   cdf(x) = 1/2*(1+erf(x/sqrt(2)))
+   d1=(log(S0/K)+(r+sigma**2/2)*T)/(sigma*sqrt(T))
+   d2=d1-sigma*sqrt(T)
+   C(S0,K,r,T,sigma) = S0*cdf(d1)-K*exp(-r*T)*cdf(d2)
+   P(S0,K,r,T,sigma) = K*exp(-r*T)*cdf(-d2)-S0*cdf(-d1)
+   bool( S0+P(S0,K,r,T,sigma) == K*exp(-r*T) + C(S0,K,r,T,sigma) )
 
 
 Jeśli ten warunek nie zachodzi to mamy do czynienia z arbitrażem.
@@ -124,7 +165,7 @@ Równania wartości pieniądza w czasie dla ciągłej kapitalizacji:
    FV = PVe^{Rt} 
 
 
-Równanie pokazujące związek ceny akcji I opcji call oraz put I
+Równanie pokazujące związek ceny akcji i opcji call oraz put i
 obligacji o stopie bez ryzyka :eq:`IS1` wygląda:
 
 .. math::
@@ -143,18 +184,35 @@ cena opcji Put - cena opcji Call  = present value ceny wykonania  + present valu
 
 
 Gdy na wykresie zysków (strat) od ceny aktywa naniesiemy zależności
-dla ceny akcji opcji call I put możemy łatwo wykazać zależność
+dla ceny akcji opcji call i put możemy łatwo wykazać zależność
 parytetu graficznie.
 
-.. image
+
+.. sagecellserver::
+
+    plot( longCALL(S,50,0)-P_c,(S,0,100),figsize=4,color='yellow')+\
+     plot( longPUT(S,50,0)-P_p,(S,0,100),color='red',aspect_ratio=1)+\
+     plot( S-50,(S,0,100),color='blue',aspect_ratio=1)+\
+     plot( ( 50-50*exp(-0.05*90/365.) ),(S,0,100),color='green',aspect_ratio=1)
 
 
 Oznaczenia:
 
-| Zółty kolor – long call
+| Zółty kolor - long call
 | Czerwony  - long put
-| Niebieski- pozycja długa w aktywie (akcja)
-| Jasno niebieski przerywany – pozycja długa w obligacji.
+| Niebieski - pozycja długa w aktywie (akcja)
+| Zielony - pozycja długa w obligacji.
+
+
+Mając do dyspozycji równanie :eq:`IS1`, możemy je rozwiązać na cenę
+opcji Call, cenę opcji Put lub cenę aktywa. Powyższe trzy możliwości
+mogą zostać wykorzystane do zastąpienia pozycji długiej lub krótkiej w
+portfelu. Razem daje to sześć możliwości zastosowania parytetu
+Put-Call, oraz tworzenia instrumentów syntetycznych.
+
+
+Syntetyczny Put
+---------------
 
 Analogicznie aby określić cenę opcji put przekształcamy wzór :eq:`IS1`
 do postaci:
@@ -162,19 +220,81 @@ do postaci:
 .. math::
    :label: IS2
 
-   P = C – S + Xe^{-Rt}
+   P = C - S + K e^{-Rt}
+
+Co to oznacza?  Kupienie opcji Call i sprzedaż aktywa (np. akcji) oraz
+kupienie obligacji o tym samym terminie zapadalności jak termin
+wygaśnięcia opcji (czyli :math:`T`) replikuje wypłatę z zakupu opcji
+Put.
+
+Zobaczmy jak to pracuje na przykładzie. Po pierwsze zdefiniujmy z
+systemie Sage wypłaty opcji Put i Call oraz wzory Blacka-Scholesa:
+
+.. sagecellserver::
+
+    var('S')
+    def longCALL(S,K,P=0):
+        return max_symbolic(S-K,0)-P
+    def longPUT(S,K,P=0):
+        return max_symbolic(K-S,0)-P
+    var('sigma,S0,K,T,r')
+    cdf(x) = 1/2*(1+erf(x/sqrt(2)))
+    d1=(log(S0/K)+(r+sigma**2/2)*T)/(sigma*sqrt(T))
+    d2=d1-sigma*sqrt(T)
+    C(S0,K,r,T,sigma) = S0*cdf(d1)-K*exp(-r*T)*cdf(d2)
+    P(S0,K,r,T,sigma) = K*exp(-r*T)*cdf(-d2)-S0*cdf(-d1)
+
+Rozważmy aktywo o wartości chwilowej (spot price) :math:`S=50` i
+zmienności (volatility) :math:`\sigma=0.5`. Ponadto, niech wolna od
+ryzyka stopa procentowa wynosi :math:`r=0.05`. Będziemy rozważać opcje
+o czasie wygaśnięcia trzy miesiące czyli :math:`T=90/365`. W chwili
+początkowej mamy następujące ceny opcji Call i Put, dane przez wzory
+Blacka-Scholesa:
+
+.. sagecellserver::
+
+    P_c,P_p = C(50,50,.05,90/365.,0.3).n(),P(50,50,.05,90/365.,0.3).n()
+    print P_c,P_p
 
 
-Dlaczego?  Kupienie call i sprzedaż aktywa (akcji) replikuje wypłatę z
-zakupu opcji put.
+.. sagecellserver::
 
-A co w przypadku istnienia krótkiej sprzedaży??
+    p3= plot( longCALL(S,50,0)-P_c,(S,0,100),color='red',aspect_ratio=1)+\
+     plot( - (S-50),(S,0,100),color='green',aspect_ratio=1)+\
+     plot( ( 50-50*exp(-0.05*90/365.) ) ,(S,0,100),color='blue',aspect_ratio=1,figsize=4)
+    show(p3)
 
-Możemy pożyczyć obligacje (na stopie wolnej od ryzyka). odsetki
-zarobione na pożyczonej obligacji (pozycja długa w obligacji) pozwolą
-na taki sam dochód jak w przypadku kupienia put. Korzystając z prawa
-jednej ceny tak skonstruowany portfel i opcja put musi mieć taka sama
-wartość.
+.. sagecellserver::
+
+   p2=plot( longCALL(S,50,0)-P_c-( S-50) + ( 50-50*exp(-0.05*90/365.) ),(S,0,100),color='black',aspect_ratio=1,zorder=10)
+   p2 += plot( longPUT(S,50,0)-P_p,(S,0,100),color='pink',thickness=5,figsize=4)
+   html.table([["Instrumenty bazowe","Instrument syntetyczny"],[p3,p2]])
+
+
+Na ostatnim rysunku widzimy po prawej - profl zysku/straty dla
+poszczególnych instrumentów bazowych a po lewej czarną linią
+zaznaczono ich sumę - czyli nasz instrument syntetyczny. Szeroka
+różowa linia oznacza profil zysku straty dla opcji Call. Spełnienie
+parytetu powoduje, że obie linie się pokrywają.
+
+.. admonition:: Poeksperymentuj!
+
+   Przypuśćmy, że nie wycenilismy opcji Put wg. wzoru Blacka-Scholesa,
+   tylko od kolegi, który zawsz ma odmienne od rynku zdanie,
+   dowiedzieliśmy się, że :math:`P_p=5.94`. Przeprowadźmy te same
+   obliczenia i zobaczmy czy parytet Put-Call dalej będzie spełniony!
+
+   
+
+..
+   A co w przypadku istnienia krótkiej sprzedaży??
+
+   Możemy pożyczyć obligacje (na stopie wolnej od ryzyka). odsetki
+   zarobione na pożyczonej obligacji (pozycja długa w obligacji) pozwolą
+   na taki sam dochód jak w przypadku kupienia put. Korzystając z prawa
+   jednej ceny tak skonstruowany portfel i opcja put musi mieć taka sama
+   wartość.
+
 
 Graficznie przedstawia to wykres
 
@@ -182,7 +302,7 @@ Graficznie przedstawia to wykres
 
 
 Korzystając ze wzoru :eq:`IS1` możemy tworzyć instrumenty syntetyczne
-korzystając z cztere „cegieł„ wymienionych powyżej.
+korzystając z cztere "cegieł" wymienionych powyżej.
 
 Syntetyczna pozycja Long Stock można stworzyć syntetyczną pozycję
 posiadania akcji poprzez kupienie call, sprzedaż put, i zainwestowanie
