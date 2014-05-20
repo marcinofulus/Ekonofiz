@@ -11,83 +11,96 @@ składowych. Konstrukcja takich instrumentów nazywana jest inżynierią
 finansową.
 
 Oprócz opcji „cegiełkami” tworzącymi inne instrumenty są obligacje,
-akcje, opcje call i put oraz swapy.
+akcje, opcje Call i Put oraz swapy.
 
 Na początek budujemy portfel inwestycyjny. Kupujemy aktywo i od
 momentu posiadania aktywa obawiamy się spadku jego ceny i chcemy by
 wartość naszego portfela nie zmalała w przypadku spadku cen tego
 aktywa na rynku. Aby się zabezpieczyc przed spadkiem wartości portfela
-kupujemy opcje put na wspomniane aktywo.  Kupienie opcji put i
+kupujemy opcje Put na wspomniane aktywo.  Kupienie opcji Put i
 zapłacenie premii pozwala na ograniczenie możliwych strat z dołu przy
 zachowaniu szans na wzrost wartości aktywa. W takiej strategii widać
 podobieństwo do płacenia polisy ubezpieczeniowej za ograniczenie
 strat.
 
 Ale widać strategie alternatywna dla opisanej sytuacji.  Zamiast
-kupować aktywo i opcje put zapewniającą „atrakcyjna” cenę jego
-sprzedaży możemy kupić jedynie opcje call na „atrakcyjną” cenę aktywa.
+kupować aktywo i opcje Put zapewniającą „atrakcyjna” cenę jego
+sprzedaży możemy kupić jedynie opcje Call na „atrakcyjną” cenę aktywa.
 Zaoszczędzone pieniądze (różnica miedzy ceną kupna aktywa i premia
-opcji put) możemy zainwestować w instrument dłużny oprocentowany stopa
+opcji Put) możemy zainwestować w instrument dłużny oprocentowany stopa
 wolna od ryzyka.  Jeśli wartość aktywa wzrośnie możemy kupić je
-wykorzystując opcje call i swoją inwestycje. Jeśli wartość aktywa
+wykorzystując opcje Call i swoją inwestycje. Jeśli wartość aktywa
 spadnie można pozwolić wygasnąć opcji i zachować pieniądze w
 inwestycji w stopę wolną od ryzyka.
 
-Porównując obie strategie widzimy, że 
-
-    ====================	========================	=================
-    .				Wartość przy wygaśnięciu	.
-    ====================	========================	=================
-    pozycja początkowa		S < X				S :math:`\geq` X
-    Akcje + Put			X				S
-    Call + PV(E)		X				S
-    ====================	========================	=================
+Porównując obie strategie widzimy, że:
 
 
-Niech cena aktywa wynosi S a cena wykonania opcji X.  W zależności od
++----------+------------+-------------+
+|          |Wartość przy|             |
+|          |wygaśnięciu |             |
+|          |            |             |
++----------+------------+-------------+
+|pozycja   |:math:`S<K` |:math:`S \geq|
+|początkowa|            |K`           |
+|          |            |             |
++----------+------------+-------------+
+|Akcje +   |:math:`K`   |:math:`S`    |
+|Put       |            |             |
+|          |            |             |
++----------+------------+-------------+
+|Call +    |:math:`K`   |:math:`S`    |
+|PV(K)     |            |             |
++----------+------------+-------------+
+
+
+
+Niech cena aktywa wynosi :math:`S` a cena wykonania opcji :math:`K`.  W zależności od
 tego ile wynosi cena aktywa na rynku postępujemy:
 
 w przypadku portfela:
 
 Aktywo + Put
 
-- Jeśli S < X, wykorzystaj put i weź X
-- Jeśli S :math:`\geq` X, niech put wygaśnie a masz S
+- Jeśli :math:`S < K`, wykorzystaj Put i weź :math:`K`
+- Jeśli :math:`S\geq K`, niech Put wygaśnie a masz :math:`S`
 
-Portfel  Call + PV(X)
+Portfel  Call + PV(K)
 
-- PV(X) będzie warta X dla wygaśnięcia opcji 
-- Jeśli S < X, niech call wygaśnie a masz inwestycje, X
-- Jeśli S :math:`\geq` X, wykorzystaj call mając inwestycje i masz  S
+- :math:`PV(K)` będzie warta :math:`K` dla wygaśnięcia opcji 
+- Jeśli :math:`S < K`, niech Call wygaśnie a masz inwestycje, :math:`K`
+- Jeśli :math:`S\geq K`, wykorzystaj Call mając inwestycje i masz  :math:`S`
 
 Jeśli te dwie pozycje są tyle samo warte na koniec inwestycji to
 powinny być tyle samo warte na początku inwestycji.
 
-To prowadzi do warunku równości (parytetu) put-call 
+To prowadzi do warunku równości (parytetu) Put-Call 
 
 .. math::
    :label: IS1
 
-   S + P = C + PV(X)
+   S + P = C + PV(K)
 
 
 Gdzie
 
  - :math:`S` - cena aktywa (1 akcji)
- - :math:`P` - cena opcji put (1 opcja) na cenę wykonania X i czasie
-   do wygaśnięcia T
- - :math:`C` - cena opcji call (jedna opcja) na cene wykonania X i
-   czasie do wygaśnięcia T – jak opcja put.
- - :math:`PV(X)` - jedna obligacja (instrument dyskontowy) z wartością
-   w czasie zapadalności T równej X.
+ - :math:`P` - cena opcji Put (1 opcja) na cenę wykonania :math:`K` i czasie
+   do wygaśnięcia :math:`T`
+ - :math:`C` - cena opcji Call (jedna opcja) na cene wykonania K i
+   czasie do wygaśnięcia :math:`T` - jak opcja Put.
+ - :math:`PV(K)` - jedna obligacja (instrument dyskontowy) z wartością
+   w czasie zapadalności T równej K.
 
 
-Możemy również rozumieć ten związek jako konsekwencję matematycznej równości:
+Możemy również rozumieć ten związek jako konsekwencję matematycznej
+równości:
 
 .. math::
    :label: CmP   
 
    \max (S-K,0)  -    \max (K-S,0)  = S-K.
+
 
 Prześledźmy, jeśli :math:`S>K` to pierwszy składnik różnicy w równaniu
 :eq:`CmP` jest równy :math:`S-K`, a drugi jest zero. W przeciwnym
@@ -113,43 +126,70 @@ czasie :math:`t=0`.
 
 Wzór ten powinien zachodzić na wyceny opcji, sprawdźmy więc czy
 rzeczywiście tak jest. Możemy wykorzystać system algebry komputerowej
-by wykonal mozolną robotę za nas:
+by wykonal mozolną robotę za nas.
+
+.. admonition:: Poeksperymentuj z Sage!
+
+ Kod wykorzystujący CAS do pokazania spełnienia przez wzory
+ Blacka-Scholesa parytetu Put-Call. Do sprawdzenia parytetu używamy
+ polecenia `bool`, które próbuje algebraicznie udowodnić
+ równość. Możemy też zobaczyć jawną postać lewej lub prawej strony
+ równości używając do tego polecenia `show`, jednak uzyskane wzrory
+ mogą być dość długie (spróbuj!)`
+
+ .. only:: html
 
 
-.. sagecellserver::
-   
-   var("S0,K,r,T,sigma")
-   cdf(x) = 1/2*(1+erf(x/sqrt(2)))
-   d1=(log(S0/K)+(r+sigma**2/2)*T)/(sigma*sqrt(T))
-   d2=d1-sigma*sqrt(T)
-   C(S0,K,r,T,sigma) = S0*cdf(d1)-K*exp(-r*T)*cdf(d2)
-   P(S0,K,r,T,sigma) = K*exp(-r*T)*cdf(-d2)-S0*cdf(-d1)
-   bool( S0+P(S0,K,r,T,sigma) == K*exp(-r*T) + C(S0,K,r,T,sigma) )
+  .. sagecellserver::
+
+     var("S0,K,r,T,sigma")
+     cdf(x) = 1/2*(1+erf(x/sqrt(2)))
+     d1=(log(S0/K)+(r+sigma**2/2)*T)/(sigma*sqrt(T))
+     d2=d1-sigma*sqrt(T)
+     C(S0,K,r,T,sigma) = S0*cdf(d1)-K*exp(-r*T)*cdf(d2)
+     P(S0,K,r,T,sigma) = K*exp(-r*T)*cdf(-d2)-S0*cdf(-d1)
+     bool( S0+P(S0,K,r,T,sigma) == K*exp(-r*T) + C(S0,K,r,T,sigma) )
+
+ .. only:: latex
+
+  .. code-block:: python
+
+     var("S0,K,r,T,sigma")
+     cdf(x) = 1/2*(1+erf(x/sqrt(2)))
+     d1=(log(S0/K)+(r+sigma**2/2)*T)/(sigma*sqrt(T))
+     d2=d1-sigma*sqrt(T)
+     C(S0,K,r,T,sigma) = S0*cdf(d1)-K*exp(-r*T)*cdf(d2)
+     P(S0,K,r,T,sigma) = K*exp(-r*T)*cdf(-d2)-S0*cdf(-d1)
+     bool( S0+P(S0,K,r,T,sigma) == K*exp(-r*T) + C(S0,K,r,T,sigma) )
 
 
 Jeśli ten warunek nie zachodzi to mamy do czynienia z arbitrażem.
-Możliwość arbitrażu nie będzie istnieć długo ale wtedy opłacalnym
-będzie działanie: Kup stronę „niską” a sprzedaj „wysoka”
+Możliwość arbitrażu nie będzie istnieć długo, ale wtedy opłacalnym
+będzie działanie: Kup stronę „niską” a sprzedaj „wysoko”.
 
 Arbitraż jest sytuacją wyjątkową i ulotną w stosunku do sytuacji gdy
 rynek jest w równowadze.  Jeśli rynek jest efektywny (a raczej jest)
 używamy tego równania do znalezienia wielkości przy pomocy danych
 pozostałych trzech instrumentów
 
-.. admonition:: Przykład:
+.. note:: Przykład
 
-    Z danych rynkowych widać, że :
+    Z danych rynkowych widać, że:
 
-    Aktualna cena akcji = 50, cena opcji Put = 1.15, z ceną wykonania
-    = 45, stopa wolna od ryzyka = 5%, Termin wygaśnięcia 1 rok
+    - aktualna cena akcji = 50, 
+    - cena opcji Put = 1.15, z ceną wykonania = 45, 
+    - stopa wolna od ryzyka = 5%, 
+    - Termin wygaśnięcia 1 rok
 
-    Pytanie : Jaka jest cena  opcji Call?
+    **Pytanie:** Jaka jest cena  opcji Call?
 
     Korzystając z równania parytetu mamy 
 
-    50  1.15 = C + 45 / (1.05)
+    .. math::
 
-    Czyli cena opcji call wynosi  C = 8.29. 
+       50  1.15 = C + 45 / (1.05)
+
+    Czyli cena opcji Call wynosi  C = 8.29 
 
 
 
@@ -165,16 +205,16 @@ Równania wartości pieniądza w czasie dla ciągłej kapitalizacji:
    FV = PVe^{Rt} 
 
 
-Równanie pokazujące związek ceny akcji i opcji call oraz put i
+Równanie pokazujące związek ceny akcji i opcji Call oraz Put i
 obligacji o stopie bez ryzyka :eq:`IS1` wygląda:
 
 .. math::
 
-   S + P = C + Xe^{-Rt} 
+   S + P = C + Ke^{-Rt} 
 
 
-Gdzie :math:`X` - to wartość obligacji na stopę wolna od ryzyka na datę
-wygaśnięcia opcji. :math:`X` to również cena wykonania opcji (obu) w czasie
+Gdzie :math:`K` - to wartość obligacji na stopę wolna od ryzyka na datę
+wygaśnięcia opcji. :math:`K` to również cena wykonania opcji (obu) w czasie
 wygaśnięcia.
 
 Jeśli aktywo (akcja) wypłaca dywidendę to zachodzi równość.
@@ -184,7 +224,7 @@ cena opcji Put - cena opcji Call  = present value ceny wykonania  + present valu
 
 
 Gdy na wykresie zysków (strat) od ceny aktywa naniesiemy zależności
-dla ceny akcji opcji call i put możemy łatwo wykazać zależność
+dla ceny akcji opcji Call i Put możemy łatwo wykazać zależność
 parytetu graficznie.
 
 
@@ -196,12 +236,16 @@ parytetu graficznie.
      plot( ( 50-50*exp(-0.05*90/365.) ),(S,0,100),color='green',aspect_ratio=1)
 
 
-Oznaczenia:
+.. figure:: figs/parytet0.*
+   :align: center
+   :figwidth: 480px
+ 
+   Oznaczenia:
 
-| Zółty kolor - long call
-| Czerwony  - long put
-| Niebieski - pozycja długa w aktywie (akcja)
-| Zielony - pozycja długa w obligacji.
+   Zółty kolor - long Call
+   Czerwony  - long Put
+   Niebieski - pozycja długa w aktywie (akcja)
+   Zielony - pozycja długa w obligacji.
 
 
 Mając do dyspozycji równanie :eq:`IS1`, możemy je rozwiązać na cenę
@@ -214,7 +258,7 @@ Put-Call, oraz tworzenia instrumentów syntetycznych.
 Syntetyczny Put
 ---------------
 
-Analogicznie aby określić cenę opcji put przekształcamy wzór :eq:`IS1`
+Analogicznie aby określić cenę opcji Put przekształcamy wzór :eq:`IS1`
 do postaci:
 
 .. math::
@@ -291,8 +335,8 @@ parytetu powoduje, że obie linie się pokrywają.
 
    Możemy pożyczyć obligacje (na stopie wolnej od ryzyka). odsetki
    zarobione na pożyczonej obligacji (pozycja długa w obligacji) pozwolą
-   na taki sam dochód jak w przypadku kupienia put. Korzystając z prawa
-   jednej ceny tak skonstruowany portfel i opcja put musi mieć taka sama
+   na taki sam dochód jak w przypadku kupienia Put. Korzystając z prawa
+   jednej ceny tak skonstruowany portfel i opcja Put musi mieć taka sama
    wartość.
 
 
@@ -305,12 +349,12 @@ Korzystając ze wzoru :eq:`IS1` możemy tworzyć instrumenty syntetyczne
 korzystając z cztere "cegieł" wymienionych powyżej.
 
 Syntetyczna pozycja Long Stock można stworzyć syntetyczną pozycję
-posiadania akcji poprzez kupienie call, sprzedaż put, i zainwestowanie
+posiadania akcji poprzez kupienie Call, sprzedaż Put, i zainwestowanie
 ceny wykonania na stopę wolna od ryzyka do wygaśnięcia.
 
 .. math::
 
-   S = C - P + Xe^{-Rt}
+   S = C - P + Ke^{-Rt}
 
 
 Graficznie  pokazuje to rysunek poniżej 
@@ -320,13 +364,13 @@ Graficznie  pokazuje to rysunek poniżej
 
 Long Call
 
-Można zbudować pozycje syntetyczną long call poprzez kupienie Put,
+Można zbudować pozycje syntetyczną long Call poprzez kupienie Put,
 kupienie akcji za pożyczoną kwotę równa cenie wykonania i spłacanej w
 chwili wygaśnięcia przy stopie wolnej od ryzyka.
 
 .. math::
 
-   C = P+ S - Xe^{-Rt}
+   C = P+ S - Ke^{-Rt}
 
 
 Na wykresie 
@@ -337,12 +381,12 @@ Na wykresie
 Syntetyczna sprzedaż  akcji  
 
 Można utworzyć syntetyczną pozycja sprzedaży akcji (short) poprzez
-sprzedaż call, kupienie put, kupienie obligacji (stopa wolna od
+sprzedaż Call, kupienie Put, kupienie obligacji (stopa wolna od
 ryzyka) za pożyczona cenę wykonania i trzymanie jej do zapadnięcia.
 
 .. math::
 
-   -S =  P – C - Xe^{-Rt}
+   -S =  P - C - Ke^{-Rt}
 
 
 Graficznie
@@ -352,12 +396,12 @@ Graficznie
 
 Syntetyczna pozycja short Put
 
-Można stworzyć syntetyczną short put poprzez sprzedaż opcji call,
+Można stworzyć syntetyczną short Put poprzez sprzedaż opcji Call,
 kupno aktywa za pożyczone na stopę wolna od ryzyka do wygaśnięcia.
 
 .. math::
 
-   -P = S - C - Xe^{-Rt}
+   -P = S - C - Ke^{-Rt}
 
 
 Graficznie przedstawia wykres
