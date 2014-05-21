@@ -248,9 +248,9 @@ krzywe. Grubą niebieską linią zaznaczono profil wypłaty w czasie
 czerwoną linią zaznaczono cenę opcji w czasie :math:`t=0`.  
 
 
-.. figure:: figs/longcall0.png 
+.. figure:: figs/longcall0.* 
    :align: center
-   :figwidth: 446px
+   :width: 70%
 
    Cena akcji w :math:`t=0` (cienka czerwona linia) oraz :math:`t=T`
    (grubą niebieską linia).
@@ -366,63 +366,83 @@ sprzedajemy to mamy depozyt. Zakładamy, że w chwili początkowej
 istnieje pewna sprawiedliwa cena opcji, którą wliczamy w nasz
 początkowy bilans.
 
-Wykonajmy najpierw komórkę z definicjami:
-
-.. sagecellserver::
-
-    var('S')
-    def longCALL(S,K,P=0):
-        return max_symbolic(S-K,0)-P
-    def longPUT(S,K,P=0):
-        return max_symbolic(K-S,0)-P
-    def shortCALL(S,K,P=0):
-        return -max_symbolic(S-K,0)+P
-    def shortPUT(S,K,P=0):
-        return -max_symbolic(K-S,0)+P
 
 
-    var('sigma,S0,K,T,r')
-    cdf(x) = 1/2*(1+erf(x/sqrt(2)))
-    d1=(log(S0/K)+(r+sigma**2/2)*T)/(sigma*sqrt(T))
-    d2=d1-sigma*sqrt(T)
-    C(S0,K,r,T,sigma) = S0*cdf(d1)-K*exp(-r*T)*cdf(d2)
-    P(S0,K,r,T,sigma) = K*exp(-r*T)*cdf(-d2)-S0*cdf(-d1)
+.. only:: html
 
-    def plotOption(OPTION=longCALL,S0=115,K=125, c='red'):
-        var('S')
-        S1,S2 = 100,140
-        sigma = 0.1
-        if "CALL" in OPTION.__name__:
-            cena = C 
-        else:
-            cena = P
-        if "short" in OPTION.__name__:
-            k = -1.0
-        else:
-            k = 1.0    
+ Wykonajmy najpierw komórkę z definicjami:
 
-        SP = cena(S0,K,0.0,1,sigma).n()       
-        p  = plot( OPTION(S,K,SP),(S,S1,S2),color=c)
-        p += plot(k*(cena(x,K,0.0,1,sigma)-SP),(x,S1,S2),color='gray',thickness=0.5)
-        p += point([(K,0),(S0,0)],color='brown',size=40,gridlines=[[K],[]])
-        p += text(r"$K$",(K,2))
-        p += text(r"$S_0$",(S0,k*2))
-        return p
+ .. sagecellserver::
+
+     var('S')
+     def longCALL(S,K,P=0):
+         return max_symbolic(S-K,0)-P
+     def longPUT(S,K,P=0):
+         return max_symbolic(K-S,0)-P
+     def shortCALL(S,K,P=0):
+         return -max_symbolic(S-K,0)+P
+     def shortPUT(S,K,P=0):
+         return -max_symbolic(K-S,0)+P
+
+
+     var('sigma,S0,K,T,r')
+     cdf(x) = 1/2*(1+erf(x/sqrt(2)))
+     d1=(log(S0/K)+(r+sigma**2/2)*T)/(sigma*sqrt(T))
+     d2=d1-sigma*sqrt(T)
+     C(S0,K,r,T,sigma) = S0*cdf(d1)-K*exp(-r*T)*cdf(d2)
+     P(S0,K,r,T,sigma) = K*exp(-r*T)*cdf(-d2)-S0*cdf(-d1)
+
+     def plotOption(OPTION=longCALL,S0=115,K=125, c='red'):
+         var('S')
+         S1,S2 = 100,140
+         sigma = 0.1
+         if "CALL" in OPTION.__name__:
+             cena = C 
+         else:
+             cena = P
+         if "short" in OPTION.__name__:
+             k = -1.0
+         else:
+             k = 1.0    
+
+         SP = cena(S0,K,0.0,1,sigma).n()       
+         p  = plot( OPTION(S,K,SP),(S,S1,S2),color=c)
+         p += plot(k*(cena(x,K,0.0,1,sigma)-SP),(x,S1,S2),\
+          color='gray',thickness=0.5)
+         p += point([(K,0),(S0,0)],color='brown',size=40,\
+          gridlines=[[K],[]])
+         p += text(r"$K$",(K,2))
+         p += text(r"$S_0$",(S0,k*2))
+         return p
+
+
 
 Kupujemy opcję Call
 ~~~~~~~~~~~~~~~~~~~
 
 .. sagecellserver::
 
-    try:
-        @interact 
-        def _(K=slider(100,135,1,default=125),S0=slider(100,135,1,default=115)):
-            p = plotOption(OPTION=longCALL,S0=S0,K=K,c='green')
-            p.set_axes_range(xmin=100,xmax=140,ymin=-10,ymax=20)
-            p.show(figsize=5)
-    except:
-        print "Wykonaj pierwszą komórkę!"
+     try:
+         @interact 
+         def _(K=slider(100,135,1,default=125),\
+          S0=slider(100,135,1,default=115)):
+             p = plotOption(OPTION=longCALL,S0=S0,K=K,c='green')
+             p.set_axes_range(xmin=100,xmax=140,ymin=-10,ymax=20)
+             p.show(figsize=5)
+     except:
+         print "Wykonaj pierwszą komórkę!"
 
+
+.. only:: latex
+
+ .. figure:: figs/kupujemy_call.png
+    :align: center
+
+    Opcja call z parametrami :math:`K` i :math:`S_0`. 
+
+
+
+    
 
 Sprzedajemy opcję Call
 ~~~~~~~~~~~~~~~~~~~~~~

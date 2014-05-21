@@ -184,7 +184,7 @@ latex_elements = {
 'papersize': 'a4paper',
 'pointsize': '12pt',
 'releasename': u'Skrypt dla studentów Ekonofizyki',
-'preamble': '\usepackage{amsmath,amssymb}\n' + '\usepackage{babel}\n' + '\usepackage{tcolorbox}\n\n' + '\makeatletter\n\g@addto@macro\@verbatim\\footnotesize\n\makeatother\n\n'+ '\definecolor{niceblue}{HTML}{E7F0FE}\n' +  '\definecolor{nicedarkerblue}{HTML}{93B7EC}\n\n' + '\makeatletter\\newenvironment{icsebox}{\\begin{tcolorbox}[colframe=nicedarkerblue,colback=niceblue,leftrule=3mm]}{\end{tcolorbox}}\n' + '\\renewenvironment{notice}[2]{\\begin{icsebox}\def\py@noticetype{#1}\par\strong{#2}}{\end{icsebox}}\makeatother\n'
+    'preamble': '\usepackage{amsmath,amssymb}\n' + '\usepackage[polish]{babel}\n' + '\usepackage{tcolorbox}\n\n' + '\makeatletter\n\g@addto@macro\@verbatim\\footnotesize\n\makeatother\n\n'+ '\definecolor{niceblue}{HTML}{E7F0FE}\n' +  '\definecolor{nicedarkerblue}{HTML}{93B7EC}\n\n' + '\makeatletter\\newenvironment{icsebox}{\\begin{tcolorbox}[colframe=nicedarkerblue,colback=niceblue,leftrule=3mm]}{\end{tcolorbox}}\n' + '\\renewenvironment{notice}[2]{\\begin{icsebox}\def\py@noticetype{#1}\par\strong{#2}}{\end{icsebox}}\makeatother\n'
 	+ u'\hyphenation{zde-fi-nio-wa-na prze-mien-ną}',
 'babel': '',
 
