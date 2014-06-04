@@ -250,7 +250,7 @@ czerwoną linią zaznaczono cenę opcji w czasie :math:`t=0`.
 
 .. figure:: figs/longcall0.* 
    :align: center
-   :width: 70%
+   :figwidth: 65%
 
    Cena akcji w :math:`t=0` (cienka czerwona linia) oraz :math:`t=T`
    (grubą niebieską linia).
@@ -266,9 +266,9 @@ dokładnie dla tej wartości ceny aktywa jaka akurat jest w
 :math:`t=0`. Dostaniemy więc wykres:
 
 
-.. figure:: figs/longcall.png 
+.. figure:: figs/longcall.* 
    :align: center
-   :figwidth: 446px
+   :figwidth: 65%
 
    Long - Call: czyli nabyliśmy prawo do kupna po cenie :math:`K`.
 
@@ -304,9 +304,9 @@ pojawia się w wysokości premii jeśli kupujący nie skorzysta z opcji.
 Jeśli cena aktywa będzie wyższa od ceny wykonania sprzedający ponosi
 stratę i jest ona zależna od ceny aktywa czyli jest nieograniczona.
 
-.. figure:: figs/shortcall.png 
+.. figure:: figs/shortcall.* 
    :align: center
-   :figwidth: 446px
+   :figwidth: 65%
 
    Short - Call: czyli sprzedaliśmy prawo do kupna po cenie
    :math:`K` - wystawiliśmy opcję.
@@ -315,9 +315,9 @@ stratę i jest ona zależna od ceny aktywa czyli jest nieograniczona.
 Long Put - kupujemy prawo sprzedaży
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: figs/longput.png 
+.. figure:: figs/longput.* 
    :align: center
-   :figwidth: 446px
+   :figwidth: 65%
 
    Long - Put: czyli nabyliśmy prawo do sprzedaży po cenie :math:`K`.
 
@@ -329,9 +329,9 @@ zrealizuje opcje celem zminimalizowania straty. Zysk osiągnie jak cena
 spadnie poniżej 111.75.
  
 
-.. figure:: figs/shortput.png 
+.. figure:: figs/shortput.* 
    :align: center
-   :figwidth: 446px
+   :figwidth: 65%
 
    Short - Put: czyli sprzedaliśmy prawo do sprzedaży po cenie
    :math:`K` - wystawiliśmy opcję.

@@ -23,7 +23,7 @@ wartości:
 
 
 Startując z pewnej wartości aktywa w chwili początkowej, w pierwszym
-okresie mamy dwi możliwości. W drugim okresie, każda z tych możliwości
+okresie mamy dwie możliwości. W drugim okresie, każda z tych możliwości
 prowadzi do kolejnych dwóch. Uogólniając po :math:`N` okresach mamy
 :math:`2^N` możliwych scenariuszy ewolucji ceny.
 
@@ -362,8 +362,8 @@ Przykład - wyceny opcji z danymi z rynku ciągłego.
 
    OP = [ [max(0,s-K) for s in SP[N]] ]
    for idx in range(N):
-   el = [ 1/C*(p*OP[-1][i]+(1-p)*OP[-1][i+1]) for i in range(len(OP[-1])-1)] 
-   OP.append(el)
+       el = [ 1/C*(p*OP[-1][i]+(1-p)*OP[-1][i+1]) for i in range(len(OP[-1])-1)] 
+       OP.append(el)
    print OP[-1]
 
 
@@ -778,7 +778,7 @@ tego samego instrumentu powiększonego o jego kapitalizację:
 
 .. math::
 
-   e^{r \delta t} S_{i} = p S^{+}_{i+1} +(1-p S^{-}_{i+1} 
+   e^{r \delta t} S_{i} = p S^{+}_{i+1} +(1-p S^{-}_{i+1} )
 
 
 Możemy więc napisać następujący algorytm:
@@ -787,8 +787,8 @@ Możemy więc napisać następujący algorytm:
 
    OP = [ [max(0,s-K) for s in SP[N]] ]
    for idx in range(N):
-   el = [ 1/C*(q*OP[-1][i]+(1-q)*OP[-1][i+1]) for i in range(len(OP[-1])-1)] 
-   OP.append(el)
+       el = [ 1/C*(q*OP[-1][i]+(1-q)*OP[-1][i+1]) for i in range(len(OP[-1])-1)] 
+       OP.append(el)
    OP.reverse()
 
    print "Cena opcji:",OP[0]

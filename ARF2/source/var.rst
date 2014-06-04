@@ -121,8 +121,8 @@ wartości bazowej, bądź w odniesieniu do wartości średniej portfela.
 
 Omawianie tych metod zacznijmy od przykładu portfela składającego się
 z pojedynczego aktywa.  Wartość rynkowa aktywa zmienia się rynkowo w
-czasie.  Jest ona większa lub mniejsza . Trend jest raczej trudny do
-przewidzenia . Często zakładamy ,ze ruch cen to ruch Browna.  Duże
+czasie.  Jest ona większa lub mniejsza. Trend jest raczej trudny do
+przewidzenia . Często zakładamy, że ruch cen to ruch Browna.  Duże
 zmiany wartości są rzadsze niż mniejsze.  Obserwując zmiany cen w
 dłuższym okresie możemy zauważyć, że duże zmiany są mało prawdopodobne
 a ekstremalnie duże, wręcz niemożliwe. Decydując jak bardzo mało
@@ -191,7 +191,7 @@ skorzystać z funkcji w arkuszu Excel NORMSINV.
      100 00 \times 0.0251 \times 1.645 = 4128.95 
 
   Znaczy to , że posiadając taki portfel w ciągu następnego dnia
-  istnieje 5% szans na to , że straty portfela mogą wynieś 4129
+  istnieje 5% szans na to, że straty portfela mogą wynieś 4129
   jednostek pieniężnych lub więcej. Czyli wartość portfela może spaść
   poniżej 95871 jednostek pieniężnych.
 
@@ -226,17 +226,6 @@ wyliczamy:
 
    VaR = 10000 \times 0,0251 \times 1.645 \times \sqrt{225} = 19 366.5  \text{ jednostek pieniężnych}
 
-Co jeśli w naszym portfelu znajduje się więcej niż jedno aktywo?  W
-takim przypadku wyliczając VaR musimy uwzględnić teorie portfela,
-której autorem jest Markowitz. Z tej teorii wiadomo, ze ryzyko
-portfela zmniejsza jego dywersyfikacja. Ponadto należy uwzględnić
-istnienie (lub jego brak) korelacji miedzy zachowaniem się aktywów.
-Aby wyliczyć wartość VaR takiego portfela należy dodatkowo określić:
-
- - wagę aktywa w portfelu (jego udział w wartości portfela), udział
-   jest bowiem ważony kapitałem
- - odchylenie standardowe stopy zwrotu każdego z aktywów portfela
- - korelacje miedzy stopami zwrotu każdego aktywa portfela.  
 
 Należy jeszcze uogólnić sytuacje (poprzednio założyliśmy, że średnia
 wartość rozkładu wynosi zero). W ogólnym przypadku kwantyl jest równy:
@@ -264,7 +253,51 @@ Gdzie
 
   :math:`k` - stała rozkładu
 
-Niech wielowymiarowy rozkład stóp zwrotów składników portfela
+
+
+Portfel składający się z wielu aktywów
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Co jeśli w naszym portfelu znajduje się więcej niż jedno aktywo?  W
+takim przypadku wyliczając VaR musimy uwzględnić teorie portfela,
+której autorem jest Markowitz. Z tej teorii wiadomo, ze ryzyko
+portfela zmniejsza jego dywersyfikacja. Ponadto należy uwzględnić
+istnienie (lub jego brak) korelacji miedzy zachowaniem się aktywów.
+Aby wyliczyć wartość VaR takiego portfela należy dodatkowo określić:
+
+ - wagę aktywa w portfelu (jego udział w wartości portfela), udział
+   jest bowiem ważony kapitałem
+ - odchylenie standardowe stopy zwrotu każdego z aktywów portfela
+ - korelacje miedzy stopami zwrotu każdego aktywa portfela.  
+
+Czyli VaR dla portfela akcji opisanego przez unormowany do jedności
+wektor:
+
+
+.. math::
+
+   \mathbf{w} = (w_1,w_2,...,w_n).
+
+VaR  jest dany przez taki sam wzór:
+
+.. math::
+   :label: var3
+
+   VaR = (\mu - k\sigma ) W  
+
+jednak wartości :math:`\mu` i :math:`\sigma` są odpowienio: średnią
+wartościa oraz odchyleniem standardowym całego portfela. Niech ceny
+aktywów będą dane jako wektor :math:`\mathbf{\mu} =
+(\mu_1,\mu_2,...,\mu_n)`. Zakładając, że mamy do czynienia z
+gausowskimi zmiennymi losowymi, średniego odchylenie i wartość
+portfela dane są przez:
+
+.. math::
+
+  \sigma = \mathbf{w^T} \Sigma \mathbf{w} \\
+  \mu = \mathbf{w} \mathbf{\mu} 
+
+Wielowymiarowy rozkład stóp zwrotów składników portfela
 (wymiarowość jest określona przez liczbę składników) jest
 wielowymiarowym rozkładem normalnym o wektorze średnich
 :math:`\boldsymbol{\mu}` i macierzy kowariancji danych
@@ -274,7 +307,7 @@ wielowymiarowym rozkładem normalnym o wektorze średnich
 .. math::
    :label: wektorowe
 
-   \boldsymbol{\Sigma}_n\ =\  
+   \boldsymbol{\Sigma}\ =\  
    \left[\begin{array}{cccc} 
       \sigma_{11}      &    \sigma_{12}   & \ldots &    \sigma_{1n}   \\
       \sigma_{21}      &    \sigma_{22}   & \ldots &    \sigma_{2n}   \\
@@ -308,9 +341,7 @@ możemy wyliczyć korzystając z i macierzy kowariancji danych.
 		
 Gdzie
 
-    :math:`w_i`  - to udział (waga)  
-   
-    :math:`i` - tego składnika w portfelu
+    :math:`w_i`  - to udział (waga)  :math:`i` - tego składnika w portfelu
 
 
 Zaś :math:`\mu` oraz :math:`\sigma` są określone przez powyższym
@@ -324,7 +355,7 @@ metody wariancji-kowariancji.
    Niech portfel o wartości początkowej 100000 składa się z dwu
    składników jednego o wadze 60% i odchylenie standardowym 1% i
    drugiego o o wadze 40% i odchyleniu 2% oraz współczynnik korelacji
-   między nimi niech wynosi 0,4.  Dla takich danych:
+   między nimi niech wynosi 0.4.  Dla takich danych:
  
 
 

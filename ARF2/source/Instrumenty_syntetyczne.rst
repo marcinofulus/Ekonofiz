@@ -209,13 +209,73 @@ Równanie pokazujące związek ceny akcji i opcji Call oraz Put i
 obligacji o stopie bez ryzyka :eq:`IS1` wygląda:
 
 .. math::
+  :label: putcall
 
    S + P = C + Ke^{-Rt} 
 
 
-Gdzie :math:`K` - to wartość obligacji na stopę wolna od ryzyka na datę
-wygaśnięcia opcji. :math:`K` to również cena wykonania opcji (obu) w czasie
-wygaśnięcia.
+Gdzie :math:`K` - to wartość obligacji na stopę wolna od ryzyka na
+datę wygaśnięcia opcji. :math:`K` to również cena wykonania opcji
+(obu) w czasie wygaśnięcia.
+
+Równanie :eq:`putcall` nazwane parytetem call - put pokazuje symetrie
+ceny opcji put i call. Najlepiej można to prześledzić w przypadku
+opcji europejskich i aktywa nie wypłacającego dywidendy. Potraktujmy
+równanie :eq:`putcall` jako równość wartości dwu portfeli. 
+
+ - Pierwszy portfel składa się z opcji call z ceną wykonania
+   przykładowo 12 i obligacji która w chwili wygaśnięcia ma wartość
+   aktywa w chwili wykonania. Obligacja obrazuje "pożyczone" środki
+   pieniężne, które w chwili z wygaśnięcia musza być równe cenie
+   wykonania aktywa pozwalając na wykonanie opcji.
+
+ - Drugi portfel składa się z opcji put z ta samą ceną wykonania jak
+   opcja call i aktywa , które w chwili wykonania ma wartość ceny
+   wykonania.
+
+Istota parytetu zasadza się w równości tych dwu portfeli. Ta równość
+zachodzi niezależnie od ceny (wykonania) aktywa. Sprawdźmy to:
+
+
+Dla ceny aktywa 12 równość ta, wygląda następująco:
+
+
+=============  =============
+Call= 0	        put = 0
+Obligacja= 12   Aktywo =12
+=============  =============
+Wartość = 12    Wartość = 12
+=============  =============
+
+
+Call wygasa bez wartości gdy w chwili wygaśnięcia cena aktywa wynosi
+12, podobnie put. Jednak zaciągnięty został kredyt o wartości 12.
+
+
+Dla ceny aktywa 14 równość ta , wygląda następująco:
+
+=============  =============
+Call =2        put = 0
+Obligacja= 12  Aktywo =14
+=============  =============
+Wartość = 14   Wartość = 14
+=============  =============
+
+Dla tej ceny aktywa opcja call ma wartość = 2 a opcja put wygasa bez
+wartości.
+
+Dla ceny aktywa 6 równość ta , wygląda następująco:
+
+=============  =============
+Call= 0	        put = 6
+Obligacja= 12   Aktywo =6
+=============  =============
+Wartość = 12    Wartość = 12
+=============  =============
+
+Jak widać jeden portfel replikuje wartość drugiego bez względu na
+wartość aktywa. Są one równowartościowe.
+
 
 Jeśli aktywo (akcja) wypłaca dywidendę to zachodzi równość.
 
