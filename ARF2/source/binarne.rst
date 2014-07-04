@@ -799,12 +799,15 @@ Możemy więc napisać następujący algorytm:
 Hedging na drzewie binarnym:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Niech opcja będzie do kupienia po 16! Ponieważ jej wartość wynosi 15
-powinniśmy moć na tym zarobić. Ale wystawiając opcje narażamy się na
-duże ryzyko. Nie interesuje nas ryzyko, ale pewny zysk.
+Niech opcja będzie do kupienia po 16! Ponieważ jej cena godziwa,
+tzn. taka przy której nie zachodzi arbitraż, wynosi 15 istnieje
+możliwość zarobienia. Wystawiając opcje narażamy się na duże
+ryzyko. Na naszym modelowym rynku idealnym jesteśmy zainteresowani
+zyskiem bez ponoszenia ryzyka.
 
-Ideą hegdingu, jest taka gra odpowiednim portfelem by w KAZDYM
-przypadku otrzymać zysk = 1.
+Ideą hegdingu, jest taka konstrukcja portfelem by w KAŻDYM scenariuszu
+ewolucji ceny aktywa, otrzymać zysk = 1 (wynikający z początkowej
+różnicy ceny godziwej i rynkowej).
 
 Po pierwsze będziemy potrzebowali ceny opcji w każdym węźle
 drzewa. Niech drzewo cen opcji będzie w strukturze zagnieżdzonej listy

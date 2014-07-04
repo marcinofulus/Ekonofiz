@@ -230,7 +230,7 @@ równanie :eq:`putcall` jako równość wartości dwu portfeli.
    wykonania aktywa pozwalając na wykonanie opcji.
 
  - Drugi portfel składa się z opcji put z ta samą ceną wykonania jak
-   opcja call i aktywa , które w chwili wykonania ma wartość ceny
+   opcja call i aktywa, które w chwili wykonania ma wartość ceny
    wykonania.
 
 Istota parytetu zasadza się w równości tych dwu portfeli. Ta równość
@@ -252,7 +252,7 @@ Call wygasa bez wartości gdy w chwili wygaśnięcia cena aktywa wynosi
 12, podobnie put. Jednak zaciągnięty został kredyt o wartości 12.
 
 
-Dla ceny aktywa 14 równość ta , wygląda następująco:
+Dla ceny aktywa 14 równość ta, wygląda następująco:
 
 =============  =============
 Call =2        put = 0
@@ -264,7 +264,7 @@ Wartość = 14   Wartość = 14
 Dla tej ceny aktywa opcja call ma wartość = 2 a opcja put wygasa bez
 wartości.
 
-Dla ceny aktywa 6 równość ta , wygląda następująco:
+Dla ceny aktywa 6 równość ta, wygląda następująco:
 
 =============  =============
 Call= 0	        put = 6
@@ -473,22 +473,32 @@ Jeśli w miejsce kontraktów kasowych na aktywo wstawimy kontrakt
 futures to otrzymamy podobne zależności dla rynku futures.
 
 
+
+
+
+
+
+
 Swapy
 -----
 
 Transakcje swapowe to syntetyczne instrumenty zbudowane z dwu
-podstawowych „cegiełek” instrumentów finansowych. Przykładowo
-polaczenia instrumenty dłużnego o stałym oprocentowaniu z instrumentem
+podstawowych „cegiełek” instrumentów finansowych. Przykładowo są to
+polaczenia instrumentu dłużnego o stałym oprocentowaniu z instrumentem
 dłużnym o zmiennym oprocentowaniu. Często do tej kombinacji
-instrumentów dochodzi transakcja wymiany walut.
+instrumentów dochodzi transakcja wymiany walut.  
 
-Swap’y służą do zabezpieczania się przed ryzykiem zmiany stóp
-procentowych na międzynarodowych rynkach finansowych. Typowy podział
-swapów to podział na swapy kuponowe i bazowe.
+Swapy stosuje się w celu unikania niedogodności związanych z wymiana
+walut, przeciwdziałaniu ryzyku kursowemu oraz zabezpieczenia się przed
+ryzykiem związanym z wahaniem stóp procentowych. Typowy podział swapów
+to podział na swapy kuponowe i bazowe.
 
+
+Swap stopy procentowej
+~~~~~~~~~~~~~~~~~~~~~~
 
 Swap kuponowy
-~~~~~~~~~~~~~
+.............
 
 
 .. figure:: figs/ARF2_swap_kuponowy.png
@@ -500,35 +510,37 @@ Swap kuponowy
 Najbardziej typowy swap dotyczy wymiany płatności opartej na zmiennej
 stopie na płatność opartą o stopę stałą. Na ilustracji spółka A zgadza
 się wykonać płatność do spółki B liczoną w oparciu o zmienne
-oprocentowanie (np. LIBOR 6 – miesięczny) ustalonej kwoty. W zamian
+oprocentowanie (np. LIBOR 6 - miesięczny) ustalonej kwoty. W zamian
 Spółka B zgadza się dokonać płatności odsetek od tej kwoty dla stałego
-oprocentowania (np. 10% na rok) Wymiana płatności nastąpi co 6
+oprocentowania ( np. 10% na rok) Wymiana płatności nastąpi co 6
 miesięcy.
 
-
-Swap  bazowy 
-~~~~~~~~~~~~
+Swap  bazowy
+............
 
 .. figure:: figs/ARF2_swap_bazowy.png
    :align: center
    :figwidth: 480px
 
 
-
 Dotyczy wymiany płatności opartych o zmienne oprocentowanie, ale dla
 różnych rodzajów stóp procentowych. W przypadku swapu bazowego strony
 wymieniają płatności oparte na jednym rodzaju zmiennej stopy
-procentowej (np. 3- miesięczny LIBOR) na inne płatności oparte o inną
-zmienną stopę oprocentowania. (np. LIBOR 6- miesięczny)
+procentowej( np. 3- miesięczny LIBOR) na inne płatności oparte o inną
+zmienną stopę oprocentowania. ( np. LIBOR 6- miesięczny).
 
-SWAP jest transakcją zawierana przez dwie strony. Banki jednako
-pośredniczą w transakcjach i są stroną dla każdej części transakcji
-zawierając oddzielne kontrakty swap z obu stronami (klientami). Banki
-zarabiają na różnicy między tym, co płacą jednej ze stron a tym, co
-otrzymują od drugiej.
+
+SWAP jest transakcją zawierana przez dwie strony. Podstawową
+trudnością dla instytucji z chacej zawrzeć transakcje tego typu jest
+znalezienie drugiej strony transakcji, czyli firmy chcącej również
+zawrzeć transakcje swap na warunkach atrakcyjnych. To stwarza nowe
+możliwości dla banków, które to pośredniczą w transakcjach i są stroną
+dla każdej części transakcji zawierając oddzielne kontrakty swap z obu
+stronami( klientami).
+
 
 Swap stopy procentowej
-~~~~~~~~~~~~~~~~~~~~~~
+......................
 
 Inaczej nazywany IRS (czyli interest rate swap).  Polega ten swap na
 tym, że płatności wynikające dla stron z kontraktu swap dotyczą tego
@@ -543,120 +555,225 @@ płatności w regularnych odstępach czasu to w praktyce, jednak, jest to
 każdorazowo, płatność jednej strony do drugiej równa różnicy
 zobowiązań.
 
-Mechanizm  swapu  na stopę procentową.
+Mechanizm swapu na stopę procentową.
 
-Niech będą dwie firmy : Spółka A i spółka B. Spółka A funkcjonuje na
+
+Niech będą dwie firmy: Spółka A i spółka B. Spółka A funkcjonuje na
 rynku długo i jest uważana za spółkę o bardzo bezpiecznym bilansie i
 bezpiecznej działalności finansowej. Dla tego na rynku może otrzymać
-kredyt stało procentowy o stopie 6% lub zmienno procentowy w oparciu o
-LIBOR + 0,5%. Spółka B jest firma młodą i oferowany dla niej kredyt
-stało procentowy opiera się o stopę 8% albo kredyt o stopie zmiennej
-liczony według formuły LIBOR +1%.
+kredyt stało procentowy o stopie 8% lub zmienno procentowy w oparciu o
+WIBOR + 0,5%. Spółka B jest firma młodą i oferowany dla niej kredyt
+stało procentowy opiera się o stopę 10% albo kredyt o stopie zmiennej
+liczony według formuły WIBOR +1%.
 
-Załóżmy że Spółka A, oczekując wzrostu stóp procentowych chce zaciągnąć kredyt o oprocentowaniu stałym, B zaś woli zaciągnąć kredyt o oprocentowaniu zmiennym.
+Załóżmy że Spółka A, oczekując wzrostu stóp procentowych chce
+zaciągnąć kredyt o oprocentowaniu stałym, B zaś woli zaciągnąć kredyt
+o oprocentowaniu zmiennym.
 
 W powyższej sytuacji:
 
-Spółka B  musi płacić 8% za kredyt o stałym oprocentowaniu a spółka  A musi płacić LIBOR+0,5% za kredyt o zmiennym oprocentowaniu.  I tak by było, gdyby nie istniał rynek swapów. Ale istnieje i firmy mogą we wzajemnym współdziałaniu poprawić sobie warunki kredytowania. Zawarcie kontraktu swap pomiędzy tymi dwoma firmami umożliwia poprawę sytuacji każdej z nich.
+Dla spółki A korzystne jest płacić 8% za kredyt o stałym
+oprocentowaniu a spółka B musi płacić WIBOR+0,5% za kredyt o zmiennym
+oprocentowaniu.  I tak by było, gdyby nie istniał rynek swapów. Ale
+istnieje i firmy mogą we wzajemnym współdziałaniu poprawić sobie
+warunki kredytowania. Zawarcie kontraktu swap pomiędzy tymi dwoma
+firmami umożliwia poprawę sytuacji każdej z nich.
 
-Firmy zawierają kontrakt swap w ramach którego spółka B zaciąga kredyt na rynku na którym osiąga przewagę, tzn. według stopy LIBOR+1% i zobowiązuje się do płacenia stałej stopy 6.5% na rzecz A, w zamian to Spółka  A zaciąga kredyt wg stopy stałej (6%) i zobowiązuje się do płacenia na rzecz B zmiennej stopy LIBOR.
-
-Czyli :					
+Na obu rynkach firma A ma lepsza sytuacje i otrzymuje lepsze
+propozycje, posiada bowiem bezwzględną przewagę na obu rynkach
+kredytowych. Na rynku stóp zmiennych spółka B za kredyt o zmiennym
+oprocentowaniu musi płacić tylko o 0,5% więcej niż firma A, która to
+na rynku kredytów procentowych otrzymuje warunki o 2% lepsze od
+spółki B. Tak wiec na rynku kredytów opartych o zmienna stopę firma B
+osiąga przewagę komparatywną.
+ 
+Firmy zawierają kontrakt swap w ramach którego spółka B zaciąga kredyt
+według stopy WIBOR+1% i zobowiązuje się do płacenia stałej stopy 8.5%
+na rzecz A, w zamian to Spółka A zaciąga kredyt wg stopy stałej (8%) i
+zobowiązuje się do płacenia na rzecz B zmiennej stopy WIBOR.  Czyli:
 
 .. figure:: figs/ARF2_swap_irs.png
    :align: center
    :figwidth: 680px
 
 
-W wyniku zawartej transakcji Spółka **B płaci**:	-stałą stopę 6.5% 
-							-LIBOR+1% 
 
-Ale dostaje 						+LIBOR 
+ 
+W wyniku zawartej transakcji Spółka  B płaci:
 
-Czyli, w sumie płaci 7.5% odsetek wg stałej stopy procentowej 
+ * -stałą stopę 8.5% 
+ * -WIBOR+1% 
 
-Dzięki zastosowaniu takiego swapu firma B zaoszczędza 0.5% w stosunku do stopy oferowanej przez kredytodawcę.
 
-Natomiast spółka **A płaci**:		-stałą stopę 6% 
-					-LIBOR% 
+ale dostaje:
 
-Lecz dostaje od społki B  		+stałą stopę 6.5% 
+ *  +WIBOR
 
-w sumie płaci LIBOR-0.5% odsetek (zmienna stopa procentowa) 
 
-Dzięki zastosowaniu takiego swapu firma A zaoszczędza 1% w stosunku do stopy oferowanej przez kredytodawcę. 
+Czyli, w sumie płaci 9.5% odsetek wg stałej stopy procentowej.  Dzięki
+zastosowaniu takiego swapu firma B zaoszczędza 0.5% w stosunku do
+stopy oferowanej przez kredytodawcę.
 
-Znalezienie drugiej strony swapu często jest trudne. Trudność tą usuwa  pośrednik finansowy, który  niejako staje się strona dla  obu stron swapu. Pośrednik przejmuje na siebie ryzyko związane z niedotrzymaniem warunków umowy przez kontrahenta (ryzyko kredytowe), oraz może przejmować na siebie część ryzyka walutowego (w swapach walutowych).Żąda w zamian wynagrodzenia- czyli każda ze stron rezygnuje na rzecz pośrednika z części beneficjów swapu. 
+Natomiast spółka   A płaci:	
+  * -stałą stopę 8% 
+  * -WIBOR  
 
-Swap stopy procentowej ma podobną strukturę do kontraktu terminowego futures (forward) na stopę procentową,  w tym sensie, że przyszłe zobowiązania swapu są określane dzisiaj. 
+Lecz dostaje od spółki B:
+  * +stałą stopę 8.5%, 
+
+i w sumie płaci WIBOR-0.5% odsetek (zmienna stopa procentowa).
+ 
+Dzięki zastosowaniu takiego swapu firma A zaoszczędza 1% w stosunku do
+stopy oferowanej przez kredytodawcę.
+
+Analiza powyższego przykładu jest ilustracją ogólniejszej
+zasady. Podział zysków ze swapu może jest dowolny i negocjowany miedzy
+partnerami swapu i zależy od ich porozumienia (warunków kontraktu),
+aczkolwiek ograniczony.  Korzyść osiągana przez obie strony jest równa
+wartości różnicy stóp oferowanych firmom na rynku stałych
+pomniejszonej o wartość różnicy stóp na rynku stóp zmiennych.
+
+W naszym przypadku wartości te wynoszą 2%-0.5%=1.5%. Natomiast w
+sytuacji gdy jedna z firm ma przewagę bezwzględną na jednym rynku a
+druga na drugim zysk będzie sumą wartość różnicy stóp oferowanym
+firmom na rynku stóp stałych powiększoną o wartość różnicy na rynku
+stóp zmiennych. W warunkach rynkowych przewaga komparatywna nie
+zawsze musi występować oraz ewentualne korzyści osiągane ze swapu mogą
+być zbyt małe w porównaniu do kosztów transakcji. Znalezienie drugiej
+strony swapu często jest trudne. Trudność tą usuwa pośrednik
+finansowy, który niejako staje się strona dla obu stron
+swapu. Pośrednik przejmuje na siebie ryzyko związane z niedotrzymaniem
+warunków umowy przez kontrahenta (ryzyko kredytowe), oraz może
+przejmować na siebie część ryzyka walutowego (w swapach
+walutowych). Żąda w zamian wynagrodzenia- czyli każda ze stron
+rezygnuje na rzecz pośrednika z części beneficjów swapu.
+
+Swap stopy procentowej ma podobną strukturę do kontraktu terminowego
+futures (forward) na stopę procentową, w tym sensie, że przyszłe
+zobowiązania swapu są określane dzisiaj.
 
 Swap walutowy
+~~~~~~~~~~~~~
 
-W transakcji swapu walutowego (currency swap), strony wymieniają waluty po ustalonym kursie, Następnie w określonych okresach dokonują wzajemnie płatności odsetkowych w oparciu o wcześniej ustalone pary stóp procentowych. Na koniec, dokonują powtórnej wymiany do oryginalnych walut  w terminie zapadalności transakcji.  
+W transakcji swapu walutowego ( currency swap), strony wymieniają
+waluty po ustalonym kursie, Następnie w określonych okresach dokonują
+wzajemnie płatności odsetkowych w oparciu o wcześniej ustalone pary
+stóp procentowych. Na koniec, dokonują powtórnej wymiany do
+oryginalnych walut w terminie zapadalności transakcji.
 
 W każdym swapie walutowym występują trzy ważne składowe:
 
-- Kwota główna
-- Kurs wymiany
-- Dwie stopy oprocentowania
+* Kwota główna
+* Kurs wymiany
+* Dwie stopy oprocentowania
 
-Na początku swapu strony „wymieniają się” Kwotą Główną. Wymiana może być zarówno rzeczywista jak i „teoretyczna” (fizyczna wymiana nie ma miejsca). Kurs wymiany – kurs spot. Znaczenie kwoty głównej jest istotne dla określenia wielkości odsetek i wielkości wtórnej wymiany pod koniec transakcji swap. *Końcowa wymiana następuje po kursie wymiany początkowej.*
+Na początku swapu strony „wymieniają się” Kwotą Główną. Wymiana może
+być zarówno rzeczywista jak i „teoretyczna” (fizyczna wymiana nie ma
+miejsca). Kurs wymiany – kurs spot. Znaczenie kwoty głównej jest
+istotne dla określenia wielkości odsetek i wielkości wtórnej wymiany
+pod koniec transakcji swap. Końcowa wymiana następuje po kursie
+wymiany początkowej.
 
-Walutowy swap kuponowy.
+Walutowy swap kuponowy
+......................
 
-Ten rodzaj swapu zwany powszechnie (*currency coupon swap*) (cross currency interest rate swap) jest złożeniem  swapu walutowego ze swapem  stopy procentowej.  Mechanizm swapu jest taki sam jak poprzednio. (Te same ruchy i zasady przepływu strumieni pieniężnych jak w swapie walutowym). Dodatkowo  zamieniane jest oprocentowanie o stopie stałej na zmienna, lub odwrotnie.
+Ten rodzaj swapu zwany powszechnie (currency coupon swap) ( cross
+currency interest rate swap) jest złożeniem swapu walutowego ze swapem
+stopy procentowej.  Mechanizm swapu jest taki sam jak poprzednio. (Te
+same ruchy i zasady przepływu strumieni pieniężnych jak w swapie
+walutowym). Dodatkowo zamieniane jest oprocentowanie o stopie stałej
+na zmienna, lub odwrotnie.
 
-Przykład: Dolarowy kredyt o stałej stopie odsetek zamieniany jest  na  kredyt w Euro o zmiennym oprocentowaniu. 
+**Przykład:** Dolarowy kredyt o stałej stopie odsetek zamieniany jest
+ na kredyt w Euro o zmiennym oprocentowaniu.
 
 Assets swap
+~~~~~~~~~~~
 
 Swap aktywów jest kombinacją  aktywów i swapu, tak by stworzyć syntetyczne aktywa. Przykładowo: aktywo stałego oprocentowania może zostać zamienione w aktywo o zmiennym oprocentowaniu wyceniane w tej samej lub innej  walucie. 
 
-Przykład:
-
+**Przykład:**
 Strony transakcji : Fundusz inwestycyjny i bank.
 
-Fundusz inwestycyjny zamierza kupić na rynku : albo obligacje o stałym oprocentowaniu o rentowności 5 % rocznie, albo papier o zmiennym oprocentowaniu wyceniany na poziomie LIBOR. 
+Fundusz inwestycyjny zamierza kupić na rynku : albo obligacje o stałym
+oprocentowaniu o rentowności 4 % rocznie, albo papier o zmiennym
+oprocentowaniu wyceniany na poziomie LIBOR.  Bank jest zainteresowany
+posiadaniem obligacji stał.opr.-4 %, albo zamierza udzielić kredytu
+hipotecznego dla klienta na poziomie LIBOR + 0.5%.  Fundusz kupuje
+obligacje i „swapuje” ją z bankiem, bez pośrednika.  Mechanizm swapu :
+Fundusz: Kupuje obl. o rentowności 4% Płaci do banku - 3,75% Otrzymuje
+z banku LIBOR
 
-Bank  jest zainteresowany posiadaniem obligacji stał.opr.-5 %, albo zamierza udzielić kredytu hipotecznego dla klienta na poziomie LIBOR + 0.5%.
-Fundusz kupuje obligacje i „swapuje” ją z bankiem, bez pośrednika.
+Czyli w wyniku  otrzymuje 		                                                       LIBOR +0,25
+Bank:     Udziela kredytu hipotecznego o oprocentowaniu                 LIBOR +0,5%
+   Otrzymuje   od Funduszu                            3,75%
+       Płaci do funduszu                      - LIBOR
+Czyli w sumie otrzymuje   4,25%.
 
-Mechanizm swapu:
-
-- Fundusz: Kupuje obl. o rentowności			5%
-
-   - Płaci do banku					-4,75%
-   - Otrzymuje z banku					*LIBOR*
-
-Czyli w wyniku  otrzymuje				LIBOR +0,25
-
-Bank: Udziela kredytu hipotecznego o oprocentowaniu	LIBOR +0,5%
-
-- Otrzymuje   od Funduszu				4,75%
-- Płaci do funduszu					*-LIBOR*
-
-Czyli w sumie otrzymuje					5,25%
-
-W wyniku transakcji swapu z funduszem Bank wykreował syntetyczna obligacje stało procentowa o oprocentowaniu wyższym niż rynek a fundusz syntetyczny papier dłużny zmienno procentowy o rentowności wyższej niż rynek.
+W wyniku transakcji swapu z funduszem Bank wykreował syntetyczna
+obligacje stało procentowa o oprocentowaniu wyższym niż rynek a
+fundusz syntetyczny papier dłużny zmienno procentowy o rentowności
+wyższej niż rynek.
 
 Swap a kontrakt forward
+~~~~~~~~~~~~~~~~~~~~~~~
 
-Swap to umowa stron  by wymienić się przepływami pieniężnymi w przyszłości. Umowa ta określa daty w których strumienie pieniężne będą płacone i sposób jak będą one liczone.  Kontrakt forward jest przykładem prostego swapu.  W przypadku kontraktu forward, następuje wymiana  przepływów pieniężnych w danej, konkretnej dacie w przyszłości.  W przypadku swapu przepływy występuje kilka razy w określonych datach w przyszłości.  Czyli ... innymi słowy, ... Możemy traktować swap jako syntetyczny  portfel kontraktów forward.
+Swap to umowa stron by wymienić się przepływami pieniężnymi w
+przyszłości. Umowa ta określa daty w których strumienie pieniężne będą
+płacone i sposób jak będą one liczone.  Kontrakt forward jest
+przykładem prostego swapu.  W przypadku kontraktu forward, następuje
+wymiana przepływów pieniężnych w danej, konkretnej dacie w
+przyszłości.  W przypadku swapu przepływy występuje kilka razy w
+określonych datach w przyszłości.  Czyli, ...innymi słowy,... Możemy
+traktować swap jako syntetyczny portfel kontraktów forward na stopę
+procentową czyli Forward Rate Agreement (FRA).
 
-Swap jako para obligacji.
+Swap jako para obligacji
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-Jeśli kupujemy obligację, płacą  nam odsetki. Jeśli emitujemy  obligację, to my płacimy odsetki.  W prostym swap’ie, robimy  obie te rzeczy czyli płacimy stałe oprocentowanie fixed rate,  nam  płacą zmienne oprocentowanie, lub  odwrotnie.
+Jeśli kupujemy obligację, płacą nam odsetki. Jeśli emitujemy
+obligację, to my płacimy odsetki.  W prostym swap’ie, robimy obie te
+rzeczy czyli płacimy stałe oprocentowanie fixed rate, nam płacą
+zmienne oprocentowanie, lub odwrotnie.
 
 Forward Rate Agreement (FRA)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Transakcja FRA to terminowa transakcja stopy procentowej polegająca na ustaleniu w dniu jej zawarcia wysokości stopy procentowej dla przyszłego okresu odsetkowego (np. za 6 miesięcy) w odniesieniu do kwoty nominalnej, bez faktycznego jej zaangażowania. Zysk, bądź strata wynikają z różnicy pomiędzy stopą procentową transakcji, a właściwą dla danego okresu odsetkowego stawką referencyjną.
+Transakcja FRA (opisana w `skrypcie
+<http://el.us.edu.pl/ekonofizyka/index.php/RF:Rynek_wymiany_walut#FRA_.28Forward_Rate_Agreement.29>`_)
+to terminowa transakcja stopy procentowej polegająca na ustaleniu w
+dniu jej zawarcia wysokości stopy procentowej dla przyszłego okresu
+odsetkowego (np. za 6 miesięcy) w odniesieniu do kwoty nominalnej, bez
+faktycznego jej zaangażowania. Zysk, bądź strata wynikają z różnicy
+pomiędzy stopą procentową transakcji, a właściwą dla danego okresu
+odsetkowego stawką referencyjną.
 
-FRA są równoważne kontraktom *forward* w krótkoterminowych *swap’ach* stopy procentowej. FRA są syntetycznymi kontraktami swap  kontraktów *forward* lub *futures*.
+FRA są równoważne kontraktom forward w krótkoterminowych swap'ach
+stopy procentowej. FRA są syntetycznymi kontraktami swap kontraktów
+forward lub futures.
 
-FRA jest umową stron aby wymienić się (swap)płatnościami wynikającymi ze stóp procentowych poprzez umówiony okres od pewnej daty w przyszłości. Jedna ze stron takiego kontraktu ustala sobie stałe oprocentowanie a druga zmienne. Kwota główna nie zostaje przesuwana” miedzy stronami, natomiast w dacie umowy jedna strona dokonuje wpłaty by skompensować drugiej stronie różnicę pomiędzy uzgodnionym oprocentowaniem  a stopą spot w dniu zawarcia. 
+FRA jest umową stron aby wymienić się (swap)płatnościami wynikającymi
+ze stóp procentowych poprzez umówiony okres od pewnej daty w
+przyszłości. Jedna ze stron takiego kontraktu ustala sobie stałe
+oprocentowanie a druga zmienne. Kwota główna nie zostaje przesuwana”
+miedzy stronami, natomiast w dacie umowy jedna strona dokonuje wpłaty
+by skompensować drugiej stronie różnicę pomiędzy uzgodnionym
+oprocentowaniem a stopą spot w dniu zawarcia.
+
+Jak to było zilustrowane w `skrypcie
+<http://el.us.edu.pl/ekonofizyka/index.php/RF:Rynek_wymiany_walut#FRA_.28Forward_Rate_Agreement.29>`_);
+
+Jeśli chcemy ustalić przyszłą stopę oprocentowania kredytu otrzymujemy
+zmienną a płacimy stałą (kupujemy FRA). Jeśli chcemy ustabilizować
+przyszła stopę inwestycji płacimy zmienną a otrzymujemy stałą
+(sprzedajemy FRA).
 
 Swaption
+........
 
-Instrument finansowy, który jest opcją na zakup/sprzedaż swapu.  - Długa pozycja w opcji kupna daje prawo, ale nie obowiązek kupna swapu. - Posiadacz opcji sprzedaży może, ale nie musi sprzedać swap o określonych wcześniej cechach, po określonej cenie. 
+Instrument finansowy, który jest opcją na zakup/sprzedaż swapu.  Długa
+pozycja w opcji kupna daje prawo, ale nie obowiązek kupna
+swapu. Posiadacz opcji sprzedaży może, ale nie musi sprzedać swap o
+określonych wcześniej cechach, po określonej cenie.
 
 

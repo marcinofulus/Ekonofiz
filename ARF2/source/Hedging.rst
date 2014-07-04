@@ -1302,7 +1302,7 @@ Korzystając z prostego przekształcenia widać, ze:
 
 .. math::
 
-   \Delta_{\text{put}} + \Delta_{\text{call}} = 1
+   \Delta_{\text{call}} - \Delta_{\text{put}}  = 1
 
 
 Ponadto, delta wskazuje ilość akcji potrzebnych do otworzenia zwrotu z opcji. 

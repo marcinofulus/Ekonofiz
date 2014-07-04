@@ -8,6 +8,7 @@ Opcje
 Podstawowe cechy opcji
 ----------------------
 
+10 mitów!  `<http://www.cato.org/pubs/pas/pa-283.html>`_
 
 Opcje stanowią podstawowy element innych instrumentów finansowych.
 Opcje to instrument zwany instrumentem pochodnym, gdyż jego cena
@@ -870,7 +871,7 @@ Widać, że zachodzi własność:
 
 .. math::
 
-   \Delta_{put} - \Delta_{call} = 1.
+   \Delta_{call} - \Delta_{put} = 1.
 
 która jest bezpośrednią konsekwencja parytetu kupna sprzedaży.
 
@@ -1349,7 +1350,7 @@ których działanie nie wszyscy do końca rozumieją a ryzyka których nie
 jest w pełni znane.
  
 Jednak należy podkreślić jedna pozytywną element omawianej
-sytuacji. Firmy Ne finansowe podeszły aktywnie do zarządzania ryzykiem
+sytuacji. Firmy nie finansowe podeszły aktywnie do zarządzania ryzykiem
 finansowym, w tym przypadku , kursowym. Omówiony został przypadek firm
 , które nie zrobiły tego idealnie i popełniły pewne błędy na słusznej
 drodze słusznych decyzji o zabezpieczeniu. W powyższym przypadku nie
