@@ -1,4 +1,4 @@
-﻿VaR
+VaR
 ---
 
 Wstęp
@@ -459,11 +459,6 @@ korzystając z wektora dryftu i  macierzy kowariancji danych.
    \boldsymbol{\Sigma} = \sum_{i=1}^{n}   \sum_{j=1}^{n} w_i w_j \sigma_{ij}   
 
    \boldsymbol{\mu} = \sum_{i=1}^{n} w_i \mu_{i}   
-
-		
-Gdzie
-
-    :math:`w_i`  - to udział (waga)  :math:`i` - tego składnika w portfelu
 
 
 Zaś :math:`\mu` oraz :math:`\sigma` są określone przez powyższym
