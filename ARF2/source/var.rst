@@ -81,7 +81,7 @@ ciągłym rozkładzie danym gęstością :math:`f(x)` nazywamy taką wartość
 
    \int_{-\infty}^{x_p} f(x) dx = F(x_p) = p
 
-Percentylem, określa się kwantyl rzędu math:`\frac{p}{100\%}`, czyli
+Percentylem, określa się kwantyl rzędu :math:`\frac{p}{100\%}`, czyli
 kwantyl rzędu 0.05 jest równy percentylowi rzędu :math:`5\%`.  Dla
 rozkładu normalnego (Gaussa) o średniej i variancji :math:`\mu` i
 :math:`\sigma`, odpowiednio, kwantyl rzędu :math:`p` jest dany wzorem:
@@ -410,7 +410,7 @@ portfela dane są przez:
 
 .. attention::
 
-   Liniowa kombinacja zmiennych gaussowskich ma rozkład gaussa wieć
+   Liniowa kombinacja zmiennych gaussowskich ma rozkład Gaussa wieć
    zakładając, że mamy normalne rozkłady zmian cen będziemy mogli
    opisywać rozkład wartości portfela przez :eq:`sigma_mu`
 
@@ -692,14 +692,19 @@ Metoda historyczna
 ~~~~~~~~~~~~~~~~~~
 
 Mając wczytane dane rynkowe oraz portfel w powyższy sposób, dość łatwo
-możemy sobie zaimplementowac metodę hostoryczną.
+możemy sobie zaimplementowac metodę historyczną. W tym celu obliczamy
+przyrosty notowań, działając na macierz :code:`dataVAR` funkcją
+:code:`np.diff` względem rzędu. Następnie zapisujemy w pod nazwą
+:code:`hist_sim` hipotetyczne kursy przyszłe aktywów, dla każdej
+wartości przyrostu. Pozostaje już tylko wycenic portfel dla nowych
+wartości rynku i wziąć piąty kwantyl.
 
 .. sagecellserver::
 
    dataVAR_dx = np.diff(dataVAR,axis=0)
    hist_sim = mrkt+dataVAR_dx
    changes = valueP(P,hist_sim) - valueP(P,mrkt)
-   print "VaR, metoda historycza",np.percentile(changes,int(5))
+   print "VaR, metoda historyczna",np.percentile(changes,int(5))
 
 
 Metoda wariancji kowariancji
