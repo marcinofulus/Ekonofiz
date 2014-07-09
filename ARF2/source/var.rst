@@ -460,11 +460,6 @@ korzystając z wektora dryftu i  macierzy kowariancji danych.
 
    \boldsymbol{\mu} = \sum_{i=1}^{n} w_i \mu_{i}   
 
-		
-Gdzie
-
-    :math:`w_i`  - to udział (waga)  :math:`i` - tego składnika w portfelu
-
 
 Zaś :math:`\mu` oraz :math:`\sigma` są określone przez powyższym
 wektorem :math:`\boldsymbol{\mu}` i macierzą
@@ -501,6 +496,16 @@ metody wariancji-kowariancji.
    print 'k = ',k 
    print "VaR procentowy= ",sigmaP*k 
    print "VaR pieniężny = ", 100000*sigmaP*k
+
+
+Nieliniowa funkcja wyceny
++++++++++++++++++++++++++
+
+W przypadku, gdy portfel składa się z instrumentów podstawowowych, to
+jego wartość jest liniową funckją cen składników. Może się jednak
+zdarzyć, a dzieje się to często w praktyce, że nasz portfel zawiera
+instrumenty, które w nieliniowy sposób zależą od parametrów rynku.
+
 
 
 Słabości VaR
@@ -616,6 +621,143 @@ rozkład t- Studenta, Pareto, etc. Modele rozkładów jakie stosowane są
 w analizach i szacowaniach VaR opisane są przykładowo (Tomasz
 Bałamut- Metody estymacji Value AT Risk - NBP- Materiały i studia;
 zeszyt 147; 2002r.)
+
+
+Przykład obliczenia VaR
++++++++++++++++++++++++
+
+.. attention:: 
+
+   Poniższe komórki są od siebie zależne więc należy
+   wykonywać poprzednie by działały kolejne.
+
+Zaimportujmy sobie dane historyczne notować dwóch spółek, Comarch i
+Colian. W tym przypadku pliki z danymi mamy w publicznym katalogu
+serwisu Dropbox, ale mogą być to dowolne miejsca w sieci, dostępne
+poprzez www. Po zaimportowaniu, danych narysujemy historię notować i
+ich dziennych zmian.
+
+
+.. sagecellserver::
+
+   import urllib
+   import numpy as np 
+   import scipy.linalg
+
+   fp  = urllib.urlopen("https://dl.dropboxusercontent.com/u/11718006/COMARCH.mst")
+   d1 = np.loadtxt(fp,skiprows=1,usecols=range(1,7),delimiter=',')
+   fp  = urllib.urlopen("https://dl.dropboxusercontent.com/u/11718006/COLIAN.mst")
+   d2 = np.loadtxt(fp,skiprows=1,usecols=range(1,7),delimiter=',')
+
+   # ostatni rok
+   d1,d2 = d1[-248:,1],d2[-248:,1]
+
+   point(enumerate(d1))+\
+    point(enumerate(d2),color='red',figsize=(8,2)) 
+
+   line(enumerate(np.diff(d1)/d1[1:]))+\
+    line(enumerate(np.diff(d2)/d2[1:]),color='red',figsize=(8,2))
+ 
+   dataVAR = np.vstack([d1,d2]).T
+
+W tym stanie mamy dane historyczne dwóch aktywów w tabeli :code:`dataVAR`, w
+której kolumny odpowiadają kolejnym aktywom, a rzędy kolejnym okresom
+czasowym.
+   
+Zdefiniujemy sobie teraz funkcję, która obliczy nam wartość portfela
+dla danych wartości parametrów rynku - :code:`valueP`. Funkcja ta pobiera
+dwa argumenty, :code:`P` - portfel, będący wektorem ilości aktywów
+(dwuelementowym w tym przypadku) oraz stan rynku :code:`m`. Dodatkowa
+zabudowana jest funkcjonalność obliczenia wartości na pewnej historii
+rynku, wówczas zwracany jest wektor wartości portfela w tychże
+chwilach.
+
+.. sagecellserver::
+
+   def valueP(P,m):
+       if len(m.shape)==2:
+           stock = sum([ m[:,i]*P[i]  for i in range(len(P))])
+       else:
+           stock = sum([ m[i]*P[i]  for i in range(len(P))])   
+       return stock
+
+   P = np.array([1,21])
+   mrkt = np.array( [ 87.01,   3.01] )
+  
+   print "Wartość portfela",P," dla notowań",m,"wynosi:",valueP(P,mrkt)
+
+
+
+Metoda historyczna
+~~~~~~~~~~~~~~~~~~
+
+Mając wczytane dane rynkowe oraz portfel w powyższy sposób, dość łatwo
+możemy sobie zaimplementowac metodę hostoryczną.
+
+.. sagecellserver::
+
+   dataVAR_dx = np.diff(dataVAR,axis=0)
+   hist_sim = mrkt+dataVAR_dx
+   changes = valueP(P,hist_sim) - valueP(P,mrkt)
+   print "VaR, metoda historycza",np.percentile(changes,int(5))
+
+
+Metoda wariancji kowariancji
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. sagecellserver::
+
+   dataVAR_dx = np.diff(dataVAR,axis=0)
+   avg = np.average(dataVAR_dx,axis=0)
+   Cov = np.cov(dataVAR_dx.T)
+
+   sigma2P = np.array(P).dot(Cov).dot(np.array(P).T)
+   muP = avg.dot(np.array(P))
+
+   T = RealDistribution('gaussian', 1.0)
+   k =  T.cum_distribution_function_inv(0.05)
+   print "VaR metodą wariancji-kowariancji:", muP + np.sqrt(sigma2P)*k
+
+
+Metoda symulacji Monte-Carlo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. sagecellserver::
+
+   N = dataVAR.shape[1]
+   dataVAR_dx = np.diff(dataVAR,axis=0)
+   avg = np.average(dataVAR_dx,axis=0)
+   Cov = np.cov(dataVAR_dx.T)
+
+   sqrtCov =  np.real_if_close(scipy.linalg.sqrtm(Cov))
+   values = np.array([ valueP(P,mrkt + avg + np.dot(sqrtCov,np.random.randn(N))) for i in range(10000)])
+   print "VaR, MC:",np.percentile(values-valueP(P,mrkt),int(5))
+
+
+Porównanie wyników
+~~~~~~~~~~~~~~~~~~
+
+.. sagecellserver::
+
+    Gaussian(x,mu,sigma) = 1/sqrt(2*pi*sigma^2)*exp(-(x-mu)^2/(2*sigma^2))
+    print muP,sigma2P
+    nbins = 100
+    H = np.histogram(values-valueP(P,mrkt),bins=nbins)
+    normalizacja = H[0].sum()*(H[1].max()-H[1].min())/nbins
+    point( zip(H[1],H[0]/normalizacja) )+\
+     plot(Gaussian(x,muP,sqrt(sigma2P)),(x,-16,16),color='red',figsize=5)
+
+.. sagecellserver::
+
+    nbins=25
+
+    dataVAR_dx = np.diff(dataVAR,axis=0)
+    H = np.histogram(dataVAR_dx,bins=nbins)
+
+    normalizacja = H[0].sum()*(H[1].max()-H[1].min())/nbins
+    line( zip(H[1],H[0]/normalizacja) )+\
+     T.plot(x,-10,10,color='red',figsize=5)
+
 
 VaR  w systemie Risk Metrics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
