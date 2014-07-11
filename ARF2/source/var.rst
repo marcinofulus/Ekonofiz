@@ -50,7 +50,7 @@ wyrażenia uwagę, że mamy do czynienia ze statystyką, np. „przy
 ustalonym poziomie istotności (ufności)”.  Bywają sytuacje, ze straty
 mogą być dużo wyższe [#f1]_
 
-Innymi słowy VaR to wartość strat , która może być przekroczona z
+Innymi słowy VaR to wartość strat, która może być przekroczona z
 prawdopodobieństwem α lub to wielkość straty, która może nie być
 przekroczona z prawdopodobieństwem równym :math:`(1-\alpha)` w
 kolejnym dniu. VaR jest bardzo wygodną i praktyczna miarą
@@ -252,7 +252,7 @@ gdzie:
          odpowiadające :math:`\alpha` kwantylowi wystandaryzowanego
          rozkładu normalnego.
 
-Dla poziomu ufności :math:`95\%` , :math:`c=0.95` czyli :math:`(1-c)` jest piątym kwantylem (czyli 5%) standardowego rozkładu normalnego. Odpowiadająca temu wartość :math:`k = -1.645`, a gdy  :math:`1- \alpha = 0.99`, to :math:`k = -2.326`.
+Dla poziomu ufności :math:`95\%`, :math:`c=0.95` czyli :math:`(1-c)` jest piątym kwantylem (czyli 5%) standardowego rozkładu normalnego. Odpowiadająca temu wartość :math:`k = -1.645`, a gdy  :math:`1- \alpha = 0.99`, to :math:`k = -2.326`.
 
 
 .. admonition:: Przykład
@@ -275,7 +275,7 @@ Dla poziomu ufności :math:`95\%` , :math:`c=0.95` czyli :math:`(1-c)` jest pią
     
      100 00 \times 0.0251 \times -1.645 = -4128.95 
 
-  Znaczy to , że posiadając taki portfel w ciągu następnego dnia
+  Znaczy to, że posiadając taki portfel w ciągu następnego dnia
   istnieje 5% szans na to, że straty portfela mogą wynieś 4129
   jednostek pieniężnych lub więcej. Czyli wartość portfela może spaść
   poniżej 95871 jednostek pieniężnych.
@@ -291,7 +291,7 @@ czasowy), korzysta się z zależności odchylenia standardowego od czasu.
 Odchylenie standardowe po t okresach (np. dniach) jest równe
 odchyleniu standardowemu dziennemu (jednego okresu) razy pierwiastek z
 ilości okresów. Zachodzi to oczywiście, jeżeli procesy zmiany ceny w
-kazdym z okresów są niezależnymi od siebie normalnymi zmiennymi
+kaźdym z okresów są niezależnymi od siebie normalnymi zmiennymi
 losowymi o tych samych parametrach.
 
 .. math::
@@ -472,14 +472,22 @@ metody wariancji-kowariancji.
    Niech portfel o wartości początkowej 100000 składa się z dwu
    składników jednego o wadze 60% i odchylenie standardowym 1% i
    drugiego o o wadze 40% i odchyleniu 2% oraz współczynnik korelacji
-   między nimi niech wynosi 0.4.  Dla takich danych:
+   między nimi niech wynosi 0.4.  
  
+   Przypomnijmy, że współczynnik korelacji dla dwóch zmiennych
+   losowych :math:`X,Y` wiąże się w następujący sposób z elementem
+   pozadiagonalnym macierzy kowariancji: 
 
+   .. math:: 
 
-.. math::
-   :label: ex2
+      \rho_{XY} =\frac{\langle XY \rangle}{\sigma_X \sigma_Y}
 
-   \sigma_P = \sqrt{w_X^2\sigma_X^2+w_Y^2\sigma_Y^2 + 2 w_X w_Y \rho \sigma_X \sigma_Y  } 
+   Dla takich danych:
+
+   .. math::
+       :label: ex2
+
+       \sigma_P = \sqrt{w_X^2\sigma_X^2+w_Y^2\sigma_Y^2 + 2 w_X w_Y \rho \sigma_X \sigma_Y  } 
 
 
 .. sagecellserver::
@@ -498,50 +506,10 @@ metody wariancji-kowariancji.
    print "VaR pieniężny = ", 100000*sigmaP*k
 
 
-Nieliniowa funkcja wyceny
-+++++++++++++++++++++++++
-
-W przypadku, gdy portfel składa się z instrumentów podstawowowych, to
-jego wartość jest liniową funckją cen składników. Może się jednak
-zdarzyć, a dzieje się to często w praktyce, że nasz portfel zawiera
-instrumenty, które w nieliniowy sposób zależą od parametrów rynku.
 
 
 
-Słabości VaR
-~~~~~~~~~~~~
 
-
-W praktyce, co wynika po części z uregulowań prawnych, określanych
-przez instytucje nadzorujące rynek, wartość zagrożona (VaR) jest jedną
-z szerzej stosowanych miar ryzyka.  Ma jednak pewne wady, z których
-największą, z punktu widzenia stosowania VaR w analizie portfelowej,
-jest to, że VaR nie spełnia warunku addytywności. Oznacza to, iż VaR
-policzona dla zdywersyfikowanego portfela może być większa niż suma
-VaR-ów wyznaczonych dla instrumentów składowych.  Tylko w przypadku
-współczynnika korelacji równego lub mniejszego od 0 warunek
-addytywności jest spełniony. Ale taka sytuacje zachowania
-:math:`\sigma` już znamy z analizy portfela, a dokładnie
-dywersyfikacji wg. Markowitza.  
-
-Należy ponownie zwrócić uwagę na jeszcze jedno przyjęte
-założenie. Założono, ze rozkłady zmiany cen są rozkładem normalnym,
-lub do niego zbliżony.  W rzeczywistości rozkłady doświadczalne zmian
-cen aktywów finansowych często nie odpowiadają rozkładowi
-normalnemu. W praktyce, rzeczywiście, większość zmian cen oscyluje
-wokół wartości oczekiwanej, ale występują jednak częściej (niż w
-rozkładzie normalnym) zmiany ekstremalne. Zmiany te charakteryzują
-występowanie tzw. „grubych ogonów” rozkładu, co wpływa na zwiększenie
-zmienności i nie są ujmowane w VaR, w sposób adekwatny. Przyjęcie
-założenia o rozkładzie normalnym zmian wartości ułatwia jednak
-obliczeniach znacznie zmniejsza koszty pomiaru ryzyka.  
-
-Nadzorcy rynku, mimo, że formalnie uznają VaR jako narzędzie
-zarządzania ryzykiem pozwalające na określenie wielkości rezerwy
-tworzonej na wypadek ewentualnej straty to wielkość tej rezerwy
-wymaganej przez Nadzór jest większy zazwyczaj od wyliczonego tak jak
-powyżej o współczynnik - a zwiększając rozmiar tej rezerwy :math:`a`
-razy.
 
 Metody symulacji historycznej
 +++++++++++++++++++++++++++++
@@ -565,7 +533,7 @@ obserwacji objętych badaniem według formuły:
 W ten sposób zostaje wygenerowany rozkład statystyczny stóp
 zwrotu. Wyznaczenie odpowiedniego kwantyla tego rozkładu pozwala na
 wyliczenie VaR bezpośrednio z definicji, czyli wg. pokazanych w
-poprzednich metodach zasad. Tym razem nie zakłada się , ze rozkład
+poprzednich metodach zasad. Tym razem nie zakłada się, że rozkład
 jest rozkładem normalnym oaz unika się szacowania parametrów takich
 jak średnia czy odchylenie standardowe korzystając z danych
 historycznych.
@@ -576,22 +544,91 @@ Metoda symulacji Monte Carlo
 
 W metodzie Monte Carlo przyjmuje się pewien model kształtowania się
 cen rynkowych aktywa.  Wybór modelu zależy od autorów, ich
-doświadczenia praktycznego czy teoretycznego.  Niemniej jednak musi on
+doświadczenia praktycznego czy teoretycznego. Niemniej jednak musi on
 zostać starannie sprawdzony na danych historycznych czy rzeczywiście
 charakteryzuje właściwie zachowania się danych rynkowych instrumentu
 finansowego. Następnie generuje się wiele (tysiące) obserwacji stóp
 zwrotu instrumentów finansowych tworzących portfel. Otrzymuje się, w
 ten sposób rozkład stóp zwrotów z portfela. Wyznaczenie odpowiedniego
-kwanty la tego rozkładu pozwala na estymacje VaR wg już omówionych
-metod.
+kwantyla tego rozkładu prowadzi do obliczenia VaR.
 
- - Schemat obliczeń M-te Carlo Geometryczny Ruch Browna. 
- - VaR z uwzględnieniem wartości ekstremalnych - „Grube ogony  rozkładu”.
+Schemat obliczeń Monte Carlo jest następujący:
+
+ - obliczamy parametry procesu zmian parametrów od których zależy cena
+   portfela - tzn. średnią i macierz kowariancji
+ - konstruujemy wektor zmiennch  losowych o wcześniej obliczonych parametrach
+ - dla każdej wartości tego wektora, obliczamy wartość przyszłą indeksów a następnie wartość portfela
+ - wyliczmy odpowiedni kwantyl rozkladu wartości portfela.
 
 
+Pojawia się praktyczne pytanie - jak mając standardowy generator niezależnych
+liczb pseudolosowych o rozkładzie normalnym (:math:`N(0,1)`)
+wygenererować wektor o zadanej średniej i kowariancji. Wartość średnia
+to nie jest problem, bo wystarczy dodać żądaną średnią do wektora o
+zerowej średniej. Natomiast, aby wynikowy wektor miał pożądane
+korelacje należy pomnożyć go przez pierwiastek z macierzy kowariancji.
+
+Rzeczywiście, niech:
+
+.. math::
+
+   x_i  = \mu_i + \sqrt{S_{ik}}N_k(0,1)
+
+wtedy:
+
+.. math::
+   
+   \langle x_i x_j \rangle  = \left\langle \left( \mu_i + \sqrt{S_{ik}}N_k(0,1) \right) \left( \mu_j + \sqrt{S_{jl}}N_k(0,1)\right) \right\rangle 
+
+wymnażamy dwa nawiasy i otrzymujemy sumę średnich następujących składników, które się upraszczają do:
+
+.. math::
+
+   \langle \mu_i \rangle \langle \mu_j \rangle = \mu_i \mu_j 
+
+zmienna losowa :math:`N_i(0,1)` ma średnią zero więc mamy:
+
+.. math::
+
+  \langle \sqrt{S_{ik}}N_k(0,1) \mu_j \rangle = 0
+
+.. math::
+ 
+   \langle \sqrt{S_{jl}}N_l(0,1) \mu_i \rangle  = 0
+
+i ostatni wyraz zawiera:
+
+.. math::
+
+  \langle \sqrt{S_{ik}}N_k(0,1) \sqrt{S_{jl}}N_k(0,1) \rangle \\
+  
+Wykonując średniowanie, widzimy, że ponieważ zmienne :math:`N_i(0,1)` są niezależnie  i zachodzi 
+
+.. math::
+
+   \langle N_k(0,1) N_l(0,1)) \rangle = \delta_{kl}
+
+to ostatecznie otrzymujemy:
+
+.. math::
+
+   \langle x_i x_j \rangle  = \mu_i\mu_j + \sqrt{S_{ik}}\sqrt{S_{jl}}\delta_{kl} = \mu_i\mu_j + S_{ij}
+
+czyli:
+
+.. math::
+
+   \langle x_i x_j \rangle  - \mu_i\mu_j  = S_{ij}
+
+
+
+
+
+VaR z uwzględnieniem wartości ekstremalnych - "Grube ogony  rozkładu"
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Dokładna analiza stóp zwrotu doświadczalnych szeregów finansowych
-czasowych pozwala stwierdzić, że to co dość często było w powtarzane ,
+czasowych pozwala stwierdzić, że to co dość często było w powtarzane,
 czyli o rozkładzie normalnym jako modelu, w wielu przypadkach jest
 nieprawdą. Większość szeregów finansowych wykazuje: istnienie „
 grubych ogonów” czyli prawdopodobieństwo pojawienia się skrajnych
@@ -611,7 +648,7 @@ Ewa Miłoś- Finansowy Kwartalnik Internetowy „e-Finanse” 2011, vol. 7,
 nr 1 www.e-finanse.com Wyższa Szkoła Informatyki i Zarządzania w
 Rzeszowie) wykazać można, że w wielu zjawiskach wartości ekstremalne
 pojawiają się zgodne z rozkładami potęgowymi.  W obliczeniach VaR
-skupiamy się na poziomie ufności 99% zakładając , że strata się nie
+skupiamy się na poziomie ufności 99% zakładając, że strata się nie
 zdarzy. W modelach wartości ekstremalnych skupiamy się na tych
 niekorzystnych zdarzeniach, które maja bardzo małe prawdopodobieństwo
 wystąpienia ale mogą przynieść duże straty.  Szczególnie w
@@ -621,6 +658,68 @@ rozkład t- Studenta, Pareto, etc. Modele rozkładów jakie stosowane są
 w analizach i szacowaniach VaR opisane są przykładowo (Tomasz
 Bałamut- Metody estymacji Value AT Risk - NBP- Materiały i studia;
 zeszyt 147; 2002r.)
+
+
+Nieliniowa funkcja wyceny
++++++++++++++++++++++++++
+
+W przypadku, gdy portfel składa się z instrumentów podstawowowych, to
+jego wartość jest liniową funckją cen składników. Może się jednak
+zdarzyć, a dzieje się to często w praktyce, że nasz portfel zawiera
+instrumenty, które w nieliniowy sposób zależą od parametrów rynku.  W
+takim przypadku metody: historyczna i Monte-Carlo mogą być zastosowane
+bez większych modyfikacji, jednak metoda wariancji-kowariancji musi
+być zmodyfikowana.
+
+Niech wartość portfela będzie funkcją :math:`P(x_1,x_2,...,x_n)`
+parametrów rynku :math:`\mathbf{x}=(x_1,x_2,...,x_n)`. Załóżmy, że
+znamy wartość tych parametrów dzisiaj: :math:`\mathbf{x_0}` i chcemy
+dowiedzieć się jak zmieni się wartość portfela do jutra. Niech
+przyrosty zmiennych będą dane przez proces:
+
+.. math::
+   :label: dx
+
+   \mathbf{dx} = \mathbf{\mu} dt + \sqrt{\mathbf{S} dt}N(0,1)
+
+gdzie :math:`dt,S` to przedział czasu i macierz kowariancji przyrostów
+procesu na tym przedziale. 
+
+Zakładamy więć, że przyrosty indeksów :math:`\mathbf{dx}` w okresie
+:math:`dt` są skorelowanymi zmiennymi gaussowskimi. W metodzie
+wariancji-kowariancji dla liniwej funkcji wyceny, to założenie
+implikowało normalność rozkładu wartośći portfela. Nie jest to jednak
+prawdą jesli funkcja wyceny jest nielinowa. Możemy jednak wyznaczyć
+parametry rozkładu normalnego, który jak najlepiej przpliża
+rzeczywisty rozkład wartości portfela.
+
+W tym celu, naturalnym wydaje się być zlinearyzownaie funkcji wyceny i
+zastosowanie wzorów :eq:`sigma_mu`. Popełnilibyśmy jednak duży
+błąd. Pamiętajmy, że jeżeli chcemy otrzymać wynik, który jest rzędu
+pierwszego w :math:`dt` to musimy uwględnić możliwość pojawienia się
+kwadratów członów :math:`\sqrt{\mathbf{S} dt}N(0,1)`. Innymi słowy
+musimy rozwinąć funkcję :math:`P(x_1,x_2,...,x_n)` w szereg Taylora do
+drugiego rzędu włącznie, podstawić za przyrosty procesy :eq:`dx` i
+obliczyć z takim rozkładem :math:`\mu_P` oraz :math:`\sigma_P`, z
+dokładnością do :math:`dt`.
+
+Ostatecznie odpowiedniki wzorów :eq:`sigma_mu` przybiorą postać:
+
+
+.. math::
+  :label: sigma_mu_nonlin
+   
+  \mu_P = \mu\mathbf{\nabla} P + \frac{1}{2}\mathrm{Tr}\left( \mathbf{H}(P) \mathbf{S}\right) dt\\
+  \sigma_P = \mathbf{\nabla} P \mathbf{S} \mathbf{\nabla} P^T  dt
+
+gdzie: 
+
+ - :math:`\nabla P` - gradient wektora wartości portfela obliczony dla wartości początkowej :math:`\mathbf{x_0}`
+ - :math:`H(P)` - Hessian wektora wartości portfela obliczony dla wartości początkowej :math:`\mathbf{x_0}`
+  
+
+
+
 
 
 Przykład obliczenia VaR
@@ -652,13 +751,14 @@ ich dziennych zmian.
    # ostatni rok
    d1,d2 = d1[-248:,1],d2[-248:,1]
 
-   point(enumerate(d1))+\
+   p1 = point(enumerate(d1))+\
     point(enumerate(d2),color='red',figsize=(8,2)) 
 
-   line(enumerate(np.diff(d1)/d1[1:]))+\
+   p2 = line(enumerate(np.diff(d1)/d1[1:]))+\
     line(enumerate(np.diff(d2)/d2[1:]),color='red',figsize=(8,2))
  
    dataVAR = np.vstack([d1,d2]).T
+   show(p1),show(p2)
 
 W tym stanie mamy dane historyczne dwóch aktywów w tabeli :code:`dataVAR`, w
 której kolumny odpowiadają kolejnym aktywom, a rzędy kolejnym okresom
@@ -684,7 +784,7 @@ chwilach.
    P = np.array([1,21])
    mrkt = np.array( [ 87.01,   3.01] )
   
-   print "Wartość portfela",P," dla notowań",m,"wynosi:",valueP(P,mrkt)
+   print "Wartość portfela",P," dla notowań",mrkt,"wynosi:",valueP(P,mrkt)
 
 
 
@@ -710,14 +810,20 @@ wartości rynku i wziąć piąty kwantyl.
 Metoda wariancji kowariancji
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+W metodzie wariancji-kowariancji obliczamy najpierw wektor średni
+:code:`avg` oraz macierz kowariancji :code:`Cov` z dziennych zmian cen
+:code:`dataVAR`. Następnie korzystając z formuł :eq:`sigma_mu`
+obliczamy parametry portfela :math:`\mu_P` i :math:`\sigma_P` i
+wyliczamy odpowiedni kwantyl rozkładu normalnego w tymi wartościami.
+
 .. sagecellserver::
 
    dataVAR_dx = np.diff(dataVAR,axis=0)
    avg = np.average(dataVAR_dx,axis=0)
    Cov = np.cov(dataVAR_dx.T)
 
-   sigma2P = np.array(P).dot(Cov).dot(np.array(P).T)
-   muP = avg.dot(np.array(P))
+   sigma2P = (P.T).dot(Cov).dot(P)
+   muP = avg.dot(P)
 
    T = RealDistribution('gaussian', 1.0)
    k =  T.cum_distribution_function_inv(0.05)
@@ -727,6 +833,16 @@ Metoda wariancji kowariancji
 Metoda symulacji Monte-Carlo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+W metodzie symulacji Monte-Carlo postepujęmy podobnie jak w
+historycznej, z tą różnicą, że generujemy zestaw nowych cen nie z
+pomocą historycznie zaobserwowanych zmian, ale sztucznie
+wygenerowanych. Zakładamy, że zmiany parametrów rynku ( w tym
+przypadku - ceny dwóch aktywów) powodujące zmiany wartości portfela są
+wektorem normalnych zmiennych losowych, zadanym przez wektor średnich i
+macierz kowariancji. Te ostatnie, jak w poprzedniej metodzie obliczamy
+z dostępnej historii. 
+
+
 .. sagecellserver::
 
    N = dataVAR.shape[1]
@@ -735,12 +851,22 @@ Metoda symulacji Monte-Carlo
    Cov = np.cov(dataVAR_dx.T)
 
    sqrtCov =  np.real_if_close(scipy.linalg.sqrtm(Cov))
-   values = np.array([ valueP(P,mrkt + avg + np.dot(sqrtCov,np.random.randn(N))) for i in range(10000)])
+   values = np.array([ valueP(P,mrkt + avg + \
+    np.dot(sqrtCov,np.random.randn(N))) for i in range(10000)])
    print "VaR, MC:",np.percentile(values-valueP(P,mrkt),int(5))
 
 
 Porównanie wyników
 ~~~~~~~~~~~~~~~~~~
+
+Zauważmy, że VaR obliczony metoda wariancji-kowariancji i Monte
+Carlo - są do siebie badzo zbliżone. W rzeczywistości powinny one
+dawać w tym przypadku dokładnie tą samą wartość. Dlaczego? Zauważmy,
+że mamy liniową zależność wartości porftela od indeksów
+rynkowych. Oznacza to, że symulowany rozkład będzie normalny (jako
+liniowa kombinacja założonych w MC normalnych rozkładów zmian
+indeksów. Najlepiej zobaczyć do na wykresie:
+
 
 .. sagecellserver::
 
@@ -752,16 +878,23 @@ Porównanie wyników
     point( zip(H[1],H[0]/normalizacja) )+\
      plot(Gaussian(x,muP,sqrt(sigma2P)),(x,-16,16),color='red',figsize=5)
 
+Porównajmy więc dofitowany rozkład normalny z tym który realizuje się
+w rzeczywistości - który możemy otrzymać przez znormalizowanie
+histogramu przyrostów historycznych:
+
 .. sagecellserver::
 
-    nbins=25
-
-    dataVAR_dx = np.diff(dataVAR,axis=0)
-    H = np.histogram(dataVAR_dx,bins=nbins)
-
+    nbins=55
+    H = np.histogram(np.diff(valueP(P,dataVAR)),bins=nbins)
     normalizacja = H[0].sum()*(H[1].max()-H[1].min())/nbins
     line( zip(H[1],H[0]/normalizacja) )+\
-     T.plot(x,-10,10,color='red',figsize=5)
+     plot(Gaussian(x,muP,sqrt(sigma2P)),(x,-16,16),color='red',figsize=5)
+
+
+Widzimy, że tu różnice są znaczne. Interpretując histogram danych
+rzeczywistych widzimy, że w praktyce mamy o wiele większe
+prawdopodobieństwo zajścia duzych fluktuacji niż przewiduje rozkład
+Gaussa.
 
 
 VaR  w systemie Risk Metrics
@@ -806,9 +939,8 @@ danych historycznych. Jeśli tylko rynek odchodzi od „ normalności”,
 model może zawieść.  Jak wykazuje historia rynków zachowanie typowe
 rynków występuje od czasu do czasu. Czy rynek w okresie 2004 - 2005
 jest typowym rynkiem dla wycen w roku 2007?  W przypadku niepokojów na
-rynkach, rynki zachowują się „ nietypowo „ a straty wtedy są
-szczególnie duże. Przy gwałtownych zmianach na rynku VaR może być
-zawodny.
+rynkach, rynki zachowują się "nietypowo" a straty wtedy są szczególnie
+duże. Przy gwałtownych zmianach na rynku VaR może być zawodny.
 
 Liczenie VaR-u może być pracochłonne ( wyliczenia VaR portfeli metodą
 Monte Carlo).
@@ -824,8 +956,43 @@ nie jest rynkowo neutralne. VaR jest uproszczeniem modelowym rynku.
 Zależy od jakości tego uproszczenia. „Modelowa matematyczność” wyceny
 oraz ustalenie poziomu ufności VaR na stosunkowo wysokim poziomie,
 powoduje złudzenie posiadania kontroli, podczas gdy należy mieć duży
-szacunek do rynku, oraz pamiętać ,że zerowe prawdopodobieństwo nie
+szacunek do rynku, oraz pamiętać, że zerowe prawdopodobieństwo nie
 istnieje.
+
+
+Słabości VaR
+~~~~~~~~~~~~
+
+W praktyce, co wynika po części z uregulowań prawnych, określanych
+przez instytucje nadzorujące rynek, wartość zagrożona (VaR) jest jedną
+z szerzej stosowanych miar ryzyka.  Ma jednak pewne wady, z których
+największą, z punktu widzenia stosowania VaR w analizie portfelowej,
+jest to, że VaR nie spełnia warunku addytywności. Oznacza to, iż VaR
+policzona dla zdywersyfikowanego portfela może być większa niż suma
+VaR-ów wyznaczonych dla instrumentów składowych.  Tylko w przypadku
+współczynnika korelacji równego lub mniejszego od 0 warunek
+addytywności jest spełniony. Ale taka sytuacje zachowania
+:math:`\sigma` już znamy z analizy portfela, a dokładnie
+dywersyfikacji wg. Markowitza.  
+
+Należy ponownie zwrócić uwagę na jeszcze jedno przyjęte
+założenie. Założono, ze rozkłady zmiany cen są rozkładem normalnym,
+lub do niego zbliżony.  W rzeczywistości rozkłady doświadczalne zmian
+cen aktywów finansowych często nie odpowiadają rozkładowi
+normalnemu. W praktyce, rzeczywiście, większość zmian cen oscyluje
+wokół wartości oczekiwanej, ale występują jednak częściej (niż w
+rozkładzie normalnym) zmiany ekstremalne. Zmiany te charakteryzują
+występowanie tzw. „grubych ogonów” rozkładu, co wpływa na zwiększenie
+zmienności i nie są ujmowane w VaR, w sposób adekwatny. Przyjęcie
+założenia o rozkładzie normalnym zmian wartości ułatwia jednak
+obliczeniach znacznie zmniejsza koszty pomiaru ryzyka.  
+
+Nadzorcy rynku, mimo, że formalnie uznają VaR jako narzędzie
+zarządzania ryzykiem pozwalające na określenie wielkości rezerwy
+tworzonej na wypadek ewentualnej straty to wielkość tej rezerwy
+wymaganej przez Nadzór jest większy zazwyczaj od wyliczonego tak jak
+powyżej o współczynnik - a zwiększając rozmiar tej rezerwy :math:`a`
+razy.
 
 
 Analizy Scenariuszy

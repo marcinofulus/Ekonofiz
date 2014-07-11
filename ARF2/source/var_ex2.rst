@@ -148,8 +148,35 @@ W tej metodzie mamy znaczną różnicę, nie obowiązują bowiem proste formuły
     k =  T.cum_distribution_function_inv(0.2)
     print "VaR, metoda wariancji kowariancji:",muP + np.sqrt(sigma2P)*k
 
+
+Metoda Monte Carlo
+------------------
+
+
+.. sagecellserver::
+
     import scipy.linalg
     sqrtCov = np.real_if_close(scipy.linalg.sqrtm(Cov))
+    values = np.array([ valueP(P,mrkt10Feb97 + avg + \
+      np.dot(sqrtCov,np.random.randn(4)))[0] for i in range(10000)])
 
-    values = np.array([ valueP(P,mrkt10Feb97 + avg + np.dot(sqrtCov,np.random.randn(4)))[0] for i in range(10000)])
     print "VaR, MC:",np.percentile(values-valueP(P,mrkt10Feb97)[0],int(20))
+
+
+Porównanie
+----------
+
+
+
+.. sagecellserver::
+
+
+    Gaussian(x,mu,sigma) = 1/sqrt(2*pi*sigma^2)*exp(-(x-mu)^2/(2*sigma^2))
+    print muP,sigma2P
+    nbins = 20
+    H = np.histogram(np.diff(valueP(P,dataVAR)),bins=np.linspace(-12,12,nbins))
+
+    normalizacja = H[0].sum()*(H[1].max()-H[1].min())/nbins
+    line( zip(H[1],H[0]/normalizacja) )+\
+     plot(Gaussian(x,muP,sqrt(sigma2P)),(x,-16,16),color='red',figsize=5)
+

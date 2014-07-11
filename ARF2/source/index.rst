@@ -16,6 +16,7 @@ Praktyczny wstęp do komputerowej analizy Rynków Finansowych
    :numbered:
    :maxdepth: 1
 
+   tech
    binarne
    opcje
    Instrumenty_syntetyczne
@@ -24,5 +25,7 @@ Praktyczny wstęp do komputerowej analizy Rynków Finansowych
    var*
    forex
 
+.. only::  html
 
+    Wersja do druku: `PDF <analiza_rynków_finansowych.pdf>`_.
 

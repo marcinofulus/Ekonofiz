@@ -154,6 +154,7 @@ latexpdf: images-pdf
 	@echo "Running LaTeX files through pdflatex..."
 	$(MAKE) -C $(BUILDDIR)/latex all-pdf
 	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex."
+	@cp $(BUILDDIR)/latex/analiza_rynków_finansowych.pdf $(BUILDDIR)/html -v
 
 text:
 	$(SPHINXBUILD) -b text $(ALLSPHINXOPTS) $(BUILDDIR)/text
