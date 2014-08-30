@@ -35,15 +35,60 @@ składającego się z aktywa i opcji, po stopie procentowej wolnej od
 ryzyka. Procedurę powtarza się aż do chwili wystawienia opcji. Modele
 te są opisane w szczególach w rozdziale o opcjach binarnych :ref:`binarne`.
  
-W tym rozdziale pozamy własności metody opartej o ciały proces
-losowy. Jest olbrzymią zaletą jest istnienie prostych analitycznych
-wzorów na cenę opcji Europejskich, co pozwala na łatwą ich analizę i
-poznanie własności.
+
+Model minimalny - rynek dwustanowy jednookresowy
+------------------------------------------------
+
+Rozważmy najprostszy rynek uwzględniający nieprzewidywalną zmienność.
+Wyobraźmy sobie, że mamy pewne aktywo :math:`S`, które w chwili
+początkowej :math:`t=0` posiada wartość :math:`S(t=0)=S_0`. Po czasie
+:math:`T` dopuszczamy jeden z dwóch możliwych scenariuszy: aktywo
+drożeje do wartości :math:`S_{up}` albo tanieje do wartości
+:math:`S_{down}`. W tym momencie prawdopodobieństwa zajęcia każdego ze
+scenariuszy są niewiadomą. Rynek jest jednookresowy, co oznacza, że
+rozważamy tylko dwie chwile czasu: początkową: :math:`t=0` i przyszłą:
+:math:`t=T`.
+
+Zakładamy, że na rynku istnieje możliwość ulokowania gotówki w depozyt
+bankowy ze stopą procentową :math:`r`. Zakładamy, że taka operacja
+jest pozbawiona jakiegokolwiek ryzyka. Innymi słowy po czasie
+:math:`T` depozyt bankowy gwarantuje nam, że nasz kapitał będzie
+wynosił :math:`e^{rT}`.
+
+Kolejnym elementem stosowanym przy wycenie instrumentów co do których
+przyszłości nie mamy pewności, jest pojęcie rynku wolnego od
+arbitrażu. Arbitraż oznacza, że startując z pewnego kapitału możemy
+zarobić - w sensie wartości średniej, kupując lub sprzedająć dostępne
+instrumenty. Zarobek oznacza oczywiście, że średnio po operacji
+będziemy mieli więcej środków niż dał by nam depozyt bankowy. 
+
+Okazuje się, że jeśli przyjmiemy założenie rynku wolnego od arbitrażu,
+to przy ustalonych stanach aktywa :math:`S_{up}` i :math:`S_{down}`,
+prawdopodobieństwo tego, że aktywo podrożeje :math:`p` musi spełniać:
+
+.. math::
+  :label: eq:Parb
+
+   p S_{up} + (1-p) S_{down} = S_0 e^{rT}
+
+Dlaczego? Jeśli prawdopodobieństwo to było by większe, wtedy
+moglibyśmy kupić aktywo i w sensie wartości średniej otrzymalibyśmy
+więcej niż lokata bankowa. Arbitraż byłby możliwy. W przeciwnym
+przypadku posiadając aktywo moglibyśmy je sprzedać i ulokować środki
+na depozycie. Po okresie :math:`T` za wartość depozytu moglibyśmy
+nabyć więcej jednostek aktywa niż mieliśmy na początku. Znowu
+zyskaliśmy w sensie wartości średniej.
+
+Równanie :eq:`eq:Parb` jest podstawą konstrukcji wszystkich metod
+wyceny instrumentów finansowych. Korzystając z niego możemy się
+przekonać jaka jest wartość instrumentu w chwili początkowej czyli
+wycenić dany instrument.
+
 
 Wycena opcji na drzewie binarnym
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------
 
-Rozważmy drzewo multyplikatywne i instrument o wartości początkowej
+Rozważmy drzewo multiplikatywne i instrument o wartości początkowej
 :math:`S_0`. Narysujmy drzewo możliwych scenariuszy po pięciu
 miesiącach, przyjmując jeden okres modelu jako jeden miesiąc:
 
@@ -103,7 +148,7 @@ Kalibracja modelu binarnego
 ---------------------------
 
 Rozważmy model dwustanowy - jednookresowy. Niech cenę aktywa określa
-reguła multyplikatywna.
+reguła multiplikatywna.
 
 
 .. math::
@@ -304,6 +349,11 @@ Przykład - wyceny opcji z danymi z rynku ciągłego.
 			 
 Model Blacka Scholesa dla europejskiech opcji Call  i Put
 ---------------------------------------------------------
+
+W tym rozdziale pozamy własności metody opartej o ciagły proces
+losowy. Jest olbrzymią zaletą jest istnienie prostych analitycznych
+wzorów na cenę opcji Europejskich, co pozwala na łatwą ich analizę i
+poznanie własności.
 
 Model dwumianowy zakładał stacjonarny dwumianowy proces stochastyczny
 dla ruchu ceny aktywa (akcji) zachodzący w dyskretnych przedziałach
