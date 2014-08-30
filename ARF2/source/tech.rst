@@ -1,6 +1,6 @@
-========================
-Analiza danych rynkowych
-========================
+================================
+Dodatek Analiza danych rynkowych
+================================
 
 Oprogramowanie Sage a w szczególności zawarte w min biblioteki `numpy`
 `scipy` i możliwości wizualizacji i interacji dają możliwość
