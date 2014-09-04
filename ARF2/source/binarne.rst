@@ -1,5 +1,5 @@
-Dwumianowe modele dyskretne
-===========================
+Dodatek: Kompuretowa analiza drzew binarnych 
+============================================
 
 .. _binarne:
 
@@ -142,15 +142,19 @@ i przedstawiały je graficznie.
 .. end of output
 
 
-Procedury `gen_all` oraz `gen_recombining`
+Procedury :code:`gen_all` oraz :code:`gen_recombining` generują drzewa
+zarówno addytywne jak i multiplikatywne. Różnica polega na tym, że
+:code:`gen_all` generuje wszystkie scenariusze. Należy pamiętać więc
+by :math:`N` nie było zbyt duże, ilość scenariuszy jest :math:`\sim
+2^N`.
 
-Drzewa multyplikatywne mają kilka zalet. Po pierwsze cena nie będzie
+Drzewa multiplikatywne mają kilka zalet. Po pierwsze cena nie będzie
 ujemna. Nie jest to prawdą w modelu addytywnym! Po drugie, założenie
 stałej zmiany, niezależnej od ceny aktywa wydaje się
 nierzeczywiste. Rozsądniejszym wydaje się podanie względnej zmienności
 ceny aktywa, co właśnie implementuje model multyplikatywny.
 
-Wygenerujmy więc drzewo z czterema rozgałęzieniami, multyplikatywne: 
+Wygenerujmy więc drzewo z czterema rozgałęzieniami, multiplikatywne: 
 
 .. sagecellserver::
 
@@ -165,206 +169,6 @@ finansowego. Rozważania z zakresu teorii rynków finansowych mogą być
 rozszerzeniem rynku jednookresowego, dwustanowego.
 
 
-
-Kalibracja modelu binarnego
----------------------------
-
-Rozważmy model dwustanowy - jednookresowy. Niech cenę aktywa określa
-reguła multyplikatywna.
-
-
-.. math::
-
-   S_{1} = \left\{ 
-    \begin{array}{l l}
-       S_0 u   & \quad \text{z prawdopodobieństwem} \; p\\
-       S_0 d   & \quad \text{z prawdopodobieństwem} \; 1-p
-    \end{array} \right.
-
-
-Mamy więc trzy liczby: :math:`p,u,d`, które określają ten
-model. Chcemy zastosować go jako przybliżenie pewnego ciągłego procesu
-ewolucji ceny, który jest scharakteryzowany przez dwa parametry:
-
-- :math:`r t` - wolna od ryzyka stopa procentowa
-- :math:`\sigma^2 t=\log(\frac{S_1}{S_0})` - średniokwadratowe
-  odchylenie standardowe logarytmicznej stopy zwrotu (w modelu ciągłym).
-
-Dla procesu ciągłego opisywanego przez geometryczny proces Wienera:
-
-.. math::
-
-   dS = rSdt+\sigma S dW,
-
-prawdopodobieństwo ceny aktywa w czasie :math:`t` przy założeniu, że
-cena w czasie :math:`S(t=0)=S_0` jest dane rozkładem lognormalnym:
-
-.. math::
-   :label: eq:logn
-
-   P(S,t|S_0,0)= \frac{1}{\sqrt{2\pi\sigma^2 t S^2}} e^{-\displaystyle\frac{(\log(\frac{S}{S_0})-(r-\frac{1}{2}\sigma^2)t)^2}{2\sigma^2 t}}
-
-
-Wykorzystując wzory na średnią i wariancję (np. z `wikipedii
-<http://pl.wikipedia.org/wiki/Rozk%C5%82ad_logarytmicznie_normalny>`_)
-i porównując z postacią rozkładu :eq:`eq:logn` otrzymujemy wzory na
-wartość oczekiwaną i wariancję procesu ciągłego:
-
-.. math:: 
-   :label: eq:long_EV
-
-   E(S) = S_0 e^{r t} \\
-   Var(S)=   S_0^{2} {\left(e^{\sigma^{2} t} - 1\right)} e^{2 \, r t}
-
-
-Chcemy by jeden krok procesu binarnego odtwarzał przynajmniej dwa
-pierwsze momenty procesu ciągłego: średnią i wariancję. Tak
-więc proces dyskretny będzie musiał spełnić dwa równania:
-
-.. math::
-   :label: eq:cond
-
-   E(S) = p S_0 u+(1-p) S_0 d \\
-   Var(S)=  p (S_0 u)^2+(1-p) (S_0 d)^2 - E(S)
-
-gdzie podstawiamy wartości średniej i wariancji rozkładu lognormalnego
-korzystając z :eq:`eq:long_EV`.
-
-Mamy więc dwa warunki i trzy zmienne do ustalenia, co powoduje, że
-potencjalnie może być nieskończenie wiele rozwiązań. Rozważmy pierwszy
-przypadek w którym przyjmiemy:
-
-
-.. math::
-   :label: eq:crr1
-
-   d = \frac{1}{u}.
-
-
-Taki wariant drzewa binarnego jest znany jako model Cox-a, Ross-a i
-Rubinstein-a (CRR). Rozwiązując układ równań :eq:`eq:crr1`, w
-przybliżenie małego czasu :math:`t`, otrzymujemy wzory wiążące model ciągły z  drzewem binarnym:
-
-
-.. math::
-   :label: eq:crr
-
-   p &= \frac{e^{rt}-d}{u-d} \\
-   u &= e^{\sigma \sqrt{t}} \\
-   d &= e^{-\sigma \sqrt{t}}.
-
-
-Wyprowadzenie tych wzorów można łatwo otrzymać na przykład stosując
-system algebry komputerowej. I tak, zdefiniujmy najpierw zmienne i
-wzory na średnią i wariancję rozkładu lognormalnego oraz zdefiniujmym
-układ :eq:`eq:cond`:
-
-.. sagecellserver::
-   
-    var('r,t,u,d,S0,p,sigma')
-    lognormE = S0*exp(r*t)
-    lognormVar = S0^2*exp(2*r*t)*(exp(sigma^2*t)-1)
-    show([lognormE,lognormVar])
-
-    eq1  = lognormE == p*S0*u+(1-p)*S0*d
-    eq2  = lognormVar ==(p*(S0*u)^2+(1-p)*(S0*d)^2) - lognormE^2
-
-    show([eq1,eq2])
-
-
-Rozwiążmy teraz pierwsze równanie ze względu na :math:`p`
-
-.. sagecellserver::
-
-    psol = solve(eq1,p,solution_dict=True)[0]
-    p.subs(psol).show()
-   
-a następnie podstawmy wynik do drugiego równania i skorzystajmy z
-założenia :eq:`eq:crr1`:
-
-.. sagecellserver::
-
-    solsu = (eq2).subs(psol).subs(d=1/u).solve(u)
-    expr = solsu[1].rhs()
-    expr.show()
-
-Ponieważ interesuje nas granica małych czasów to możemy rozwinąć ten
-nieco długi wzór w szereg Taylora w punktcie :math:`t=0` i ograniczyć
-się do wyrazów pierwszego rzędu w czasie. Zauważmy, że to rozwinięcie
-jest identyczne z rozwinięciem drugiego równania ze wzorów
-:eq:`eq:crr`, co kończy nasze wyprowadzenie:
-
-
-.. sagecellserver::
-
-    expr.taylor(t,0,1).show()
-    exp(sigma*sqrt(t)).taylor(t,0,1).show()
-
-
-Możemy też pokusić się o rozwiązanie układu równań w innej
-parametryzacji, w której mamy:
-
-.. math::
-   :label: eq:JR
-
-   p &= \frac{1}{2} \\
-   u &= e^{\sigma \sqrt{t}+(r-\frac{\sigma^2}{2})*t)}\\
-   d &= e^{-\sigma \sqrt{t}+(r-\frac{\sigma^2}{2})*t)}. 
-
-
-
-Taki przypadek jest znany jako parametryzacja
-Jarrowa-Rudda. Sprawdźmy, czy rzeczywiście to zachodzi. W równaniach
-podstawmy więc od razu :math:`p = \frac{1}{2}` i porównajmy
-rozwinięcia w szereg wyników oraz rozwinięcia równań :eq:`eq:JR`:
-
-.. sagecellserver::
-
-   sols = solve([eq1.subs(p==1/2),eq2.subs(p==1/2)],[u,d])
-   print "pełne rozwiązanie:"
-   show(sols[1])
-   print "Rozwinięcia w t=0:"
-   sols[1][0].rhs().taylor(t,0,1).show()
-   sols[1][1].rhs().taylor(t,0,1).show()
-   print "Rozwinięcia wzorów w  t=0:"
-   exp(sigma*sqrt(t)+(r-sigma^2/2)*t).taylor(t,0,1).show()
-   exp(-sigma*sqrt(t)+(r-sigma^2/2)*t).taylor(t,0,1).show()
-
-
-Ważną uwagą jest to, że model drzewa binarnego i model ciągły jest
-równoważny tylko w granicy :math:`t\to 0.` Oznacza to, że wyceniając
-pewnien instrument jednookresowym modelem dyskretnym otrzymamy spore
-różnice w stosunku do modelu ciągłego, jeśli interesująca nas skala
-czasowa będzie duża.
-
-Sytuacja jednak się zmienia jeśli zastosujemy model
-wielookresowy. Wtedy nasz czas możemy podzielić na wiele odcinków a
-liczba tych podziałów będzie zależała od tego jaką dokładność chcemy
-osiągnąć. Wycena za pomocą modelu wielokresowego będzie dążyła do
-modelu ciągłego w granicy :math:`n\to \infty.`
-
-Przykład - wyceny opcji z danymi z rynku ciągłego.
-
-.. sagecellserver::
-
-   T = 5/12.
-   N = 123
-   sigma = 0.4
-   K = 50
-   r = 10.0
-
-   u = exp(sigma*sqrt(T/N))
-   d = 1.0/u
-   p = (exp(r/100*T/N)-d)/(u-d)
-   C  = exp(r/100*T/N).n()
-
-   SP = gen_recombining(N,SP=K,q=u-1.0)
-
-   OP = [ [max(0,s-K) for s in SP[N]] ]
-   for idx in range(N):
-       el = [ 1/C*(p*OP[-1][i]+(1-p)*OP[-1][i+1]) for i in range(len(OP[-1])-1)] 
-       OP.append(el)
-   print OP[-1]
 
 
 Drzewa binarne
@@ -736,63 +540,6 @@ co graficznie możemy przedstawić:
     [[60, 20, 0, 0]]
 
 .. end of output
-
-
-Wycena opcji na drzewie binarnym
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Rozważmy drzewo multyplikatywne i instrument o wartości początkowej
-:math:`S_0`. Narysujmy drzewo możliwych scenariuszy po pięciu
-miesiącach, przyjmując jeden okres modelu jako jeden miesiąc:
-
-.. sagecellserver::
-
-   N = 5
-   SP = gen_recombining(N,SP=50,q=0.1224)
-   plot_tree(SP)
-
-Niech roczna stopa procentowa wynosi 10% a cena wykupu opcji
-:math:`K=50`. Łatwo się przekonać, że takie drzewo jest wolne dla
-miary określonej przez :math:`q=0.5073`. 
-
-.. sagecellserver::
-
-   q = 0.5073
-   Q = [q,1-q]
-   K = 50
-   r = 10.0
-   C  = exp(r/100*1/12.).n()
-
-Aby wycenic opcje postępujemy w następujący sposób. W ostatnim okresie
-cena europejskiej opcji kupna (call) zależy tylko od ceny aktualnej
-aktywa oraz ceny wykupu i jest równa:
-
-.. sagecellserver::
-
-   [max(0,s-K) for s in SP[N]]
-
-Znając te liczby możemy obliczyć cenę opcji w przedostatnim okresie
-rozliczeniowym. Skorzystamy z faktu, że średnia z wartości opcji
-względem miary martyngałowej w okresie :math:`i+1` jest równa cenie
-tego samego instrumentu powiększonego o jego kapitalizację:
-
-.. math::
-
-   e^{r \delta t} S_{i} = p S^{+}_{i+1} +(1-p S^{-}_{i+1} )
-
-
-Możemy więc napisać następujący algorytm:
-
-.. sagecellserver::
-
-   OP = [ [max(0,s-K) for s in SP[N]] ]
-   for idx in range(N):
-       el = [ 1/C*(q*OP[-1][i]+(1-q)*OP[-1][i+1]) for i in range(len(OP[-1])-1)] 
-       OP.append(el)
-   OP.reverse()
-
-   print "Cena opcji:",OP[0]
-   plot_tree2(SP,OP)
 
 
 

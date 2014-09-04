@@ -1,0 +1,842 @@
+Metody wyznaczania ceny opcji
+=============================
+
+
+Jak wyznaczyć cenę opcji?
+-------------------------
+
+Wyznaczenie ceny opcji polega na tym by wyznaczyć jej wartość
+wewnętrzną (*intrinsic value*) w chwili wygaśnięcia. Wartość zależy od
+ceny aktywa w przyszłości a ta z kolei zmienia się w losowy sposób. 
+Niestety, nie ma sposobu by znać tę wartość z wyprzedzeniem.
+
+Dlatego aby wyznaczyć cenę opcji posługujemy się modelami
+teoretycznymi.  Istnieje wiele modeli stosowanych do tego
+celu. Wszystkie modele zakładają, że proces ewolucji ceny aktywa jest
+jest pewnym procesem losowym. Ponadto zakładamy, że mamy do czynienia
+z rynkiem wolnym od arbitrażu na którym można bez ograniczeń i
+prowizji handlowac dowolną ilością akcji.
+
+Najprostszym modelem jest dwumianowy model wyceny opcji. (*Cox,
+Ross,Rubinstein- Option pricing: Simplified Approach- Journal of
+Financial Economics- September 1979*). Ten model wycenia europejską
+opcję call na akcje spółki nie wypłacającej dywidendę. 
+
+W modelu dwumianowym czas pozostały do wygaśnięcia opcji dzieli się na
+dyskretne Przedziały. W każdym przedziale czasu cena aktywa P zmienia
+się przyjmując jeden z dwu możliwych stanów- czyli dwumianowo. Może
+wzrosnąć do wartości Pu (z prawdopodobieństwem p) lub zmaleć s do
+wartości Pd (z prawdopodobieństwem 1– p), gdzie u > 1, d < 1. Mając
+zbiór cen aktywa (np. akcji) w postaci drzewka, można wycenić opcję
+przeprowadzając rachunek wstecz, począwszy od daty wygaśnięcia.
+Obliczenia wykonuje się w kierunku początku drzewa od chwili T do T –
+1, dyskontując w tym przedziale czasowym wartość portfela bezpiecznego
+składającego się z aktywa i opcji, po stopie procentowej wolnej od
+ryzyka. Procedurę powtarza się aż do chwili wystawienia opcji. Modele
+te są opisane w szczególach w rozdziale o opcjach binarnych :ref:`binarne`.
+ 
+
+Model minimalny - rynek dwustanowy jednookresowy
+------------------------------------------------
+
+Rozważmy najprostszy rynek uwzględniający nieprzewidywalną zmienność.
+Wyobraźmy sobie, że mamy pewne aktywo :math:`S`, które w chwili
+początkowej :math:`t=0` posiada wartość :math:`S(t=0)=S_0`. Po czasie
+:math:`T` dopuszczamy jeden z dwóch możliwych scenariuszy: aktywo
+drożeje do wartości :math:`S_{up}` albo tanieje do wartości
+:math:`S_{down}`. W tym momencie prawdopodobieństwa zajęcia każdego ze
+scenariuszy są niewiadomą. Rynek jest jednookresowy, co oznacza, że
+rozważamy tylko dwie chwile czasu: początkową: :math:`t=0` i przyszłą:
+:math:`t=T`.
+
+Zakładamy, że na rynku istnieje możliwość ulokowania gotówki w depozyt
+bankowy ze stopą procentową :math:`r`. Zakładamy, że taka operacja
+jest pozbawiona jakiegokolwiek ryzyka. Innymi słowy po czasie
+:math:`T` depozyt bankowy gwarantuje nam, że nasz kapitał będzie
+wynosił :math:`e^{rT}`.
+
+Kolejnym elementem stosowanym przy wycenie instrumentów co do których
+przyszłości nie mamy pewności, jest pojęcie rynku wolnego od
+arbitrażu. Arbitraż oznacza, że startując z pewnego kapitału możemy
+zarobić - w sensie wartości średniej, kupując lub sprzedająć dostępne
+instrumenty. Zarobek oznacza oczywiście, że średnio po operacji
+będziemy mieli więcej środków niż dał by nam depozyt bankowy. 
+
+Okazuje się, że jeśli przyjmiemy założenie rynku wolnego od arbitrażu,
+to przy ustalonych stanach aktywa :math:`S_{up}` i :math:`S_{down}`,
+prawdopodobieństwo tego, że aktywo podrożeje :math:`p` musi spełniać:
+
+.. math::
+  :label: eq:Parb
+
+   p S_{up} + (1-p) S_{down} = S_0 e^{rT}
+
+Dlaczego? Jeśli prawdopodobieństwo to było by większe, wtedy
+moglibyśmy kupić aktywo i w sensie wartości średniej otrzymalibyśmy
+więcej niż lokata bankowa. Arbitraż byłby możliwy. W przeciwnym
+przypadku posiadając aktywo moglibyśmy je sprzedać i ulokować środki
+na depozycie. Po okresie :math:`T` za wartość depozytu moglibyśmy
+nabyć więcej jednostek aktywa niż mieliśmy na początku. Znowu
+zyskaliśmy w sensie wartości średniej.
+
+Równanie :eq:`eq:Parb` jest podstawą konstrukcji wszystkich metod
+wyceny instrumentów finansowych. Korzystając z niego możemy się
+przekonać jaka jest wartość instrumentu w chwili początkowej czyli
+wycenić dany instrument.
+
+
+Wycena opcji na drzewie binarnym
+--------------------------------
+
+Rozważmy drzewo multiplikatywne i instrument o wartości początkowej
+:math:`S_0`. Narysujmy drzewo możliwych scenariuszy po pięciu
+miesiącach, przyjmując jeden okres modelu jako jeden miesiąc:
+
+.. sagecellserver::
+
+   N = 5
+   SP = gen_recombining(N,SP=50,q=0.1224)
+   plot_tree(SP)
+
+Niech roczna stopa procentowa wynosi 10% a cena wykupu opcji
+:math:`K=50`. Łatwo się przekonać, że takie drzewo jest wolne dla
+miary określonej przez :math:`q=0.5073`. 
+
+.. sagecellserver::
+
+   q = 0.5073
+   Q = [q,1-q]
+   K = 50
+   r = 10.0
+   C  = exp(r/100*1/12.).n()
+
+Aby wycenic opcje postępujemy w następujący sposób. W ostatnim okresie
+cena europejskiej opcji kupna (call) zależy tylko od ceny aktualnej
+aktywa oraz ceny wykupu i jest równa:
+
+.. sagecellserver::
+
+   [max(0,s-K) for s in SP[N]]
+
+Znając te liczby możemy obliczyć cenę opcji w przedostatnim okresie
+rozliczeniowym. Skorzystamy z faktu, że średnia z wartości opcji
+względem miary martyngałowej w okresie :math:`i+1` jest równa cenie
+tego samego instrumentu powiększonego o jego kapitalizację:
+
+.. math::
+
+   e^{r \delta t} S_{i} = p S^{+}_{i+1} +(1-p S^{-}_{i+1} )
+
+
+Możemy więc napisać następujący algorytm:
+
+.. sagecellserver::
+
+   OP = [ [max(0,s-K) for s in SP[N]] ]
+   for idx in range(N):
+       el = [ 1/C*(q*OP[-1][i]+(1-q)*OP[-1][i+1]) for i in range(len(OP[-1])-1)] 
+       OP.append(el)
+   OP.reverse()
+
+   print "Cena opcji:",OP[0]
+   plot_tree2(SP,OP)
+
+
+
+
+Kalibracja modelu binarnego
+---------------------------
+
+Rozważmy model dwustanowy - jednookresowy. Niech cenę aktywa określa
+reguła multiplikatywna.
+
+
+.. math::
+
+   S_{1} = \left\{ 
+    \begin{array}{l l}
+       S_0 u   & \quad \text{z prawdopodobieństwem} \; p\\
+       S_0 d   & \quad \text{z prawdopodobieństwem} \; 1-p
+    \end{array} \right.
+
+
+Mamy więc trzy liczby: :math:`p,u,d`, które określają ten
+model. Chcemy zastosować go jako przybliżenie pewnego ciągłego procesu
+ewolucji ceny, który jest scharakteryzowany przez dwa parametry:
+
+- :math:`r t` - wolna od ryzyka stopa procentowa
+- :math:`\sigma^2 t=\log(\frac{S_1}{S_0})` - średniokwadratowe
+  odchylenie standardowe logarytmicznej stopy zwrotu (w modelu ciągłym).
+
+Dla procesu ciągłego opisywanego przez geometryczny proces Wienera:
+
+.. math::
+
+   dS = rSdt+\sigma S dW,
+
+prawdopodobieństwo ceny aktywa w czasie :math:`t` przy założeniu, że
+cena w czasie :math:`S(t=0)=S_0` jest dane rozkładem lognormalnym:
+
+.. math::
+   :label: eq:logn
+
+   P(S,t|S_0,0)= \frac{1}{\sqrt{2\pi\sigma^2 t S^2}} e^{-\displaystyle\frac{(\log(\frac{S}{S_0})-(r-\frac{1}{2}\sigma^2)t)^2}{2\sigma^2 t}}
+
+
+Wykorzystując wzory na średnią i wariancję (np. z `wikipedii
+<http://pl.wikipedia.org/wiki/Rozk%C5%82ad_logarytmicznie_normalny>`_)
+i porównując z postacią rozkładu :eq:`eq:logn` otrzymujemy wzory na
+wartość oczekiwaną i wariancję procesu ciągłego:
+
+.. math:: 
+   :label: eq:long_EV
+
+   E(S) = S_0 e^{r t} \\
+   Var(S)=   S_0^{2} {\left(e^{\sigma^{2} t} - 1\right)} e^{2 \, r t}
+
+
+Chcemy by jeden krok procesu binarnego odtwarzał przynajmniej dwa
+pierwsze momenty procesu ciągłego: średnią i wariancję. Tak
+więc proces dyskretny będzie musiał spełnić dwa równania:
+
+.. math::
+   :label: eq:cond
+
+   E(S) = p S_0 u+(1-p) S_0 d \\
+   Var(S)=  p (S_0 u)^2+(1-p) (S_0 d)^2 - E(S)
+
+gdzie podstawiamy wartości średniej i wariancji rozkładu lognormalnego
+korzystając z :eq:`eq:long_EV`.
+
+Mamy więc dwa warunki i trzy zmienne do ustalenia, co powoduje, że
+potencjalnie może być nieskończenie wiele rozwiązań. Rozważmy pierwszy
+przypadek w którym przyjmiemy:
+
+
+.. math::
+   :label: eq:crr1
+
+   d = \frac{1}{u}.
+
+
+Taki wariant drzewa binarnego jest znany jako model Cox-a, Ross-a i
+Rubinstein-a (CRR). Rozwiązując układ równań :eq:`eq:crr1`, w
+przybliżenie małego czasu :math:`t`, otrzymujemy wzory wiążące model ciągły z  drzewem binarnym:
+
+
+.. math::
+   :label: eq:crr
+
+   p &= \frac{e^{rt}-d}{u-d} \\
+   u &= e^{\sigma \sqrt{t}} \\
+   d &= e^{-\sigma \sqrt{t}}.
+
+
+Wyprowadzenie tych wzorów można łatwo otrzymać na przykład stosując
+system algebry komputerowej. I tak, zdefiniujmy najpierw zmienne i
+wzory na średnią i wariancję rozkładu lognormalnego oraz zdefiniujmym
+układ :eq:`eq:cond`:
+
+.. sagecellserver::
+   
+    var('r,t,u,d,S0,p,sigma')
+    lognormE = S0*exp(r*t)
+    lognormVar = S0^2*exp(2*r*t)*(exp(sigma^2*t)-1)
+    show([lognormE,lognormVar])
+
+    eq1  = lognormE == p*S0*u+(1-p)*S0*d
+    eq2  = lognormVar ==(p*(S0*u)^2+(1-p)*(S0*d)^2) - lognormE^2
+
+    show([eq1,eq2])
+
+
+Rozwiążmy teraz pierwsze równanie ze względu na :math:`p`
+
+.. sagecellserver::
+
+    psol = solve(eq1,p,solution_dict=True)[0]
+    p.subs(psol).show()
+   
+a następnie podstawmy wynik do drugiego równania i skorzystajmy z
+założenia :eq:`eq:crr1`:
+
+.. sagecellserver::
+
+    solsu = (eq2).subs(psol).subs(d=1/u).solve(u)
+    expr = solsu[1].rhs()
+    expr.show()
+
+Ponieważ interesuje nas granica małych czasów to możemy rozwinąć ten
+nieco długi wzór w szereg Taylora w punktcie :math:`t=0` i ograniczyć
+się do wyrazów pierwszego rzędu w czasie. Zauważmy, że to rozwinięcie
+jest identyczne z rozwinięciem drugiego równania ze wzorów
+:eq:`eq:crr`, co kończy nasze wyprowadzenie:
+
+
+.. sagecellserver::
+
+    expr.taylor(t,0,1).show()
+    exp(sigma*sqrt(t)).taylor(t,0,1).show()
+
+
+Możemy też pokusić się o rozwiązanie układu równań w innej
+parametryzacji, w której mamy:
+
+.. math::
+   :label: eq:JR
+
+   p &= \frac{1}{2} \\
+   u &= e^{\sigma \sqrt{t}+(r-\frac{\sigma^2}{2})*t)}\\
+   d &= e^{-\sigma \sqrt{t}+(r-\frac{\sigma^2}{2})*t)}. 
+
+
+
+Taki przypadek jest znany jako parametryzacja
+Jarrowa-Rudda. Sprawdźmy, czy rzeczywiście to zachodzi. W równaniach
+podstawmy więc od razu :math:`p = \frac{1}{2}` i porównajmy
+rozwinięcia w szereg wyników oraz rozwinięcia równań :eq:`eq:JR`:
+
+.. sagecellserver::
+
+   sols = solve([eq1.subs(p==1/2),eq2.subs(p==1/2)],[u,d])
+   print "pełne rozwiązanie:"
+   show(sols[1])
+   print "Rozwinięcia w t=0:"
+   sols[1][0].rhs().taylor(t,0,1).show()
+   sols[1][1].rhs().taylor(t,0,1).show()
+   print "Rozwinięcia wzorów w  t=0:"
+   exp(sigma*sqrt(t)+(r-sigma^2/2)*t).taylor(t,0,1).show()
+   exp(-sigma*sqrt(t)+(r-sigma^2/2)*t).taylor(t,0,1).show()
+
+
+Ważną uwagą jest to, że model drzewa binarnego i model ciągły jest
+równoważny tylko w granicy :math:`t\to 0.` Oznacza to, że wyceniając
+pewnien instrument jednookresowym modelem dyskretnym otrzymamy spore
+różnice w stosunku do modelu ciągłego, jeśli interesująca nas skala
+czasowa będzie duża.
+
+Sytuacja jednak się zmienia jeśli zastosujemy model
+wielookresowy. Wtedy nasz czas możemy podzielić na wiele odcinków a
+liczba tych podziałów będzie zależała od tego jaką dokładność chcemy
+osiągnąć. Wycena za pomocą modelu wielokresowego będzie dążyła do
+modelu ciągłego w granicy :math:`n\to \infty.`
+
+Przykład - wyceny opcji z danymi z rynku ciągłego.
+
+.. sagecellserver::
+
+   T = 5/12.
+   N = 123
+   sigma = 0.4
+   K = 50
+   r = 10.0
+
+   u = exp(sigma*sqrt(T/N))
+   d = 1.0/u
+   p = (exp(r/100*T/N)-d)/(u-d)
+   C  = exp(r/100*T/N).n()
+
+   SP = gen_recombining(N,SP=K,q=u-1.0)
+
+   OP = [ [max(0,s-K) for s in SP[N]] ]
+   for idx in range(N):
+       el = [ 1/C*(p*OP[-1][i]+(1-p)*OP[-1][i+1]) for i in range(len(OP[-1])-1)] 
+       OP.append(el)
+   print OP[-1]
+
+
+
+			 
+Model Blacka Scholesa dla europejskiech opcji Call  i Put
+---------------------------------------------------------
+
+W tym rozdziale pozamy własności metody opartej o ciagły proces
+losowy. Jest olbrzymią zaletą jest istnienie prostych analitycznych
+wzorów na cenę opcji Europejskich, co pozwala na łatwą ich analizę i
+poznanie własności.
+
+Model dwumianowy zakładał stacjonarny dwumianowy proces stochastyczny
+dla ruchu ceny aktywa (akcji) zachodzący w dyskretnych przedziałach
+czasowych. Jeśli przejdziemy do granicy skracając dyskretne okresy
+czasowe to ten stochastyczny proces stanie procesem dyfuzji (Ito
+proces) zwanym geometrycznym ruchem Browna. Podobnie jak w poprzednim
+modelu dwumianowym konstruowany jest portfel wolny od ryzyka
+składający się z aktywa i wystawionej opcji call. Taki portfel
+generuje bezpieczna stopę zwrotu. Struktura zabezpieczonego portfela
+posiada formę zbliżoną do równania dyfuzji ciepła w fizyce.
+
+Wzór Blacka Scholesa na wartość opcji nie wypłacającej dywidendy przyjmuje postać:
+
+Opcja Call
+
+.. math::
+
+   C(S_0,K,r,T,\sigma,r) = S_0 F(d_1) - K e^{-rT} F(d_2)
+
+a opcja Put
+
+.. math::
+
+   P(S_0,K,r,T,\sigma,r) = K e^{-rT} F(-d_2) - S_0  F(-d_1)
+
+ 
+gdzie symbole :math:`d_1,d_2` oznaczają:
+
+.. math::
+
+   d_1 = \frac{\ln (S_0/K) + (r+\frac{1}{2} \sigma ^2)T}{\sigma \sqrt{T}}
+
+a
+
+.. math::
+
+   d_2 = d_1 - \sigma \sqrt{T}
+
+
+Funkcja :math:`F(x)` jest dystrybuantą `rozkładu normalnego
+<http://pl.wikipedia.org/wiki/Rozk%C5%82ad_normalny>`_ o średniej zero i
+jednostkowej variancji. Możemy więc wyrazić ją przez funkcja błędu Gaussa:
+
+.. math::
+
+   F(x) =  \frac{1}{2} \, \text{erf}\left(\frac{1}{2} \, \sqrt{2} x\right) + \frac{1}{2}
+
+
+Powyższe wzory możemy wprowadzić do systemu Sage i zbadać ich własności:
+
+
+.. sagecellserver::
+     
+    var('S')
+    def longCALL(S,K,P=0):
+        return max_symbolic(S-K,0)-P
+    def longPUT(S,K,P=0):
+        return max_symbolic(K-S,0)-P
+    def shortCALL(S,K,P=0):
+        return -max_symbolic(S-K,0)+P
+    def shortPUT(S,K,P=0):
+        return -max_symbolic(K-S,0)+P
+
+
+    var('sigma,S0,K,T,r')
+    cdf(x) = 1/2*(1+erf(x/sqrt(2)))
+    d1=(log(S0/K)+(r+sigma**2/2)*T)/(sigma*sqrt(T))
+    d2=d1-sigma*sqrt(T)
+    C(S0,K,r,T,sigma) = S0*cdf(d1)-K*exp(-r*T)*cdf(d2)
+    P(S0,K,r,T,sigma) = K*exp(-r*T)*cdf(-d2)-S0*cdf(-d1)
+
+    def plotBS(OPTION=longCALL,K=125,sigma=.1,r=0.0,T=1, c='red'):
+        var('S')
+        S1,S2 = 100,160
+
+        if "CALL" in OPTION.__name__:
+            cena = C
+        else:
+            cena = P
+        if "short" in OPTION.__name__:
+            k = -1.0
+        else:
+            k = 1.0
+
+
+        p  = plot( OPTION(S,K),(S,S1,S2),color=c,thickness=2.5)
+        p += plot( OPTION(S,exp(-r*T)*K),(S,S1,S2),color='gray',thickness=.5)
+        p += plot(k*(cena(x,K,r,T,sigma)),(x,S1,S2),color='blue',thickness=1)
+        p += point([(K,0)],color='brown',size=40,gridlines=[[K],[]])
+        p += text(r"$K$",(K,2))
+
+        return p
+
+    @interact
+    def _(s=slider(0.001,0.5,0.02,label='volatility',default=0.1),r=slider(0,0.1,0.01),T=slider(1,12,1),K=slider(104,150,1,default=129)):
+
+        p = plotBS(OPTION=longCALL,K=K, c='red',sigma=s,r=r,T=T)
+        p.set_axes_range(ymax=50,ymin=0)
+        p.show(figsize=6)
+
+
+Opcję europejską możemy wycenić zarówno korzystając z analitycznego
+wzoru jak i bezpośrednio z symulacji procesu losowego.
+
+
+.. sagecellserver::
+
+    
+    var('sigma,S0,K,T,r')
+    cdf(x) = 1/2*(1+erf(x/sqrt(2)))
+    d1=(log(S0/K)+(r+sigma**2/2)*T)/(sigma*sqrt(T))
+    d2=d1-sigma*sqrt(T)
+    C(S0,K,r,T,sigma) = S0*cdf(d1)-K*exp(-r*T)*cdf(d2)
+
+
+    K = 125.0
+    
+    r,T,sigma = 0.1, 1, 0.1
+    S0 = 120   
+    print "Wycena ze wzoru:",C(S0,K,r,T,sigma).n()
+
+    import numpy as np 
+    N=100
+    M=1000
+    h=T/N;
+    S=np.zeros((M,N))
+    S[:,0]=S0*np.ones(M); 
+    for i in range(1,N):
+      S[:,i]=S[:,i-1] + r*S[:,i-1]*h + sigma*np.sqrt(h)*S[:,i-1]*np.random.randn(M)
+
+    call_MC=np.exp(-r*T)*np.mean( np.maximum(S[:,N-1]-K,0) )
+    put_MC=np.exp(-r*T)*np.mean( np.maximum(K-S[:,N-1],0) )
+    print "Wycena z symuacji Monte-Carlo:",call_MC,put_MC
+
+    sum([line(enumerate(S[i,:]),thickness=0.2,figsize=4) for i in range(123)])
+
+
+
+.. note::
+
+   Jest oczywiście więcej modeli do wyliczania ceny opcji. W praktyce do
+   wyliczania wartości opcji posługuje się modelami pozwalającymi na
+   przybliżenie wartości opcji. Metody stosowane to:
+
+   **Metody numeryczne**
+
+   - Monte Carlo
+     - Metody: dwumienna, trójmienna
+
+
+       Generalnie, przyjmuje się w stosowanych modelach założenie, że ceny
+       podlegają procesowy stochastycznemu.
+
+
+
+
+
+Analiza wrażliwości
+-------------------
+
+Analiza wrażliwości czyli jak czuła jest cena opcji na zmianę
+określających tę cenę wartości wielkości rynkowych.
+
+Wiemy, że na cenę opcji - :math:`P_o` - cena opcji - w poprzed ozn. C i
+P odp dla opcji call i put
+
+wpływają:
+
+| :math:`P_a` - cena aktywa podstawowego **- w poprzednich wzorach S**
+| :math:`X` – cena wykonania  **- w poprz. K**
+| :math:`r` - stopa  wolna od ryzyka  **poprzednio tak samo**
+| :math:`T` - czas do wygaśnięcia     **poprzednio T**
+
+Zmienność ceny  (*volatility*)  okreslana jako
+
+:math:`\sigma - a` liczona jako odchylenie standardowe tejże ceny.
+
+Powstaje pytanie jak cena opcji jest czuła na zmiany tych parametrów ?
+
+.. (odnośnik z hedgingu za pomoca opcji).
+
+
+Aby odpowiedzieć na to pytanie możemy posłużyć się, może nie
+eleganckim ale usprawiedliwionym i skutecznym do tego celu,
+rozwinięciem tej funkcji we szereg Taylora i uwzględnić w nim tylko
+pierwsze pochodne cząstkowe (z wyjątkowo drugą pochodną względem
+ceny opcji względem ceny aktywa).
+
+W ten sposób określoną zmianę ceny przybliżamy otrzymanym wzorem
+zakładając ze zmiana nie jest mniejsza niż.
+
+Pochodne cząstkowe ceny opcji wchodzące w sklad tego przybliżenia maja
+znaczenie praktyczne bedac używane i oznaczane swymi nazwami.
+
+.. math::
+
+   \Delta V \simeq \frac{\partial V}{\partial t} \Delta t + \frac{\partial V}{\partial S} \Delta S + \frac{1}{2} \frac{\partial ^2 V}{\partial S^2}(\Delta S)^2 + \frac{\partial V}{\partial \sigma} \Delta \sigma + \frac{\partial V}{\partial r} \Delta r + \frac{\partial V}{\partial \delta} \Delta \delta ,
+
+
+.. Wzór przepisać bez ostatniego wyrazu  z oznaczeniami  uzgodnionymi. 
+
+
+
+Delta opcji
+~~~~~~~~~~~
+
+
+Zmiana ceny opcji przy zmianie ceny aktywa podstawowego nosi nazwę
+współczynnika delta.
+
+.. math::
+
+   \Delta = \partial P_0/ \partial P^S = N(d_1) 
+
+
+dla  modelu BS opcji Call (bez dywidendy) wynosi ona:
+
+.. math::
+
+   \Delta_{Call} = N(d_1) 
+
+
+a dla opcji Put
+
+.. math::
+
+   \Delta_{Put} = N(d_1) - 1
+
+Powyższe wzory możemy otrzymać przez różniczkowanie wzrorów
+Blacka-Scholesa ze względu na :math:`S_0`. Sprawdźmy z pomocą systemu
+algebry komputerowej czy, rzeczywiście są spełnione.
+
+Po pierwsze wczytajmy sobie wzory Blacka-Scholesa:
+
+.. sagecellserver::
+
+    var('sigma,S0,K,T,r')
+    cdf(x) = 1/2*(1+erf(x/sqrt(2)))
+    d1=(log(S0/K)+(r+sigma**2/2)*T)/(sigma*sqrt(T))
+    d2=d1-sigma*sqrt(T)
+    C(sigma,S0,K,T,r) = S0*cdf(d1)-K*exp(-r*T)*cdf(d2)
+    P(sigma,S0,K,T,r) = K*exp(-r*T)*cdf(-d2)-S0*cdf(-d1)
+
+
+.. sagecellserver::
+
+    try:
+        print bool( C.diff(S0) == cdf(d1) ) 
+        print bool( P.diff(S0) == cdf(d1)-1 ) 
+        print bool( C.diff(S0) - P.diff(S0) == 1 ) 
+    except:
+        print "Wczytaj wzory Blacka-Scholesa!"
+"
+
+Widać, że zachodzi własność:
+
+.. math::
+
+   \Delta_{call} - \Delta_{put} = 1.
+
+która jest bezpośrednią konsekwencja parytetu kupna sprzedaży.
+
+
+Delta wskazuje ilość akcji potrzebnych do otworzenia zwrotu z opcji. 
+
+Np., :math:`\Delta_{call} = 0.80` znaczy ze działa jak 0.80
+akcji. Jeśli cena akcji wzrośnie o 1, cena opcji call wzrośnie o 0.80.
+cecha ta pozwala na budowanie strategii zabezpieczających. Ale o
+zastosowania analizy wrażliwości w strategii zabezpieczania przed
+ryzykiem można znaleźć w **Hedging za pomoca opcji**.
+
+Narysujmy jak zależy dla pewnej opcji Call Delta od ceny instrumentu
+bazowego:
+
+.. sagecellserver::
+    
+    try:
+        p = plot( C.diff(S0)(0.1,S0,120,1,0.03),(S0,90,150),figsize=5)
+        p += plot( C(0.1,S0,120,1,0.03)/10,(S0,90,150),color='gray')
+        p.show()
+    except:
+        print "Wczytaj wzory Blacka-Scholesa!"
+
+
+
+Współczynnik gamma
+~~~~~~~~~~~~~~~~~~
+
+*Gamma* drugą pochodną ceny opcji względem ceny akcji. Gamma jest
+ pierwsza pochodną delta w stosunku do ceny aktywa. Gamma jest także
+ nazywana *krzywizną*.
+
+.. math::
+
+   \Gamma_c = \frac{\partial ^2 C}{\partial S^2} = \frac{\Delta_c}{\partial S}
+
+   \Gamma_p = \frac{\partial ^2 P}{\partial S^2} = \frac{\Delta_p}{\partial S}
+
+
+Współczynnik gamma jest zatem miarą niestabilności współczynnika delta.
+
+.. sagecellserver::
+
+    try:   
+        p = plot( C.diff(S0,2)(0.1,S0,120,1,0.03),(S0,90,150),figsize=5)
+        p += plot( C.diff(S0)(0.1,S0,120,1,0.03)/10,(S0,90,150),color='gray')
+        p += plot( C(0.1,S0,120,1,0.03)/100,(S0,90,150),color='gray')
+        p.show()
+    except:
+        print "Wczytaj wzory Blacka-Scholesa!"
+
+
+Interpretacja 
+
+Jeżeli w wyniku zmiany kursu instrumentu bazowego współczynnik delta
+zmieni się z 0.5 do 0.52 to wówczas zmiana delty o 0.02 określać
+będzie wartość współczynnika gamma.
+
+.. admonition:: Przykład. 
+
+   Niech aktualna wartość instrumentu bazowego wynosi =75 jednostek
+   pieniężnych. Aktualna wartość opcji = 0.35. Delta opcji = 0.16 a
+   gamma opcji = 0.05.  Jaka jest wartość opcji jeżeli kurs
+   instrumentu bazowego wzrośnie do 80?  
+
+   A wiec zmiana ceny
+   instrumentu bazowego = 5 a zmiana ceny wynikająca ze wsp. delta = 5
+   x 0.16 = 0.80. Wzrost wartości instrumentu bazowego o 5 powoduje
+   wzrost wartości delty a zatem należy wyznaczyć dodatkową zmianę
+   wartości opcji wynikającą z gamma. Zmiana ceny wynikająca z gamma =
+   0.5 x 0.05 x 52 = 0.62.
+
+   Nowa wartość opcji to stara wartość + zmiana z delty + zmiany gamma
+   czyli: 0.35 + 0.80 + 0.62 = 1.77
+
+
+Współczynnik Theta
+~~~~~~~~~~~~~~~~~~
+
+Kolejna pochodna cząstkowa jest wielkość zwana Theta. 
+
+Określa ona jak się zachowa cena opcji call (put) jeśli zmieni się
+czas do wygaśnięcia, a wszystko inne zostanie stałe?
+
+Theta jest to pierwsza pochodna ceny względem czasu.
+
+Opcje to „psujące się” aktywa, ponieważ wartość ich zanika po pewnym
+(wygaśnięcie).
+
+Wartość opcji = wartość wewnętrzna + premia czasowa.
+
+Wielkość tę dla opcja call i put wylicza się:
+
+.. math::
+
+   \Theta_c = \frac{\partial C}{\partial t}
+
+   \Theta_p = \frac{\partial P}{\partial t}
+
+
+Theta większa od zera gdyż im więcej  jest czasu do wygaśnięcia tym większa wartość opcji. 
+
+Ale ponieważ czas do wygaśnięcia może tylko maleć theta jest
+rozpatrywana jako wartość ujemna.  Biorąc pod uwagę możliwość
+zajmowanej pozycji w opcjach należy pamiętać, że:
+
+- Upływ czasu szkodzi posiadaczowi opcji. 
+- Upływ czasu działa na korzyść temu co opcje wystawił. 
+
+Ze wzoru Blacka Scholes można wyliczyć wartość: 
+
+.. math::
+
+   \Theta_c = - \frac{S \sigma e^{-.5(d_1 ^2)}}{2\sqrt{2\pi t}} -rKe^{-rt}N(d_2)
+
+   \Theta_p = \frac{S \sigma e^{-.5(d_1 ^2)}}{2\sqrt{2 \pi t}} +rKe^{-rt} N(d_2)
+
+.. sagecellserver::
+    
+    try:
+        p = plot( C.diff(T)(0.1,S0,120,1,0.03),(S0,90,150),figsize=5)
+        p += plot( C(0.1,S0,120,1,0.03)/10,(S0,90,150),color='gray')
+        p.show()
+    except:
+        print "Wczytaj wzory Blacka-Scholesa!"
+
+
+Liczenie  Theta - interpretacja 
+
+Równania określają theta na rok. Np.  :math:`\Theta = -5.58`, znaczy,
+że opcja straci 5.58 w wartości ceny na rok - czyli (0.02 na dzień).
+
+Theta pozycji krótkich jest dodatnia. Theta pozycji długich jest
+ujemna. Opcje at-the-money mają największe wartości theta.
+
+Tabela poniżej  pokazuje znaki  pochodnych cząstkowych dla róznych pozycji opcji.
+
+    ==========	=====	=====	=====
+     .		Delta	Theta	Gamma
+    ==========	=====	=====	=====
+    Long call	 \+	 \-	 \+
+    Long put	 \-	 \-	 \+
+    Short call	 \-	 \+	 \-
+    Short put	 \+	 \+	 \-
+    ==========	=====	=====	=====	
+
+
+Znak gamma jest zawsze przeciwny do znaku theta
+
+
+
+Czułość względem odchylenia standardowego - Vega
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Odpowiada na pytanie, jak się zmieni wartość opcji Call (Put) jeśli
+zmieni się odchylenie standardowe zwrotu czyli czułość na zmienność
+(volatility) funkcji?
+
+*Vega* pierwszą cząstkową pochodną ceny opcji względem zmienności
+ (volatility) aktywa podstawowego.
+
+.. math::
+
+   \text{vega}_c = \frac{\partial C}{\partial \sigma}
+
+   \text{vega}_c = \frac{\partial P}{\partial \sigma}
+
+
+
+
+
+Im wyższa volatility tym większa wartość opcji.  Np., opcja o vega
+0.30 zyskuje 0.30% wartości na każdy punkt procentowy wzrostu
+spodziewanej zmienności aktywa.  Vega bywa także nazywane kappa,
+omega, tau, zeta, lub sigma prim.  Ze wzoru Blacka Scholesa można
+przykładowo wyliczyć wartości Vega.
+
+.. math::
+
+   \text{vega} = \frac{S\sqrt{t}e^{-0.5(d_1 ^2)}}{\sqrt{2\pi}}
+
+
+Vega pozycji długich jest dodatnia. Vega pozycji krótkich jest ujemna.
+Wartości opcji są **bardzo** czułe na zmianę odchylenia standardowego
+ceny aktywa.  Im większe volatility, tym więcej są warte opcje call i
+put.  Opcje at-the-money mają największą wartość Vega. Vega maleje dla
+opcji in- oraz out-of-the-money. **Vega**, maleje wraz z upływem czasu
+do terminu wygaśnięcia.
+
+
+.. sagecellserver::
+
+    var('sigma,S0,K,T,r')
+    cdf(x) = 1/2*(1+erf(x/sqrt(2)))
+    d1=(log(S0/K)+(r+sigma**2/2)*T)/(sigma*sqrt(T))
+    d2=d1-sigma*sqrt(T)
+    C(sigma,S0,K,T,r) = S0*cdf(d1)-K*exp(-r*T)*cdf(d2)
+    plot( C.diff(sigma,1)(.1,S0,125,1,.1),(S0,70,150),figsize=5)
+
+
+
+Rho
+~~~
+
+*Rho* pierwsza pochodna ceny opcji względem stopy procentowej wolnej od ryzyka:
+
+.. math::
+
+   \rho _c = Kte^{-rt}N(d_2)
+
+   \rho _p = -Kte^{-rt}N(-d_2)
+
+
+Rho jest najmniej znaczącą z pochodnych. Nawet jeśli opcja ma
+wyjątkowo długie życie, zmiany stopy procentowej wpływają na premie
+niewiele.
+
+
+.. sagecellserver::
+
+    try:
+        p = plot( C.diff(r)(0.1,S0,120,1,0.03),(S0,90,150),figsize=5)
+        p += plot( C(0.1,S0,120,1,0.03)/10,(S0,90,150),color='gray')
+        p.show()
+    except:
+        print "Wczytaj wzory Blacka-Scholesa!"

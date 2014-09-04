@@ -16,13 +16,16 @@ Praktyczny wstęp do komputerowej analizy Rynków Finansowych
    :numbered:
    :maxdepth: 1
 
-   tech
-   binarne
+
+   ryzyko
    opcje
+   opcje-wycena
    Instrumenty_syntetyczne
    stopy_procentowe
    Hedging
    var*
+   binarne
+   tech
    forex
 
 .. only::  html
