@@ -288,12 +288,13 @@ dla ceny akcji opcji Call i Put możemy łatwo wykazać zależność
 parytetu graficznie.
 
 
-.. sagecellserver::
+..
+   .. sagecellserver::
 
-    plot( longCALL(S,50,0)-P_c,(S,0,100),figsize=4,color='yellow')+\
-     plot( longPUT(S,50,0)-P_p,(S,0,100),color='red',aspect_ratio=1)+\
-     plot( S-50,(S,0,100),color='blue',aspect_ratio=1)+\
-     plot( ( 50-50*exp(-0.05*90/365.) ),(S,0,100),color='green',aspect_ratio=1)
+       plot( longCALL(S,50,0)-P_c,(S,0,100),figsize=4,color='yellow')+\
+        plot( longPUT(S,50,0)-P_p,(S,0,100),color='red',aspect_ratio=1)+\
+        plot( S-50,(S,0,100),color='blue',aspect_ratio=1)+\
+        plot( ( 50-50*exp(-0.05*90/365.) ),(S,0,100),color='green',aspect_ratio=1)
 
 
 .. figure:: figs/parytet0.*
@@ -769,7 +770,7 @@ przyszła stopę inwestycji płacimy zmienną a otrzymujemy stałą
 (sprzedajemy FRA).
 
 Swaption
-........
+~~~~~~~~
 
 Instrument finansowy, który jest opcją na zakup/sprzedaż swapu.  Długa
 pozycja w opcji kupna daje prawo, ale nie obowiązek kupna

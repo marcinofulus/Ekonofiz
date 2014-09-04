@@ -5,35 +5,36 @@ Metody wyznaczania ceny opcji
 Jak wyznaczyć cenę opcji?
 -------------------------
 
-Wyznaczenie ceny opcji polega na tym by wyznaczyć jej wartość
-wewnętrzną (*intrinsic value*) w chwili wygaśnięcia. Wartość zależy od
-ceny aktywa w przyszłości a ta z kolei zmienia się w losowy sposób. 
-Niestety, nie ma sposobu by znać tę wartość z wyprzedzeniem.
+Wyznaczenie ceny opcji polega na tym by określić jej wartość godziną w
+dowolnej chwili czasu. Wartość zależy od ceny aktywa w przyszłości a
+ta z kolei zmienia się w losowy sposób.  Niestety, nie ma sposobu by
+znać tę wartość z wyprzedzeniem.
 
 Dlatego aby wyznaczyć cenę opcji posługujemy się modelami
 teoretycznymi.  Istnieje wiele modeli stosowanych do tego
 celu. Wszystkie modele zakładają, że proces ewolucji ceny aktywa jest
 jest pewnym procesem losowym. Ponadto zakładamy, że mamy do czynienia
 z rynkiem wolnym od arbitrażu na którym można bez ograniczeń i
-prowizji handlowac dowolną ilością akcji.
+prowizji handlowac dowolną ilością aktywów.
 
 Najprostszym modelem jest dwumianowy model wyceny opcji. (*Cox,
-Ross,Rubinstein- Option pricing: Simplified Approach- Journal of
+Ross, Rubinstein, "Option pricing: Simplified Approach", Journal of
 Financial Economics- September 1979*). Ten model wycenia europejską
 opcję call na akcje spółki nie wypłacającej dywidendę. 
 
 W modelu dwumianowym czas pozostały do wygaśnięcia opcji dzieli się na
-dyskretne Przedziały. W każdym przedziale czasu cena aktywa P zmienia
-się przyjmując jeden z dwu możliwych stanów- czyli dwumianowo. Może
-wzrosnąć do wartości Pu (z prawdopodobieństwem p) lub zmaleć s do
-wartości Pd (z prawdopodobieństwem 1– p), gdzie u > 1, d < 1. Mając
-zbiór cen aktywa (np. akcji) w postaci drzewka, można wycenić opcję
-przeprowadzając rachunek wstecz, począwszy od daty wygaśnięcia.
-Obliczenia wykonuje się w kierunku początku drzewa od chwili T do T –
-1, dyskontując w tym przedziale czasowym wartość portfela bezpiecznego
-składającego się z aktywa i opcji, po stopie procentowej wolnej od
-ryzyka. Procedurę powtarza się aż do chwili wystawienia opcji. Modele
-te są opisane w szczególach w rozdziale o opcjach binarnych :ref:`binarne`.
+dyskretne Przedziały. W każdym przedziale czasu cena aktywa :math:`P`
+zmienia się przyjmując jeden z dwu możliwych stanów- czyli
+dwumianowo. Może wzrosnąć do wartości Pu (z prawdopodobieństwem p) lub
+zmaleć do wartości Pd (z prawdopodobieństwem :math:`1-p`), gdzie
+:math:`u > 1`, :math:`d < 1`. Mając zbiór cen aktywa (np. akcji) w
+postaci drzewka, można wycenić opcję przeprowadzając rachunek wstecz,
+począwszy od daty wygaśnięcia.  Obliczenia wykonuje się w kierunku
+początku drzewa od chwili :math:`T` do :math:`T-1`, dyskontując w tym
+przedziale czasowym wartość portfela bezpiecznego składającego się z
+aktywa i opcji, po stopie procentowej wolnej od ryzyka. Procedurę
+powtarza się aż do chwili wystawienia opcji. Modele te są opisane w
+szczególach w rozdziale o opcjach binarnych :ref:`binarne`.
  
 
 Model minimalny - rynek dwustanowy jednookresowy
@@ -53,14 +54,16 @@ Zakładamy, że na rynku istnieje możliwość ulokowania gotówki w depozyt
 bankowy ze stopą procentową :math:`r`. Zakładamy, że taka operacja
 jest pozbawiona jakiegokolwiek ryzyka. Innymi słowy po czasie
 :math:`T` depozyt bankowy gwarantuje nam, że nasz kapitał będzie
-wynosił :math:`e^{rT}`.
+wynosił :math:`S_0 e^{rT}`.
 
 Kolejnym elementem stosowanym przy wycenie instrumentów co do których
 przyszłości nie mamy pewności, jest pojęcie rynku wolnego od
 arbitrażu. Arbitraż oznacza, że startując z pewnego kapitału możemy
 zarobić - w sensie wartości średniej, kupując lub sprzedająć dostępne
-instrumenty. Zarobek oznacza oczywiście, że średnio po operacji
-będziemy mieli więcej środków niż dał by nam depozyt bankowy. 
+instrumenty. Zarobek oznacza oczywiście, że po operacji będziemy mieli
+więcej środków niż dał by nam depozyt bankowy. Oczywiście musimy wziąć
+pod uwagę wartości średnie, jeśli występują losowo zmieniające się
+aktywa.
 
 Okazuje się, że jeśli przyjmiemy założenie rynku wolnego od arbitrażu,
 to przy ustalonych stanach aktywa :math:`S_{up}` i :math:`S_{down}`,
@@ -84,9 +87,106 @@ wyceny instrumentów finansowych. Korzystając z niego możemy się
 przekonać jaka jest wartość instrumentu w chwili początkowej czyli
 wycenić dany instrument.
 
+Jeśli znamy, albo założymy, wartości cen po czasie :math:`T`, to
+równanie :eq:`eqParb` jest równaniem na prawdopodobieństwo
+:math:`p`. Możemy je wyliczyć. Wtedy mając wszystkie dane na temat
+drzewa kombinacji, jesteśmy w stanie analizować proces ewolucji cen
+różnych instrumentów na takim drzewie.
+
 
 Wycena opcji na drzewie binarnym
 --------------------------------
+
+.. important::
+
+   Do analizy zachowania się ceny na drzewie będziemy korzystać z
+   kilku funkcji pomocniczych. Dlatego należy wczytać poniższą
+   komórkę:
+
+   .. sagecellserver::
+
+       import numpy as np 
+       def gen_all(niter,SP = 4.0,q=0.175,delta1=None,delta2=None):
+           SP = [[SP]]
+           for i in range(niter):
+               tmp = []
+               for s in SP[-1]:
+                   if delta1==None or delta2==None:
+                       tmp+= [ (1+q)*s, s/(1+q) ]
+                   else:    
+                       tmp+= [ s+delta1, s-delta2 ]
+               SP.append(tmp)
+           return SP
+       def gen_recombining(niter,SP = 4.0,q=0.175,delta1=None,delta2=None):
+           SP = [[SP]]
+           for i in range(niter):
+               tmp = []
+               for s in SP[-1]:
+                   if delta1==None or delta2==None:
+                       tmp+= [ (1+q)*s]
+                   else:    
+                       tmp+= [ s+delta1]
+               if delta1==None or delta2==None:
+                   tmp+= [ s/(1+q)]
+               else:    
+                   tmp+= [ s-delta2]
+
+
+               SP.append(tmp)
+           return SP
+
+       def plot_tree(SP):
+           plt = point( (0,SP[0][0]),size=244,color='gray',alpha=0.2,zorder=0)
+
+           if len(SP) == len(SP[-1]):
+               for l,prices in enumerate(SP):
+                   for i,p in enumerate(prices):
+                       if l>0:
+                           plt+=point2d( (l,p),size=244,color='gray',alpha=0.2,zorder=0,faceted=True )
+                           plt+= text("%0.1f"%p,(l,p),color='black',figsize=(5,3))
+               for l in range(len(SP)-1):
+                   for i in range(l+1):
+                       plt+=arrow2d( (l,SP[l][i]),(l+1,SP[l+1][i]), arrowshorten=16)
+                       plt+=arrow2d( (l,SP[l][i]),(l+1,SP[l+1][i+1]), arrowshorten=16)
+           else:
+               for l,prices in enumerate(SP):
+                   for i,p in enumerate(prices):
+                       if l>0:
+                           plt+=arrow2d( (l-1,SP[l-1][int(i/2)]),(l,p), arrowshorten=16)
+                           plt+=point2d( (l,p),size=244,color='gray',alpha=0.2,zorder=0,faceted=True )
+                           plt+= text("%0.1f"%p,(l,p),color='black',figsize=(5,3))
+           plt.axes_labels(["rok","wartosc"])
+           plt.axes_range(xmin=-.2, xmax = len(SP)-1+0.2,ymin=0,ymax=SP[-1][0]+1)
+           return plt
+
+       def plot_tree2(SP,OP):
+           plt = point( (0,SP[0][0]),size=244,color='gray',alpha=0.2,zorder=0)
+
+           if len(SP) == len(SP[-1]):
+               for l,(prices,oprices) in enumerate(zip(SP,OP)):
+                   for i,(p,op) in enumerate(zip(prices,oprices)):
+                       if l>0:
+                           plt+=point2d( (l,p),size=244,color='gray',alpha=0.2,zorder=0,faceted=True )
+                           plt+= text("%0.1f"%op,(l,p),color='black',figsize=(5,3))
+               for l in range(len(SP)-1):
+                   for i in range(l+1):
+                       plt+=arrow2d( (l,SP[l][i]),(l+1,SP[l+1][i]), arrowshorten=16)
+                       plt+=arrow2d( (l,SP[l][i]),(l+1,SP[l+1][i+1]), arrowshorten=16)
+           else:
+               for l,(prices,oprices) in enumerate(zip(SP,OP)):
+                   for i,(p,op) in enumerate(zip(prices,oprices)):
+                       if l>0:
+                           plt+=arrow2d( (l-1,SP[l-1][int(i/2)]),(l,p), arrowshorten=16)
+                           plt+=point2d( (l,p),size=244,color='gray',alpha=0.2,zorder=0,faceted=True )
+                           plt+= text("%0.1f"%op,(l,p),color='black',figsize=(5,3))
+           plt.axes_labels(["rok","wartosc"])
+           plt.axes_range(xmin=-.2, xmax = len(SP)-1+0.2,ymin=0,ymax=SP[-1][0]+1)
+           return plt
+
+       print  "OK - wczytano funkcje pomocnicze"
+
+   .. end of output
+
 
 Rozważmy drzewo multiplikatywne i instrument o wartości początkowej
 :math:`S_0`. Narysujmy drzewo możliwych scenariuszy po pięciu
@@ -99,8 +199,8 @@ miesiącach, przyjmując jeden okres modelu jako jeden miesiąc:
    plot_tree(SP)
 
 Niech roczna stopa procentowa wynosi 10% a cena wykupu opcji
-:math:`K=50`. Łatwo się przekonać, że takie drzewo jest wolne dla
-miary określonej przez :math:`q=0.5073`. 
+:math:`K=50`. Łatwo się przekonać, że takie drzewo jest wolne od
+arbitrażu dla miary określonej przez :math:`q=0.5073`.
 
 .. sagecellserver::
 
@@ -119,13 +219,13 @@ aktywa oraz ceny wykupu i jest równa:
    [max(0,s-K) for s in SP[N]]
 
 Znając te liczby możemy obliczyć cenę opcji w przedostatnim okresie
-rozliczeniowym. Skorzystamy z faktu, że średnia z wartości opcji
-względem miary martyngałowej w okresie :math:`i+1` jest równa cenie
-tego samego instrumentu powiększonego o jego kapitalizację:
+rozliczeniowym. Skorzystamy z tym celu z równania :eq:`Parb`, dla ceny
+nie aktywa podstawowoego ale opcji.  Zauważmy, że miarę martyngałową
+obliczyliśmy z równania :eq:`Parb` dla cen opcji. Mamy więc:
 
 .. math::
 
-   e^{r \delta t} S_{i} = p S^{+}_{i+1} +(1-p S^{-}_{i+1} )
+    S_{i} = e^{-r T}\left(p S^{+}_{i+1} +(1-p_S^{-}_{i+1} \right)
 
 
 Możemy więc napisać następujący algorytm:
@@ -142,6 +242,18 @@ Możemy więc napisać następujący algorytm:
    plot_tree2(SP,OP)
 
 
+Można jeszcze sobie zadać pytanie jaką intepretacje mają poszczególne
+ceny w okresach pośrednich?  Weżmy z powyższego rysunku punkt z ceną
+:math:`8.2`. Jest to cena opcji okresie "3" w przypadku, gdy cena
+aktywa w tym momencie wynosi "56.1". Tą ostatnią cenę odczytujemy z
+poprzedniego wykresu drzewa cen instrumentu bazowego.
+
+
+Model ciągły
+------------
+
+Opis równań SDE na geometryczny ruch Browna i przykład tajektorii.
+
 
 
 Kalibracja modelu binarnego
@@ -149,7 +261,6 @@ Kalibracja modelu binarnego
 
 Rozważmy model dwustanowy - jednookresowy. Niech cenę aktywa określa
 reguła multiplikatywna.
-
 
 .. math::
 
@@ -345,10 +456,14 @@ Przykład - wyceny opcji z danymi z rynku ciągłego.
    print OP[-1]
 
 
+Porównanie wyceny modelem binarnym i BS
+---------------------------------------
 
+TODO
 			 
-Model Blacka Scholesa dla europejskiech opcji Call  i Put
----------------------------------------------------------
+
+Wzory Blacka Scholesa dla europejskiech opcji Call i Put
+--------------------------------------------------------
 
 W tym rozdziale pozamy własności metody opartej o ciagły proces
 losowy. Jest olbrzymią zaletą jest istnienie prostych analitycznych
@@ -492,27 +607,16 @@ wzoru jak i bezpośrednio z symulacji procesu losowego.
 
 
 
-.. note::
-
-   Jest oczywiście więcej modeli do wyliczania ceny opcji. W praktyce do
-   wyliczania wartości opcji posługuje się modelami pozwalającymi na
-   przybliżenie wartości opcji. Metody stosowane to:
-
-   **Metody numeryczne**
-
-   - Monte Carlo
-     - Metody: dwumienna, trójmienna
-
-
-       Generalnie, przyjmuje się w stosowanych modelach założenie, że ceny
-       podlegają procesowy stochastycznemu.
 
 
 
 
+.. _greeks:
 
 Analiza wrażliwości
 -------------------
+
+
 
 Analiza wrażliwości czyli jak czuła jest cena opcji na zmianę
 określających tę cenę wartości wielkości rynkowych.
@@ -606,7 +710,7 @@ Po pierwsze wczytajmy sobie wzory Blacka-Scholesa:
         print bool( C.diff(S0) - P.diff(S0) == 1 ) 
     except:
         print "Wczytaj wzory Blacka-Scholesa!"
-"
+
 
 Widać, że zachodzi własność:
 
@@ -840,3 +944,10 @@ niewiele.
         p.show()
     except:
         print "Wczytaj wzory Blacka-Scholesa!"
+
+
+
+Wycena opcji Amerykańskiej modelami binarnymi i ciągłym
+-------------------------------------------------------
+
+(jest w sage, zrobic porównanie)

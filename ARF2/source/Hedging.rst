@@ -1263,7 +1263,7 @@ strategii arbitrażowych* - praca dostępna w sieci Internet.
 
 Wiedząc jak wrażliwa jest cena opcji na zmianę parametrów rynkowych
 wiedząc o znaczeniu współczynników greckich opcji (kolejne pochodne
-cząstkowe- Patrz opcje analiza wrażliwości **TUTAJ**) Możemy posłużyć
+cząstkowe- Patrz opcje  rozdział :ref:`greeks` ) Możemy posłużyć
 się ta wiedzą konstruując strategie zabezpieczania pozycji (portfela)
 przed zmianami cen na rynku.  Metoda zwana hedgingiem delta neutralnym
 ma na celu utworzenie i zachowanie pozycji portfela składającego się z

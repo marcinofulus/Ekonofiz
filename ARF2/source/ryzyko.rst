@@ -2,15 +2,25 @@
 Zarządzanie ryzykiem
 ====================
 
-.. attention::
+.. admonition:: Motto
 
    *"Zarządzanie ryzykiem i pasy bezpieczeństwa chronią tylko wtedy gdy są używane"*
    Z dyskusji w przerwie  konferencyjnej
 
+
 Omawiając funkcjonowanie rynków finansowych i ich instrumentów zawsze
 wspomina się o ryzyku, które to ryzyko jest permanentnie związane z
-tymi zagadnieniami. Czym jest ryzyko najlepiej poznać czytając np. to
-co znajduje się w Apendiksie.
+tymi zagadnieniami. Przyjmijmy definicję ryzyka wg, `Teresy
+Kamińskiej:
+<https://ekonom.ug.edu.pl/web/download.php?OpenFile=103>`_.
+
+
+ *Ryzyko oznacza możliwość osiągnięcia wartości końcowej kapitału
+ (inwestycji, instrumentu finansowego) różniącej się od wartości
+ oczekiwanej.  Działanie w warunkach ryzyka, dotyczy podejmowania
+ decyzji odnośnie do zdarzeń, które mogą wystąpić z określonym
+ prawdopodobieństwem.*
+
 
 Myśląc o ryzyku i kontrolowaniu go w jakiś sposób widzimy, ze jego
 występowanie jest zjawiskiem szerszym i nie zawęża się do rynków

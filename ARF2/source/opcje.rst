@@ -6,7 +6,6 @@ Opcje
 Podstawowe cechy opcji
 ----------------------
 
-10 mitów!  `<http://www.cato.org/pubs/pas/pa-283.html>`_
 
 Opcje stanowią podstawowy element innych instrumentów finansowych.
 Opcje to instrument zwany instrumentem pochodnym, gdyż jego cena
@@ -49,9 +48,12 @@ dniach i cen opcji na zakup tych akcji w tym samym czasie.
 Jak widać w przypadku zmian cen akcji można było zarobić 13%
 dysponując kwotą około 100 jednostek a na opcjach 100% dysponując
 kwota około 10 jednostek. Opcja to niezłe narzędzie do spekulacji. Ale
-to jest właśnie w niej niebezpieczne. 
+to jest właśnie w niej niebezpieczne. Wszystkim zainteresowanym
+polecamy przeczytanie ciekawego tekstu "10 mitów o instrumentach
+pochodnych": `<http://www.cato.org/pubs/pas/pa-283.html>`_
 
-Opcje mają i inne zastosowania. Głownie stosuje się je do
+
+Opcje mają i inne zastosowania. Głównie stosuje się je do
 zabezpieczania przed niekorzystną zmianą cen instrumentów
 finansowych. Temu ich zastosowaniu będzie poświecony poniższy tekst.
 
@@ -365,6 +367,13 @@ sprzedajemy to mamy depozyt. Zakładamy, że w chwili początkowej
 istnieje pewna sprawiedliwa cena opcji, którą wliczamy w nasz
 początkowy bilans.
 
+.. note::
+
+   W poniższym kodzie definiujemy funkcje :code:`C` i :code:`P`, które
+   są słynnymi wzrorami Blacka-Scholesa na cenę opcji Call i Put,
+   odpowiednio. W tym momencie przyjmijmy, że reprezentują one cenę
+   godziwą opcji. Ich wyprowadzenie będzie omówione w następnym
+   rozdziale.
 
 
 .. only:: html
@@ -413,6 +422,8 @@ początkowy bilans.
          p += text(r"$K$",(K,2))
          p += text(r"$S_0$",(S0,k*2))
          return p
+
+     print "Wczytano funkcje pomocnicze!"
 
 
 

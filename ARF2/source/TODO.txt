@@ -1,0 +1,6 @@
+1. wycena opcji - Am + ciąły 
+2. Struk. stóp - wywalic i zmergować z Appendixem
+3. Hedge: <<rysunek wynik transakcji>> WAGA!
+   - Hedging with Forwards and Futures na konkretnych danych 
+
+4. VaR - ogony (fit Pareto, kwantyl)

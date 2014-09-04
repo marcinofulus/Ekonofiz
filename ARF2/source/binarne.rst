@@ -1,4 +1,4 @@
-Dodatek: Kompuretowa analiza drzew binarnych 
+Dodatek: Komputerowa analiza drzew binarnych 
 ============================================
 
 .. _binarne:
