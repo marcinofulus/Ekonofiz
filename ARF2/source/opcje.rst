@@ -53,7 +53,7 @@ dysponując kwotą około 100 jednostek a na opcjach 100% dysponując
 kwota około 10 jednostek. Opcja to niezłe narzędzie do spekulacji. Ale
 to jest właśnie w niej niebezpieczne. 
 
-Opcje maja i inne zastosowania. Głownie stosuje się je do
+Opcje mają i inne zastosowania. Głownie stosuje się je do
 zabezpieczania przed niekorzystną zmianą cen instrumentów
 finansowych. Temu ich zastosowaniu będzie poświecony poniższy tekst.
 
@@ -109,7 +109,7 @@ zmienia się w trakcie każdego dnia funkcjonowania rynku finansowego.
 Terminologia rynku opcji
 ------------------------
 
-Cena wykonania 
+Cena wykonania
 ~~~~~~~~~~~~~~
 
 Cena za którą nabywca może kupić (w przypadku Call) lub sprzedać (w
