@@ -225,7 +225,7 @@ obliczyliśmy z równania :eq:`Parb` dla cen opcji. Mamy więc:
 
 .. math::
 
-    S_{i} = e^{-r T}\left(p S^{+}_{i+1} +(1-p_S^{-}_{i+1} \right)
+    S_{i} = e^{-r T}\left( p S^{+}_{i+1} +(1-p) S^{-}_{i+1} \right)
 
 
 Możemy więc napisać następujący algorytm:
@@ -252,7 +252,16 @@ poprzedniego wykresu drzewa cen instrumentu bazowego.
 Model ciągły
 ------------
 
-Opis równań SDE na geometryczny ruch Browna i przykład tajektorii.
+Obok modeli dyskretnych do opisu ewolucji ceny danego aktywa stosuje
+się modele ciągłe. Można by zadać sobie pytanie do czego jest
+potrzebne takie podejscie, skoro czas w praktyce jest naturalnie
+podzielony na okresy związane z notowaniami np. dziennymy czy miesięcznymi? 
+
+Jedną z głównych zalet jest możliwość uzyskania, przynajmniej w
+najprostrzych przypadkach, analitycznych wyników które analiza jest
+znacznie łatwiejsza.
+
+równań SDE na geometryczny ruch Browna i przykład tajektorii.
 
 
 

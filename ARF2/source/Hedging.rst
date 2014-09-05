@@ -1109,7 +1109,8 @@ Należy pamiętać jakie zobowiązania ciążą na sprzedającym opcje
 cenie) a jakie na kupującym opcje (ryzyko ograniczone do wysokości
 straty premii).
 
-Strategie opcyjne  polegające na stosowaniu  kombinacji opcji. 
+Strategie opcyjne  polegające na stosowaniu  kombinacji opcji 
+-------------------------------------------------------------
 
 Do zabezpieczenia pozycji możemy kombinacje opcji. Opcji, które
 dotyczą tego samego aktywa, tego samego czasu wygaśnięcia opcji i tej
@@ -1259,7 +1260,8 @@ opcji notowanych na GPW w Warszawie - Problemy oraz przykłady
 strategii arbitrażowych* - praca dostępna w sieci Internet.
 
 
-**Delta hedging**.
+Delta hedging
+~~~~~~~~~~~~~
 
 Wiedząc jak wrażliwa jest cena opcji na zmianę parametrów rynkowych
 wiedząc o znaczeniu współczynników greckich opcji (kolejne pochodne
@@ -1335,7 +1337,8 @@ cierpi skutkiem zmian nie tylko czasu i zmienności ceny ale także
 wielkości mierzonych przez współczynniki theta i Vega (kappa).
 
 
-**Strategia  gamma - neutralnej (przy delta = 0).**
+Strategia  gamma - neutralnej (przy delta = 0)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 Strategia polegająca na tworzeniu portfela o zerowym :math:`\Delta` i

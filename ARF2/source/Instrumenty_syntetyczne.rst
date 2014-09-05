@@ -11,7 +11,7 @@ składowych. Konstrukcja takich instrumentów nazywana jest inżynierią
 finansową.
 
 Oprócz opcji „cegiełkami” tworzącymi inne instrumenty są obligacje,
-akcje, opcje Call i Put oraz swapy.
+akcje oraz swapy.
 
 Na początek budujemy portfel inwestycyjny. Kupujemy aktywo i od
 momentu posiadania aktywa obawiamy się spadku jego ceny i chcemy by
@@ -109,7 +109,7 @@ przypadku :math:`K>S` pierwszy się zeruje a drugi daje
 wypłaty dla różnicy dwóch opcji - Call i Put, jest więc taka sama jak
 funkcja wypłaty dla posiadanej opcji i kredytu na wartość :math:`K`.
 
-Funkcja wypłady obowiązuje w czasie zapadalności obydwu opcji - czyli
+Funkcja wypłady zobowiązuje w czasie zapadalności obydwu opcji - czyli
 math:`t=T`).  Wyobrażmy sobie, że jesteśmy w dowolnym momencie przed
 tym czasem, (niech będzie on oznaczony przez :math:`t=0`). Wtedy cena
 akcji jest inna. Opcje przez ich czasem zapadalności możemy wycenić,
@@ -165,7 +165,7 @@ by wykonal mozolną robotę za nas.
 
 Jeśli ten warunek nie zachodzi to mamy do czynienia z arbitrażem.
 Możliwość arbitrażu nie będzie istnieć długo, ale wtedy opłacalnym
-będzie działanie: Kup stronę „niską” a sprzedaj „wysoko”.
+będzie działanie: Kup stronę „niską” a sprzedaj „wysoką”.
 
 Arbitraż jest sytuacją wyjątkową i ulotną w stosunku do sytuacji gdy
 rynek jest w równowadze.  Jeśli rynek jest efektywny (a raczej jest)
@@ -376,7 +376,7 @@ Blacka-Scholesa:
    html.table([["Instrumenty bazowe","Instrument syntetyczny"],[p3,p2]])
 
 
-Na ostatnim rysunku widzimy po prawej - profl zysku/straty dla
+Na ostatnim rysunku widzimy po prawej - profil zysku/straty dla
 poszczególnych instrumentów bazowych a po lewej czarną linią
 zaznaczono ich sumę - czyli nasz instrument syntetyczny. Szeroka
 różowa linia oznacza profil zysku straty dla opcji Call. Spełnienie
@@ -532,7 +532,7 @@ zmienną stopę oprocentowania. ( np. LIBOR 6- miesięczny).
 
 
 SWAP jest transakcją zawierana przez dwie strony. Podstawową
-trudnością dla instytucji z chacej zawrzeć transakcje tego typu jest
+trudnością dla instytucji z chcącej zawrzeć transakcje tego typu jest
 znalezienie drugiej strony transakcji, czyli firmy chcącej również
 zawrzeć transakcje swap na warunkach atrakcyjnych. To stwarza nowe
 możliwości dla banków, które to pośredniczą w transakcjach i są stroną

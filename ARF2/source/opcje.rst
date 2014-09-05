@@ -164,7 +164,7 @@ opcyjne jest nazywana transakcją zamknięcia.
    odwrotna do call. Ryzyko stron nie jest bowiem symetryczne. Można
    pozbyć się ryzyka wystawienia opcji poprzez zawarcie transakcji
    odwrotnej - t.j. wystawca opcji może pozbyć sie zobowiązania
-   poprzez kupienie identycznej opcji.
+   poprzez kupienie **identycznej** opcji.
 
 Posiadając opcje posiadamy prawo wyboru. Jaka jest wartość takiego
 prawa czyli co to jest wartość opcji? Opcja to prawo kupna lub
@@ -364,7 +364,7 @@ zależności od parametrów :math:`S_0,K`. Tak jak poprzednio, zakładamy,
 którą wykonujemy jest zakup lub sprzedaż opcji. W przypadku zakupu
 stan naszego portfela jest obciąża nasz na kredyt, jeśli zaś
 sprzedajemy to mamy depozyt. Zakładamy, że w chwili początkowej
-istnieje pewna sprawiedliwa cena opcji, którą wliczamy w nasz
+istnieje pewna godziwa cena opcji, którą wliczamy w nasz
 początkowy bilans.
 
 .. note::
@@ -690,8 +690,8 @@ następująco:
                 eksport towarów a nie operacje finansowe skorzystała z
                 pomocy dostawcy usług finansowych np. Banku
                 International. Bank zaproponował sprzedaż opcji
-                walutowej – koszt opcji ( jakiś ułamek wartości
-                aktywa) – czyli 10 000 PLN. Kupiony instrument
+                walutowej - koszt opcji (jakiś ułamek wartości
+                aktywa) - czyli 10 000 PLN. Kupiony instrument
                 zobowiązywał bank w określonym terminie ( np. 3
                 miesiące) do zakupu miliona dolarów po ustalonym
                 kursie ( korzystnym dla eksportera)- powiedzmy po 2,50
@@ -703,7 +703,7 @@ następująco:
                 natomiast złoty się osłabi pozwoli opcji wygasnąć i
                 skorzysta z zaistniałej sytuacji na rynku. W tym
                 drugim przypadku można mówić o stracie w wysokości
-                opłaty za transakcje czyli ceny opcji , w tym
+                opłaty za transakcje czyli ceny opcji, w tym
                 przypadku 10 000 PLN. Ten koszt już był poniesiony i
                 jest już zaksięgowany w kosztach i wielkość
                 ewentualnych kosztów nie wzrośnie.
@@ -712,7 +712,7 @@ Właściwie do tego miejsca wszystko wydaje się jasne i zrozumiałe. Tak
 powinno działać zabezpieczenie.
 
 Tylko że z czasem firmie bardzo nie podoba się poziom kosztów
-transakcji zawieranych . Jeśli obroty wynoszą dziesiątki i setki
+transakcji zawieranych. Jeśli obroty wynoszą dziesiątki i setki
 milionów koszty te stanowią pokaźną pozycje.
 
 Bank, któremu klient zwierzył się ze swych obserwacji o kosztach i w
@@ -732,25 +732,25 @@ Zaproponowana transakcja wygląda następująco:
                 wykupienia Twojego miliona dolarów po korzystnym 2,50
                 PLN, to kosztować Cię będzie 10 000PLN ale Ty
                 sprzedasz mi opcję walutową wartą, powiedzmy 10 000
-                PLNy, i zgodnie z tą umową zobowiążesz się, że
+                PLN, i zgodnie z tą umową zobowiążesz się, że
                 sprzedasz bankowi 1 milion USD po kursie 2,50PLN za
                 USD. Ponieważ Klient ma płacić bankowi a bank
                 klientowi równe kwoty opłaty za opcje wiec sumaryczny
                 koszt dla klienta wynosi 0 PLN. Koszty takie
                 zadawalają klienta. Ponadto firma Export S.A nie musi
-                martwić się wzrastającą wartością złotówki
-                . Rozwiązanie wydaje się idealne. Co prawda przykład
-                jest teoretyczny wiec cena opcji sprzedaży i kupna są
-                identyczne. W praktyce tak nie jest ale od czego są
-                specjaliści od finansów. Można bowiem regulować tak
-                kwotą sprzedawanych przez klienta bankowi dolarów aby
-                kwoty opłat za opcje były równe czego oczekuje klient.
-                Zadowolenie klienta - wartością naczelna dla banku. To
-                ze Klient ma sprzedać więcej dolarów bankowi niż bank
-                zobowiązuję w swej opcji kupić jest
-                szczegółem. Przecież wystarczy popatrzeć na wykres by
-                zobaczyć, ze PLN się umacnia czyli bank i tak nie
-                wykorzysta swej opcji.
+                martwić się wzrastającą wartością
+                złotówki. Rozwiązanie wydaje się idealne. Co prawda
+                przykład jest teoretyczny wiec cena opcji sprzedaży i
+                kupna są identyczne. W praktyce tak nie jest ale od
+                czego są specjaliści od finansów. Można bowiem
+                regulować tak kwotą sprzedawanych przez klienta
+                bankowi dolarów aby kwoty opłat za opcje były równe
+                czego oczekuje klient.  Zadowolenie klienta -
+                wartością naczelna dla banku. To ze Klient ma sprzedać
+                więcej dolarów bankowi niż bank zobowiązuję w swej
+                opcji kupić jest szczegółem. Przecież wystarczy
+                popatrzeć na wykres by zobaczyć, ze PLN się umacnia
+                czyli bank i tak nie wykorzysta swej opcji.
 
 
 I znów wszyscy są zadowoleni, tylko, że klient nie zauważa (może nie

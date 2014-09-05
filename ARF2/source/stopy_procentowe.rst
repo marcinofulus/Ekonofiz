@@ -46,7 +46,7 @@ wieloetapowej inwestycji wynosi:
    R = \prod_{i=1}^n (1+ r_i) - 1
 
 
-Stopa średnia roczna to wielkość stopy, która pastowana do każdego
+Stopa średnia roczna to wielkość stopy, która stosowana do każdego
 roku inwestycji da końcowy wynik równy :math:`R`. Czyli: 
 
 .. math::
@@ -69,7 +69,7 @@ Przypominam, że w finansach występuję wiele rodzajów
 "średnich". Należy zawsze pamiętać jak się je liczy i wiedzieć, że nie
 są to raczej średnie arytmetyczne. Średnia arytmetyczna w przypadku
 wieloetapowej inwestycji w instrument stałego dochodu była by średnia
-arytmetyczną gdyby w każdym etapie inwestowana ta sama wartość
+arytmetyczną gdyby w każdym etapie inwestowana była ta sama wartość
 portfela. Dla takich samych ri takich samych i średnia geometryczna
 stopa zwrotu jest zawsze mniejsza lub równa średniej arytmetycznej
 stopie zwrotu.  
@@ -373,7 +373,7 @@ Skumulowany zwrot po trzech okresach (np. latach) wynosi:
 
 .. math::
 
-   \frac{1}{2} \langle( 1.148 + 1.138 + 1.128 + 0.25 x 1.118\rangle = 1.133
+   \frac{1}{2} \langle 1.148 + 1.138 + 1.128 + 0.25 x 1.118 \rangle = 1.133
 
 Zanualizowany zwrot po trzech okresach :math:`S(3)` wynosi:
 
@@ -751,7 +751,7 @@ gdzie:
  - :math:`\lambda` - prędkość relaksacji
  - :math:`\mu` -   wartość asyptotyczna procesu
  - :math:`\xi(t)` - biały szum Gaussowski z funkcją korelacji: 
-   :math:`\rangle x(t) x(t+\tau) langle = \delta(\tau)`
+   :math:`\langle x(t) x(t+\tau) \rangle = \delta(\tau)`
    
 .. note:: Proces ten jest też zwany procesem Ornsteina-Uhlenbecka.
 

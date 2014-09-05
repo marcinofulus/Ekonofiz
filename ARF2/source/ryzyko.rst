@@ -21,6 +21,8 @@ Kamińskiej:
  decyzji odnośnie do zdarzeń, które mogą wystąpić z określonym
  prawdopodobieństwem.*
 
+Szczegółowe zostały już przedstawione w skrypcie `Wybrane Zagadnienia Analizy Rynków Finansowych 
+<http://el.us.edu.pl/ekonofizyka/index.php/IRF:Ryzyko_i_zabezpieczenie_przed_ryzykiem_rynkowym>`_.
 
 Myśląc o ryzyku i kontrolowaniu go w jakiś sposób widzimy, ze jego
 występowanie jest zjawiskiem szerszym i nie zawęża się do rynków
@@ -154,8 +156,10 @@ programy zarządzania ryzykiem poprzez poprawę ładu korporacyjnego oraz
 poprawę modeli oceny ryzyka, stress testingu, systemów informacyjnych
 zarządzania ryzykiem.  
 
-Narzędzia używane w zarządzaniu ryzykiem (finansowym)- rys
-historyczny.  Od chwili pojawienia się idei zarządzania ryzykiem,
+Narzędzia używane w zarządzaniu ryzykiem (finansowym)- rys historyczny
+----------------------------------------------------------------------
+
+Od chwili pojawienia się idei zarządzania ryzykiem,
 zarządzanie to poszukiwało najefektywniejszych narzędzi do oceny
 ryzyka. Zanim zostaną one omówione należy podkreślić, że najlepszym
 narzędziem jest, było i będzie- zdrowy rozsadek i dobra znajomość i
@@ -368,11 +372,17 @@ Proces zarządzania ryzykiem składa się z:
 - **Wdrożenia i monitorowania**  programu działania 
 
 Istnieje wiele standardów zarządzania ryzykiem przykładowo:
-International Organization for Standardization (ISO 31 000), PRIMIA,
-CoSco, AIRMIC, FERMA, Pomarańczowa księga. Zastosowanie któregoś ze
-standardów pomaga zrozumieć sens zarządzania i jego techniki oraz
-pozwala na bycie kompatybilnym do innych instytucji co niewątpliwie
-polepsza możliwości współpracy.
+`International Organization for Standardization ISO 31000<http://www.iso.org/iso/home/standards/iso31000.htm>`_, 
+`PRIMIA<http://www.prmia.pl>`_,
+`CoSco <http://www.coso.org/documents/COSO_ERM_ExecutiveSummary_Polish.pdf>`_, 
+`AIRMIC<http://www.ferm.org>`_, 
+`FERMA<http://www.ferma.eu/wp-content/uploads/2011/11/a-risk-management-standard-polish-version.pdf>`_, 
+`Pomarańczowa księga<http://www.hm-treasury.gov.uk>`_. 
+
+
+Zastosowanie któregoś ze standardów pomaga zrozumieć sens zarządzania
+i jego techniki oraz pozwala na bycie kompatybilnym do innych
+instytucji co niewątpliwie polepsza możliwości współpracy.
 
 Proces wdrażania Zarządzania Ryzykiem (ZR) zaczyna się od zrozumienia
 celów organizacji, sposobów działania i osiągania celów. W trakcie

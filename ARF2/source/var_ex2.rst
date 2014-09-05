@@ -11,7 +11,7 @@ Wyobraźmy sobie, że posiadamy dwie akcję na rynku krajowym, oraz
 pozycję krótką na zerokuponową obligację na rynku zagranicznym. Z tej
 perspektywy rynek opisany przez cztery parametry, czas, wartość
 aktywa, stopę procentową na rynku zagranicznym oraz kurs wymiany
-waluty obcej. Wartośćnaszego portfela zależy bowiem od tych
+waluty obcej. Wartość naszego portfela zależy bowiem od tych
 parametrów. W przypadku ceny akcji jest to zależność liniowa, ale
 wartość obligacji zależy nieliniowo od czasu, stopy procentowej i
 kursu wymiany.
