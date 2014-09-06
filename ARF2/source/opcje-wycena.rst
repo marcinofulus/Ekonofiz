@@ -283,7 +283,7 @@ gdzie :math:`S` jest procesem stochastycznym - ceną aktywa. Parametry
 wariancji danego aktywa, odpowiednio. Proces taki jest łatwy do
 zasymulowania numerycznego.
 
-.. admonition:: Poeksperymentuj z komputerem!
+.. admonition:: Poeksperymentuj z komputerem
 
    Poniższa komórka zawiera kod programu symulującego proces
    geometrycznego ruchu Browna. W tablicy `numpy` zapisujemy historię
@@ -297,28 +297,34 @@ zasymulowania numerycznego.
        liczb losowych :code:`np.random.randn` zwróci inną próbkę liczb
        gaussowskich i otrzymamy inne scenariusze symulowanej historii ceny. 
 
+     - Jak wpływa wartość parametru :math:`r` oraz :math:`sigma` na wygląd trajektorii?
+
      - Zmień liczbę trajektorii na dużo większą. Jak zmienia się czas obliczeń?
 
-     - 
-   
+     - Dopisz linijkę obliczającą średnią cenę na końcu symulacji (w
+       czasie :math:`t=T`) :code:`np.average(S[:,-1])`.
 
+     - Wykonaj symulacje kilka razy - zobacz jak zmienia się średnia
+       dla :math:`M=10,100,1000,10000`? Jak wpływa ilość trajektorii na wartość średnią?
+       Można zautomatyzować ten proces uruchamiając część kodu w dodatkowej pętli. 
+   
+     - Wykonaj histogram cen koncowych.
+ 
 .. sagecellserver::
 
-   %time
    import numpy as np 
    T,r,sigma = 1,0.1,0.2
    S0 = 100
    N = 300
    M = 10
    h = T/N;
-   r = 0.1 
    S = np.zeros((M,N))
    S[:,0] = S0*np.ones(M); 
 
    for i in range(1,N):
        S[:,i] = S[:,i-1] + r*S[:,i-1]*h + sigma*np.sqrt(h)*S[:,i-1]*np.random.randn(M)
 
-   sum([line(enumerate(S[i,:]),thickness=0.2,figsize=4) for i in range(N)])
+   sum([line(enumerate(S[i,:]),thickness=0.2,figsize=4) for i in range(M)])
 
 
 równań SDE na geometryczny ruch Browna i przykład tajektorii.
