@@ -258,8 +258,68 @@ potrzebne takie podejscie, skoro czas w praktyce jest naturalnie
 podzielony na okresy związane z notowaniami np. dziennymy czy miesięcznymi? 
 
 Jedną z głównych zalet jest możliwość uzyskania, przynajmniej w
-najprostrzych przypadkach, analitycznych wyników które analiza jest
-znacznie łatwiejsza.
+najprostszych przypadkach, analitycznych wyników. Umożliwiają one
+np. przeprowadzanie analizy wrażliwości, która była trudna do
+przeprowadzenia tylko na podstawie symulacji.
+
+Modele z czasem ciągłym można też rozwiązywać numerycznie stosując
+dyskretyzację czasu z pewnym skończonym krokiem. Krok ten decyduje o
+dokładności rozwiązania numerycznego, im miejszy krok tym większa
+dokładność. Z drugiej strony powoduje to zwiększenie liczby obliczeń,
+która w tym przypadku rośnie liniowo z ilością kroków. Jeśli mamy
+model ciągły to mamy pełną kontrolę nad wielkością kroku i  ilością
+obliczeń i możemy zoptymalizować  procedurę numryczną. 
+
+Klasycznym modelem stosowanym do opisu ewolucji ceny aktywów, jest tzw. `geometryczny ruch Browna:
+<http://el.us.edu.pl/ekonofizyka/index.php/MKZR:Numeryczne_rozwi%C4%85zania_r%C3%B3wna%C5%84_stochastycznch-przyk%C5%82ady>`_. Dany jest on przez równanie Langevina:
+
+.. math::
+   :label: SDE1
+           
+    dS(t) = \mu S(t) dt + \sigma S(t) d W(t),
+
+gdzie :math:`S` jest procesem stochastycznym - ceną aktywa. Parametry
+:math:`\mu` oraz :math:`\sigma` mają iterpretację stopy wzrostu i
+wariancji danego aktywa, odpowiednio. Proces taki jest łatwy do
+zasymulowania numerycznego.
+
+.. admonition:: Poeksperymentuj z komputerem!
+
+   Poniższa komórka zawiera kod programu symulującego proces
+   geometrycznego ruchu Browna. W tablicy `numpy` zapisujemy historię
+   `M` trajektorii składającą się z `N` punktów czasu. Innymi słowy
+   :code:`S[3,5]` - szóstym krokiem czwartej trajektorii (indeksy
+   zaczynają sie od zera).
+
+   Poeksperymentujmy:
+
+     - Wykonaj kilka razy komórkę. Za każdym wykonaniem generator
+       liczb losowych :code:`np.random.randn` zwróci inną próbkę liczb
+       gaussowskich i otrzymamy inne scenariusze symulowanej historii ceny. 
+
+     - Zmień liczbę trajektorii na dużo większą. Jak zmienia się czas obliczeń?
+
+     - 
+   
+
+.. sagecellserver::
+
+   %time
+   import numpy as np 
+   T,r,sigma = 1,0.1,0.2
+   S0 = 100
+   N = 300
+   M = 10
+   h = T/N;
+   r = 0.1 
+   S = np.zeros((M,N))
+   S[:,0] = S0*np.ones(M); 
+
+   for i in range(1,N):
+       S[:,i] = S[:,i-1] + r*S[:,i-1]*h + sigma*np.sqrt(h)*S[:,i-1]*np.random.randn(M)
+
+   sum([line(enumerate(S[i,:]),thickness=0.2,figsize=4) for i in range(N)])
+
 
 równań SDE na geometryczny ruch Browna i przykład tajektorii.
 
