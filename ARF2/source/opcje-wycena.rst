@@ -270,8 +270,10 @@ która w tym przypadku rośnie liniowo z ilością kroków. Jeśli mamy
 model ciągły to mamy pełną kontrolę nad wielkością kroku i  ilością
 obliczeń i możemy zoptymalizować  procedurę numryczną. 
 
-Klasycznym modelem stosowanym do opisu ewolucji ceny aktywów, jest tzw. `geometryczny ruch Browna:
-<http://el.us.edu.pl/ekonofizyka/index.php/MKZR:Numeryczne_rozwi%C4%85zania_r%C3%B3wna%C5%84_stochastycznch-przyk%C5%82ady>`_. Dany jest on przez równanie Langevina:
+Klasycznym modelem stosowanym do opisu ewolucji ceny aktywów, jest
+tzw. `geometryczny ruch Browna:
+<http://el.us.edu.pl/ekonofizyka/index.php/MKZR:Numeryczne_rozwi%C4%85zania_r%C3%B3wna%C5%84_stochastycznch-przyk%C5%82ady>`_. Dany
+jest on przez równanie Langevina:
 
 .. math::
    :label: SDE1
@@ -279,7 +281,7 @@ Klasycznym modelem stosowanym do opisu ewolucji ceny aktywów, jest tzw. `geomet
     dS(t) = \mu S(t) dt + \sigma S(t) d W(t),
 
 gdzie :math:`S` jest procesem stochastycznym - ceną aktywa. Parametry
-:math:`\mu` oraz :math:`\sigma` mają iterpretację stopy wzrostu i
+:math:`\mu` oraz :math:`\sigma` mają interpretację stopy wzrostu i
 wariancji danego aktywa, odpowiednio. Proces taki jest łatwy do
 zasymulowania numerycznego.
 
@@ -297,7 +299,7 @@ zasymulowania numerycznego.
        liczb losowych :code:`np.random.randn` zwróci inną próbkę liczb
        gaussowskich i otrzymamy inne scenariusze symulowanej historii ceny. 
 
-     - Jak wpływa wartość parametru :math:`r` oraz :math:`sigma` na wygląd trajektorii?
+     - Jak wpływa wartość parametru :math:`r` oraz :math:`\sigma` na wygląd trajektorii?
 
      - Zmień liczbę trajektorii na dużo większą. Jak zmienia się czas obliczeń?
 
@@ -308,8 +310,13 @@ zasymulowania numerycznego.
        dla :math:`M=10,100,1000,10000`? Jak wpływa ilość trajektorii na wartość średnią?
        Można zautomatyzować ten proces uruchamiając część kodu w dodatkowej pętli. 
    
-     - Wykonaj histogram cen koncowych.
+     - Wykonaj histogram cen końcowych i porównaj z rozkładem
+       :math:`P(S,t=T)`. W rozdziale `geometryczny ruch Browna
+       <http://el.us.edu.pl/ekonofizyka/index.php/MKZR:Numeryczne_rozwi%C4%85zania_r%C3%B3wna%C5%84_stochastycznch-przyk%C5%82ady>`_
+       znajduje się zarówno postać wzoru końcowego jak i obliczanie
+       histogramu, jednak w języku matlab.
  
+
 .. sagecellserver::
 
    import numpy as np 
@@ -327,12 +334,15 @@ zasymulowania numerycznego.
    sum([line(enumerate(S[i,:]),thickness=0.2,figsize=4) for i in range(M)])
 
 
-równań SDE na geometryczny ruch Browna i przykład tajektorii.
+Kolejnym elementem analizy jest określenie związku między modelami
+ciągłym a drzewami dyskretnymi.
 
 
 
-Kalibracja modelu binarnego
----------------------------
+Związek pomiędzy modelem ciągłym i binarnym
+-------------------------------------------
+
+*kalibracja modelu binarnego*
 
 Rozważmy model dwustanowy - jednookresowy. Niech cenę aktywa określa
 reguła multiplikatywna.
@@ -534,7 +544,7 @@ Przykład - wyceny opcji z danymi z rynku ciągłego.
 Porównanie wyceny modelem binarnym i BS
 ---------------------------------------
 
-TODO
+Załóżmy, że wyceniamy opcję Europejską Można zadać sobie pytanie jak 
 			 
 
 Wzory Blacka Scholesa dla europejskiech opcji Call i Put
