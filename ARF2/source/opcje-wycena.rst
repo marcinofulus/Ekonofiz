@@ -605,6 +605,22 @@ jednostkowej variancji. Możemy więc wyrazić ją przez funkcja błędu Gaussa:
 Powyższe wzory możemy wprowadzić do systemu Sage i zbadać ich własności:
 
 
+.. admonition:: Poeksperymentuj z komputerem
+
+
+   Zbadaj własności wzorów na wycenę opcji Call. Zauważmy, że poniższy
+   wykres jest wykresem ceny opcji a nie wykresem zysk/strata. Linia
+   niebieska to cena kupna opcji a czerwona to cena jej wykonania.
+
+   - Ustaw :math:`\sigma,r,T` na zero. Jak można zinterpetować taki profil ceny?
+   - Zwiększ :math:`\sigma` - co się dzieje z ceną? Jak zmienia się jej wartość czasowa?
+   - Zostawiąjąc niezmienne (ale dodatnie :math:`\sigma`) zwiększ
+     stopę procentową. Pojawia się dodatkowa linia będą ca asymtotą
+     wzoru Blacka-Scholesa. Co to oznacza?
+   - 
+ 
+
+ 
 .. sagecellserver::
      
     var('S')
@@ -703,26 +719,20 @@ Analiza wrażliwości
 
 
 
-Analiza wrażliwości czyli jak czuła jest cena opcji na zmianę
-określających tę cenę wartości wielkości rynkowych.
+Analiza wrażliwości określa  jak czuła jest cena opcji na zmianę
+ wartości wielkości rynkowych. 
 
-Wiemy, że na cenę opcji - :math:`P_o` - cena opcji - w poprzed ozn. C i
-P odp dla opcji call i put
+Wiemy, że na cenę opcji w chwili :math:`t=0` wpływają następujące
+wielkości:
 
-wpływają:
+ - cena aktywa podstawowego: :math:`S` (w chwili :math:`t=0`),
+ - cena wykonania: :math:`K`,
+ - czas do wygaśnięcia: :math:`T`,
+ - stopa procentowa wolna od ryzyka: :math:`r`,
+ - zmienność ceny aktywa (*volatility*) :math:`\sigma` 
 
-| :math:`P_a` - cena aktywa podstawowego **- w poprzednich wzorach S**
-| :math:`X` – cena wykonania  **- w poprz. K**
-| :math:`r` - stopa  wolna od ryzyka  **poprzednio tak samo**
-| :math:`T` - czas do wygaśnięcia     **poprzednio T**
-
-Zmienność ceny  (*volatility*)  okreslana jako
-
-:math:`\sigma - a` liczona jako odchylenie standardowe tejże ceny.
 
 Powstaje pytanie jak cena opcji jest czuła na zmiany tych parametrów ?
-
-.. (odnośnik z hedgingu za pomoca opcji).
 
 
 Aby odpowiedzieć na to pytanie możemy posłużyć się, może nie
@@ -737,12 +747,25 @@ zakładając ze zmiana nie jest mniejsza niż.
 Pochodne cząstkowe ceny opcji wchodzące w sklad tego przybliżenia maja
 znaczenie praktyczne bedac używane i oznaczane swymi nazwami.
 
+Oznaczmy symbolem :math:`V` cenę naszej opcji. W przypadku
+europejskiej opcji Put lub Call będziemy stosować symbole od
+pierwszych liter, odpowiednio: :math:`P` :math:`C`. Tak więc dla
+dowolnej opcji zawsze możemy zapisać:
+
 .. math::
 
-   \Delta V \simeq \frac{\partial V}{\partial t} \Delta t + \frac{\partial V}{\partial S} \Delta S + \frac{1}{2} \frac{\partial ^2 V}{\partial S^2}(\Delta S)^2 + \frac{\partial V}{\partial \sigma} \Delta \sigma + \frac{\partial V}{\partial r} \Delta r + \frac{\partial V}{\partial \delta} \Delta \delta ,
+   \Delta V \simeq \frac{\partial V}{\partial T} \Delta T + \frac{\partial V}{\partial S} \Delta S + \frac{1}{2} \frac{\partial ^2 V}{\partial S^2}(\Delta S)^2 + \frac{\partial V}{\partial \sigma} \Delta \sigma + \frac{\partial V}{\partial r} \Delta r .
+
+Współczynniki w powyższym wzorze można ławto obliczyć jeśli dany jest
+formuła  analityczna na cenę opcji. Najczęsciej spotykanym przypadkiem są
+wzory  Blacka-Scholesa dla europejskich opcji kupna i
+sprzedaży.
 
 
-.. Wzór przepisać bez ostatniego wyrazu  z oznaczeniami  uzgodnionymi. 
+.. admonition:: Dla dociekliwych
+
+   Spróbuj obliczyć poniższe współczynniki dla modelu CRR. Czy można
+   policzyć jeśli jedyną metodą wyceny jest metoda Monte Carlo.
 
 
 
@@ -755,10 +778,11 @@ współczynnika delta.
 
 .. math::
 
-   \Delta = \partial P_0/ \partial P^S = N(d_1) 
+   \Delta = \frac{\partial V}{ \partial S}
 
 
-dla  modelu BS opcji Call (bez dywidendy) wynosi ona:
+dla europejskiej opcji Call wycenionej według modelu Blacka-Scholesa
+(bez dywidendy) wynosi ona:
 
 .. math::
 
@@ -801,12 +825,13 @@ Widać, że zachodzi własność:
 
 .. math::
 
-   \Delta_{call} - \Delta_{put} = 1.
+   \Delta_{call} - \Delta_{put} = 1,
 
 która jest bezpośrednią konsekwencja parytetu kupna sprzedaży.
 
 
-Delta wskazuje ilość akcji potrzebnych do otworzenia zwrotu z opcji. 
+Delta wskazuje na ilość akcji potrzebnych do otworzenia zwrotu z
+opcji.
 
 Np., :math:`\Delta_{call} = 0.80` znaczy ze działa jak 0.80
 akcji. Jeśli cena akcji wzrośnie o 1, cena opcji call wzrośnie o 0.80.

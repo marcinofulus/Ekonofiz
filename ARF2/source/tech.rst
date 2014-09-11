@@ -7,6 +7,9 @@ Oprogramowanie Sage a w szczególności zawarte w min biblioteki `numpy`
 stworzenia "od podstaw" prototypu aplikacji to szerokiego spektrum
 analiz danych i statystyk.
 
+
+
+
 Przykład 1
 ----------
 
@@ -25,7 +28,8 @@ Przykład 1
     @interact
     def _(n1=slider(range(1,N)),n2=[20,30,100,250,500],\
      nbins =[10,50,100],step=[20,100,200,1000]): 
-        X0 = np.gradient(data)/data
+        #X0 = np.gradient(data)/data
+        X0 = np.gradient(np.log(data))
         #X0[X0>8]=0
         #X0[X0<-8]=0
         n2 = n1+n2

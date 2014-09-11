@@ -225,13 +225,27 @@ U podstaw korzystania z rynku terminowego  futures leżą następujące fakty:
 2. Jeśli zajmiemy na rynku terminową pozycję odwrotną do pozycji na
    rynku natychmiastowym, to jeśli ceny będą wzrastać to zysk na
    jednej pozycji będzie równy stracie na drugiej tak jak pokazuje to
-   rysunek <<rysunek hustawka>>
+   rysunek 
+
+.. figure:: figs/waga.png 
+   :align: center
+   :figwidth: 350px
+
+   Zasada hedgingu przy pomocy kontraktów Futures. Cena przedania
+   kontraktu na jednym rynku zachowuje się odwrotnie do ceny sprzedaży
+   na drugin rynku.
+   
 
 Innymi słowy w wyniku takiego zabiegu sumaryczny wynik ewentualnych
 zysków czy strat będzie równy zero czyli wynik finansowy nie ulega
 zmianie bez względu na wahania ceny.
 
- <<rysunek wynik transakcji>>
+.. figure:: figs/hedge_futures.png 
+   :align: center
+   :figwidth: 450px
+ 
+   Zabezpieczenie się przed zmianą ceny przy pomocy kontraktu futures.
+   
 
 Przykład pokazany na rysunku pokazuje sytuacje zabezpieczenia się
 przed zmiana spadkiem ceny na posiadane aktywo (surowiec). Obawiając

@@ -364,8 +364,11 @@ zależności od parametrów :math:`S_0,K`. Tak jak poprzednio, zakładamy,
 którą wykonujemy jest zakup lub sprzedaż opcji. W przypadku zakupu
 stan naszego portfela jest obciąża nasz na kredyt, jeśli zaś
 sprzedajemy to mamy depozyt. Zakładamy, że w chwili początkowej
-istnieje pewna godziwa cena opcji, którą wliczamy w nasz
-początkowy bilans.
+istnieje pewna godziwa cena opcji, którą wliczamy w nasz początkowy
+bilans. Innymi słowy na poniższych wykresach zielona linia oznacza
+profil zysku straty z transakcji w chwili :math:`t=T`, biorący pod
+uwagę fakt poniesienia kosztów kupienia opcji lub wpływów za jej
+wystawienie.
 
 .. note::
 
@@ -430,6 +433,21 @@ początkowy bilans.
 Kupujemy opcję Call
 ~~~~~~~~~~~~~~~~~~~
 
+.. admonition:: Poeksperymentuj komputerem
+
+   Uruchom poniższy kod. 
+
+   - Jak z otrzymanego wykresu odczytać cenę za którą kupiono opcję? 
+   - Dla jakich ustawień suwaka opcja jest *in-the-money* a dla jakich  *out-the-money*?
+   - Dla jakiego ustawienia wartość czasowa opcji jest największa?
+   - Kiedy opcja jest prawie nic nie warta?
+   - Ustaw :math:`S_0=130` a na :math:`K=110`. Z przesunięcia wykresu
+     profilu wypłaty określ ile zapłacono za opcje. Dlaczego cena była
+     równa prawie :math:`130-110`?
+   - Jaką możemy ponieść maksymalną stratę?
+   - Jaki jest maksymalny zysk?
+
+
 .. sagecellserver::
 
      try:
@@ -437,7 +455,7 @@ Kupujemy opcję Call
          def _(K=slider(100,135,1,default=125),\
           S0=slider(100,135,1,default=115)):
              p = plotOption(OPTION=longCALL,S0=S0,K=K,c='green')
-             p.set_axes_range(xmin=100,xmax=140,ymin=-10,ymax=20)
+             p.set_axes_range(xmin=100,xmax=140,ymin=-20,ymax=20)
              p.show(figsize=5)
      except:
          print "Wykonaj pierwszą komórkę!"
@@ -457,6 +475,21 @@ Kupujemy opcję Call
 Sprzedajemy opcję Call
 ~~~~~~~~~~~~~~~~~~~~~~
 
+.. admonition:: Poeksperymentuj komputerem
+
+   Uruchom poniższy kod. 
+
+   - Jak z otrzymanego wykresu odczytać cenę otrzymaną za wystawienie  opcji? 
+   - Dla jakich ustawień suwaka opcja jest *in-the-money* a dla jakich  *out-the-money*?
+   - Dla jakiego ustawienia wartość czasowa opcji jest największa?
+   - Kiedy opcja jest prawie nic nie warta?
+   - Ustaw :math:`S_0=128` a na :math:`K=108`. Z przesunięcia wykresu
+     profilu wypłaty określ ile zapłacono za opcje.Dlaczego cena była
+     równa prawie :math:`128-108`?
+   - Jaką możemy ponieść maksymalną stratę?
+   - Jaki jest maksymalny zysk?
+
+
 .. sagecellserver::
 
     try:
@@ -473,13 +506,28 @@ Kupujemy opcję Put
 ~~~~~~~~~~~~~~~~~~
 
 
+.. admonition:: Poeksperymentuj komputerem
+
+   Uruchom poniższy kod. 
+
+   - Jak z otrzymanego wykresu odczytać cenę za którą kupiono opcję? 
+   - Dla jakich ustawień suwaka opcja jest *in-the-money* a dla jakich  *out-the-money*?
+   - Dla jakiego ustawienia wartość czasowa opcji jest największa?
+   - Kiedy opcja jest prawie nic nie warta?
+   - Ustaw :math:`S_0=110` a na :math:`K=130`. Z przesunięcia wykresu
+     profilu wypłaty określ ile zapłacono za opcje. Dlaczego cena była
+     równa prawie :math:`130-110`?
+   - Jaką możemy ponieść maksymalną stratę?
+   - Jaki jest maksymalny zysk?
+
+
 .. sagecellserver::
 
     try:
         @interact 
-        def _(K=slider(100,135,1,default=125),S0=slider(100,135,1,default=115)):
+        def _(K=slider(100,135,1,default=122),S0=slider(100,135,1,default=115)):
             p = plotOption(OPTION=longPUT,S0=S0,K=K,c='green')
-            p.set_axes_range(xmin=100,xmax=140,ymin=-10,ymax=20)
+            p.set_axes_range(xmin=100,xmax=140,ymin=-20,ymax=20)
             p.show(figsize=5)
     except:
         print "Wykonaj pierwszą komórkę!"
@@ -487,6 +535,22 @@ Kupujemy opcję Put
 
 Sprzedajemy opcję Put
 ~~~~~~~~~~~~~~~~~~~~~
+
+.. admonition:: Poeksperymentuj komputerem
+
+   Uruchom poniższy kod. 
+
+   - Jak z otrzymanego wykresu odczytać cenę otrzymaną za wystawienie  opcji? 
+   - Dla jakich ustawień suwaka opcja jest *in-the-money* a dla jakich  *out-the-money*?
+   - Dla jakiego ustawienia wartość czasowa opcji jest największa?
+   - Kiedy opcja jest prawie nic nie warta?
+   - Ustaw :math:`S_0=105` a na :math:`K=125`. Z przesunięcia wykresu
+     profilu wypłaty określ ile zapłacono za opcje.Dlaczego cena była
+     równa prawie :math:`125-105`?
+   - Jaką możemy ponieść maksymalną stratę?
+   - Jaki jest maksymalny zysk?
+
+
 
 .. sagecellserver::
 

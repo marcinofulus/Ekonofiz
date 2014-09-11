@@ -374,5 +374,7 @@ rynków.
 
 
 
-.. [1] \G. Strang, Introduction to Linear Algebra, Wellesley Cambridge Press, 4. edition, 2009.
+ 
+
+.. [1] Michael R. Pakko & Patricia S. Pollard, 2004. "Burger survey provides taste of international economics," The Regional Economist, Federal Reserve Bank of St. Louis, issue Jan. `(pdf) <https://research.stlouisfed.org/publications/review/03/11/pakko.pdf>`_
 .. [allentaylor] H. Allen, M. Taylor, "Charts, Noise and Fundamentals in the London Exchange Market - Economic Journal .1990 no. 100 Suplement.-
