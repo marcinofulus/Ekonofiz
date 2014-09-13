@@ -47,8 +47,7 @@ początkowej :math:`t=0` posiada wartość :math:`S(t=0)=S_0`. Po czasie
 drożeje do wartości :math:`S_{up}` albo tanieje do wartości
 :math:`S_{down}`. W tym momencie prawdopodobieństwa zajęcia każdego ze
 scenariuszy są niewiadomą. Rynek jest jednookresowy, co oznacza, że
-rozważamy tylko dwie chwile czasu: początkową: :math:`t=0` i przyszłą:
-:math:`t=T`.
+rozważamy tylko dwie chwile czasu: początkową: :math:`t=0` i przyszłą: :math:`t=T`.
 
 Zakładamy, że na rynku istnieje możliwość ulokowania gotówki w depozyt
 bankowy ze stopą procentową :math:`r`. Zakładamy, że taka operacja
@@ -88,7 +87,7 @@ przekonać jaka jest wartość instrumentu w chwili początkowej czyli
 wycenić dany instrument.
 
 Jeśli znamy, albo założymy, wartości cen po czasie :math:`T`, to
-równanie :eq:`eqParb` jest równaniem na prawdopodobieństwo
+równanie :eq:`eq:Parb` jest równaniem na prawdopodobieństwo
 :math:`p`. Możemy je wyliczyć. Wtedy mając wszystkie dane na temat
 drzewa kombinacji, jesteśmy w stanie analizować proces ewolucji cen
 różnych instrumentów na takim drzewie.
@@ -228,7 +227,12 @@ obliczyliśmy z równania :eq:`Parb` dla cen opcji. Mamy więc:
     S_{i} = e^{-r T}\left( p S^{+}_{i+1} +(1-p) S^{-}_{i+1} \right)
 
 
-Możemy więc napisać następujący algorytm:
+Możemy więc napisać następujący algorytm. Zaczynamy od ceny opcji w
+chwili :math:`t=T` - czyli od prawej strony drzewa binarnego, która
+jest dana przez :math:`\mathrm{max}(0,S-K)`. Następnie stosując wzrór
+:eq:`eq:Parb` dla każdego rozgałędzienia z osobna wyliczamy ceny
+arbitrażowe dla czasu o jeden okres wcześniej.  Podstępując dalej w
+ten sposób możemy otrzymać całe drzewo cen:
 
 .. sagecellserver::
 
@@ -244,9 +248,54 @@ Możemy więc napisać następujący algorytm:
 
 Można jeszcze sobie zadać pytanie jaką intepretacje mają poszczególne
 ceny w okresach pośrednich?  Weżmy z powyższego rysunku punkt z ceną
-:math:`8.2`. Jest to cena opcji okresie "3" w przypadku, gdy cena
-aktywa w tym momencie wynosi "56.1". Tą ostatnią cenę odczytujemy z
+:math:`8.2`. Jest to cena opcji okresie :math:`3` w przypadku, gdy cena
+aktywa w tym momencie wynosi :math:`56.1`. Tą ostatnią cenę odczytujemy z
 poprzedniego wykresu drzewa cen instrumentu bazowego.
+
+
+Powyższy algorytm wycenia opcję nie tylko w okresie początkowym, ale i
+w każdej chwili pośredniej. Jeżeli opcja jest typy europejskiego to
+możemy uprościć ten proces. Zauważmy, że w tym przypadku cena zależy
+tylko od rozkładu cen w chwili :math:`t=T`. Całe drzewo składa się z
+niezależnych zmian ceny, o tych samych prawdopodobieństwach :math:`p`
+i :math:`1-p` w każdym rozgałęzieniu. Taki proces zmian jest
+stochastycznym procesem Bernouliego. Dla takiego procesu znamy rozkład
+końcowy po :math:`N` próbach:
+
+.. math::
+   :label: bernoulli
+
+   P(k) = {N\choose k} p^k (1-p)^{N-k}.
+
+
+Cena opcji zależy tylko od tego rozkładu końcowego i możemy ją
+obliczyć jaka średnią funkcji zmiennej losowej po rozkładzie
+:eq:`bernoulli`:
+
+.. math::
+   :label: srednia_bernoulli
+
+   \langle S \rangle = \sum_{k=1}^{N} \mathrm{max}(0,S(k)-K) P(k) 
+
+
+
+Implementacja tego wzoru w Sage jest bardzo prosta:
+
+.. sagecellserver::
+
+   r=0.1
+   T = 5/12.
+   p = 0.5073
+   K = 50
+   S0 = 50
+   u = 1.1224
+   d = 1/u
+   N = 5
+   print exp(-r*T).n()*sum([ binomial(N,j)*p^(j)*(1-p)^(N-j)*max(S0*u^j*d^(N-j)-K,0) for j in range(N+1)])
+
+
+Wykonując ostatnią komórkę powinniśmy dostać tą samą liczbę jak w
+procesie wyceny na całym drzewie.
 
 
 Model ciągły
@@ -541,11 +590,8 @@ Przykład - wyceny opcji z danymi z rynku ciągłego.
    print OP[-1]
 
 
-Porównanie wyceny modelem binarnym i BS
----------------------------------------
 
-Załóżmy, że wyceniamy opcję Europejską Można zadać sobie pytanie jak 
-			 
+
 
 Wzory Blacka Scholesa dla europejskiech opcji Call i Put
 --------------------------------------------------------
@@ -615,9 +661,9 @@ Powyższe wzory możemy wprowadzić do systemu Sage i zbadać ich własności:
    - Ustaw :math:`\sigma,r,T` na zero. Jak można zinterpetować taki profil ceny?
    - Zwiększ :math:`\sigma` - co się dzieje z ceną? Jak zmienia się jej wartość czasowa?
    - Zostawiąjąc niezmienne (ale dodatnie :math:`\sigma`) zwiększ
-     stopę procentową. Pojawia się dodatkowa linia będą ca asymtotą
+     stopę procentową. Pojawia się dodatkowa linia będąca asymtotą
      wzoru Blacka-Scholesa. Co to oznacza?
-   - 
+   
  
 
  
@@ -672,7 +718,9 @@ Powyższe wzory możemy wprowadzić do systemu Sage i zbadać ich własności:
 
 
 Opcję europejską możemy wycenić zarówno korzystając z analitycznego
-wzoru jak i bezpośrednio z symulacji procesu losowego.
+wzoru jak i bezpośrednio z symulacji procesu losowego. W tym celu
+generujemy :math:`M` trajektorii ceny instrumentu podstawowego i
+obliczamy średnią z funkcji wyceny opcji w ostatnim momencie czasu.
 
 
 .. sagecellserver::
@@ -708,6 +756,41 @@ wzoru jak i bezpośrednio z symulacji procesu losowego.
 
 
 
+
+Porównanie wyceny modelem binarnym i BS
+---------------------------------------
+
+Załóżmy, że wyceniamy opcję Europejską.  Można zadać sobie pytanie o
+ile będą różniły się wyceny według modelu ciągłego i binarnego z
+:math:`N` okresami. W tym celu definiujemy sobie funkcje wyceniające
+opcje modelem binarnym :code:`Bin_Call`. Można narysować wykres ceny
+opcji od ilości pokoleń drzewa. Cena wynikającą ze wzoru
+Blacka-Scholesa będzie zaznaczoną przerywaną poziomą linią.
+
+
+.. admonition:: Poeksperymentuj z komputerem
+
+   Poniższy kod zawiera zaimlementowaną funkcję wyceny opcji
+   europejskie kupna oraz rysuje wykres jej wyceny w zależności od
+   ilości okresów.
+
+   - Jaki jest błąd względny dla małej liczby okresów: :math:`N=1,2,3`?
+   - Zaimplementuj podobne porównanie dla opcji sprzedaży.
+   - Czy dla dużych :math:`N` cena opcji zależy od metody jej wyceniania?
+
+
+.. sagecellserver::
+
+     def Bin_Call(N,S0,K,r,T,sigma):
+         u = exp(sigma*sqrt(T/N))
+         d = 1.0/u
+         p = (exp(r*T/N)-d)/(u-d)
+         return exp(-r*T).n()*sum([binomial(N,j)*p^j*(1-p)^(N-j)*max(S0*u^j*d^(N-j)-K,0) for j in range(N+1)])
+
+     sigma,S0,K,T,r=0.1,120,125,1,0.1
+
+     point( [(i,Bin_Call(i,S0,K,r,T,sigma)) for i in range(1,36,1)], \
+       gridlines=[None,[C(S0,K,r,T,sigma).n()]],figsize=(8,2)).show()
 
 
 
@@ -795,7 +878,7 @@ a dla opcji Put
 
    \Delta_{Put} = N(d_1) - 1
 
-Powyższe wzory możemy otrzymać przez różniczkowanie wzrorów
+Powyższe wzory możemy otrzymać przez różniczkowanie wzorów
 Blacka-Scholesa ze względu na :math:`S_0`. Sprawdźmy z pomocą systemu
 algebry komputerowej czy, rzeczywiście są spełnione.
 
@@ -1060,4 +1143,75 @@ niewiele.
 Wycena opcji Amerykańskiej modelami binarnymi i ciągłym
 -------------------------------------------------------
 
-(jest w sage, zrobic porównanie)
+Nie zawsze wycena opcji jest możliwa poprzez uśrednianie po rozkładzie
+granicznym w :math:`t=T`. Przykładem są opcje amerykańskie. Różnią się
+one od europejskich tym, że prawo do zawarcia transakcji obowiązuje
+nie tylko w chwili :math:`t=T`, ale w dowolnej chwili przed
+nią. Posiadacz tego prawa musi zadecydować kiedy będzie chciał z tego
+prawa skorzystać.
+
+Wycena takiej opcji, będzie potrzebowała pełnej informacji o
+drzewie. Innymi słowy, w języku trajektorii oznacza to, że będziemy
+obliczać maximum po całej trajektorii a nie tylko po wartości
+końcowej.
+
+.. sagecellserver::
+
+    T = 5/12.
+    N = 8
+    sigma = 0.4
+    K = 50
+    r = 0.26
+
+    u = exp(sigma*sqrt(T/N))
+    d = 1.0/u
+    p = (exp(r*T/N)-d)/(u-d)
+    C  = exp(r*T/N).n()
+
+    S0 = K-15
+
+    SP = gen_recombining(N,SP=S0,q=u-1.0)
+
+
+    #call AM
+    OP = [ [max(0,s-K) for s in SP[N]] ]
+    for j in range(N):
+        el = [ max( max(SP[N-j-1][i]-K,0) , 1/C*(p*OP[-1][i]+(1-p)*OP[-1][i+1])) for i in range(len(OP[-1])-1)]
+        OP.append(el)
+    OP.reverse()
+
+    # PUT AM
+    OP = [ [max(0,K-s) for s in SP[N]] ]
+    for j in range(N):
+        el = [ max( max(K-SP[N-j-1][i],0) , 1/C*(p*OP[-1][i]+(1-p)*OP[-1][i+1])) for i in range(len(OP[-1])-1)]
+        OP.append(el)
+    OP.reverse()
+
+    def Bin_Call(N,sigma,S0,K,T,r):
+        u = exp(sigma*sqrt(T/N))
+        d = 1.0/u
+        p = (exp(r*T/N)-d)/(u-d)
+        return exp(-r*T).n()*sum([binomial(N,j)*p^j*(1-p)^(N-j)*max(S0*u^j*d^(N-j)-K,0) for j in range(N+1)])
+
+    def Bin_Put(N,sigma,S0,K,T,r):
+        u = exp(sigma*sqrt(T/N))
+        d = 1.0/u
+        p = (exp(r*T/N)-d)/(u-d)
+        return exp(-r*T).n()*sum([binomial(N,j)*p^j*(1-p)^(N-j)*max(K-S0*u^j*d^(N-j),0) for j in range(N+1)])
+
+
+    html.table( [[max(l-K,0)>l2 for l,l2 in zip(b,b2)] for b,b2 in zip(SP,OP)] )
+
+
+.. sagecellserver::
+
+    import numpy as np 
+    N = 300
+    M = 1000
+    h = T/N;
+    r = 0.1 
+    S = np.zeros((M,N))
+
+    S[:,0] = S0*np.ones(M); 
+    for i in range(1,N):
+      S[:,i] = S[:,i-1] + r*S[:,i-1]*h + sigma*np.sqrt(h)*S[:,i-1]*np.random.randn(M)

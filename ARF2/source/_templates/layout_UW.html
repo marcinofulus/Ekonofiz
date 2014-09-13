@@ -1,0 +1,24 @@
+{% extends "!layout.html" %}
+{% block linktags %}
+
+	<script src="http://sagecell.sagemath.org/static/jquery.min.js"></script>
+        <script src="http://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+        <script>
+$(function () {
+    sagecell.makeSagecell({inputLocation: '.sage',
+                           linked: true,
+                           evalButtonText: 'Wykonaj!'});
+});
+</script>
+	<style type="text/css">
+		.sagecell .CodeMirror-scroll {
+			overflow-y: hidden;
+			overflow-x: auto;
+		}
+		.sagecell .CodeMirror {
+			height: auto;
+		}xxb
+	</style>
+
+    {{ super() }}
+{% endblock %}
