@@ -228,6 +228,7 @@ strategie inwestycyjne.  Inwestujemy jednostkę pieniężną albo:
 2) Inwestujemy jednostkę pieniężną na pierwszy rok przy stopie
    :math:`F(0.1)` a następnie efekt inwestycji reinwestujemy na
    kolejny rok przy stopie :math:`F(1.1)` czyli:
+
     .. math::
         
        (1+ 0.02)(1+ 0.032)=1.05264 
