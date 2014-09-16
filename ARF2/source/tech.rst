@@ -1,14 +1,10 @@
-================================
-Dodatek Analiza danych rynkowych
-================================
+========================
+Analiza danych rynkowych
+========================
 
-
-
-Dane rynkowe
-============
 
 Zwroty względne, bezwględne i log-zwroty
-------------------------------------------------
+========================================
 
 Rozważmy ewolucję ceny pewnego aktywa w czasie. Wartości notowań
 aktywa sa pewnym procesem losowym. W analizie jego zmienności ważnym
@@ -82,7 +78,7 @@ przy założeniu ceny :math:`S_0` w chwili :math:`t=0`, jest
 log-normalny:
 
 .. math::
-
+   :label: Pwar
    P_S(S,t|S_0,0)= \frac{1}{\sqrt{2\pi\sigma^2 t S^2}} e^{-\displaystyle\frac{(\log(\frac{S}{S_0})-(\mu-\frac{\sigma^2}{2}))^2}{2\sigma^2t}}.
 
 .. note::
@@ -92,6 +88,8 @@ log-normalny:
    <http://pl.wikipedia.org/wiki/Rozk%C5%82ad_logarytmicznie_normalny>`_. Zauważ,
    że w naszej notacji zarówno średnia jak i wariancja rosną z liniowo
    czasem.  Jak to zinterpretować?
+
+
 
 Dla dużych wartości wariancji i średniej rozkład ten jest zupełnie
 odmienny od rozkładu normalnego, dla małych jest jednak do niego
@@ -119,23 +117,23 @@ szerokiego spektrum analiz danych i statystyk.
 
 
 .. sagecellserver::
-
+    
     var('r,sigma,t,x0')
-
     logN = 1/(sigma*sqrt(2*pi*t)*x)*exp(-(log(x)-log(x0)-(r-sigma^2/2)*t)^2/(2*sigma^2*t))
     Normal = 1/(sigma*sqrt(2*pi*t))*exp(-(x-x0-r*t)^2/(2*sigma^2*t))
+
     @interact
-    def _(t_=slider(0.01,10,0.01,default=0.05)):
-        pars = {r:.0,sigma:.3,x0:1,t:t_}
+    def _(t_=slider(0.01,10,0.01,default=0.1)):
+        pars = {r:.0,sigma:.51,x0:1,t:t_}
         p1 = plot( logN.subs(pars) , (x,1e-5,4), fill=True)
         p2 = plot( Normal.subs(pars) , (x,1e-5,4), figsize=4,color='red')
         (p1+p2).show()
 
 
-Przykład 1
-----------
+Przykład analizy danych rynkowych
+=================================
 
-Wczytamy dane i obliczymy zwroty względne i logarytmiczne. 
+Wczytamy dane i obliczymy zwroty względne i logarytmiczne.
 
 .. attention:: Dane zazwyczaj są w pliku, jednak w tym przypadku w skrypcie
    nie mamy możliwości załączenia pliku. Dlatego będziemy analizować
@@ -151,7 +149,7 @@ pakietu :code:`numpy`.
 .. sagecellserver::
 
 
-    import numpy as np 
+    import numpy as np
     import urllib
 
     fp  = urllib.urlopen("https://dl.dropboxusercontent.com/u/11718006/COMARCH.mst")
@@ -160,27 +158,23 @@ pakietu :code:`numpy`.
     t = np.arange(N)
     line(zip(t,data),thickness=0.3,figsize=(7,2))
 
+
+
 .. admonition:: Poeksperymentuj sam
 
    Ile jest danych? Wypisz na ekranie pierwsze 100 wartości.
 
 
-Policzmy teraz zwroty względne i logarytmiczne. 
+Policzmy teraz zwroty względne i logarytmiczne i narysujmy wykres log-zwrotów i zwrotów względnych. Aby odróznić te dwa zestawy danych będziemy rysować kropkami i: 
 
 .. sagecellserver::
 
     r_rel = np.gradient(data)/data
     r_log = np.gradient(np.log(data))
 
-
-
-
-Narysujmy wykres log-zwrotów i zwrotów względnych:
-
-.. sagecellserver::
-
     line(zip(t,r_rel),color='gray',thickness=0.5)+\
     point(zip(t,r_log),color='red')
+
 
 Jak widać praktycznie wielkości te się pokrywają.  Możemy też łatwo
 sporządzić histogram wartość tychże zwrotów co jeszcze bardziej
@@ -191,7 +185,7 @@ uwydatnia tą własność:
     nbins=100
     plst = []
     for r,c in zip([r_rel,r_log],['red','blue']):
-        H = np.histogram(r_rel,bins=nbins)
+        H = np.histogram(r,bins=nbins)
         normalizacja = H[0].sum()*(H[1].max()-H[1].min())/nbins
         plst.append(line( zip(H[1],H[0]/normalizacja),color=c,figsize=(4,2)))
     html.table([["Zwroty wzgledne","Log-zwroty"],plst])
@@ -207,43 +201,127 @@ uwydatnia tą własność:
 Stacjonarność danych
 ~~~~~~~~~~~~~~~~~~~~
 
-Jeśli model
+Zauważmy że w modelu geometrycznego ruchu Browna, parametry
+:math:`r,\sigma^2` nie zależą jawnie od czasu. Może się to wydawać
+mylące bo wariancja i średnia rozkładu warunkowego na cenę aktywa
+:eq:`Pwar` jest funkcją czasu. Jednak to wynika z faku, że cena aktywa
+jest opisana zmienną losową spełniającą równanie stochastyczne
+:eq:`sde1`. Jej rozkład warunkowy jest jendak zależny od
+czasu. Sytuacja jest taka sama jak dla np. położenia punktu
+materialnego w ruchu jednostajnym prostolinoiwym. W takim ruchu
+położenie zależy od czasu pomimo, że wszystkie współczynniki w
+równaniu Newtona są stałe.  W naszym przypadku mamy interpretację dla
+paramterów :math:`r,\sigma^2` - są mianowicie to średnia i wariancja
+na jednostkę czasu. Zauważmy też, że jest to prawdą tylko w granicy
+małych czasów.
+
+Sprawdźmy jak dobrze jest spełniony warunek stacjonarności :math:`r,\sigma^2`!
+
+.. sagecellserver::
+
+   print np.std(r_log[:1000]),np.std(r_log[1000:2000])
+
+
+Widzimy, że jest kiepsko spełniona! Widać to już całkiem nieżle z wykresu
+log-zwrotów, który to ma okresy większej i mniejszej zmienności. 
+
+.. admonition:: Poeksperymentuj z komputerem
+  
+   Narysuj wykres wariancji danych estymowanej po okresie :math:`k`
+   notowań. 
+
+   - Co się stanie gdy zwiększymy ten okres? 
+   - Porównaj ten    wykres z zależnością dziennych zwrotów od czasu.
+
+
+.. sagecellserver::
+
+    k=5
+    X = r_log
+    var_win = [np.var(X[i:i+k]) for i in range(0,X.shape[0],1)]
+    line(zip(t[::1],var_win),ymin=0,ymax=0.002,figsize=(6,2))
+
+
+Autokorelacja
+~~~~~~~~~~~~~
+
+Log-zwroty są ze sobą nieskorelowane. Gdyby było inaczej to predykcja
+ceny była by zbyt prosta i teoretycznie prowadziła by do możliwości
+arbitrażu. Sprawdźmy, że tak jest rzeczywiscie:
+
+.. sagecellserver::
+
+    X = r_log
+    autocorr = [np.corrcoef(np.vstack((X[:-k],X[k:])))[0,1] for k in range(1,250)]
+    line(enumerate(autocorr))
+
+
+Grube ogony, kurtoza i skośność
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Analizując histogram log-zwrotów możemy odnieść wrażenie, że jest on
+nieco bardziej wypikowany w okolicy zera i ma trochę "grubszy ogon"
+tzn. większe wartości daleko od zera. Zobaczmy sami:
+
+.. admonition:: Poeksperymentuj z komputerem
+
+   Uruchom poniższy kod. Oblicza on histogram log-zwrotów oraz
+   porównuje go z rozkładem Gaussa o tych samych parametrach: średniej i wariancji. 
 
 
 
 .. sagecellserver::
 
-    import urllib
-    import numpy as np 
-    from scipy.stats import kurtosis
-    fp  = urllib.urlopen("https://dl.dropboxusercontent.com/u/11718006/COMARCH.mst")
-    d1 = np.loadtxt(fp,skiprows=1,usecols=[2],delimiter=',')
-    data = d1
-    N = data.shape[0]
-    t = np.arange(N)
-    Gaussian(x,mu,sigma) = 1/sqrt(2*pi*sigma^2)*exp(-(x-mu)^2/(2*sigma^2))
-    @interact
-    def _(n1=slider(range(1,N)),n2=[20,30,100,250,500],\
-     nbins =[10,50,100],step=[20,100,200,1000]): 
-        #X0 = np.gradient(data)/data
-        X0 = np.gradient(np.log(data))
-        #X0[X0>8]=0
-        #X0[X0<-8]=0
-        n2 = n1+n2
-        X = X0[n1:n2]
-        p0 = line(zip(t,data),color='gray',thickness=0.5,figsize=(6,1))
-        p0 += line(zip(t[n1:n2],data[n1:n2]),color='red',thickness=1)
-        K=np.array([ (t[i], kurtosis(data[i:i+step]) )\
-         for i in range(0,data.size-step,1)])
-        pK = line(K,thickness=0.5,color='green',figsize=(6,1))
+     nbins=80
+     Gaussian(x,mu,sigma) = 1/sqrt(2*pi*sigma^2)*exp(-(x-mu)^2/(2*sigma^2))
+     X = r_rel[400:1200]
+     mu,sigma = np.average(X),np.std(X)
+     H = np.histogram(X,bins=nbins,range=[-.13,.13])
+     normalizacja = H[0].sum()*(H[1].max()-H[1].min())/nbins
+     p = line( zip(H[1],H[0]),color='red',figsize=(7,4))
+     mu,sigma = np.average(X),np.std(X)
+     p += plot(normalizacja*Gaussian(x,mu,sigma),(x,-4*sigma,4*sigma),fill=True,gridlines=[None,[1]])
+     p
 
-        p1 = line(zip(t,X0),color='gray',thickness=0.5)
-        p1 += line(zip(t[n1:n2],X),color='red',thickness=1.,figsize=(6,1))
+Popularnymi wielkościami, które charakteryzują jak dany rozkład
+odbiega od rozkładu normanego są kurtoza i skośność. Jak wiemy w
+rozkładzie normalnym wszystkie momenty rzędu wyższego niż dwa można
+wyrazić jako funkcje momentów pierwszego i drugiego. Dlatego można
+zbudować wyrażenia:
 
-        mu,sigma = np.average(X),np.std(X)
-        p2 = plot(Gaussian(x,mu,sigma),(x,-4*sigma,4*sigma),figsize=(6,3))
-        H = np.histogram(X,bins=nbins)
-        normalizacja = H[0].sum()*(H[1].max()-H[1].min())/nbins
-        p2 += line( zip(H[1],H[0]/normalizacja),color='red') 
-        print mu,sigma
-        html.table([[p0],[p1],[pK],[kurtosis(X)],[p2]])
+.. math::
+
+   \hat K =  \frac{\mu_4}{\sigma^4} - 3 \\
+   \hat S =  \frac{\mu_3}{\sigma^3},
+
+gdzie :math:`\mu_i = \mathop{E}\big[(X-\mu)^i\big]`.
+
+.. admonition:: Poeksperymentuj z komputerem
+
+    Estymatory kurtozy i skośności są zaimplementowane w pakiecie
+    `scipy` i można je zaimportować przez: :code:`from scipy.stats import kurtosis,skew`.
+
+     - Do poprzedniego kodu dodaj obliczanie kurtozy i skośności danego rozkładu
+     - Zmień okno z `[400:1200]` na inne, mniejsze większe i w innym miejscu. 
+     - Jakie wartości  kurtozy i skośności można zaobserwować?
+
+
+
+Problem  - analiza innych danych
+================================
+
+Zdobądź ze żródeł internetowych pliki z innymi indeksami
+giełdowymi. Napisz własny analizator, który będzie potrafił na
+podstawie pliku z danymi:
+
+ - narysować zależność czasową
+ - wybrać okno do analizy i je zaznaczyć na wykresie
+ - obliczyć log-zwroty
+ - narysować histogram wybranego okna
+ - obliczyć współczynniki takie jak kurtoza, wariancja, średnia,
+   skośność.
+
+
+
+
+

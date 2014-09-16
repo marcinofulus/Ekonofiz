@@ -16,8 +16,10 @@ Praktyczny wstęp do komputerowej analizy Rynków Finansowych
    :numbered:
    :maxdepth: 1
 
+   bio
    wstep              
    wstep_tech           
+   tech
    ryzyko
    opcje
    opcje-wycena
@@ -26,7 +28,6 @@ Praktyczny wstęp do komputerowej analizy Rynków Finansowych
    Hedging
    var*
    binarne
-   tech
    forex
 
 .. only::  html
