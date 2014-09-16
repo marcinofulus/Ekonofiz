@@ -371,13 +371,7 @@ Proces zarządzania ryzykiem składa się z:
 - **Wyboru** właściwego podejścia do zarządzania ryzykami. 
 - **Wdrożenia i monitorowania**  programu działania 
 
-Istnieje wiele standardów zarządzania ryzykiem przykładowo:
-`International Organization for Standardization ISO 31000<http://www.iso.org/iso/home/standards/iso31000.htm>`_, 
-`PRIMIA<http://www.prmia.pl>`_,
-`CoSco <http://www.coso.org/documents/COSO_ERM_ExecutiveSummary_Polish.pdf>`_, 
-`AIRMIC<http://www.ferm.org>`_, 
-`FERMA<http://www.ferma.eu/wp-content/uploads/2011/11/a-risk-management-standard-polish-version.pdf>`_, 
-`Pomarańczowa księga<http://www.hm-treasury.gov.uk>`_. 
+Istnieje wiele standardów zarządzania ryzykiem przykładowo: `International Organization for Standardization ISO 31000 <http://www.iso.org/iso/home/standards/iso31000.htm>`_, `PRIMIA <http://www.prmia.pl>`_, `CoSco <http://www.coso.org/documents/COSO_ERM_ExecutiveSummary_Polish.pdf>`_, `AIRMIC <http://www.ferm.org>`_, `FERMA <http://www.ferma.eu/wp-content/uploads/2011/11/a-risk-management-standard-polish-version.pdf>`_, `Pomarańczowa księga <http://www.hm-treasury.gov.uk>`_. 
 
 
 Zastosowanie któregoś ze standardów pomaga zrozumieć sens zarządzania

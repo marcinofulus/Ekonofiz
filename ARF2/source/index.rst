@@ -16,7 +16,8 @@ Praktyczny wstęp do komputerowej analizy Rynków Finansowych
    :numbered:
    :maxdepth: 1
 
-
+   wstep              
+   wstep_tech           
    ryzyko
    opcje
    opcje-wycena

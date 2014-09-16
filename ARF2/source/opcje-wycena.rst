@@ -1144,16 +1144,25 @@ Wycena opcji Amerykańskiej modelami binarnymi i ciągłym
 -------------------------------------------------------
 
 Nie zawsze wycena opcji jest możliwa poprzez uśrednianie po rozkładzie
-granicznym w :math:`t=T`. Przykładem są opcje amerykańskie. Różnią się
+brzegowym dla :math:`t=T`. Przykładem są opcje amerykańskie. Różnią się
 one od europejskich tym, że prawo do zawarcia transakcji obowiązuje
 nie tylko w chwili :math:`t=T`, ale w dowolnej chwili przed
 nią. Posiadacz tego prawa musi zadecydować kiedy będzie chciał z tego
 prawa skorzystać.
 
-Wycena takiej opcji, będzie potrzebowała pełnej informacji o
-drzewie. Innymi słowy, w języku trajektorii oznacza to, że będziemy
-obliczać maximum po całej trajektorii a nie tylko po wartości
-końcowej.
+Procedura wyceny takiej opcji, będzie korzystała z pełnej informacji o
+historii zmian ceny instrumentu. Innymi słowy, w języku trajektorii
+oznacza to, że będziemy obliczać maximum po całej trajektorii a nie
+tylko po wartości końcowej. 
+
+Algorytm wyznaczania ceny opcji korzysta z warunku braku
+arbitrażu. Postępujemy podobnie jak przy wycenie opcji europejskiej na
+całym drzewie. Jednak w każdym rozwidleniu drzewa, sprawdzamy czy
+wartość otrzymana z warunku braku arbitrażu :eq:`eq:Parb` nie jest
+mniejsza od wartości wewnętrzej opcji. Jesli tak jest to wpisujemy
+właśnie tą wartość wewnętrzą do drzewa, zamiast wartości wynikającej z
+:eq:`eq:Parb`. Poniżej prezentujemy możliwą implementację tego
+algorytmu:
 
 .. sagecellserver::
 
@@ -1169,16 +1178,7 @@ końcowej.
     C  = exp(r*T/N).n()
 
     S0 = K-15
-
     SP = gen_recombining(N,SP=S0,q=u-1.0)
-
-
-    #call AM
-    OP = [ [max(0,s-K) for s in SP[N]] ]
-    for j in range(N):
-        el = [ max( max(SP[N-j-1][i]-K,0) , 1/C*(p*OP[-1][i]+(1-p)*OP[-1][i+1])) for i in range(len(OP[-1])-1)]
-        OP.append(el)
-    OP.reverse()
 
     # PUT AM
     OP = [ [max(0,K-s) for s in SP[N]] ]
@@ -1187,31 +1187,85 @@ końcowej.
         OP.append(el)
     OP.reverse()
 
-    def Bin_Call(N,sigma,S0,K,T,r):
-        u = exp(sigma*sqrt(T/N))
-        d = 1.0/u
-        p = (exp(r*T/N)-d)/(u-d)
-        return exp(-r*T).n()*sum([binomial(N,j)*p^j*(1-p)^(N-j)*max(S0*u^j*d^(N-j)-K,0) for j in range(N+1)])
-
     def Bin_Put(N,sigma,S0,K,T,r):
         u = exp(sigma*sqrt(T/N))
         d = 1.0/u
         p = (exp(r*T/N)-d)/(u-d)
         return exp(-r*T).n()*sum([binomial(N,j)*p^j*(1-p)^(N-j)*max(K-S0*u^j*d^(N-j),0) for j in range(N+1)])
 
+    print "Opcja amerykańska:",OP[0],"Opcja europejska:",Bin_Put(N,sigma,S0,K,T,r)
+    
 
-    html.table( [[max(l-K,0)>l2 for l,l2 in zip(b,b2)] for b,b2 in zip(SP,OP)] )
+Widzimy, że wartość opcji amerykańskiej przy podanych parametrach
+różni się znacznie od opcji europejskiej. Mozna się przypatrzeć na drzewie w których miejscach wartość wewnętrzna będzie większa od wartości arbitrażowej. Zobaczmy:
 
 
 .. sagecellserver::
 
-    import numpy as np 
-    N = 300
-    M = 1000
-    h = T/N;
-    r = 0.1 
-    S = np.zeros((M,N))
+   html.table( [[max(l-K,0)>l2 for l,l2 in zip(b,b2)] for b,b2 in zip(SP,OP)] )
 
-    S[:,0] = S0*np.ones(M); 
-    for i in range(1,N):
-      S[:,i] = S[:,i-1] + r*S[:,i-1]*h + sigma*np.sqrt(h)*S[:,i-1]*np.random.randn(M)
+
+.. admonition:: Poeksperymentuj z komputerem
+
+   - W powyższym kodzie pozmieniaj wartość początkową aktywa. Jak
+     zmienia się cena opcji? Jak zmienia się tabla z ostatniej komórki
+     Sage?
+
+   - Zaimplementuj wycenę amerykańskiej opcji Call. Porównaj wartość z
+     opcją europejska. Czy zaobserwowałeś coś dziwnego?
+
+   - Zaimplementuj wycenę opcji amerykańskiej w oparciu o model ciągły
+     stosując odpowiednie uśrednianie po trajektoriach.
+
+..
+
+
+   .. sagecellserver::
+
+       T = 5/12.
+       N = 8
+       sigma = 0.4
+       K = 50
+       r = 0.26
+
+       u = exp(sigma*sqrt(T/N))
+       d = 1.0/u
+       p = (exp(r*T/N)-d)/(u-d)
+       C  = exp(r*T/N).n()
+
+       S0 = K-15
+       SP = gen_recombining(N,SP=S0,q=u-1.0)
+
+       #call AM
+       OP = [ [max(0,s-K) for s in SP[N]] ]
+       for j in range(N):
+           el = [ max( max(SP[N-j-1][i]-K,0) , 1/C*(p*OP[-1][i]+(1-p)*OP[-1][i+1])) for i in range(len(OP[-1])-1)]
+           OP.append(el)
+       OP.reverse()
+
+       def Bin_Call(N,sigma,S0,K,T,r):
+           u = exp(sigma*sqrt(T/N))
+           d = 1.0/u
+           p = (exp(r*T/N)-d)/(u-d)
+           return exp(-r*T).n()*sum([binomial(N,j)*p^j*(1-p)^(N-j)*max(S0*u^j*d^(N-j)-K,0) for j in range(N+1)])
+
+
+       html.table( [[max(l-K,0)>l2 for l,l2 in zip(b,b2)] for b,b2 in zip(SP,OP)] )
+
+
+
+
+
+
+   .. sagecellserver::
+
+       import numpy as np 
+       N = 300
+       M = 1000
+       h = T/N;
+       r = 0.1 
+       S = np.zeros((M,N))
+
+       S[:,0] = S0*np.ones(M); 
+       for i in range(1,N):
+         S[:,i] = S[:,i-1] + r*S[:,i-1]*h + sigma*np.sqrt(h)*S[:,i-1]*np.random.randn(M)
