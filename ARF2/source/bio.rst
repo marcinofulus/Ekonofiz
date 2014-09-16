@@ -40,29 +40,26 @@ Entrepreneurship Research.
 Marcin Kostur
 -------------
 
-Marcin Kostur, fizyk - pracuje na Uniwersytecie Śląskim. 
-
-His expertise encompasse, High-Performance Computing with emphasis on
-the Lattice Boltzmann Method on GPU, microfluidics and stochastic
-transport. He has been working on various research projects, from
-theoretical research on Brownian motors and Josephson Junctions to
-applications of modelling in LDL accumulation in arterial walls and
-porous materials. He is an author of over 40 well cited (over 1000
-citations) publications in international journals.
+Marcin Kostur, fizyk, profesor nadzwyczajny Uniwersytetu
+Śląskiego. Stypendysta DAAD, Fundacji na Rzecz Nauki
+Polskiej. Pracował na Uniwersytetach w Anglii, Niemczech, USA i
+RPA. Laureat Center for Nanoscience w Monachium za publikację roku w
+2007 i 2008.
 
 .. image:: figs/marcinkostur.jpg 
    :align: left
    :width: 450px
 
+Zajmuje się badaniami układów złożonych począwszy od złącz Josephsona,
+syntetycznych nanoporów i motorów molekularnych po dynamikę
+płynów. Jest autorem ponad 50 prac naukowych. Ekspert w zakresie
+programowania równoległego, technologii GPU i chmurowych systemów
+obliczeniowych.
 
-“DAAD Jahresstipendium”, one year scholarships for research in the
-group of prof. Lutza Schimansky-Geier at Humboldt University in
-Berlin.
+Entuzjasta stosowania nowoczesnych metod komputerowych w edukacji i
+popularyzator nauki. Autor i lider projektu iCSE wdrażającego
+powszechne stosowanie systemu Sage i języka Python na
+Wydziale Matematyki Fizyki i Chemii Uniwersytetu Śląskiego. 
 
-• FNP scholarschip for young scientists in 2000.
-• CeNS publication award 2007, Center for Nanoscience, Munich, DE
-• CeNS publication award 2008, Center for Nanoscience, Munich, DE
-Humboldt University in Berlin, Germany
-• University of Maine, USA
 
-• University of Augsburg, Germany
+

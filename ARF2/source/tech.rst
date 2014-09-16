@@ -3,15 +3,15 @@ Analiza danych rynkowych
 ========================
 
 
-Zwroty względne, bezwględne i log-zwroty
+Zwroty względne, bezwzględne i log-zwroty
 ========================================
 
 Rozważmy ewolucję ceny pewnego aktywa w czasie. Wartości notowań
-aktywa sa pewnym procesem losowym. W analizie jego zmienności ważnym
+aktywa są pewnym procesem losowym. W analizie jego zmienności ważnym
 pojęciem jest "zwrot", który jest matematycznie rzecz biorąc
 przyrostem procesu na pewnym okresie czasu. Załóżmy, że mamy pewien
-dyskretny ciąg chwil czasu :math:`t_i` w któych aktywo ma cenę  :math:`S_i`.
-W finansach spotymay trzy wazne pojęcia:
+dyskretny ciąg chwil czasu :math:`t_i` w których aktywo ma cenę  :math:`S_i`.
+W finansach spotykamy trzy Ważne pojęcia:
 
 - zwrot absolutny w chwili :math:`t_i`: :math:`S_i-S_{i-1}`
 - zwrot względny w chwili  :math:`t_i`: :math:`\displaystyle\frac{S_i-S_{i-1}}{S_{i-1}}`
@@ -26,7 +26,7 @@ napisać:
 
    \log S_i -\log S_{i-1} = \log \frac{S_i}{S_{i-1}}.
 
-Jeśli zwrot względny jest mały, to jest w przybłiżeniu równy
+Jeśli zwrot względny jest mały, to jest w przybliżeniu równy
 log-zwrotowi. Zapiszmy:
 
 .. math::
@@ -62,7 +62,7 @@ związane ze stopą procentową a :math:`\sigma^2` to wariancja zmian
 logarytmu ceny.  :math:`N_i(0,1)` oznacza niezależne gaussowskie
 zmienne losowe o średniej zero i wariancji jeden. Przejście do granicy
 :math:`(t_i-t_{i-1})\to 0` wymaga zastosowania stochastycznych równań
-różniczkowych i taki proces ciągły jest dany wzrorem:
+różniczkowych i taki proces ciągły jest dany wzorem:
 
 
 .. math:: 
@@ -79,7 +79,9 @@ log-normalny:
 
 .. math::
    :label: Pwar
+
    P_S(S,t|S_0,0)= \frac{1}{\sqrt{2\pi\sigma^2 t S^2}} e^{-\displaystyle\frac{(\log(\frac{S}{S_0})-(\mu-\frac{\sigma^2}{2}))^2}{2\sigma^2t}}.
+
 
 .. note::
 
@@ -107,20 +109,20 @@ szerokiego spektrum analiz danych i statystyk.
    Zbadaj czym różnią się dwa rozkłady - normalny i log-normalny o
    tych samych parametrach średniej oraz wariancji. 
 
-     - Wariancja i średnia zalezy od czasu, który można zmieniać
+     - Wariancja i średnia zależy od czasu, który można zmieniać
        suwakiem. Zwiększ czas i zaobserwuj jak zmienia się
        rozkład. Czy w każdym z przypadków może pojawić się cena aktywa
        mniejsza od zera?
   
      - Zmień w kodzie inne parametry: wartość początkową, wariancję na
-       jednostkę czasu i szybkośc wzrostu ceny.
+       jednostkę czasu i szybkość wzrostu ceny.
 
 
 .. sagecellserver::
     
     var('r,sigma,t,x0')
-    logN = 1/(sigma*sqrt(2*pi*t)*x)*exp(-(log(x)-log(x0)-(r-sigma^2/2)*t)^2/(2*sigma^2*t))
-    Normal = 1/(sigma*sqrt(2*pi*t))*exp(-(x-x0-r*t)^2/(2*sigma^2*t))
+    logN = 1/(sigma*sqrt(2*pi*t)*x)*exp(-(log(x)-log(x0)-(r)*t)^2/(2*sigma^2*t))
+    Normal = 1/(sigma*sqrt(2*pi*t))*exp(-(x-x0-(r+sigma^2/2)*t)^2/(2*sigma^2*t))
 
     @interact
     def _(t_=slider(0.01,10,0.01,default=0.1)):
@@ -142,7 +144,7 @@ Wczytamy dane i obliczymy zwroty względne i logarytmiczne.
 
 Dane z notowań historycznych najczęściej występują w formacie zwanym
 `csv` - czyli wartości oddzielone przecinkiem. Można je wczytać do
-akrusza kalkulacyjnego, ale też bezpośrednio otworzyć za pomocą
+arkusza kalkulacyjnego, ale też bezpośrednio otworzyć za pomocą
 pakietu :code:`numpy`.
 
 
@@ -165,7 +167,7 @@ pakietu :code:`numpy`.
    Ile jest danych? Wypisz na ekranie pierwsze 100 wartości.
 
 
-Policzmy teraz zwroty względne i logarytmiczne i narysujmy wykres log-zwrotów i zwrotów względnych. Aby odróznić te dwa zestawy danych będziemy rysować kropkami i: 
+Policzmy teraz zwroty względne i logarytmiczne i narysujmy wykres log-zwrotów i zwrotów względnych. Aby odróżnić te dwa zestawy danych będziemy rysować kropkami i: 
 
 .. sagecellserver::
 
@@ -204,14 +206,14 @@ Stacjonarność danych
 Zauważmy że w modelu geometrycznego ruchu Browna, parametry
 :math:`r,\sigma^2` nie zależą jawnie od czasu. Może się to wydawać
 mylące bo wariancja i średnia rozkładu warunkowego na cenę aktywa
-:eq:`Pwar` jest funkcją czasu. Jednak to wynika z faku, że cena aktywa
+:eq:`Pwar` jest funkcją czasu. Jednak to wynika z faktu, że cena aktywa
 jest opisana zmienną losową spełniającą równanie stochastyczne
-:eq:`sde1`. Jej rozkład warunkowy jest jendak zależny od
+:eq:`sde1`. Jej rozkład warunkowy jest jednak zależny od
 czasu. Sytuacja jest taka sama jak dla np. położenia punktu
-materialnego w ruchu jednostajnym prostolinoiwym. W takim ruchu
+materialnego w ruchu jednostajnym prostoliniowym. W takim ruchu
 położenie zależy od czasu pomimo, że wszystkie współczynniki w
 równaniu Newtona są stałe.  W naszym przypadku mamy interpretację dla
-paramterów :math:`r,\sigma^2` - są mianowicie to średnia i wariancja
+parametrów :math:`r,\sigma^2` - są mianowicie to średnia i wariancja
 na jednostkę czasu. Zauważmy też, że jest to prawdą tylko w granicy
 małych czasów.
 
@@ -247,7 +249,7 @@ Autokorelacja
 
 Log-zwroty są ze sobą nieskorelowane. Gdyby było inaczej to predykcja
 ceny była by zbyt prosta i teoretycznie prowadziła by do możliwości
-arbitrażu. Sprawdźmy, że tak jest rzeczywiscie:
+arbitrażu. Sprawdźmy, że tak jest rzeczywiście:
 
 .. sagecellserver::
 
@@ -284,7 +286,7 @@ tzn. większe wartości daleko od zera. Zobaczmy sami:
      p
 
 Popularnymi wielkościami, które charakteryzują jak dany rozkład
-odbiega od rozkładu normanego są kurtoza i skośność. Jak wiemy w
+odbiega od rozkładu normalnego są kurtoza i skośność. Jak wiemy w
 rozkładzie normalnym wszystkie momenty rzędu wyższego niż dwa można
 wyrazić jako funkcje momentów pierwszego i drugiego. Dlatego można
 zbudować wyrażenia:
@@ -310,7 +312,7 @@ gdzie :math:`\mu_i = \mathop{E}\big[(X-\mu)^i\big]`.
 Problem  - analiza innych danych
 ================================
 
-Zdobądź ze żródeł internetowych pliki z innymi indeksami
+Zdobądź ze źródeł internetowych pliki z innymi indeksami
 giełdowymi. Napisz własny analizator, który będzie potrafił na
 podstawie pliku z danymi:
 
