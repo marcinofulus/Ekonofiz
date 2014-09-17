@@ -66,7 +66,14 @@ to definicje utworzone podczas wykonania jednej są dostępne w drugiej.
 .. admonition:: Poeksperymentuj z komputerem
 
    Wykonaj najpiejw piewszą komórkę a potem drugą. Następnie przeładuj
-   stronę i wykonaj najpierw druga a potem pierwszą.
+   stronę i wykonaj najpierw druga a potem pierwszą. 
+
+   Zauważ, że przeładowawanie strony powoduje skasowanie informacji o
+   wczesniej zdefiniowanych zmiennych! Dzieje się tak dlatego, gdyż po
+   przeładowaniu komórki obsługuje nowy proces Sage na serwerze, a
+   stary ginie.
+
+
 
 
 .. sagecellserver::
@@ -77,6 +84,24 @@ to definicje utworzone podczas wykonania jednej są dostępne w drugiej.
        show( formula.diff(x) )
    except:
        print "Nie zdefiniowano zmiennej!"
+
+
+.. attention::
+
+    - Problem 1: Naciskanie na przycisk "Wykonaj" nie przynosi
+      oczekiwanego efektu.  
+
+      Odp. W takim razie zalecamy ponowne
+      przeładowanie strony i ewentualne wykonanie komórek z wymaganymi
+      uprzednio definicjami (pamiętamy, że przeładowanie strony kasuje
+      stan Sage.
+
+    - Problem 2: Program po zwiększeniu liczby kroków przestaje działać.
+   
+      Odp. Proces na serwerze ma ograniczoną ilość czasu na
+      wykonanie. Jeśli czas zostaje przekroczony to ginie. Aby dalej
+      używać komórek interaktywnych trzeba przeładować stronę.
+
 
 Komórki Sagecell zawierają dostęp do kompletnego systemu Sage. Nie
 sposób we wstępie opisać jego możliwości, ale zachęcamy do

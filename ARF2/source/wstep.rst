@@ -23,17 +23,17 @@ opracowanie.
 
 
 Forma jaka została nadana niniejszemu opracowaniu ma za zadanie usunąć
-pewna cechę ujemna tradycyjnej książki. Książka nie odpowiada na
-pytania czytającego, trudno z książka prowadzić dialog, trudno zadać
-książce pytanie "co by było gdyby wziąć pod uwagę inne parametry?"
-albo "jak mogę zastosować te wiedze do mojej konkretnej potrzeby?"
-Ta forma "interaktywnej książki" pozwala na bardzo aktywna formę
-współpracy indywidualnej z zawartością opracowania. Wykresy
-zależności w wielu miejscach pozwalają na interaktywne zmienianie
-parametrów zależności w celu obserwacji jak zależności te mogą
-zmieniać się w zależności od zmian wspomnianych parametrów.  Podane
-kody komputerowe pozwalają na wyliczenia własnych przypadków
-czytelników.
+pewna ujemną cechę klasycznej książki. Taka książka, bowiem, nie
+odpowiada na pytania czytającego, trudno z książka prowadzić dialog,
+trudno zadać książce pytanie "co by było gdyby wziąć pod uwagę inne
+parametry?"  albo "jak mogę zastosować te wiedze do mojej konkretnej
+potrzeby?"  Proponowana przez nas forma "interaktywnej książki"
+pozwala na bardzo aktywna  i indywidualna współpracę z zawartością
+opracowania. Wykresy zależności w wielu miejscach pozwalają na
+interaktywne zmienianie parametrów zależności w celu obserwacji jak
+zależności te mogą zmieniać się w zależności od zmian wspomnianych
+parametrów.  Podane kody komputerowe pozwalają na wyliczenia własnych
+przypadków czytelników.
  
 Literatura przedmiotu jest bardzo obszerna i ciągle się wzbogaca o
 nowe pozycje. Zainteresowanym polecamy następujące pozycje z których
@@ -43,3 +43,7 @@ sami często korzystaliśmy:
 2. **Stanley R. Pliska**: "Wprowadzenie do matematyki finansowej", WNT;
 3. **Maria Podgórska, Joanna Klimkowska**: "Matematyka finansowa", PWN;
 #. **Andrzej Sławiński**: "Rynki Finansowe" PWE Warszawa 2006;
+#. A. Weron, R. Weron: Inżynieria Finansowa, WNT, Warszawa 2009;
+#. S. Benninga, Z. Wiener, Mathematica in Education and Research
+   Vol. 7 No. 1-4, (1998) oraz Vol.6 No. 3-4, (1997), (seria
+   artykułów)

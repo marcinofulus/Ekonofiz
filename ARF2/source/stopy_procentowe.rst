@@ -15,10 +15,10 @@ Jeśli zdefiniujemy zwrot z inwestycji jako:
 .. math::
     :label: zwrotR
 
-    R = \frac{P - P_0}{P_0},
+    R = \frac{S - S_0}{S_0},
 
  
-gdzie: :math:`P` końcowa wartość naszego portfela a :math:`P_0` to
+gdzie: :math:`S` końcowa wartość naszego portfela a :math:`S_0` to
 jego wartość początkowa.
 
 Jeśli w portfelu mamy instrument dłużny (instrument stałego dochodu) o
@@ -29,11 +29,11 @@ licząc wartości portfela w kolejnych etapach inwestowania otrzymujemy:
    :nowrap:
    
    \begin{alignat*}{4}
-     P_1  = &\; P_0 (1+ r_1)  \\
-     P_2 = &\; P_1 (1+ r_2) = P_0 (1+ r_1) (1+ r_2) \\
-     P_3 = &\; P_2 (1+ r_3) = P_0 (1+ r_1) (1+ r_2) (1+ r_3)\\
+     S_1  = &\; S_0 (1+ r_1)  \\
+     S_2 = &\; S_1 (1+ r_2) = S_0 (1+ r_1) (1+ r_2) \\
+     S_3 = &\; S_2 (1+ r_3) = S_0 (1+ r_1) (1+ r_2) (1+ r_3)\\
      \dots\quad\ &  \\
-     P_n = &\; P_{n-1} (1 + r_n) = P_0 (1 + r_1) (1+ r_2) (1+ r_3)\cdots (1+ r_n) 
+     S_n = &\; S_{n-1} (1 + r_n) = S_0 (1 + r_1) (1+ r_2) (1+ r_3)\cdots (1+ r_n) 
    \end{alignat*}
 
 

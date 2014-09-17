@@ -1,4 +1,4 @@
-1. wycena opcji, binarne- pokrecone oznacznia - Am + ciąły 
+1. stopy proc. zmienic P -> S
 2. Struk. stóp - wywalic i zmergować z Appendixem
 3. Hedge: <<rysunek wynik transakcji>> WAGA!
    - Hedging with Forwards and Futures na konkretnych danych 
