@@ -546,9 +546,9 @@ co graficznie możemy przedstawić:
 Hedging na drzewie binarnym:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Niech opcja będzie do kupienia po 16! Ponieważ jej cena godziwa,
-tzn. taka przy której nie zachodzi arbitraż, wynosi 15 istnieje
-możliwość zarobienia. Wystawiając opcje narażamy się na duże
+Przypuścmy, że mamy kupca na opcję po 16, której cena godziwa,
+tzn. taka przy której nie zachodzi arbitraż, wynosi 15. Istnieje
+możliwość zarobienia. Wystawiając jednak opcje narażamy się na duże
 ryzyko. Na naszym modelowym rynku idealnym jesteśmy zainteresowani
 zyskiem bez ponoszenia ryzyka.
 
