@@ -1351,6 +1351,216 @@ cierpi skutkiem zmian nie tylko czasu i zmienności ceny ale także
 wielkości mierzonych przez współczynniki theta i Vega (kappa).
 
 
+Delta hedging, przykład na drzewie binarnym
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Wyobraźmy sobie, że mamy rynek na którym opcja sprzedaży na aktywo ma
+cenę godziwą 15. Ponadto wyobrażmy sobie, że mamy chętnego na taką
+opcję za 16. Wynika z tego, że można zarobić 16-15=1 wystawiając opcję
+sprzedaży. Jednak wystawieniem opcji narażamy się na ryzyko poniesienia
+niczym nie ograniczonej straty! Czy możemy zarobić "naszą" złotówkę
+nie ponosząc ryzyka? Okazuje się, że tak i właśnie delta-hedging może
+nam w tym pomoć.
+
+Postąpimy tak. Wystawimy za 16 opcje. Zgodnie z ideą hegdingu,
+będziemy utrzymywać taki portfel by w KAŻDYM scenariuszu ewolucji ceny
+aktywa, otrzymać zysk 1, wynikający z początkowej różnicy ceny godziwej
+i rynkowej.
+
+Do ilustracji tej sytuacji wykorzystamy model binarny. Najpierw
+zbudujemy czteropokoleniowe drzewo cen aktywa, startując od
+wartości 100. Będzie to drzewo addytywne - zakładamy, że cena może
+wzrosnąc lub zmaleć o 20 w jednym kroku. Ponadto dla przejrzystości
+zakładamy zerową stopę procentową. Łatwo się przekonać, że w takiej
+sytuacji model będzie wolne od arbitrażu jeśli prawdopodobieństwa
+wzrostu lub spadku ceny aktywa będą równe :math:`\frac{1}{2}`. 
+
+Zacznijmy od zdefiniowania kilku pomocniczych funkcji:
+
+.. sagecellserver::
+
+    import numpy as np 
+    def gen_all(niter,SP = 4.0,q=0.175,delta1=None,delta2=None):
+        SP = [[SP]]
+
+        for i in range(niter):
+            tmp = []
+            for s in SP[-1]:
+                if delta1==None or delta2==None:
+                    tmp+= [ (1+q)*s, s/(1+q) ]
+                else:    
+                    tmp+= [ s+delta1, s-delta2 ]
+            SP.append(tmp)
+        return SP
+
+    def gen_recombining(niter,SP = 4.0,q=0.175,delta1=None,delta2=None):
+        SP = [[SP]]
+
+        for i in range(niter):
+            tmp = []
+            for s in SP[-1]:
+                if delta1==None or delta2==None:
+                    tmp+= [ (1+q)*s]
+                else:    
+                    tmp+= [ s+delta1]
+
+            if delta1==None or delta2==None:
+                tmp+= [ s/(1+q)]
+            else:    
+                tmp+= [ s-delta2]
+
+
+            SP.append(tmp)
+        return SP
+
+    def plot_tree(SP):
+        plt = point( (0,SP[0][0]),size=244,color='gray',alpha=0.2,zorder=0)
+
+        if len(SP) == len(SP[-1]):
+            for l,prices in enumerate(SP):
+                for i,p in enumerate(prices):
+                    if l>0:
+                        plt+=point2d( (l,p),size=244,color='gray',alpha=0.2,zorder=0,faceted=True )
+                    plt+= text("%0.1f"%p,(l,p),color='black',figsize=(5,3))
+
+            for l in range(len(SP)-1):
+                for i in range(l+1):
+                    plt+=arrow2d( (l,SP[l][i]),(l+1,SP[l+1][i]), arrowshorten=16)
+                    plt+=arrow2d( (l,SP[l][i]),(l+1,SP[l+1][i+1]), arrowshorten=16)
+        else:
+            for l,prices in enumerate(SP):
+                for i,p in enumerate(prices):
+                    if l>0:
+                        plt+=arrow2d( (l-1,SP[l-1][int(i/2)]),(l,p), arrowshorten=16)
+                        plt+=point2d( (l,p),size=244,color='gray',alpha=0.2,zorder=0,faceted=True )
+                    plt+= text("%0.1f"%p,(l,p),color='black',figsize=(5,3))
+        plt.axes_labels(["rok","wartosc"])
+        plt.axes_range(xmin=-.2, xmax = len(SP)-1+0.2,ymin=0,ymax=SP[-1][0]+1)
+        return plt
+
+    def plot_tree2(SP,OP):
+        plt = point( (0,SP[0][0]),size=244,color='gray',alpha=0.2,zorder=0)
+
+        if len(SP) == len(SP[-1]):
+            for l,(prices,oprices) in enumerate(zip(SP,OP)):
+                for i,(p,op) in enumerate(zip(prices,oprices)):
+                    if l>0:
+                        plt+=point2d( (l,p),size=244,color='gray',alpha=0.2,zorder=0,faceted=True )
+                    plt+= text("%0.2f"%op,(l,p),color='black',figsize=(5,3))
+
+            for l in range(len(SP)-1):
+                for i in range(l+1):
+                    plt+=arrow2d( (l,SP[l][i]),(l+1,SP[l+1][i]), arrowshorten=16)
+                    plt+=arrow2d( (l,SP[l][i]),(l+1,SP[l+1][i+1]), arrowshorten=16)
+        else:
+            for l,(prices,oprices) in enumerate(zip(SP,OP)):
+                for i,(p,op) in enumerate(zip(prices,oprices)):
+                    if l>0:
+                        plt+=arrow2d( (l-1,SP[l-1][int(i/2)]),(l,p), arrowshorten=16)
+                        plt+=point2d( (l,p),size=244,color='gray',alpha=0.2,zorder=0,faceted=True )
+                    plt+= text("%0.2f"%op,(l,p),color='black',figsize=(5,3))
+        plt.axes_labels(["rok","wartosc"])
+        plt.axes_range(xmin=-.2, xmax = len(SP)-1+0.2,ymin=0,ymax=SP[-1][0]+1)
+        return plt
+    print "Wczytano funkcje pomocnicze"
+
+
+Wygenerujmy więc nasze eksperymentalne drzewo cen aktywa i narysujmy
+je:
+
+.. sagecellserver::
+
+    N = 3
+    S0 = 100
+    Delta = 20
+    SP = gen_recombining(N,SP=S0,delta1=Delta,delta2=Delta)
+    plt_sp = plot_tree(SP)
+    plt_sp.set_axes_range(ymax=170)
+    plt_sp.show()
+
+Wycenimy teraz opcję sprzedaży aktywa za cenę :math:`K` w czasie
+:math:`t=3`. Zaczynamy od ceny opcji w czasie jej wynonania i
+propagujemy w dół drzewa obliczając za każdym razem średnie ważone z
+miarą arbitrażową :math:`p`. Dochodzimy w ten sposób do ceny opcji w
+czasie :math:`t=0`. Algorytm może być zaimplementowany na przykład
+tak:
+
+.. sagecellserver::
+
+    K = 100
+    p = 0.5
+    OP = [ [max(0,s-K) for s in SP[N]] ]
+    for idx in range(N):
+        el = [ (p*OP[-1][i]+(1-p)*OP[-1][i+1]) for i in range(len(OP[-1])-1)] 
+        OP.append(el)
+    OP.reverse()
+    print "Cena opcji Call wynosi:",OP[0]
+    plot_tree2(SP,OP)
+
+Mając ceny opcji i aktywa w każdym miejscu drzewa, możemy wyliczyć
+współczynnik delta. W przypadku modelu dyskretnego będzie on dany
+przez:
+
+.. math::
+
+   \Delta_i = \frac{O^{up}_{i+1}-O^{down}_{i+1}}{S^{up}_{i+1}-S^{down}_{i+1}},
+
+czyli delta w danym węźle drzewa jest ilorazem różnic cen opcji i
+aktywa w chwili następnej. Wynika z tego, że deltę możemy policzyć dla
+wszystkich z wyjątkiem ostatniego pokolenia. Wykorzystując procedurę
+wizualizacyjną możemy obliczyć wszystkie delty dla naszego drzewa i
+zestawić wykres z wykresem ceny opcji.
+
+
+.. sagecellserver::
+
+    delta_tree = [np.diff(np.array(op))/np.diff(np.array(sp)) for op,sp in zip(OP[1:],SP[1:])]
+    delta_tree.append([0]*len(SP[-1]))
+    html.table([[plot_tree2(SP,delta_tree),plot_tree2(SP,OP)]])
+
+
+Strategia delta hedge zakłada, że w każdym momencie powinniśmy mieć
+dokładnie tyle jednostek aktywa ile wynosi delta. Mamy więc:
+
+ - Wystawiliśmy opcję za którą dostaliśmy 16
+ - Tworzymy portfel składający się z aktywa i depozytu bankowego lub
+   kredytu, na starcie mamy na depozycie 16 ze sprzedaży opcji
+ - W każdym punkcie drzewa modyfikujemy portfel tak by mieć dokładnie
+   :math:`\Delta` jednostek aktywa. Jeśli trzeba to się zadłużamy.
+
+ Możemy więc łatwo zaimplementować funkcję :code:`calculate_evo`,
+która obliczy dla danego scenariusza w każdym momencie portfel
+zabezpieczający.. Następnie generujemy liste wszystkich scenariuszy i
+w elementcie interaktywnym obliczamy kolejne portfele.
+
+.. admonition:: Poeksperymentujmy sami
+
+
+.. sagecellserver::
+
+    def calculate_evo(SP,OP,p_,depo=0,c=1):
+        Pt = [(0,depo,SP[0][0])]
+        for i,(k,k_next) in enumerate(zip(p_,p_[1:])):
+            delta = c*(OP[i+1][k]-OP[i+1][k+1])/(SP[i+1][k]-SP[i+1][k+1])
+            x = delta - Pt[-1][0]
+            Pt.append( (delta,Pt[-1][1]-x*SP[i][k],SP[i+1][k_next]) )    
+        return (Pt[-1][0]*Pt[-1][2]+Pt[-1][1]-max(c*( Pt[-1][2]-K),0),Pt)
+
+    all_paths = map(lambda x:[0]+np.cumsum(x).tolist(),CartesianProduct(*( N*[[0,1]])).list() )
+    @interact 
+    def _(path = all_paths):
+        p = plot_tree2(SP,OP)
+        p += line( [( i,SP[i][p_] ) for i,p_ in enumerate(path)],color='red')
+        if SP[-1][path[-1]]>K:
+            print "Opcja jest w cenie i musimy doplacic", SP[-1][path[-1]]-K
+        else:
+            print "Opcja jest bezwartościowa"
+        html.table( calculate_evo(SP,OP,path,depo=16)[1])
+        print "W czasie wykonania mamy w sumie:",calculate_evo(SP,OP,path,depo=16)[0]
+        p.show(figsize=3)
+
+
+
 Strategia  gamma - neutralnej (przy delta = 0)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
