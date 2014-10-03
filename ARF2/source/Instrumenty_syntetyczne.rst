@@ -332,8 +332,36 @@ kupienie obligacji o tym samym terminie zapadalności jak termin
 wygaśnięcia opcji (czyli :math:`T`) replikuje wypłatę z zakupu opcji
 Put.
 
-Zobaczmy jak to pracuje na przykładzie. Po pierwsze zdefiniujmy z
-systemie Sage wypłaty opcji Put i Call oraz wzory Blacka-Scholesa:
+Graficznie wygląda to tak:
+
+.. figure:: figs/P_CSK.png
+   :align: center
+
+   Syntetyczna opcja Put. Korzystając z parytetu put-call w postaci:
+   :math:`P = C - S + K e^{-Rt}` możemy za pomoca trzech instrumentów
+   otrzymać taki sam efekt finansowy jak z instrumentu Put. 
+
+	 Na prawym panelu pomarańczowa gruba linia oznacza zależność
+	 zysku/straty z opcji Put. Na prawym panelu naniesiona trzy
+	 instrumenty z prawej strony równania :eq:`IS2`. Dodając je do
+	 siebie otrzymujemy zysk/stratę całego portfela. Suma ta jest
+	 zaznaczona na wykresie lewym czarną linią. Widzimy, że pokrywa się
+	 ona zyskiem/stratą z opcji Put.
+
+
+
+
+
+
+
+
+Krok po kroku
+~~~~~~~~~~~~~
+
+Zobaczmy jak to można samemu utworzyć powyższe wykresy. Po pierwsze
+zdefiniujmy z systemie Sage wypłaty opcji Put i Call oraz wzory
+Blacka-Scholesa:
+
 
 .. sagecellserver::
 
@@ -348,6 +376,7 @@ systemie Sage wypłaty opcji Put i Call oraz wzory Blacka-Scholesa:
     d2=d1-sigma*sqrt(T)
     C(S0,K,r,T,sigma) = S0*cdf(d1)-K*exp(-r*T)*cdf(d2)
     P(S0,K,r,T,sigma) = K*exp(-r*T)*cdf(-d2)-S0*cdf(-d1)
+    print "Wczytano definicje!"
 
 Rozważmy aktywo o wartości chwilowej (spot price) :math:`S=50` i
 zmienności (volatility) :math:`\sigma=0.5`. Ponadto, niech wolna od
@@ -382,48 +411,46 @@ zaznaczono ich sumę - czyli nasz instrument syntetyczny. Szeroka
 różowa linia oznacza profil zysku straty dla opcji Call. Spełnienie
 parytetu powoduje, że obie linie się pokrywają.
 
-.. admonition:: Poeksperymentuj!
-
-   Przypuśćmy, że nie wycenilismy opcji Put wg. wzoru Blacka-Scholesa,
-   tylko od kolegi, który zawsz ma odmienne od rynku zdanie,
-   dowiedzieliśmy się, że :math:`P_p=5.94`. Przeprowadźmy te same
-   obliczenia i zobaczmy czy parytet Put-Call dalej będzie spełniony!
-
    
-
-..
-   A co w przypadku istnienia krótkiej sprzedaży??
-
-   Możemy pożyczyć obligacje (na stopie wolnej od ryzyka). odsetki
-   zarobione na pożyczonej obligacji (pozycja długa w obligacji) pozwolą
-   na taki sam dochód jak w przypadku kupienia Put. Korzystając z prawa
-   jednej ceny tak skonstruowany portfel i opcja Put musi mieć taka sama
-   wartość.
-
-
-Graficznie przedstawia to wykres
-
-.. image
 
 
 Korzystając ze wzoru :eq:`IS1` możemy tworzyć instrumenty syntetyczne
-korzystając z cztere "cegieł" wymienionych powyżej.
+korzystając z czterech "cegieł" wymienionych powyżej.
 
-Syntetyczna pozycja Long Stock można stworzyć syntetyczną pozycję
-posiadania akcji poprzez kupienie Call, sprzedaż Put, i zainwestowanie
-ceny wykonania na stopę wolna od ryzyka do wygaśnięcia.
+
+.. admonition:: Poeksperymentuj z komputerem!
+
+   1. Przypuśćmy, że nie wycenilismy opcji Put wg. wzoru
+      Blacka-Scholesa, tylko od kolegi, który zawsze ma odmienne od
+      rynku zdanie, dowiedzieliśmy się, że
+      :math:`P_p=5.94`. Przeprowadźmy te same obliczenia i zobaczmy
+      czy parytet Put-Call dalej będzie spełniony!
+
+   #. Napisz własne programy rysujące pozostałe pięc instrumentów syntetycznych.
+
+
+Syntetyczna pozycja Long Stock
+------------------------------
+
+Można stworzyć syntetyczną pozycję posiadania akcji poprzez kupienie
+Call, sprzedaż Put, i zainwestowanie ceny wykonania na stopę wolna od
+ryzyka do wygaśnięcia.
 
 .. math::
 
    S = C - P + Ke^{-Rt}
 
 
-Graficznie  pokazuje to rysunek poniżej 
+Graficznie pokazuje to rysunek poniżej:
 
-.. image
+.. figure:: figs/S_CPK.png
+   :align: center
+
+   Parytet put-call: :math:`S = C - P + Ke^{-Rt}`
 
 
-Long Call
+Syntetyczny Long Call
+---------------------
 
 Można zbudować pozycje syntetyczną long Call poprzez kupienie Put,
 kupienie akcji za pożyczoną kwotę równa cenie wykonania i spłacanej w
@@ -431,15 +458,20 @@ chwili wygaśnięcia przy stopie wolnej od ryzyka.
 
 .. math::
 
-   C = P+ S - Ke^{-Rt}
+   C = P + S - Ke^{-Rt}
 
 
 Na wykresie 
 
-.. image
+.. figure:: figs/C_PSK.png
+   :align: center
+
+   Parytet put-call: :math:`C = P + S - Ke^{-Rt}`
 
 
-Syntetyczna sprzedaż  akcji  
+
+Syntetyczna sprzedaż akcji
+--------------------------
 
 Można utworzyć syntetyczną pozycja sprzedaży akcji (short) poprzez
 sprzedaż Call, kupienie Put, kupienie obligacji (stopa wolna od
@@ -452,10 +484,15 @@ ryzyka) za pożyczona cenę wykonania i trzymanie jej do zapadnięcia.
 
 Graficznie
 
-.. image
+.. figure:: figs/sS_PCK.png
+   :align: center
+
+   Parytet put-call: :math:`-S =  P - C - Ke^{-Rt}`
+
 
 
 Syntetyczna pozycja short Put
+-----------------------------
 
 Można stworzyć syntetyczną short Put poprzez sprzedaż opcji Call,
 kupno aktywa za pożyczone na stopę wolna od ryzyka do wygaśnięcia.
@@ -467,7 +504,10 @@ kupno aktywa za pożyczone na stopę wolna od ryzyka do wygaśnięcia.
 
 Graficznie przedstawia wykres
 
-.. image
+.. figure:: figs/sP_SCK.png
+   :align: center
+
+   Parytet put-call: :math:`-P = S - C - Ke^{-Rt}`
 
 
 Jeśli w miejsce kontraktów kasowych na aktywo wstawimy kontrakt

@@ -15,27 +15,25 @@ W dotychczasowej swej działalności tworzył od podstaw większość firm
 (10), w których pracował. M.in. tworzył pierwsze w Polsce, po wojnie,
 joint ventures partnerów prywatnych. Pełnił szereg funkcji
 menedżerskich m.in.: - Prezesa Zarządu Krajowego Funduszu Kapitałowego
-S.A. Prezesa Stowarzyszenia Towarzystw Funduszy Inwestycyjnych w
-Polsce. Prezesa Zarządu Górnośląskiego Towarzystwa Funduszy
-Inwestycyjnych SA. Wcześniej Wiceprezes Zarządu Funduszu
-Górnośląskiego S.A. i Wiceprezes Zarządu Międzynarodowej Szkoły
-Finansów i Bankowości w Katowicach.
+S.A., Prezesa Izby Zarządzających Funduszami i Aktywami, Prezesa
+Stowarzyszenia Towarzystw Funduszy Inwestycyjnych w Polsce. Prezesa
+Zarządu Górnośląskiego Towarzystwa Funduszy Inwestycyjnych
+SA. Wcześniej Wiceprezes Zarządu Funduszu Górnośląskiego S.A. i
+Wiceprezes Zarządu Międzynarodowej Szkoły Finansów i Bankowości w
+Katowicach.
  
 Związany z rynkiem kapitałowym od 1991 roku. Był również Członkiem i
 przewodniczył pracom Prezydium Porozumienia na rzecz rozwoju polskiego
 rynku kapitałowego, Członkiem Rady Rynku Kapitałowego (2004r),
-założycielem i członkiem Polskiego Instytutu Dyrektorów – instytucji
-dedykowanego sprawom Corporate Governance- czyli zasadom etyki w
+założycielem i członkiem Polskiego Instytutu Dyrektorów - instytucji
+dedykowanego sprawom Corporate Governance - czyli zasadom etyki w
 biznesie.
 
 Był także członkiem prezydium Komitetu Koordynującego przy Związku
 Banków Polskich do Spraw Standardów w Bankowości - uczestniczył w
 grupie eksperckiej w zakresie Rynku Pieniężnego i Kapitałowego. W
-STFI - przewodniczył Zespołowi ds. Standardów. Ekspert pracujący dla
-Rady Businessu przy ONZ, oraz osoba związana z działalnością
-rozwijania Przedsiębiorczości współpracująca z European Forum for
-Entrepreneurship Research.
-
+Stowarzyszeniu Towarzystw Funduszy Inwerstycyjnych - przewodniczył
+Zespołowi ds. Standardów.
 
 Marcin Kostur
 -------------
