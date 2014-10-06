@@ -29,6 +29,7 @@ Praktyczny wstęp do komputerowej analizy Rynków Finansowych
    var*
    binarne
    forex
+   procent
 
 .. only::  html
 
