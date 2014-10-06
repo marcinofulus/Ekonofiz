@@ -24,7 +24,8 @@ Praktyczny wstęp do komputerowej analizy Rynków Finansowych
    binarne
    forex
    czas
-   
+   procent
+
 
 .. only::  html
 
