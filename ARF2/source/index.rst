@@ -23,8 +23,8 @@ Praktyczny wstęp do komputerowej analizy Rynków Finansowych
    var*
    binarne
    forex
-   czas
-   procent
+..   czas
+..   procent
 
 
 .. only::  html

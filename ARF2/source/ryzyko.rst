@@ -14,14 +14,15 @@ tymi zagadnieniami. Przyjmijmy definicję ryzyka wg, `Teresy
 Kamińskiej:
 <https://ekonom.ug.edu.pl/web/download.php?OpenFile=103>`_.
 
-
  *Ryzyko oznacza możliwość osiągnięcia wartości końcowej kapitału
  (inwestycji, instrumentu finansowego) różniącej się od wartości
- oczekiwanej.  Działanie w warunkach ryzyka, dotyczy podejmowania
+ oczekiwanej. Działanie w warunkach ryzyka, dotyczy podejmowania
  decyzji odnośnie do zdarzeń, które mogą wystąpić z określonym
  prawdopodobieństwem.*
 
-Szczegółowe zostały już przedstawione w skrypcie `Wybrane Zagadnienia Analizy Rynków Finansowych 
+Szczegółowe rozważania dotyczące tego czym jest ryzyko i czym jest
+niepewność zostały już przedstawione w skrypcie `Wybrane Zagadnienia
+Analizy Rynków Finansowych
 <http://el.us.edu.pl/ekonofizyka/index.php/IRF:Ryzyko_i_zabezpieczenie_przed_ryzykiem_rynkowym>`_.
 
 Myśląc o ryzyku i kontrolowaniu go w jakiś sposób widzimy, ze jego

@@ -510,12 +510,105 @@ Graficznie przedstawia wykres
    Parytet put-call: :math:`-P = S - C - Ke^{-Rt}`
 
 
-Jeśli w miejsce kontraktów kasowych na aktywo wstawimy kontrakt
-futures to otrzymamy podobne zależności dla rynku futures.
+
+Jeśli w miejsce kontraktów kasowych na aktywo wstawimy do równania
+parytetu kontrakty terminowe to otrzymamy podobne zależności dla rynku
+futures ( forward).  W równości parytetu dla tego rynku opcje są
+opcjami dla kupna i sprzedaży kontraktu futures.
+
+**Podsumowując.**
+
+Równość zwana parytetem cen opcji call i put jest spełniona przy
+następujących warunkach:
+
+1. Opcje są opcjami europejskimi
+2. Cena wykonana jest identyczna dla opcji cal i opcji put. 
+3. Ceny transakcji są zerowe  (tzw. Rynek bez tarcia) 
+4. Stopy procentowe są niezmienne aż do terminu wygaśnięcia. 
+5. Akcja nie wypłaca dywidendy. 
+
+Parytet put-call jest skutecznym narzędziem pozwalającym na testowanie
+modeli wyceny opcji. Jeśli sprawdzany model wyceny prowadzi do
+wyliczenia cen które nie spełniają parytetu na rynku bez arbitrażu,
+należy uznać go za błędny i go odrzucić ( albo jeszcze nad nim
+popracować by usunąć jego braki).
+
+Parytet nie stosuje się do opcji amerykańskich jeśli  są wykonywane przed dniem wygaśnięcia.
+
+Wynika to z równań Blacka Scholes’a, które jest spełnione jeśli opcja
+nie zostanie wykonana przed wygaśnięciem.  Amerykańskie opcje call i
+put nie spełniają warunków parytetu, ale spełniają słabszą relacje:
+
+.. math::
+
+	S_0 - K \leq C - P \leq S0 - K e^{-Rt}
 
 
+Warunek wypłacania dywidendy czyli warunek nr. 5 parytetu jest dość
+łatwy do ominięcia jeśli uwzględni sie wartość czasową wypłacanej
+dywidendy zanim opcja wygasnie.  Wyniki takich wyliczeń, które
+polecamy do własnych wyliczeń można znaleźć:
+
+W pracy Weiyu Guo i Tie Su-“ Option Put-Call Parity Relations When the
+Underlying Security Pays Dividends”- International Journal of Business
+and Economics, 2006, Vol. 5, No. 3, 225-230 albo
+http://moya.bus.miami.edu/~tsu/ijbe2006.pdf
 
 
+Instrumenty syntetyczne
+-----------------------
+
+
+Kilka uwag o instrumentach syntetycznych. 
+
+Istnienie ich warunkuje ważność parytetu Call- Put. Do tego miejsca
+zajecie pozycji na rynku oznaczało kupno/sprzedaż aktywa lub kontraktu
+futures , kupno/sprzedaż opcji call lub put na dany
+instrument. Parytet call- put jest podstawa pewnego nowego innego
+spojrzenia na aktywo. Pozwala na tworzenie instrumentów rynkowych jako
+kombinacji innych instrumentów dających ten sam efekt i wartość dla
+inwestora.
+
+Pozycja syntetyczna pozwala na osiągnięcie tego samego zysku( lub
+straty) co posiadanie instrumentu poprzez zajecie dwu innych pozycji
+na tym samym rynku. To jest często bardzo wygodne.  Przykładowo, jeśli
+inwestor jest long call a chce być long put. Zamiast likwidować
+pozycję i otwierać nową ,inwestor może zostać long call a sprzedać
+aktywo lub kontrakt futures jeśli na takim rynku działa. Zamiast więc
+dwu transakcji zawiera jedną i to dzięki temu przyjmuje syntetyczną
+pozycje long put. Innymi słowy inwestor „sfabrykował” syntetyczną
+pozycję dającą ten sam zysk jak long put posiadając opcje call i
+sprzedając aktywo (kontrakt futures).
+
+Syntetyczne opcje muszą posiadać te same ceny wykonania i czasy
+wygaśnięcia, co jest konsekwencją założeń parytety call- put. Ponadto
+jeśli pozycja syntetyczna zawiera w sobie akcje i opcje, liczba akcji
+reprezentowanych przez opcje musi być równa ilości akcji.
+
+**Zalety instrumentów  syntetycznych.**
+
+Instrumenty syntetyczne  stwarzają w pewnych sytuacjach możliwości  które mogą być atrakcyjne dla ich posiadacza.
+
+1. Tworząc kontrakt syntetyczny wchodzimy w posiadanie instrumentu
+   który nie istnieje inaczej niż wspomniany syntetyk.
+2. W pewnych sytuacjach może być taniej kupić syntetyk niż instrument,
+   który syntetyk „ naśladuje” ze względu na opłaty, prowizje, spready
+   oraz wolumen który wymagany jest przy zakupie instrumentu
+   „fizycznego’.
+3. Często ( ale nie zawsze) syntetyki są mniej zmienne niż ceny
+   instrumentów fizycznych.
+4. Przykładem zalety syntetyka jest sytuacja krótkiej sprzedaży
+. Jeśli sprzedajemy krótko akcje nie musimy jej pożyczać i nie musimy
+się martwić o płatność dywidendy na sprzedaną krótko akcje.
+
+Niemniej jednak należy pamiętać , ze instrumenty syntetyczne pozwalają
+na większą spekulacje i pozwalają na uniknięcie depozytów
+zabezpieczających. Przykładowo może się wydawać , że w przypadku
+syntetycznego long/short futures można uniknąć płacenia depozytu
+zabezpieczającego. Niestety , pozycja short put wymaga tego samego
+depozytu jak pozycja short futures. Syntetyczna pozycja long futures
+wymaga wpłaty podiobnego rzędu jak „fizyczna” pozycja długa na rynku
+kontraktów fures.
 
 
 

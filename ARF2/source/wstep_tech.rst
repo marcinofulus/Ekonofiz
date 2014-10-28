@@ -17,7 +17,7 @@ osi odciętych jest przyszłość a na rzędnych prawdziwe pieniądze.
 .. image:: figs/sage_logo_new.png
    :alt: William Stein
    :align: right
-   :height: 52
+   :width: 25
 
 `Sage <http://sagemath.org>`_, jest pakietem `otwartego
 oprogramowania <http://pl.wikipedia.org/wiki/Otwarte_oprogramowanie>`_
