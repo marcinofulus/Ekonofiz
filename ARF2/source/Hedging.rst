@@ -1096,7 +1096,7 @@ dniowego po miesiącu.
 
 .. note:: 
 
-   Gdybyśmy mieli do dyspozycji kontrakty 30 dniowege na olej opałowy
+   Gdybyśmy mieli do dyspozycji kontrakty 30-dniowe na olej opałowy
    obliczylibysmy po prostu różnice ich kolejnych cen. 
 
 W Sage obliczenia możemy wykonać w następujący sposób:
@@ -1157,11 +1157,11 @@ wartości portfela oraz indeks SP500.
 
 .. sagecellserver::
 
-		import urllib2
+    import urllib2
     import numpy as np
     file = "https://dl.dropboxusercontent.com/u/11718006/hedgefutures2.txt"
     data = np.loadtxt(urllib2.urlopen(file))
-    plt = line(enumerate(data[:,0]/data[0,0]]),figsize=(8,2))
+    plt = line(enumerate(data[:,0]/data[0,0]),figsize=(8,2))
     plt += line(enumerate(data[:,1]/data[0,1]),color='green')
     plt.show()
 
@@ -1171,7 +1171,7 @@ portfela i kontraktu futures na indeks obliczamy:
 
 .. sagecellserver::
 
-		dP = np.diff(data[:,0])/data[:-1,0]
+    dP = np.diff(data[:,0])/data[:-1,0]
     dSP500 = np.diff(data[:,1])/data[:-1,1]
     plt = line(enumerate(dP),figsize=(8,2))
     plt += line(enumerate(dSP500),color='green')
