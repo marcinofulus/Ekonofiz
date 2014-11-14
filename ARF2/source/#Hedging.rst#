@@ -1,4 +1,4 @@
-﻿Hedging
+Hedging
 =======
 
 
@@ -1161,7 +1161,7 @@ wartości portfela oraz indeks SP500.
     import numpy as np
     file = "https://dl.dropboxusercontent.com/u/11718006/hedgefutures2.txt"
     data = np.loadtxt(urllib2.urlopen(file))
-    plt = line(enumerate(data[:,0]/data[0,0]]),figsize=(8,2))
+    plt = line(enumerate(data[:,0]/data[0,0]),figsize=(8,2))
     plt += line(enumerate(data[:,1]/data[0,1]),color='green')
     plt.show()
 
