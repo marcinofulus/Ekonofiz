@@ -97,7 +97,7 @@ oprocentowaniu, czy też biorąc pod uwagę stopę zwrotu do zapadalności.
    :figwidth: 340px
    :height: 230px
 
-   Krzywa rentowności
+   Krzywa dochodowości
 
 Stopy spot to stopy oprocentowania pożyczek dzisiaj: rok, 2 lata,
 5lat, 10 lat, etc...  Krzywa rentowności to pokazane aktualnych stóp
@@ -111,7 +111,7 @@ które obserwujemy na hipotetycznym rynku.  Instrumenty te są
 instrumentami emitowanymi przez Skarb Państwa (hipotetycznego) więc
 możemy przyjąć, że są to instrumenty o minimalnym ryzyku na naszym
 rynku i ryzyku podobnym.  Przyjmijmy ponadto, że instrumenty te mają
-wartość nominalna jednakową – powiedzmy 100 000.  
+wartość nominalna jednakową - powiedzmy 100 000.  
 
 Tak więc bierzemy pod uwagę:
 
@@ -410,6 +410,9 @@ będzie wynosiła :math:`2^n`. Nazwijmy ta funkcję :code:`gen_all()`:
                     tmp+= [ s+delta1, s-delta2 ]
             SP.append(tmp)
         return SP
+   print "Na przyklad gen_all(3) daje:"
+   html.table(gen_all(3))
+
 
 .. admonition:: Opis programu
 
@@ -433,6 +436,11 @@ wartości, co ma to jednak tę wadę, że możemy wygenerować ujemną stopę
 procentową. Drugą możliwością jest mnożenie wartości stopy procentowej
 w przypadku wzrostu przez pewną liczbę większą od jednego, a w
 przypadku zmalenia przez jej odwrotność. Łatwo się przekonać, że takie
+działanie zawsze prowadzi do drzewa rekombinującego. 
+
+.. admonition:: Poeksperymentuj sam
+
+   Wykonaj poniższy kod i porównaj wynik z poprzednim!
 
 
 .. sagecellserver::
@@ -454,6 +462,10 @@ przypadku zmalenia przez jej odwrotność. Łatwo się przekonać, że takie
                 tmp+= [ s-delta2]
             SP.append(tmp)
         return SP
+    print "Na przyklad gen_recombining(3) daje:"
+    html.table(gen_recombining(3))
+
+
 
 .. admonition:: Opis programu
 
@@ -772,6 +784,7 @@ Poniższy kod wykonuje :math:`N` kroków symulacji:
     M=10000;
     T=100.;
     h=T/N;
+    time=np.linspace(0.,1.,N)
 
     S0=8
     sigma=0.2

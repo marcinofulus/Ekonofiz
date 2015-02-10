@@ -216,7 +216,8 @@ Zabezpieczenie przy pomocy kontraktów Futures
 
 Short hedge, Long hedge.
 
-U podstaw korzystania z rynku terminowego  futures leżą następujące fakty:
+U podstaw korzystania z rynku terminowego futures leżą następujące
+fakty:
 
 1. Ponieważ ceny na rynku futures i rynku spot dotyczą tego samego
    aktywa (surowca) w dniu dostawy ceny te powinny być równe. Gdyby
@@ -261,13 +262,8 @@ Taka transakcja zabezpieczająca nazywa się *Short Hedge*, gdzie
 (surowca, akcji, itd.) jako instrumenty pochodnego (futures) co
 zabezpiecza przed stratami spadku ceny instrumentu
 posiadanego. Zastosowanie właściwe takiej strategii pozwala na to by
-zyski z instrumentu pochodnego równoważyły straty z pozycji długiej (i
-odwrotnie).
-
-**Short hedge** jest często stosowana strategia zabezpieczania przez
-producentów (surowce, produkty spożywcze, etc.), którzy chętnie
-poniosą pewne koszty „zamrażając„ ceny w przyszłości.
-
+zyski z instrumentu pochodnego równoważyły straty z pozycji długiej
+(i\ odwrotnie).
 
 **Short hedge** jest często stosowana strategia zabezpieczania przez
 producentów (surowce, produkty spożywcze, etc.), którzy chętnie 
@@ -463,10 +459,7 @@ Ryzyko bazy, a właściwie jego skutki czasem powoduje bardzo duże
 zaskoczenie tak, jak to miało miejsce w transakcjach Metallgeselschaft
 AG. Firma ta doświadczyła boleśnie istnienia ryzyka bazy w handlu nie
 metalami (jak by to mogło kojarzyć się z nazwą), ale ropa naftową, przy
-rolowaniu zabezpieczenia i przejściu z jednego kontraktu terminowego
-na inny.
-
-Efekt ryzyka bazy  ma jeszcze inne konsekwencje.
+rolowaniu zabezpieczenia.
 
 Powstaje pytanie ile kontraktów futures jest potrzebne do
 zabezpieczenia pozycji kasowej?
@@ -514,23 +507,60 @@ pozycji na rynku kasowym jest równa:
 W przypadku dyskutowanych przykładów powyżej ceny aktywa na rynku
 futures były takie same jak zmiany ceny aktywa na rynku
 kasowym. Niestety nie zawsze tak jest w praktyce i co za tym idzie,
-idealne zabezpieczenie nie zawsze jest możliwe. Wtedy jesteśmy
-zmuszeni zadowolić się częściowym zabezpieczeniem.  Nie zawsze
-istnieje kontrakt pochodny oparty na tym samym aktywie i musimy
+idealne zabezpieczenie nie zawsze jest możliwe. 
+
+A to dlatego, że:
+
+1. Zabezpieczane aktywo może nie być dokładnie takie samo jak aktywo
+   będące podstawą kontraktu futures.  Przykładowo dla rynku surowców
+   może różnic się co do wagi, jakości, ilości jaki samego surowca (
+   szukanie aktywa o podobnym zachowaniu) .
+2. Zabezpieczając nie musimy znać dokładnego terminu zakupu lub
+   sprzedaży aktywa.
+3. Kontrakt futures może wymagać zamknięcia go przed jego miesiącem
+   dostawy
+
+Wtedy jesteśmy zmuszeni zadowolić się częściowym zabezpieczeniem. Nie
+zawsze istnieje kontrakt pochodny oparty na tym samym aktywie i musimy
 dopasować instrument zbliżony do kasowego, którego zmiany nie
 dokładnie korelują ze zmianami instrumentu podstawowego. Takie
 zabezpieczenie nazywane jest **cross hegde** w odróżnieniu od **direct
 hedge**, czyli sytuacji z poprzednich przykładów gdy korelacja zmian
 były pełne.
 
-Jeśli kontraktów odzwierciedlających idealnie zmiany aktywa brak to
-jakie należy wybierać??
 
-Jeśli wybieramy kontrakt futures to data dostawy (miesiąc) musi być
-najbliższa terminowi transakcji na rynku kasowym, ale późniejsza niż
-czas zabezpieczenia. Jeśli nie ma kontraktu futures na aktywo
-zabezpieczane należy wybierać kontrakt futures, którego cena jest
-najlepiej skorelowana z ceną zabezpieczanego aktywa.
+Cross hedging
+~~~~~~~~~~~~~ 
+
+Ponownie rozważmy definicje bazy - basis. Baza (basis) to róznica
+miedzy ceną kasową aktywa zabezpieczanego a cena kontraktu futures na
+to aktywo. Jeśli zabezpieczane aktywo jest identyczne co aktywo
+podstawowe dla kontraktu futures, cena aktywa na rynku kasowym i cena
+kontraktu futures powinny "zbiegać się" (konwergencja) w pobliżu
+terminu dostawy futures. Ta konwergencja nazywana jest też cena
+bazy. Baza nie wpływa na cenę futures ale ma wpływ na cenę dostawy
+fizycznej. Jej zachowania generalne zachowania to:
+
+a. Sezonowość zachowania
+b. Zmienność bazy jest zazwyczaj mniejsza niż zmienność ceny
+c. Cena bazy wprowadzić dodatkowe ryzyko zmiany ceny powyżej, jak i
+poniżej ceny futures.
+
+Jednak jeśli okresy do zapadalności użytych instrumentów będą różne to
+zabezpieczenie nie będzie już tak idealne jak w przypadku gdy
+zapadalności na instrumentu kasowego i zapadalności instrumentu
+futures będą równe. Współczynnik h nie jest wtedy równy 1. W takich
+przypadkach stosuje się zabezpieczenie "cross hedge".  
+
+Praktyczne wskazówki przy stosowaniu tego typu hedgingu to, w
+przypadku gdy terminy dostawy dostępnych kontraktów na rynku futures
+nie zgadzaja się z teminani zabezpieczenia to wybieramy kontrakt
+futures to data dostawy (miesiąc) musi być najbliższa terminowi
+transakcji na rynku kasowym ale późniejsza niż czas
+zabezpieczenia. Jeśli nie ma kontraktu futures na aktywo zabezpieczane
+należy wybierać kontrakt futures, którego cena jest najlepiej
+skorelowana z ceną zabezpieczanego aktywa. Korelacje taką określa się
+poszukując najmniejszej wariancji.
 
 
 Zabezpieczenia metodą najmniejszej wariancji
@@ -1063,15 +1093,28 @@ korelacja pomiędzy tymi surowcami. Rzeczywiście, ich historyczne
 comiesięczne notowania wyglądają następującą:
 
 
+
+    ..
+       import urllib2
+       import numpy as np
+       file = "https://dl.dropboxusercontent.com/u/11718006/hedgefutures.txt"
+       data = np.loadtxt(urllib2.urlopen(file))
+       plt = line(enumerate(data[:,0]),figsize=(8,2))
+       plt += line(enumerate(data[:,1]),color='green')
+       plt += line(enumerate(data[:,2]),color='red')
+       plt.show()
+
+
 .. sagecellserver::
 
-		import urllib2
     import numpy as np
-    file = "https://dl.dropboxusercontent.com/u/11718006/hedgefutures.txt"
-    data = np.loadtxt(urllib2.urlopen(file))
-    plt = line(enumerate(data[:,0]),figsize=(8,2))
-    plt += line(enumerate(data[:,1]),color='green')
-    plt += line(enumerate(data[:,2]),color='red')
+    Jet = np.array([0.334,0.309,0.378,0.43,0.415,0.44,0.512,0.564,0.614,0.595,0.661,0.701,0.781,0.78,0.771,0.719,0.762,0.785,0.796,0.9,1.017,0.982,1.028,0.863,0.87,0.815,0.748,0.77,0.821,0.767,0.711,0.764,0.738,0.622,0.543,0.515,0.533,0.551,0.63,0.669,0.666,0.653])
+    Oil60 = np.array([0.341,0.317,0.388,0.435,0.428,0.445,0.515,0.563,0.611,0.595,0.65,0.667,0.704,0.724,0.702,0.651,0.724,0.779,0.785,0.883,0.987,0.971,0.999,0.895,0.805,0.756,0.705,0.744,0.776,0.764,0.709,0.745,0.73,0.643,0.568,0.548,0.541,0.548,0.64,0.673,0.674,0.658])
+
+    Oil90 = np.array([0.344,0.323,0.391,0.439,0.435,0.453,0.521,0.57,0.617,0.598,0.643,0.65,0.666,0.69,0.68,0.636,0.719,0.78,0.788,0.878,0.979,0.963,0.962,0.833,0.764,0.738,0.7,0.743,0.78,0.77,0.717,0.751,0.739,0.649,0.571,0.55,0.543,0.55,0.641,0.677,0.68,0.666])
+
+    plt = line(enumerate(Jet),figsize=(8,2))
+    plt += line(enumerate(Oil90),color='green')
     plt.show()
 
 
@@ -1087,7 +1130,7 @@ numerycznie korzystając z narzędzi znajdujących się w bibliotece
 `numpy`. Uczynimy to w dwóch krokach. W pierwszej kolejności obliczmy
 miesięczne zmiany cen. Dla wartości ceny paliwa lotniczego na rynku
 kasowym jest to proste: obliczamy różnicę pomiędzy każdą parą
-kolejnych wartości. Dla kontraktu Futures jest torche bardziej
+kolejnych wartości. Dla kontraktu Futures jest torchę bardziej
 skomplikowane zadanie. Jeżeli kupimy kontrakt 90 dniowy to po 30
 dniach mamy kontrakt 60 dniowy w ręce. Dlatego mając możliwość handlu
 kontraktami 60 i 90 dniowymi możemy efektywnie użyć ich do hedgingu na
@@ -1103,8 +1146,8 @@ W Sage obliczenia możemy wykonać w następujący sposób:
 
 .. sagecellserver::
 
-		dJet = np.diff(data[:,0])
-		dOil = data[1:,2]-data[:-1,1]
+		dJet = np.diff(Jet)
+    dOil = Oil90[1:]-Oil60[:-1]
 
 Możemy teraz policzyć macierz kowariancii przyrostów cen oraz ich
 współczynnik kolelacji:

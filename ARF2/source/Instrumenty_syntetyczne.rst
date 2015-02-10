@@ -902,12 +902,113 @@ zmienną a płacimy stałą (kupujemy FRA). Jeśli chcemy ustabilizować
 przyszła stopę inwestycji płacimy zmienną a otrzymujemy stałą
 (sprzedajemy FRA).
 
-Swaption
-~~~~~~~~
+Swaption - swapcja
+------------------
 
-Instrument finansowy, który jest opcją na zakup/sprzedaż swapu.  Długa
+Wśród instrumentów finansowych służących do zarządzania ryzykiem stopy
+procentowej ważne miejsce zajmuje Swapcja (swaption). Jest to
+instrument finansowy, który jest opcją na zakup/sprzedaż swapu. Długa
 pozycja w opcji kupna daje prawo, ale nie obowiązek kupna
-swapu. Posiadacz opcji sprzedaży może, ale nie musi sprzedać swap o
-określonych wcześniej cechach, po określonej cenie.
+swapu. Innymi słowy swapcja daje temu, kto ją posiada prawo (ale nie
+obowiązek) do zawarcia umowy swap'u z wystawcą swapcji. Warunki
+transakcji swap'u ustalone zostają w umowie swapcji . Warunki te
+okreslają: nominalna kwota główna wymiany, okresowość płatności stron
+(np. półrocznie, rocznie), płacone i otrzymywane stopy dla wymiany
+płatności, które to stopy określane są jako cena wykonania swapcji.
+
+Podobne jak w przypadku opcji, swapcja może mieć cechy opcji
+europejskiej tzn. wykonanie w dacie wygaśnięcia, albo cechy opcji
+amerykańskiej- wykonalność w dowolnej dacie od zawarcia umowy do daty
+wygaśnięcia.
+
+Swapcja typu amerykańskiego daje większą elastyczność w wyborze
+najlepszego czasu wykonania niż swapcja europejska co ma odbicie w
+cenie. Swapcje amerykańskie są znacznie droższe od europejskich.
+
+Wysokość premii za swapcje jest ustalana miedzy nabywcą a
+sprzedającym. Swapcja jest instrumentem OTC, czyli umową zawieraną
+pomiędzy bankiem specjalizującym się w transakcjach swap a klientem.
+Zależy ona od stóp procentowych, ich zmienności i czasu do
+wygaśnięcia. Data wygaśnięcia swapcji może wynosić i pięć lat od
+chwili zawarcia umowy ale typowe okresy ustalania stóp procentowych są
+między trzy a 12 miesięcy.
 
 
+
+.. admonition:: Przykład:
+
+   Firma z kraju Euro kupuje swapcje od Banku w dniu 23 października
+   roku1, którą może wykonać w dowolnym czasie do 23 października
+   następnego roku. Firma bowiem spodziewa się zawarcia transakcji
+   kredytowej gdzieś w przyszłości do roku czasu i zamierza wejść w
+   tym czasie w transakcje swapu płatności.  Swap dotyczy kapitału w
+   wysokości 100 milionów USD i terminu 5 lat. Firma zamierza zapewnić
+   sobie płatności , powiedzmy, 1% stałego oprocentowania i otrzymywać
+   zmienne w wysokości USD LIBOR, w sześciomiesięcznych płatnościach
+   swapowych. Premia za swapcje wynosi , powiedzmy, 300 000 i jest
+   płatna w EUR.
+
+Przyczyna dla której firma kupiła swapcje to przewidywanie ze firma
+wejdzie ( lub może wejść) w umowę swapu kiedyś w ciągu roku. W ramach
+tej umowy zapewnia sobie płatności stało- procentowe na poziomie 1%by
+otrzymywać USD LIBOR. Taki poziom płatności byłby dla niej
+zadawalający. Chce wiec zapewnić sobie takie warunki swapu, którego
+umowę chce zawrzeć w przyszłości. Obawia się jednak ,ze oprocentowanie
+stało procentowe może wzrosnąć zanim umowa swapu się
+rozpocznie. Płacąc premie za swapcje zabezpiecza sobie już dziś niższe
+płatności oprocentowania stałego.
+
+Jeśli stopy wzrosną zanim firma będzie chciała zacząć swap to
+oprocentowanie stałe też wzrośnie wtedy firma wykorzysta swapcje i
+wejdzie w umowę swapu z bankiem płacąc 1% stałego procentowania a
+otrzymując stopę LIBOR w dolarach amerykańskich.
+
+Jeśli stopy obniżą się to oprocentowanie stałe też będzie niższe i
+firma nie skorzysta ze swapcji wchodząc w umowę swapu na warunkach
+rynkowych płacąc niższą stopę stałą niż 1 % a otrzymując LIBOR w USD.
+
+**Dlaczego Bank  wystawia swapcje? **
+
+Wystawiając swapcje bank bierze na siebie ryzyko, ze w czasie od
+wystawienia swapcji do jej wygaśnięcia stopy procentowe mogą się
+zmienić w kierunku niekorzystnym i swapcja zostanie wykorzystana przez
+jej posiadacza. Gdy to się zdarzy wystawca swapcji jest zobowiązany do
+zawarcia kontraktu swapu na warunkach lepszych dla posiadacza swapcji
+niż aktualne warunki rynkowe.
+
+W zamian za to ryzyko zyskuje premie za wystawienie swapcji. Wystawca
+opcji spodziewa się zysku z zawartych transakcji to znaczy, ze premia
+za swapcje przewyższy straty na oprocentowaniu gdy posiadacz swapcji
+ją wykorzysta. Najwięcej zyskuje gdy swapcja nie zostaje wykonana (
+podobnie jak w przypadku opcji).
+
+Jeśli swapcja zostaje wykonana, czyli stopy procentowe wykonywane (
+wynikające z umowy swapcji) są bardziej korzystne dla posiadacza
+swapcji w stosunku do stóp na rynku swapów, to zysk posiadacza swapcji
+to niższe płatności oprocentowania albo wyższe przychody z
+oprocentowania w swapie. A jego stratą jest płacona za swapcje premia.
+
+Należy podkreślić, że ryzykom wystawcy swapcji może być duże jeśli
+zmienność stóp procentowych na rynku jest znaczna, a nominał kapitału
+wielki. Załóżmy że swap dotyczy 100 milionów a posiadacz swapcji
+zamierza płacić 1% stałego otrzymując LIBOR w zamian. Gdy stopy na
+rynku swapów będą równe np. 2% skorzysta on z swapcji a jej wystawca
+będzie otrzymywał mniej niż stopy rynkowe stałe ( a pewnie i mniej niż
+LIBOR, który będzie płacił). Jego „ strata” w tym przypadku wyniesie
+1% (2%-1%) roczne od kapitału czyli 1 milion rocznie. Jeśli stopy
+będą bardziej zmienne ( i wyniosą np. 3%) to rozmiar tej straty
+wyniesie 2 miliony. W przypadku dużej zmienności na rynku stóp
+procentowych premia za swapcje będzie tez wyższa.
+
+Swapcje stosuje się by zabezpieczyć swą ekspozycje na ryzyko stóp
+procentowych, w przypadku spodziewanego zawierania swapu w
+przyszłości. Swapcja gwarantuje najgorszy przypadek stóp dla
+swapu. Dla posiadacza swapcji, który chce płacić stałe oprocentowanie
+w swapie swapcja gwarantuje maksymalna stopę płatności. Dla posiadacza
+swapcji, który chce otrzymywać stała stopę , swapcja zabezpiecza
+minimalny poziom otrzymywanego oprocentowania.
+
+Swapcja jest podobna do kontraktów caps i floor i collars w tym
+sensie, że są to też kontrakty opcyjnie na stopę procentową. Jednak w
+odróżnieniu od tych kontraktów są częściej stosowane ze wzgledu na
+lepsze dopasowanie do rynku swapów.
