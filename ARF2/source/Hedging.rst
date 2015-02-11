@@ -95,7 +95,7 @@ zobowiązań w Pasywach) i będzie się chciał zabezpieczyć przed takim
 scenariuszem.
 
 W celu zabezpieczenia należy znaleźć taki instrument zabezpieczający,
-który pozwoli przenieść całe (lub prawie całe) ryzyko z
+który pozwoli "zdjąć" całe (lub prawie całe) ryzyko z
 zabezpieczającego. Tzn. znaleźć taki instrument, którego ruch ceny
 odzwierciedla, jak najlepiej, ruch cen zabezpieczanego aktywa.
 
@@ -107,7 +107,7 @@ Niestety, bardzo często nie jest możliwe stworzenie idealnego
 zabezpieczenia, gdyż dokładnie skorelowany instrument zabezpieczający
 jest niedostępny, albo inaczej nie istnieje na rynku.  W takim
 przypadku stosuje się tylko częściowe (niepełne) zabezpieczenie. Takie
-rozwiązanie jest lepsze niż jego poniechanie procesu zabezpieczania.
+rozwiązanie jest często lepsze niż poniechanie procesu zabezpieczania.
 
 
 Ryzyko walutowe i ryzyko zmiany ceny
@@ -155,7 +155,7 @@ ryzykiem?
 Najprostsza metoda eliminacji takiego ryzyka to doprowadzenie do
 takiej sytuacji by wpływy były w tej samej walucie co wydatki i to
 najlepiej w tym samej wielkości. Jest to bardzo naturalna metoda
-zabezpieczenia.
+zabezpieczenia i niezwykle skuteczna.
 
 Innym sposobem zabezpieczenia się przed ryzykiem kursowym jest
 zabezpieczenie dostaw waluty po niezmiennym kursie.  Ale takie
@@ -232,7 +232,7 @@ fakty:
    :align: center
    :figwidth: 350px
 
-   Zasada hedgingu przy pomocy kontraktów Futures. Cena przedania
+   Zasada hedgingu przy pomocy kontraktów Futures. Cena kupna
    kontraktu na jednym rynku zachowuje się odwrotnie do ceny sprzedaży
    na drugin rynku.
    
@@ -269,10 +269,11 @@ zyski z instrumentu pochodnego równoważyły straty z pozycji długiej
 producentów (surowce, produkty spożywcze, etc.), którzy chętnie 
 poniosą pewne koszty "zamrażając" ceny w przyszłości.  
 
-Dla zobrazowania wyobrazić sobie należy producenta surowca (producent
-miedzi, gospodarstwo rolne, itd.), który musi w przyszłości dostarczyć
+Dla zobrazowania powyższego postepowania można sobie wyobrazić
+producenta surowca przykładowo; producent miedzi ( podobnie postepować
+będzie gospodarstwo rolne, itd.), który musi w przyszłości dostarczyć
 wytwór swej pracy po cenie rynkowej i obawia by cena ta nie była
-niższa niż koszty wytwarzania produktu.  
+niższa niż koszty wytwarzania produktu.
 
 .. admonition:: Przykład 
 
@@ -322,7 +323,7 @@ Podobną strategie zastosuje firma, która pożyczyła 10 milionów w
 banku na 1% powyżej trzymiesięcznej stopy depozytowej z prawem
 rolowania co kwartał. W dacie następnego rolowania stopa procentowa
 może być wyższa, więc firma decyduje się zabezpieczyć poprzez sprzedaż
-trzy miesięcznych kontraktów futures o wartości nominalnej
+trzy miesięcznych kontraktów futures na stope procentową o wartości nominalnej
 odpowiadającej pożyczce bankowej. Niech trzymiesięczna stopa
 depozytowa (referencyjna) wynosi 12% rocznie.
 
@@ -337,8 +338,8 @@ Sytuacja  na początku transakcji:
 |                                        |                                        |
 +----------------------------------------+----------------------------------------+
 |Pożyczyła po 13% + (12% +1%)            |Sprzedała kontrakty marcowe na          |
-|                                        |trzymiesięczną po cenie, załóżmy, 87,75 |
-|                                        |(100-12,25%)                            |
+|                                        |trzymiesięczną stopę po cenie, załóżmy, |
+|                                        |87,75 (100-12,25%)                      |
 +----------------------------------------+----------------------------------------+
 |Czerwiec                                |                                        |
 |                                        |                                        |
@@ -449,7 +450,7 @@ koszt aktywa wynosi:
 
 
 Ten rodzaj strategii zawiera w sobie pewne ryzyko niedopasowania rynku
-terminowego do rynku kasowego. Różnica między cena kasowa a rynku
+terminowego do rynku kasowego. Różnica między ceną kasową a rynku
 terminowego to tzw. baza albo *basis*. O tym było mówione przy
 omawianiu rynku i kontraktów terminowych (patrz:
 :ref:`kontrakty_terminowe`). Warto pamiętać o bazie jak i o *cost of
@@ -513,9 +514,9 @@ A to dlatego, że:
 
 1. Zabezpieczane aktywo może nie być dokładnie takie samo jak aktywo
    będące podstawą kontraktu futures.  Przykładowo dla rynku surowców
-   może różnic się co do wagi, jakości, ilości jaki samego surowca (
-   szukanie aktywa o podobnym zachowaniu) .
-2. Zabezpieczając nie musimy znać dokładnego terminu zakupu lub
+   może różnic się co do wagi, jakości, ilości jak i samego surowca
+   (szukanie aktywa o podobnym zachowaniu) .
+2. Zabezpieczając możemy nie znać dokładnego terminu zakupu lub
    sprzedaży aktywa.
 3. Kontrakt futures może wymagać zamknięcia go przed jego miesiącem
    dostawy
@@ -525,7 +526,7 @@ zawsze istnieje kontrakt pochodny oparty na tym samym aktywie i musimy
 dopasować instrument zbliżony do kasowego, którego zmiany nie
 dokładnie korelują ze zmianami instrumentu podstawowego. Takie
 zabezpieczenie nazywane jest **cross hegde** w odróżnieniu od **direct
-hedge**, czyli sytuacji z poprzednich przykładów gdy korelacja zmian
+hedge**, czyli sytuacji z poprzednich przykładów gdy korelacje zmian
 były pełne.
 
 
@@ -537,13 +538,13 @@ miedzy ceną kasową aktywa zabezpieczanego a cena kontraktu futures na
 to aktywo. Jeśli zabezpieczane aktywo jest identyczne co aktywo
 podstawowe dla kontraktu futures, cena aktywa na rynku kasowym i cena
 kontraktu futures powinny "zbiegać się" (konwergencja) w pobliżu
-terminu dostawy futures. Ta konwergencja nazywana jest też cena
+terminu dostawy futures. Ta konwergencja nazywana jest też ceną
 bazy. Baza nie wpływa na cenę futures ale ma wpływ na cenę dostawy
 fizycznej. Jej zachowania generalne zachowania to:
 
 a. Sezonowość zachowania
 b. Zmienność bazy jest zazwyczaj mniejsza niż zmienność ceny
-c. Cena bazy wprowadzić dodatkowe ryzyko zmiany ceny powyżej, jak i
+c. Cena bazy wprowadzić może dodatkowe ryzyko zmiany ceny powyżej, jak i
 poniżej ceny futures.
 
 Jednak jeśli okresy do zapadalności użytych instrumentów będą różne to
@@ -552,15 +553,15 @@ zapadalności na instrumentu kasowego i zapadalności instrumentu
 futures będą równe. Współczynnik h nie jest wtedy równy 1. W takich
 przypadkach stosuje się zabezpieczenie "cross hedge".  
 
-Praktyczne wskazówki przy stosowaniu tego typu hedgingu to, w
-przypadku gdy terminy dostawy dostępnych kontraktów na rynku futures
-nie zgadzaja się z teminani zabezpieczenia to wybieramy kontrakt
-futures to data dostawy (miesiąc) musi być najbliższa terminowi
-transakcji na rynku kasowym ale późniejsza niż czas
-zabezpieczenia. Jeśli nie ma kontraktu futures na aktywo zabezpieczane
-należy wybierać kontrakt futures, którego cena jest najlepiej
-skorelowana z ceną zabezpieczanego aktywa. Korelacje taką określa się
-poszukując najmniejszej wariancji.
+Praktyczna wskazówka przy stosowaniu tego typu hedgingu jest
+nastepująca: w przypadku gdy terminy dostawy dostępnych kontraktów na
+rynku futures nie zgadzają się z terminami zabezpieczenia to
+wybierając kontrakt futures kierować się należy tym, by data dostawy
+(miesiąc) był najbliższy terminowi transakcji na rynku kasowym ale
+późniejszy niż czas zabezpieczenia. Jeśli nie ma kontraktu futures na
+aktywo zabezpieczane należy wybierać kontrakt futures, którego cena
+jest najlepiej skorelowana z ceną zabezpieczanego aktywa. Korelacje
+taką określa się poszukując najmniejszej wariancji.
 
 
 Zabezpieczenia metodą najmniejszej wariancji
@@ -569,29 +570,13 @@ Zabezpieczenia metodą najmniejszej wariancji
 Jednak jeśli okresy do zapadalności użytych instrumentów będą różne to
 zabezpieczenie nie będzie już tak idealne jak w przypadku gdy
 zapadalności instrumentu kasowego i zapadalności instrumentu futures
-będą różne. Należy pamiętać o cost of carry. Szczególnie instrumenty
+będą równe. Należy pamiętać o cost of carry. Szczególnie instrumenty
 dłużne mają skomplikowaną zależność generowanego dochodu od duration i
 stopy procentowej.
 
 Tak więc reakcja instrumentu kasowego i terminowego mogą być różne,
 tzn. ich zmiany mogą być inne na koniec okresu zabezpieczenia.
 
-Wyobraźmy sobie, że chcemy zabezpieczyć sobie ceny Żyta na rynku
-dostaw fizycznych. Czas zabezpieczenia - 1 miesiąc. Na rynku
-terminowym nie istnieją kontrakty na żyto ale najbardziej podobny
-historycznie przebieg ceny w czasie maja kontrakty na kukurydzę
-(przykład czysto intelektualny- tylko i wyłącznie do objaśnienia
-sposobu myślenia!!!). Na okres zabezpieczenia są dostępne tylko 90
-dniowe kontrakty na kukurydze.
-
-Proszę zauważyć, że zmiana na rynku kasowym to zmiana różnica między
-ceną na końcu miesiąca - cena z początku miesiąca. Inaczej sytuacja
-wygląda na rynku terminowym. Zmiana w cenie kontraktu futures jest
-inna. 90 dniowy kontrakt z początku miesiąca jest 60 dniowym
-kontraktem pod koniec miesiąca. Ponieważ do zabezpieczenia użyty
-został kontrakt 90 dniowy, to zmiana w cenie jest różnicą ceny
-kontraktu 60 dniowego z końca miesiąca i ceny kontraktu 90 dniowego z
-początku miesiąca.
 
 Jasne, ze zmiany aktywów na rynku kasowym i terminowym nie są takie
 same (chociaż w jakimś stopniu podobne). Jak to wpłynie na
@@ -687,7 +672,257 @@ Używając regresji liniowej (najmniejszych kwadratów) wyliczymy, że
    h = \rho (\sigma p_k/ \sigma p_f)
 
 
-Jako ilustracje powyższych rozważań zadajmy sobie pytanie: Ile
+Metoda powyższa jest pomocna w wielu przypadkach. Poniże rozpatrzone
+będą pewne przykłady zastosowania tej metody, przedstawione by lepiej
+zilustrować sposoby postępowania w takich przypadkach.
+
+ Zarządzający portfelem, mający portfel instrumentów inwestycyjnych o
+ określonej jego wartości w danym dniu może chcieć zabezpieczyć jego
+ wartość w najbliższym okresie czasu. Spodziewa się bowiem
+ przykładowo, że cena aktywów może chwilowo się obniżyć ale uważa, że
+ posiadane w portfelu aktywa są warte trzymania.  
+
+.. note::
+
+   Alternatywnym działaniem może być sprzedanie całego portfela, by
+   odkupić go później, po powrocie rynku do oczekiwanych wartości.
+   Takie działanie jest możliwe teoretycznie ale bardzo trudne w
+   praktyce do wykonania z powodu dostępności aktywów i kosztów
+   transakcyjnych opisanych operacji.
+
+Chcąc zabezpieczyć posiadany portfel na rynku instrumentów futures
+jest niezwykle trudno, wręcz niemożliwym by znaleźć kontrakt futures
+odpowiadający swym zachowaniem zachowaniu czasowemu portfela.  Sposób
+w jaki można próbować się zabezpieczyć przed zmianami stanu posiadania
+jest zabezpieczenie przy pomocy kontraktu futures na indeks
+giełdowy. Przykład poniżej ilustruje sposób postępowania i szukania
+współczynnika korelacji zmian wartości portfela i kontraktu futures na
+indeks, potrzebnego do najlepszego w miarę możliwości ( nie idealnego)
+zabezpieczenia portfela.
+
+Jak używać  kontraktów futures do  zabezpieczania portfela?
+
+Załóżmy ,ze posiadamy portfel zdywersyfikowanych akcji.  Powiedzmy, ze
+o wartości 1 miliona USD ( waluta i skład portfela wybrany do
+wyjaśnienia przykładu poniżej- czyli użycia kontraktu futures na
+indeks S&P 500- podobnie można myśleć używając innych indeksów
+rynkowych na które są kontrakty futures)).  Wybieramy kontrakt futures
+na indeks S&P 500 celem zabezpieczenia portfela. Obawiamy się o ,ze
+rynkowa wartość portfela może się obniżyć . w takiej sytuacji sprzedaż
+kontraktu futures na indeks może być sposobem na zabezpieczenie się
+przed obniżeniem się wartości portfela.
+
+Jeśli rynek spadnie zysk na pozycji krótkiej na rynku futures może
+zrównoważy starte na portfelu. Jeśli rynek jednak wzrośnie stratę na
+pozycji futures będzie pokrywać zysk na portfelu.
+
+Kontrakt futures na indeks S&P 500 jest wyceniany jako wartość indeksu
+pomnożoną razy 250 USD. Czyli zakładając ,ze wartość indeksu wynosi
+2000 jego wartość wynosi 500 000 USD , Czyli Dwa kontrakty Futures
+stanowią wartość porównywalna z wartością kasowa portfela.
+
+Kontrakty futures na indeks S&P 500 maja cztery daty dostawy w
+roku. Marcową czerwcowa, wrześniową i grudniową.  Na rynku są dostępne
+również kontrakty e – mini S&P 500 których wartość jest 50 USD razy
+wartość indeksu.
+
+Te często dają lepsze dopasowanie do wielkości portfela dzieki
+mniejszemu mnożnikowi niż typowe kontrakty na indeks S&P 500.
+Pierwszym krokiem do zabezpieczenia jest znalezienie kkorelacjizmian
+indeksu i zmian wartości portfela.  Stad można wyliczyć ilość
+kontraktów które należy sprzedać by zabezpieczyć portfel.
+ 
+Przykład zamieszony poniżej  ilustruje sposób działania.
+ 
+Zabezpieczenie portfela indeksem giełdowym
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Załóżmy, że mamy gotówkę i chcemy są zabezpieczyć przed zmianami kursu
+za pomocą indeksu giełdowego. W kolejnych kolumnach znajdują się
+wartości portfela oraz indeks S\&P500 z okresu 2000-09-15 do
+2002-09-19. Używamy tych danych do zabezpieczenia kontraktem Futures
+na S\&P500 w ostatnim dniu - czyli 2002-09-19.
+
+.. sagecellserver::
+
+    import urllib2
+    import numpy as np
+    file = "https://dl.dropboxusercontent.com/u/11718006/hedgefutures2.txt"
+    file = "https://dl.dropboxusercontent.com/u/11718006/SP500_porfolio.txt"
+    data = np.loadtxt(urllib2.urlopen(file))
+    plt = line(enumerate(data[:,0]/data[-1,0]),figsize=(8,2))
+    plt += line(enumerate(data[:,1]/data[-1,1]),color='green')
+    plt.show()
+
+Ponieważ zarówno indeks jak i gotówka jest w "innych jednostkach",
+możemy posługiwać się bezwymiarowymi zwrotami, zamiast przyrostów
+cen. I tak zwroty z portfela i S\&P500 obliczamy:
+
+.. sagecellserver::
+
+    dP = np.diff(data[:,0])/data[:-1,0]
+    dSP500 = np.diff(data[:,1])/data[:-1,1]
+    plt = line(enumerate(dP),figsize=(8,2))
+    plt += line(enumerate(dSP500),color='green')
+    plt.show()
+
+Z tych danych widzimy, że zachodzi duża korelacja między zwrotami tych
+instrumentów. Współczynnik dopasowania obliczamy ze wzoru:
+
+.. sagecellserver::
+
+    print "Wspolczynnik korelacji:",np.cov(dP,dSP500, bias=1)[0,1]/(np.std(dP)*np.std(dSP500))
+    print	"h=",np.cov(dP,dSP500, bias=1)[0,1]/(np.std(dSP500)**2)
+    print "Ilosc kontraktów na SP500:",data[-1,0]/(data[-1,1]*250) * np.cov(dP,dSP500)[0,1]/(dSP500.std()**2)
+
+Zauważmy, że mając obliczone "hedge ratio" - :math:`h`, liczbę
+kontraktów wyliczamy mnożąc :math:`h` przez ilość jednostek S\&P500,
+które w chwili zabezpieczenia mają dokładnie wartość naszego portfela.
+
+Dopasowysując model linowej zależności zwrotów otrzymamy znowu ten sam
+wynik:
+
+
+.. sagecellserver::
+
+		var('a b x')
+		model(x) = a * x + b
+		data = zip(dSP500,dP)
+		find_fit(data,model)
+
+
+
+Przykład obliczeń hedgingu za pomocą kontraktów futures
+-------------------------------------------------------
+
+Metoda najmniejszej wariancji jest skutecznie stosowana w procesie
+zabezpieczania się przed zmiennością ceny paliwa lotniczego stosowana
+przez niektóre linie lotnicze.  Tak się składa ,ze kontrakty futures
+na paliwo lotnicze są rzadkością na rynku i do zabezpieczania stosuje
+się kontrakty futures na olej opałowy, które to kontrakty są bardziej
+płynne. Porównując ceny paliwa lotniczego i ceny oleju opałowego widać
+,że zmienność ceny obu surowców jest w pewnej mierze podobny ale nie
+identyczny. Problemowi zabezpieczania cen paliwa lotniczego przy
+pomocy instrumentów rynków futures poswiecone są poniższae pozycje:
+(http://bettingthebusiness.com/2011/02/03/the-perils-of-hedging-the-price-of-jet-fuel/
+https://www.kellogg.northwestern.edu/research/fimrc/papers/jet_fuel.pdf
+https://dspace.lib.cranfield.ac.uk/bitstream/1826/3029/1/Airline%20jet%20fuel%20hedging%20-%20theory%20and%20practice.pdf)
+Problem ten jest szeroko dyskutowany i analizowany.
+
+
+
+Paliwo lotnicze oraz olej opałowy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Rozważmy następujący przykład. Chcemy zabezpieczyć cenę na paliwo
+lotnicze na jeden miesiąc do przodu mając do dyspozycji kontrakty
+Futures na olej opałowy na 60 i 90 dni. Zakładamy, że istnieje duża
+korelacja pomiędzy tymi surowcami. Rzeczywiście, ich historyczne
+comiesięczne notowania wyglądają następującą:
+
+
+
+    ..
+       import urllib2
+       import numpy as np
+       file = "https://dl.dropboxusercontent.com/u/11718006/hedgefutures.txt"
+       data = np.loadtxt(urllib2.urlopen(file))
+       plt = line(enumerate(data[:,0]),figsize=(8,2))
+       plt += line(enumerate(data[:,1]),color='green')
+       plt += line(enumerate(data[:,2]),color='red')
+       plt.show()
+
+
+.. sagecellserver::
+
+    import numpy as np
+    Jet = np.array([0.334,0.309,0.378,0.43,0.415,0.44,0.512,0.564,0.614,0.595,0.661,0.701,0.781,0.78,0.771,0.719,0.762,0.785,0.796,0.9,1.017,0.982,1.028,0.863,0.87,0.815,0.748,0.77,0.821,0.767,0.711,0.764,0.738,0.622,0.543,0.515,0.533,0.551,0.63,0.669,0.666,0.653])
+    Oil60 = np.array([0.341,0.317,0.388,0.435,0.428,0.445,0.515,0.563,0.611,0.595,0.65,0.667,0.704,0.724,0.702,0.651,0.724,0.779,0.785,0.883,0.987,0.971,0.999,0.895,0.805,0.756,0.705,0.744,0.776,0.764,0.709,0.745,0.73,0.643,0.568,0.548,0.541,0.548,0.64,0.673,0.674,0.658])
+
+    Oil90 = np.array([0.344,0.323,0.391,0.439,0.435,0.453,0.521,0.57,0.617,0.598,0.643,0.65,0.666,0.69,0.68,0.636,0.719,0.78,0.788,0.878,0.979,0.963,0.962,0.833,0.764,0.738,0.7,0.743,0.78,0.77,0.717,0.751,0.739,0.649,0.571,0.55,0.543,0.55,0.641,0.677,0.68,0.666])
+
+    plt = line(enumerate(Jet),figsize=(8,2))
+    plt += line(enumerate(Oil90),color='green')
+    plt.show()
+
+
+.. note::
+
+   W pliku z danymi mamy w wierszach comiesięczne notowania, a w
+   kolumnach kolejno: cenę paliwa lotniczego, cenę kontraktu Futures
+   na 90 dni i na 60 dni.
+
+
+Korelację widać gołym okiem, ale oczywiście możemy ją obliczyć
+numerycznie korzystając z narzędzi znajdujących się w bibliotece
+`numpy`. Uczynimy to w dwóch krokach. W pierwszej kolejności obliczmy
+miesięczne zmiany cen. Dla wartości ceny paliwa lotniczego na rynku
+kasowym jest to proste: obliczamy różnicę pomiędzy każdą parą
+kolejnych wartości. Dla kontraktu Futures jest torchę bardziej
+skomplikowane zadanie. Jeżeli kupimy kontrakt 90 dniowy to po 30
+dniach mamy kontrakt 60 dniowy w ręce. Dlatego mając możliwość handlu
+kontraktami 60 i 90 dniowymi możemy efektywnie użyć ich do hedgingu na
+30 dni, biorąc różnicę między ceną kontrakty 60 dniowego a ceną 90
+dniowego po miesiącu.
+
+.. note:: 
+
+   Gdybyśmy mieli do dyspozycji kontrakty 30-dniowe na olej opałowy
+   obliczylibysmy po prostu różnice ich kolejnych cen. 
+
+W Sage obliczenia możemy wykonać w następujący sposób:
+
+.. sagecellserver::
+
+		dJet = np.diff(Jet)
+    dOil = Oil90[1:]-Oil60[:-1]
+
+Możemy teraz policzyć macierz kowariancii przyrostów cen oraz ich
+współczynnik kolelacji:
+
+.. sagecellserver::
+
+   print "Macierz kowariancji:"
+   show(matrix(np.cov(dJet,dOil)))
+   print "Współczynnik korelacji:",np.cov(dJet,dOil)[0,1]/(np.std(dJet)*np.std(dOil))
+
+
+Jaki będzie współczynnik zabezpieczenia? Gdyby udało nam się uzyskać
+idealy hedging to zachodziło by:
+
+.. math::
+
+   \Delta S = h \Delta F
+
+Jest to pewnie nie możliwe, ale przynajmniej chcemy znaleźć takie
+:math:`h`, które minimalizuje :math:`\langle\Delta S - h \Delta F
+\rangle^2`. Narysujmy wykres tej średniej po naszych danych
+historycznych:
+
+
+.. sagecellserver::
+
+		var('h')
+		plot( lambda h:np.mean( (dJet-h*dOil)**2), (h,-3,4) ).show(figsize=3)
+		print "Rozwiazujac rownanie:",solve( diff( np.mean( (dJet-h*dOil)**2),h), h)[0].rhs().n()
+
+
+Taki sam wynik otrzymamy dopasowując dane przyrostów cen do siebie w
+modelu liniowych (co jest czasem zwane regresją liniową):
+
+
+.. sagecellserver::
+
+		var('a b x')
+		model(x) = a * x + b
+		data = zip(dOil,dJet)
+		find_fit(data,model)
+
+
+
+
+
+Jako ilustracje powyższych rozważań przykładowo zadajmy sobie pytanie: Ile
 kontraktów terminowych na stopę procentową potrzebujemy by
 zabezpieczyć 10 000 000 (np. BPF) instrumentu pieniężnego. Jeśli to
 funty to wielkość nominalna kontraktu futures - 500 000. Jak widać do
@@ -741,13 +976,10 @@ Współczynnik odpowiedniości pieniężnej K jest stosunkiem dwu odpowiednich w
 
 Współczynnik regresji.
 
-Doświadczalnie wyliczone równanie regresji dla CD i trzymiesięcznych
-futures na stopę procentową
+Przyjmijmy, że doświadczalnie wyliczone równanie regresji dla CD i
+trzymiesięcznych futures na stopę procentową daje następujące
+parametry - współczynnik regresji alfa:
 
-(dla notowań stopy procentowej a nie ceny instrumentów) daje
-następujące parametry regresji:
-
-(wg. David Blake)
 
  - :math:`\alpha = 0.12`
  - :math:`h = 0.95`
@@ -823,7 +1055,7 @@ podejście często jest statystycznie bardziej efektywne i ma lepsze
 własności przewidywania.
 
 
-.. **FILTR  KALMANA ???**
+
 
 **Zabezpieczanie przed ryzykiem stopy procentowej portfela  obligacji.**
 
@@ -909,6 +1141,7 @@ wartość portfela potrzebuje ilość kontraktów :math:`I_f` wyliczonych
 zgodnie z:
 
 .. math::
+   :label: If
 
    I_f =\frac{\text{ Wart. nom. ekspozycji kasowej}}{\text{Wart. kontraktu futures}}\times h
 
@@ -937,9 +1170,7 @@ kontraktów terminowych by zabezpieczyć obligacje inna niż CTD? Oraz
 drugie pytanie Jak można zabezpieczyć przy pomocy kontraktów
 terminowych na obligacje portfel obligacji?
 
-W takim przypadku stosować należy porównanie zmienności tak jak w
-równaniu (123) przy czym nie musimy porównywać zmiennośći. Można
-posłużyć się dwoma metodami przybliżonymi:
+Można posłużyć się dwoma metodami przybliżonymi:
 
 1. Metoda  oparta na wspł. konwersji (ceny)
 2. Metoda zabezpieczenia oparta na duration
@@ -948,7 +1179,7 @@ posłużyć się dwoma metodami przybliżonymi:
 Metoda 1.
 
 Załóżmy podobną sytuację jak poprzednio: 1,5 miliona USD i zamierzamy
-użyc obligacji 5- letniej o współczynniku ceny 1,1111 handlowana w
+użyć obligacji 5- letniej o współczynniku ceny 1,1111 handlowanej w
 dniu planowania zabezpieczenia po 124 za nominał 100.
 
 Załóżmy, że jeśli nastąpi określona zmiana stopy procentowej to zmiana
@@ -1080,163 +1311,6 @@ ilość kontraktów potrzebnych do zabezpieczenia portfela obligacji:
    I_f =\frac{\text{ Wart. nom. ekspozycji kasowej}}{\text{Wart. kontraktu futures}}\times PF_{CDT}\times h_p
 
 
-Przykład obliczeń hedgingu za pomocą kontraktów futures
--------------------------------------------------------
-
-Paliwo lotnicze oraz olej opałowy
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Rozważmy następujący przykład. Chcemy zabezpieczyć cenę na paliwo
-lotnicze na jeden miesiąc do przodu mając do dyspozycji kontrakty
-Futures na olej opałowy na 60 i 90 dni. Zakładamy, że istnieje duża
-korelacja pomiędzy tymi surowcami. Rzeczywiście, ich historyczne
-comiesięczne notowania wyglądają następującą:
-
-
-
-    ..
-       import urllib2
-       import numpy as np
-       file = "https://dl.dropboxusercontent.com/u/11718006/hedgefutures.txt"
-       data = np.loadtxt(urllib2.urlopen(file))
-       plt = line(enumerate(data[:,0]),figsize=(8,2))
-       plt += line(enumerate(data[:,1]),color='green')
-       plt += line(enumerate(data[:,2]),color='red')
-       plt.show()
-
-
-.. sagecellserver::
-
-    import numpy as np
-    Jet = np.array([0.334,0.309,0.378,0.43,0.415,0.44,0.512,0.564,0.614,0.595,0.661,0.701,0.781,0.78,0.771,0.719,0.762,0.785,0.796,0.9,1.017,0.982,1.028,0.863,0.87,0.815,0.748,0.77,0.821,0.767,0.711,0.764,0.738,0.622,0.543,0.515,0.533,0.551,0.63,0.669,0.666,0.653])
-    Oil60 = np.array([0.341,0.317,0.388,0.435,0.428,0.445,0.515,0.563,0.611,0.595,0.65,0.667,0.704,0.724,0.702,0.651,0.724,0.779,0.785,0.883,0.987,0.971,0.999,0.895,0.805,0.756,0.705,0.744,0.776,0.764,0.709,0.745,0.73,0.643,0.568,0.548,0.541,0.548,0.64,0.673,0.674,0.658])
-
-    Oil90 = np.array([0.344,0.323,0.391,0.439,0.435,0.453,0.521,0.57,0.617,0.598,0.643,0.65,0.666,0.69,0.68,0.636,0.719,0.78,0.788,0.878,0.979,0.963,0.962,0.833,0.764,0.738,0.7,0.743,0.78,0.77,0.717,0.751,0.739,0.649,0.571,0.55,0.543,0.55,0.641,0.677,0.68,0.666])
-
-    plt = line(enumerate(Jet),figsize=(8,2))
-    plt += line(enumerate(Oil90),color='green')
-    plt.show()
-
-
-.. note::
-
-   W pliku z danymi mamy w wierszach comiesięczne notowania, a w
-   kolumnach kolejno: cenę paliwa lotniczego, cenę kontraktu Futures
-   na 90 dni i na 60 dni.
-
-
-Korelację widać gołym okiem, ale oczywiście możemy ją obliczyć
-numerycznie korzystając z narzędzi znajdujących się w bibliotece
-`numpy`. Uczynimy to w dwóch krokach. W pierwszej kolejności obliczmy
-miesięczne zmiany cen. Dla wartości ceny paliwa lotniczego na rynku
-kasowym jest to proste: obliczamy różnicę pomiędzy każdą parą
-kolejnych wartości. Dla kontraktu Futures jest torchę bardziej
-skomplikowane zadanie. Jeżeli kupimy kontrakt 90 dniowy to po 30
-dniach mamy kontrakt 60 dniowy w ręce. Dlatego mając możliwość handlu
-kontraktami 60 i 90 dniowymi możemy efektywnie użyć ich do hedgingu na
-30 dni, biorąc różnicę między ceną kontrakty 60 dniowego a ceną 90
-dniowego po miesiącu.
-
-.. note:: 
-
-   Gdybyśmy mieli do dyspozycji kontrakty 30-dniowe na olej opałowy
-   obliczylibysmy po prostu różnice ich kolejnych cen. 
-
-W Sage obliczenia możemy wykonać w następujący sposób:
-
-.. sagecellserver::
-
-		dJet = np.diff(Jet)
-    dOil = Oil90[1:]-Oil60[:-1]
-
-Możemy teraz policzyć macierz kowariancii przyrostów cen oraz ich
-współczynnik kolelacji:
-
-.. sagecellserver::
-
-   print "Macierz kowariancji:"
-   show(matrix(np.cov(dJet,dOil)))
-   print "Współczynnik korelacji:",np.cov(dJet,dOil)[0,1]/(np.std(dJet)*np.std(dOil))
-
-
-Jaki będzie współczynnik zabezpieczenia? Gdyby udało nam się uzyskać
-idealy hedging to zachodziło by:
-
-.. math::
-
-   \Delta S = h \Delta F
-
-Jest to pewnie nie możliwe, ale przynajmniej chcemy znaleźć takie
-:math:`h`, które minimalizuje :math:`\langle\Delta S - h \Delta F
-\rangle^2`. Narysujmy wykres tej średniej po naszych danych
-historycznych:
-
-
-.. sagecellserver::
-
-		var('h')
-		plot( lambda h:np.mean( (dJet-h*dOil)**2), (h,-3,4) ).show(figsize=3)
-		print "Rozwiazujac rownanie:",solve( diff( np.mean( (dJet-h*dOil)**2),h), h)[0].rhs().n()
-
-
-Taki sam wynik otrzymamy dopasowując dane przyrostów cen do siebie w
-modelu liniowych (co jest czasem zwane regresją liniową):
-
-
-.. sagecellserver::
-
-		var('a b x')
-		model(x) = a * x + b
-		data = zip(dOil,dJet)
-		find_fit(data,model)
-
-
-Zabezpieczenie portfela indeksem giełdowym
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Załóżmy, że mamy gotówkę i chcemy są zabezpieczyć przed zmianami kursu
-za pomocą indeksu giełdowego. W kolejnych kolumnach znajdują się
-wartości portfela oraz indeks SP500.
-
-.. sagecellserver::
-
-    import urllib2
-    import numpy as np
-    file = "https://dl.dropboxusercontent.com/u/11718006/hedgefutures2.txt"
-    data = np.loadtxt(urllib2.urlopen(file))
-    plt = line(enumerate(data[:,0]/data[0,0]),figsize=(8,2))
-    plt += line(enumerate(data[:,1]/data[0,1]),color='green')
-    plt.show()
-
-Ponieważ zarówno indeks jak i gotówka jest w "innych jednostkach",
-możemy posługiwać się zwrotami, zamiast przyrostów cen. I tak zwroty z
-portfela i kontraktu futures na indeks obliczamy:
-
-.. sagecellserver::
-
-    dP = np.diff(data[:,0])/data[:-1,0]
-    dSP500 = np.diff(data[:,1])/data[:-1,1]
-    plt = line(enumerate(dP),figsize=(8,2))
-    plt += line(enumerate(dSP500),color='green')
-    plt.show()
-
-Z tych danych widzimy, że zachodzi duża korelacja między zwrotami tych
-instrumentów. Współczynnik dopasowania obliczamy ze wzroru:
-
-.. sagecellserver::
-
-    print "Wspolczynnik korelacji:",np.cov(dP,dSP500, bias=1)[0,1]/(np.std(dP)*np.std(dSP500))
-    print	"h=",np.cov(dP,dSP500, bias=1)[0,1]/(np.std(dSP500)**2)
-
-Dopasowysując model linowej zależności zwrotów otrzymamy znowu ten sam
-wynik:
-
-.. sagecellserver::
-
-		var('a b x')
-		model(x) = a * x + b
-		data = zip(dSP500,dP)
-		find_fit(data,model)
 
 
 
