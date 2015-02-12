@@ -540,7 +540,7 @@ podstawowe dla kontraktu futures, cena aktywa na rynku kasowym i cena
 kontraktu futures powinny "zbiegać się" (konwergencja) w pobliżu
 terminu dostawy futures. Ta konwergencja nazywana jest też ceną
 bazy. Baza nie wpływa na cenę futures ale ma wpływ na cenę dostawy
-fizycznej. Jej zachowania generalne zachowania to:
+fizycznej. Jej zachowania generalne to:
 
 a. Sezonowość zachowania
 b. Zmienność bazy jest zazwyczaj mniejsza niż zmienność ceny

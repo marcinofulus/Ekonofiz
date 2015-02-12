@@ -309,13 +309,12 @@ Graficznie przedstawiamy to w następujący sposób:
 
 .. figure:: figs/tree1.png
    :align: center
-   :figwidth: 240px
-   :height: 220px
+   :figwidth: 340px
+..   :height: 220px
 
    Ewolucja stopy procentowej po pierwszym roku w modelu binarnym.
 
 Mamy więc dwa scenariusze, nazywane tutaj ścieżkami: 
-
  	
 Ścieżka 1, 
     w której stopa wzrasta ze skumulowanym zwrotem :math:`1.04\times1.047 = 1.089`
@@ -348,8 +347,8 @@ W kolejnym okresie mamy trzy stany i cztery różne scenariusze dojścia do nich
 
 .. figure:: figs/tree2.png
    :align: center
-   :figwidth: 280px
-   :height: 227px
+   :figwidth: 340px
+..   :height: 227px
 
    Ewolucja stopy procentowej po drugim roku w modelu binarnym.
 
@@ -391,46 +390,12 @@ okresów warto zastosować komputer do obliczenia średniej po
 korzystając z systemu Sage.
 
 Po pierwsze zdefiniujmy sobie procedurę, która będzie generowała
-drzewo binarne. W pierwszej wersji możemy założyć, że drzewo nie
-będzie rekombinowało, czyli liczba gałęzi po :math:`n` iteracjach
-będzie wynosiła :math:`2^n`. Nazwijmy ta funkcję :code:`gen_all()`:
-
-
-.. sagecellserver::
-
-    def gen_all(niter,SP = 4.0,q=0.175,delta1=None,delta2=None):
-        SP = [[SP]]
-
-        for i in range(niter):
-            tmp = []
-            for s in SP[-1]:
-                if delta1==None or delta2==None:
-                    tmp+= [ (1+q)*s, s/(1+q) ]
-                else:    
-                    tmp+= [ s+delta1, s-delta2 ]
-            SP.append(tmp)
-        return SP
-   print "Na przyklad gen_all(3) daje:"
-   html.table(gen_all(3))
-
-
-.. admonition:: Opis programu
-
-   Funkcja :code:`gen_all` generuje zadaną przez pierwszy parametr
-   liczbę poziomów drzewa binarnego. Startujemy z wartości
-   :code:`SP`. Z danej wartości w poprzednim okresie są generowane
-   dwie nowe. Zgodnie z regułą addytywną: :code:`s+delta1, s-delta2` a
-   z multiplikatywną mamy :code:`(1+q)*s, s/(1+q)`. Reguła
-   multiplikatywna jest domyśna, a funkcja użyje wersji addytynej
-   jesli na wejsciu podamy parametry :code:`delta1,delta2`. Struktura
-   danych w której będziemy przechowywać dane wyjsciowe (drzewo
-   binarne) to listą wartości stopy procentowej w każdym okresie
-   (czyli zagnieżdżona lista list). 
+rekombinujące drzewo binarne. Nazwijmy tą funkcję :code:`gen_recombining()`,
+jej szczegółowy opis znajduję się w :ref:`binarne`.
 
     
-Możemy też zaimplementować procedurę, tworzącą drzewo w którym
-wszystkie wartości rekombinują, tzn. będziemy mieli :math:`n+1`
-wartosci w :math:`n`-tym okresie. Mamy dwie proste reguły prowadzące
+Drzewo w którym wszystkie wartości rekombinują posiada :math:`n+1`
+wartosci w :math:`n` - tym okresie. Mamy dwie proste reguły prowadzące
 do tego typu drzew. Jedną jest odejmowanie i dodawania tych samych
 wartości, co ma to jednak tę wadę, że możemy wygenerować ujemną stopę
 procentową. Drugą możliwością jest mnożenie wartości stopy procentowej
@@ -467,42 +432,9 @@ działanie zawsze prowadzi do drzewa rekombinującego.
 
 
 
-.. admonition:: Opis programu
+Najlepiej przyjrzeć się na przykładzie jak ta procedura te generuje te
+dane startując od danej stopy procentowej np. wywołanie:
 
-    Funkcja :code:`gen_recombining` ma ten sam wywołania jak
-    :code:`gen_all`. Różnica polega na tym, że liczba możliwych stóp
-    procentowych w n-tym okresie wynosi :math:`n+1` a nie :math:`2 n`. 
-
-Najlepiej przyjrzeć się na przykładzie jak procedury te generują te
-dane startując od stopy procentowej np. wywołanie:
-
-
-.. code-block:: python
-
-   print gen_all(3)
-
-daje:
-
-.. math::
-
-    \left[4.0\right]
-    \left[4.7, 3.4\right]
-    \left[5.5, 4.0, 4.0, 2.9\right]
-    \left[6.5, 4.7, 4.7, 3.4, 4.7, 3.4, 3.4, 2.5\right]
-
-a wywołanie:
-
-.. code-block:: python
-
-   print gen_recombining(3)
-
-
-.. math::
-
-    \left[4.0\right]
-    \left[4.7, 3.4\right]
-    \left[5.5, 4.0, 2.9\right]
-    \left[6.5, 4.7, 3.4, 2.5\right]
 
 
 Do wizualizacji danych możemy wykorzystać również system Sage i
@@ -587,43 +519,49 @@ postać:
 
 
 
-Teraz możemy narysować drzewo do np. czwartej generacji:
+Teraz możemy narysować drzewo do np. czwartej generacji i tak wywołanie:
+
+
+.. code-block:: python
+
+   print gen_recombining(SP=4,3)
+
+powinno dać:
+
+.. math::
+
+    \left[4.0\right]
+    \left[4.7, 3.4\right]
+    \left[5.5, 4.0, 2.9\right]
+    \left[6.5, 4.7, 3.4, 2.5\right]
+
+
+
+.. admonition:: Poeksperymentuj sam
+
+   Wykonaj poniższy kod dla różnych parametrów,
+   :code:`niter,SP,q=0.175,delta1,delta2`!
 
 
 .. sagecellserver::
 
-   plot_tree(gen_recombining(4)),plot_tree(gen_all(4))
+   plot_tree(gen_recombining(3))
 
 
-Zauważmy, że w pełnym drzewie binarnym mamy w :math:`n`-tym okresie
-:math:`2^n` wartości, z których tylko :math:`n` jest liczbowo
-różnych. Procedura rysująca wszystkie wartości, rysuje stopy
-procentowe w kółkach o kolorze jasnoszarym, przy czym jeżeli
-narysujemy więcej niż raz jasnoszare kółko jedno na drugim to kolor
-będzie ciemniejszy (związane jest to z opcją alpha=0.2, która określa
-stopnień przezroczystości koloru). Wynika z tego, że im ciemniejszy
-kolor tym więcej elementów pełnego drzewa dwumiennego ma daną
-wartość. Zobaczmy na poniższym rysunku:
 
-
-.. figure:: figs/tree4.png
-   :align: center
-   :figwidth: 240px
-   :height: 227px
-
-   Ewolucja stopy procentowej.
-
-W pełnym drzewie binarnym istnieje tylko jedna ścieżką realizująca
-każdą gałąź. Wobec tego można powiedzieć, że liczba ścieżek
-realizujących stopę procentową jest proporcjonalna do odcienia na
-powyższym rysunku. Wyraźnie widzimy, że skrajne wartości są dużo mniej
-prawdopodobne od tych w środku.
 
 Obliczanie wartości średnich w modelu dwumiennym wiąże się z
 sumowaniem po wszystkich ścieżkach. Ponieważ rozważania dla stóp
 procentowych mają sens dla kilku - maksymalnie kilkunastu lat to można
 sobie pozwolić na dokładne wykonanie takich obliczeń. Liczba
 składników sum będzie np. :math:`65536` dla :math:`n=16`.
+
+.. figure:: figs/tree4.png
+   :align: center
+   :figwidth: 340px
+..   :height: 227px
+
+   Ewolucja stopy procentowej.
 
 
 Mając drzewo binarne, możemy policzyć średnią zanulizowaną stopę

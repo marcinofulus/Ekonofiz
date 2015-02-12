@@ -58,6 +58,7 @@ stosowali kilka funkcji pomocniczych, które będą generowały drzewa jak
 i przedstawiały je graficznie.
 
 
+
 .. sagecellserver::
 
     import numpy as np 
@@ -141,33 +142,68 @@ i przedstawiały je graficznie.
 
 .. end of output
 
+.. admonition:: Opis programu
 
-Procedury :code:`gen_all` oraz :code:`gen_recombining` generują drzewa
-zarówno addytywne jak i multiplikatywne. Różnica polega na tym, że
-:code:`gen_all` generuje wszystkie scenariusze. Należy pamiętać więc
-by :math:`N` nie było zbyt duże, ilość scenariuszy jest :math:`\sim
-2^N`.
+   Funkcja :code:`gen_all` generuje zadaną przez pierwszy parametr
+   liczbę poziomów drzewa binarnego. Startujemy z wartości
+   :code:`SP`. Z danej wartości w poprzednim okresie są generowane
+   dwie nowe. Zgodnie z regułą addytywną: :code:`s+delta1, s-delta2` a
+   z multiplikatywną mamy :code:`(1+q)*s, s/(1+q)`. Reguła
+   multiplikatywna jest domyśna, a funkcja użyje wersji addytynej
+   jesli na wejsciu podamy parametry :code:`delta1,delta2`. Struktura
+   danych w której będziemy przechowywać dane wyjsciowe (drzewo
+   binarne) to lista wartości w każdym okresie - czyli zagnieżdżona
+   lista list.  Ponieważ :code:`gen_all` generuje wszystkie
+   scenariusze należy pamiętać więc by :math:`n` nie było zbyt duże,
+   bo ilość scenariuszy jest :math:`\sim 2^n`.
+
+
+   Funkcja :code:`gen_recombining` ma ten sam wywołania jak
+   :code:`gen_all`. Różnica polega na tym, że liczba możliwych stóp
+   procentowych w n-tym okresie wynosi :math:`n+1` a nie :math:`2 n`.
+
+   Funkcje :code:`plot_tree` i :code:`plot_tree2` przedstawiają
+   graficznie drzewa binarne, przy czym ta ostatnia wersja pozwala
+   nanieść wartości z dodatkowego drzewa. Ma to zastosowanie w
+   przypadku wizualizacji ewolucji cen opcji.
+
 
 Drzewa multiplikatywne mają kilka zalet. Po pierwsze cena nie będzie
 ujemna. Nie jest to prawdą w modelu addytywnym! Po drugie, założenie
 stałej zmiany, niezależnej od ceny aktywa wydaje się
 nierzeczywiste. Rozsądniejszym wydaje się podanie względnej zmienności
-ceny aktywa, co właśnie implementuje model multyplikatywny.
+ceny aktywa, co właśnie implementuje model multyplikatywny. 
 
-Wygenerujmy więc drzewo z czterema rozgałęzieniami, multiplikatywne: 
+
+Wygenerujmy dla przykładu drzewo z czterema rozgałęzieniami,
+rekombinujące i multiplikatywne:
 
 .. sagecellserver::
 
-    SP = gen_recombining(4,SP=30,q=0.1)
-    plt_sp = plot_tree(SP)
-    plt_sp
+   plot_tree(gen_recombining(4,SP=30,q=0.1)),plot_tree(gen_all(4,SP=30,q=0.1))
+
+
+Zauważmy, że w pełnym drzewie binarnym mamy w :math:`n`-tym okresie
+:math:`2^n` wartości, z których tylko :math:`n` jest liczbowo
+różnych. Procedura rysująca wszystkie wartości, rysuje stopy
+procentowe w kółkach o kolorze jasnoszarym, przy czym jeżeli
+narysujemy więcej niż raz jasnoszare kółko jedno na drugim to kolor
+będzie ciemniejszy (związane jest to z opcją alpha=0.2, która określa
+stopnień przezroczystości koloru). Wynika z tego, że im ciemniejszy
+kolor tym więcej elementów pełnego drzewa dwumiennego ma daną
+wartość. 
+
+W pełnym drzewie binarnym istnieje tylko jedna ścieżką realizująca
+każdą gałąź. Wobec tego można powiedzieć, że liczba ścieżek
+realizujących stopę procentową jest proporcjonalna do odcienia na
+powyższym rysunku. Wyraźnie widzimy, że skrajne wartości są dużo mniej
+prawdopodobne od tych w środku.
 
 
 Drzewa binarne, są fundamentalnym elementem modelowania rynku
 finansowego. Rozważania z zakresu teorii rynków finansowych mogą być
 łatwo zademnostrowane na rynkach skończonych, które są naturalnym
 rozszerzeniem rynku jednookresowego, dwustanowego.
-
 
 
 
@@ -201,14 +237,28 @@ Możemy go samodzielnie uruchomić:
     plt_sp.show()
     print SP
 
+Mając drzewo w postaci struktury zagnieżdżonej listy, możemy
+wygenerować sobie wszystkie scenariusze ewolucji na tym drzewie:
 
-.. code-block:: python
+.. only:: html
 
-    sage: all_paths = map(lambda x:[0]+np.cumsum(x).tolist(),CartesianProduct(*( N*[[0,1]])).list() )
-    sage: all_paths
-    [[0, 0, 0, 0], [0, 0, 0, 1], [0, 0, 1, 1], [0, 0, 1, 2], [0, 1, 1, 1], [0, 1, 1, 2], [0, 1, 2, 2], [0, 1, 2, 3]]
+    .. sagecellserver::
 
-.. end of output
+        all_paths = map(lambda x:[0]+np.cumsum(x).tolist(),CartesianProduct(*( N*[[0,1]])).list() )
+        print all_paths
+
+
+.. only:: late
+
+    .. code-block:: python
+
+        sage: all_paths = map(lambda x:[0]+\
+                    np.cumsum(x).tolist(),\
+                    CartesianProduct(*( N*[[0,1]])).list() )
+        sage: all_paths
+        [[0, 0, 0, 0], [0, 0, 0, 1], [0, 0, 1, 1], [0, 0, 1, 2], [0, 1, 1, 1], [0, 1, 1, 2], [0, 1, 2, 2], [0, 1, 2, 3]]
+
+    .. end of output
 
 Weźmy prawdopodobieństwa :math:`q` jako wartości miary (jeszcze nie
 wiemy czy martyngałowej):
@@ -913,7 +963,7 @@ Efekt zabezpieczenia \- każdy scenariusz prowadzi do tego samego wyniku finanso
 
 .. end of output
 
-WOW \- działa \- dla każdego scenariusza mamy ten sam stan końcowy!
+Widzimy, że dla każdego scenariusza mamy ten sam stan końcowy!
 
 
 

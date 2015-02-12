@@ -134,8 +134,8 @@ by wykonal mozolną robotę za nas.
  Blacka-Scholesa parytetu Put-Call. Do sprawdzenia parytetu używamy
  polecenia `bool`, które próbuje algebraicznie udowodnić
  równość. Możemy też zobaczyć jawną postać lewej lub prawej strony
- równości używając do tego polecenia `show`, jednak uzyskane wzrory
- mogą być dość długie (spróbuj!)`
+ równości używając do tego polecenia `show`, jednak uzyskane wzory
+ mogą być dość długie,  spróbuj sam!
 
  .. only:: html
 
