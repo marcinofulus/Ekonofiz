@@ -1,4 +1,4 @@
-Przykład - obliczenie VaR  dla nieliniowej funkcje wyceny
+Przykład - obliczenie VaR  dla nieliniowej funkcji wyceny
 =========================================================
 
 

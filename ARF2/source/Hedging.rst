@@ -778,6 +778,8 @@ instrumentów. Współczynnik dopasowania obliczamy ze wzoru:
 Zauważmy, że mając obliczone "hedge ratio" - :math:`h`, liczbę
 kontraktów wyliczamy mnożąc :math:`h` przez ilość jednostek S\&P500,
 które w chwili zabezpieczenia mają dokładnie wartość naszego portfela.
+Oczywiście nie można kupować ułamkowej ilości kontraktów
+futures. Zabezpieczający się musi kupić 5 kontraktów.
 
 Dopasowysując model linowej zależności zwrotów otrzymamy znowu ten sam
 wynik:
@@ -789,6 +791,9 @@ wynik:
 		model(x) = a * x + b
 		data = zip(dSP500,dP)
 		find_fit(data,model)
+
+
+
 
 
 
