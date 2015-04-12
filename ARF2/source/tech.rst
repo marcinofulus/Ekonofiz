@@ -2,6 +2,11 @@
 Analiza danych rynkowych
 ========================
 
+Oprogramowanie Sage a w szczególności zawarte w nim biblioteki `numpy`
+oraz `scipy` oraz wbudowane możliwości wizualizacji i interakcji dają
+możliwość stworzenia "od podstaw" prototypu własnej aplikacji to
+szerokiego spektrum analiz danych i statystyk.
+
 
 Zwroty względne, bezwzględne i log-zwroty
 ========================================
@@ -80,7 +85,7 @@ log-normalny:
 .. math::
    :label: Pwar
 
-   P_S(S,t|S_0,0)= \frac{1}{\sqrt{2\pi\sigma^2 t S^2}} e^{-\displaystyle\frac{(\log(\frac{S}{S_0})-(\mu-\frac{\sigma^2}{2}))^2}{2\sigma^2t}}.
+   P_S(S,t|S_0,0)= \frac{1}{\sqrt{2\pi\sigma^2 t } S } e^{-\displaystyle\frac{(\log(\frac{S}{S_0})-(\mu-\frac{\sigma^2}{2}) t)^2}{2\sigma^2t}}.
 
 
 .. note::
@@ -93,43 +98,60 @@ log-normalny:
 
 
 
-Dla dużych wartości wariancji i średniej rozkład ten jest zupełnie
-odmienny od rozkładu normalnego, dla małych jest jednak do niego
-podobny. Oznacza to, że dla małych czasów pomiędzy obserwacjami,
-np. notowaniami dziennymi, trudno jest odróżnić  jeden od drugiego. 
+Rozkład log-normalny jest zupełnie odmienny od rozkładu normalnego,
+jednak dla małych zmian ceny można by się spodziewać pewnych
+podobieństw. Rozważmy sytuację w której mamy wartość początkową ceny
+pewnego aktywa równą :math:`S_0` i rozważamy najbliższą przyszłość. Co
+to znaczy? W tej sytuacji będzie to taki horyzont czasowy na którym
+cena akcji niewiele się zmieni w stosunku do ceny początkowej tzn.:
+
+.. math::
+   
+   \frac{S}{S_0} \simeq 1
+
+W praktyce, taki krótki horyzont czasowy może typowo oznaczać zmianę
+kursów pomiędzy notowaniami dziennymi. Przekonamy się teraz, że
+rozkład ceny na któtkich czasach jest "prawie" gaussowski. Do równania
+:eq:`Pwar` wstawmy w mianowniku :math:`S_0` zamiast :math:`S` a w
+eksponencie zastąpny logarytm rozwinięciem :math:`\log
+\frac{S}{S_0}\simeq \frac{S-S_0}{S_0}`. Otrzymamy wówczas rozkład
+normany w postaci:
+
+.. math::
+   :label: Pshort
+
+   P_S(S,t|S_0,0)= \frac{1}{\sqrt{2\pi\sigma^2 t } S_0 } e^{-\displaystyle\frac{\frac{S-S_0}{S_0}-(\mu-\frac{\sigma^2}{2}) t)^2}{2\sigma^2t}}.
+
+   
 
 
-Oprogramowanie Sage a w szczególności zawarte w nim biblioteki `numpy`
-oraz `scipy` oraz wbudowane możliwości wizualizacji i interakcji dają
-możliwość stworzenia "od podstaw" prototypu własnej aplikacji to
-szerokiego spektrum analiz danych i statystyk.
 
 .. admonition:: Poeskperymentuj z komputerem
 
-   Zbadaj czym różnią się dwa rozkłady - normalny i log-normalny o
-   tych samych parametrach średniej oraz wariancji. 
+   Zbadaj czym różnią się dwa rozkłady - normalny :eq:`Pshort` i
+   log-normalny :eq:`Pwar` dla małych i dużych  czasów.
 
-     - Wariancja i średnia zależy od czasu, który można zmieniać
-       suwakiem. Zwiększ czas i zaobserwuj jak zmienia się
-       rozkład. Czy w każdym z przypadków może pojawić się cena aktywa
-       mniejsza od zera?
+     - Zwiększ czas i zaobserwuj jak zmienia się rozkład. Czy w każdym
+       z przypadków może pojawić się cena aktywa mniejsza od zera?
   
      - Zmień w kodzie inne parametry: wartość początkową, wariancję na
        jednostkę czasu i szybkość wzrostu ceny.
 
 
 .. sagecellserver::
-    
+ 
     var('r,sigma,t,x0')
-    logN = 1/(sigma*sqrt(2*pi*t)*x)*exp(-(log(x)-log(x0)-(r)*t)^2/(2*sigma^2*t))
-    Normal = 1/(sigma*sqrt(2*pi*t))*exp(-(x-x0-(r+sigma^2/2)*t)^2/(2*sigma^2*t))
+    logN = 1/(sigma*sqrt(2*pi*t)*x)*exp(-(log(x)-log(x0)-(r-sigma^2)*t)^2/(2*sigma^2*t))
+    Normal = 1/(sigma*sqrt(2*pi*t)*x0)*exp(-( (x-x0)/x0-(r-sigma^2/2)*t)^2/(2*sigma^2*t))
 
     @interact
-    def _(t_=slider(0.01,10,0.01,default=0.1)):
-        pars = {r:.0,sigma:.51,x0:1,t:t_}
+    def _(t_=slider(0.001,0.2,0.001,default=0.01)):
+        pars = {r:0,sigma:1.51,x0:1,t:t_}
         p1 = plot( logN.subs(pars) , (x,1e-5,4), fill=True)
         p2 = plot( Normal.subs(pars) , (x,1e-5,4), figsize=4,color='red')
         (p1+p2).show()
+
+
 
 
 Przykład analizy danych rynkowych
