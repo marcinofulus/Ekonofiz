@@ -23,18 +23,18 @@ Financial Economics- September 1979*). Ten model wycenia europejską
 opcję call na akcje spółki nie wypłacającej dywidendę. 
 
 W modelu dwumianowym czas pozostały do wygaśnięcia opcji dzieli się na
-dyskretne Przedziały. W każdym przedziale czasu cena aktywa :math:`P`
-zmienia się przyjmując jeden z dwu możliwych stanów- czyli
-dwumianowo. Może wzrosnąć do wartości Pu (z prawdopodobieństwem p) lub
-zmaleć do wartości Pd (z prawdopodobieństwem :math:`1-p`), gdzie
-:math:`u > 1`, :math:`d < 1`. Mając zbiór cen aktywa (np. akcji) w
-postaci drzewka, można wycenić opcję przeprowadzając rachunek wstecz,
-począwszy od daty wygaśnięcia.  Obliczenia wykonuje się w kierunku
-początku drzewa od chwili :math:`T` do :math:`T-1`, dyskontując w tym
-przedziale czasowym wartość portfela bezpiecznego składającego się z
-aktywa i opcji, po stopie procentowej wolnej od ryzyka. Procedurę
-powtarza się aż do chwili wystawienia opcji. Modele te są opisane w
-szczególach w rozdziale o opcjach binarnych :ref:`binarne`.
+dyskretne przedziały. Po każdy okresie czasu cena aktywa :math:`P`
+zmienia się przyjmując jeden z dwu możliwych stanów. Może wzrosnąć do
+wartości Pu (z prawdopodobieństwem p) lub zmaleć do wartości Pd (z
+prawdopodobieństwem :math:`1-p`), gdzie :math:`u > 1`, :math:`d <
+1`. Mając zbiór cen aktywa (np. akcji) w postaci drzewka, można
+wycenić opcję przeprowadzając rachunek wstecz, począwszy od daty
+wygaśnięcia.  Obliczenia wykonuje się w kierunku początku drzewa od
+chwili :math:`T` do :math:`T-1`, dyskontując w tym przedziale czasowym
+wartość portfela bezpiecznego składającego się z aktywa i opcji, po
+stopie procentowej wolnej od ryzyka. Procedurę powtarza się aż do
+chwili wystawienia opcji. Modele te są opisane w szczególach w
+rozdziale o opcjach binarnych :ref:`binarne`.
  
 
 Model minimalny - rynek dwustanowy jednookresowy

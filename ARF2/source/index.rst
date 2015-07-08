@@ -22,10 +22,11 @@ Praktyczny wstęp do komputerowej analizy Rynków Finansowych
    Hedging
    var*
    binarne
-   forex
-   czas
-   procent
-
+   wartosc_pieniadza
+..   forex
+..   czas
+..   procent
+  
 
 .. only::  html
 
