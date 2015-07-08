@@ -340,7 +340,7 @@ Wartość bieżąca netto
 ---------------------
 
 
-Kilka sposobów jak ocenić czy inwestycja  jest atrakcyjna dla inwestora. w tym celu  można  skorzystac z ponizszych zależności:
+iKlka sposobów jak ocenić czy inwestycja  jest atrakcyjna dla inwestora. w tym celu  można  skorzystac z ponizszych zależności:
 Jeśli nabywamy jakiś  instrument finansowy to instrument ten generuje przepływy finansowe. Przepływy to : wypływ na nabycie instrumentu oraz wpływy do inwestora w postaci albo odsetek , lub dywidendy albo ( i) końcowej wypłaty pieniężnej ( zwrot zaciągniętej pożyczki albo wpływ ze sprzedaży akcji).
 Ponieważ przepływy są odległe od siebie w czasie ich dzisiejsza wartość musi obliczyć w sposób podobny do wcześniej już prezentowanego.
 
