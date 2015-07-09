@@ -197,7 +197,7 @@ przyszłej opisuje zależność:
 
 .. math::
 
-   P_V= frac{F_V}{(1+r)^n}
+   P_V= \frac{F_V}{(1+r)^n}
 
 Inaczej mówiąc: wartość bieżąca (aktualna) (Present value) odpowiada
 dzisiejszej (aktualnej) wartości przyszłych dochodów lub wpłat.
@@ -233,7 +233,7 @@ Stopa procentowa w jednym okresie bazowym określona jest wzorem:
 
 .. math::
 
-   r =r_ NR SP / n
+   r =\frac{r_{NRSP}}{n}
 
 gdzie:
 
@@ -245,20 +245,20 @@ Wzór na efektywną roczną stopę procentową ma postać:
 
 .. math::
 
-   r_ERSP={(1+r)^n}-1
+   r_{ERSP}={(1+r)^n}-1
 
 Lub też
 
 .. math::
 
-   r_ERSP={(1+r NR SP / n)^n}-1
+   r_{ERSP}={(1+r_{NRSP} / n)^n}-1
 
 gdzie:
 
- - :math:`r_ ERSP - efektywna roczna stopa procentowa,
- - :math:`r_ NRSP - nominalna roczna stopa procentowa,
- - :math:`r - stopa procentowa za jeden okres bazowy,
- - :math:`n - liczba kapitalizacji w roku (liczba okresów bazowych w roku).
+ - :math:`r_{ERSP}` - efektywna roczna stopa procentowa,
+ - :math:`r_{NRSP}` - nominalna roczna stopa procentowa,
+ - :math:`r` - stopa procentowa za jeden okres bazowy,
+ - :math:`n` - liczba kapitalizacji w roku (liczba okresów bazowych w roku).
 
 Innymi słowy; Jeśli jesli naliczanie odsetek ma miejsce m razy w roku
 i na koniec roku n będzie mn płatności odsetek to
@@ -313,7 +313,7 @@ postać:
 gdzie:
  
  - :math:`r_{ERSPC}` - efektywna roczna stopa procentowa przy ciągłej kapitalizacji  odsetek,
- - :math:`r_{NRSP} - nominalna roczna stopa procentowa,
+ - :math:`r_{NRSP}` - nominalna roczna stopa procentowa,
  - :math:`e` -podstawa logarytmu naturalnego.
 
 
@@ -340,89 +340,138 @@ Wartość bieżąca netto
 ---------------------
 
 
-iKlka sposobów jak ocenić czy inwestycja  jest atrakcyjna dla inwestora. w tym celu  można  skorzystac z ponizszych zależności:
-Jeśli nabywamy jakiś  instrument finansowy to instrument ten generuje przepływy finansowe. Przepływy to : wypływ na nabycie instrumentu oraz wpływy do inwestora w postaci albo odsetek , lub dywidendy albo ( i) końcowej wypłaty pieniężnej ( zwrot zaciągniętej pożyczki albo wpływ ze sprzedaży akcji).
-Ponieważ przepływy są odległe od siebie w czasie ich dzisiejsza wartość musi obliczyć w sposób podobny do wcześniej już prezentowanego.
+Kilka sposobów jak ocenić czy inwestycja jest atrakcyjna dla
+inwestora. w tym celu można skorzystac z ponizszych zależności: Jeśli
+nabywamy jakiś instrument finansowy to instrument ten generuje
+przepływy finansowe. Przepływy to : wypływ na nabycie instrumentu oraz
+wpływy do inwestora w postaci albo odsetek , lub dywidendy albo ( i)
+końcowej wypłaty pieniężnej ( zwrot zaciągniętej pożyczki albo wpływ
+ze sprzedaży akcji).
+
+Ponieważ przepływy są odległe od siebie w czasie ich dzisiejsza
+wartość musi obliczyć w sposób podobny do wcześniej już
+prezentowanego.
 
 Zdyskontowane strumienie pieniężne.
 
 
-Dyskontowanie przepływów to wyrażanie ich w pieniądzu z okresu bieżącego czyli wartości aktualnej.
+Dyskontowanie przepływów to wyrażanie ich w pieniądzu z okresu
+bieżącego czyli wartości aktualnej.
 
-.. math:: P_V =\sum\limits_{i=1}^n\ P_V(D_i)}
+.. math:: 
+
+   P_V =\sum\limits_{i=1}^n\ P_V(D_i)},
 
 
-gdzie  PV(Di) to wartość zaktualizowana przepływu Di
-W przypadku stałych wartości płatności w czasie  wzór ten przybierze postać:
+gdzie :math:`PV(D_i)` to wartość zaktualizowana przepływu :math:`D_i`.
+W przypadku stałych wartości płatności w czasie wzór ten przybierze
+postać:
 
-.. math::  P_o=\sum\limits_{i=1}^n\frac{D}{(1+r)^i}
+.. math::  
+
+   P_o=\sum\limits_{i=1}^n\frac{D}{(1+r)^i}
 
 Wartość bieżąca netto
 
-Wartość  te wyliczamy odejmując od przyszłych wpływów finansowych dzisiejsze koszty inwestycji np. nabycie instrumentu
-:<math>NPV=\sum_{t=1}^n\frac{D_t}{(1+r)^t}-I_0
+Wartość tę wyliczamy odejmując od przyszłych wpływów finansowych dzisiejsze koszty inwestycji np. nabycie instrumentu
+
+.. math::
+
+   NPV=\sum_{t=1}^n\frac{D_t}{(1+r)^t}-I_0
+
 
 gdzie:
-*<math>NPV - wartość bieżąca netto,
-*<math>D_t - przepływy gotówkowe w okresie t,
-*<math>r - stopa dyskonta,
-*<math>I_0 - nakłady początkowe,
-*<math>t - kolejne okresy (najczęściej lata) inwestycji
-Generalnie wartość bieżąca netto to różnica zdyskontowanych wpływów i wypływów finansowych (przyjmowanych ze znakiem-) generowanych przez inwestycje.
-Jeśli NPV jest <0 to inwestycja jest  niekorzystna.
+
+ * :math:`NPV` - wartość bieżąca netto,
+ * :math:`D_t` - przepływy gotówkowe w okresie t,
+ * :math:`r` - stopa dyskonta,
+ * :math:`I_0` - nakłady początkowe,
+ * :math:`t` - kolejne okresy (najczęściej lata) inwestycji
+
+Generalnie wartość bieżąca netto to różnica zdyskontowanych wpływów i
+wypływów finansowych (przyjmowanych ze znakiem -) generowanych przez
+inwestycje.  Jeśli NPV jest <0 to inwestycja jest niekorzystna.
 
 
 IRR czyli wewnętrzna stopa zwrotu
+---------------------------------
+
+Dla skrajnego przypadku NPV =0 rozwiązujemy powstałe równanie ze
+względu na r. Takie rozwiązanie wymaga bardziej zaawansowanych metod
+obliczeń już dla t>1. A ponieważ mamy do czynienia z wielomianem rzędu
+więc do rozwiązywania stosujemy metody przybliżone.
 
 
-Dla skrajnego przypadku  NPV =0 rozwiązujemy powstałe równanie ze względu na  r. Takie rozwiązanie wymaga bardziej zaawansowanych metod obliczeń już dla t>1. A ponieważ mamy do czynienia z wielomianem rzędu więc do rozwiązywania stosujemy metody przybliżone.
+Obliczanie  wartości pieniadza w czasie
+---------------------------------------
+
+Poniżej pokazane będa dwa przykłady obliczeń z tego zakresu. Nie
+wymagają bardzo uzycia bardzo skomplikowanych metod obliczeń ale mają
+za zadanie pokazać specyfikę tego rodzaju obliczeń i przydatność w tym
+celu komputera oraz wymaganych na wielu egzaminach zawodowych
+umejetności posługiwania sie kalkulatorem finansowym, które to
+urządzenie ma wbudowane mozliwości liczenia szeregów geometrycznych i
+jest niezwykle przydatne w finansach. Warto zapoznać sie z tym
+urzadzeniem i umieć dokonywać na nim róznych obliczeń.
+
+.. admonition:: Przykład
+
+Jaka jest wartość aktualna ( bieżąca) kwoty 1000 PLN którą otrzymamy
+za 15 lat jeśli dzisiaj oferują nam depozyt na 7% rocznie?
 
 
-==Obliczanie  wartości pieniadza w czasie==
-
-Poniżej  pokazane będa dwa przykłady obliczeń z tego zakresu. Nie wymagają  bardzo uzycia bardzo skomplikowanych metod obliczeń ale mają za zadanie  pokazać specyfikę tego rodzaju obliczeń i  przydatność w tym celu  komputera oraz  wymaganych na wielu  egzaminach  zawodowych umejetności posługiwania sie kalkulatorem finansowym, które to urządzenie ma wbudowane mozliwości liczenia  szeregów geometrycznych i jest niezwykle przydatne w finansach. Warto zapoznać sie z tym urzadzeniem i  umieć dokonywać na nim róznych obliczeń.
-
-Przykład:
-Jaka jest wartość aktualna  ( bieżąca) kwoty 1000 PLN którą  otrzymamy za 15 lat  jeśli  dzisiaj  oferują nam depozyt na  7% rocznie?
 
 
 
 
 
 
-==Instrumenty finansowe?==
 
-
-
-===depozyt na rynku pieniężnym===
+depozyt na rynku pieniężnym
+---------------------------
 
 Depozyty rynku pieniężnego to instrumenty stałego oprocentowania, które są zawierane na określony okres czasu i nie mogą być likwidowane przed terminem zapadalności.
 Ponieważ są instrumentami rynku pieniężnego ich okres do zapadalności jest mniejszy od jednego roku. Powoduje to potrzebę  przeliczania rocznej stopy procentownia na okresy mniejsze od roku.
 Sumę odsetek na koniec okresu depozytu wyliczyc można ze wzoru:
- .. math:: R=D d (n/360)
+
+ .. math:: 
+
+    R = D d \frac{n}{360}
+
 Gdzie:
-*R=suma odsetek
-*D=wartość depozytu
-*d= oprocentowanie depozytu (annualizowane)
-*n= ilość dni pomiędzy początkiem okresu depozytu a jego zapadalnością 
- Należy zwrócić uwagę ,ze przyjęto tutaj standard roku liczącego 360 dni.  Gdyby standard był inny ( a jest top częsty przypadek) należy uwzględniać inna wartość dni w roku.
-Efektywna stopę zwrotu na depozycie  można wyliczyć ze wzoru na wartość pieniądza w czasie.
+
+ * R = suma odsetek
+ * D = wartość depozytu
+ * d = oprocentowanie depozytu (annualizowane)
+ * n = ilość dni pomiędzy początkiem okresu depozytu a jego zapadalnością 
+
+
+Należy zwrócić uwagę ,ze przyjęto tutaj standard roku liczącego 360
+dni.  Gdyby standard był inny ( a jest top częsty przypadek) należy
+uwzględniać inna wartość dni w roku.  Efektywna stopę zwrotu na
+depozycie można wyliczyć ze wzoru na wartość pieniądza w czasie.
 
 
 
-=== Instrumenty dyskontowe===
-Są to typowe instrumenty rynku pieniężnego wyceniane na zasadzie dyskonta tzn. są handlowane  z dyskontem w stosunku do wartości nominalnej. Jak już to było wykazane, ich cena aktualna jest równa 
+Instrumenty dyskontowe
+----------------------
 
-'''<math>P =FV/(1+Y x DTM/360)\,'''
+Są to typowe instrumenty rynku pieniężnego wyceniane na zasadzie
+dyskonta tzn. są handlowane z dyskontem w stosunku do wartości
+nominalnej. Jak już to było wykazane, ich cena aktualna jest równa
+
+.. math::
+
+   P =\frac{FV}{(1+Y x \frac{DTM}{360}}
 
 gdzie:
 
-P – cena rynkowa
+ - P - cena rynkowa
 
-FV – wartość nominalna
+ - FV - wartość nominalna
  
-Y – rentowność
+ - Y - rentowność
 
-DTM – ilość dni do wykupu,
+ - DTM - ilość dni do wykupu,
 
 
