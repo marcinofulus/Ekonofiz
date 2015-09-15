@@ -1,6 +1,3 @@
-1. stopy proc. zmienic P -> S
-2. Struk. stóp - wywalic i zmergować z Appendixem
-3. Hedge: <<rysunek wynik transakcji>> WAGA!
-   - Hedging with Forwards and Futures na konkretnych danych 
+1. kontrakty term. - sprawdzic
+2. wartosc_pieniadza - chk + rysunki z Worda
 
-4. VaR - ogony (fit Pareto, kwantyl)

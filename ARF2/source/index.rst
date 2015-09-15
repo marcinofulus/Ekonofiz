@@ -23,9 +23,10 @@ Praktyczny wstęp do komputerowej analizy Rynków Finansowych
    var*
    binarne
    wartosc_pieniadza
-..   forex
-..   czas
-..   procent
+   kontrakty_terminowe
+   forex
+   czas_julianski
+   procent
   
 
 .. only::  html
