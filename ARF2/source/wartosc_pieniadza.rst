@@ -4,6 +4,50 @@ Wartość pieniądza w czasie, renty i kredyty
 
 
 
+Finanse to wiedza pozwalająca jej posiadaczowi na efektywną alokacje
+posiadanych zasobów. Przyjmuje się najczęściej, że miarą efektywności
+alokacji jest wzrost wartości. Podstawą decyzji o właściwej alokacji
+jest ocena aktywów będących do dyspozycji.
+
+
+Aktywo, jego wartość, wycena
+----------------------------
+
+
+Aktywo to ta cześć zasobów, która generuje strumień przepływów
+pieniężnych.  Aktywo posiada charakterystyczną cechę, która jest jego
+wartość.  Wartość aktywa określa rynek.
+
+Najczęściej ta wycena odbywa się metodą aukcji, gdzie aktywo zyskuje
+ten, który ofiaruje za niego najwyższą cenę czyli ustala jego
+najwyższą wartość.  Porównywaniu wartości aktywów zanim poddane
+zostaną testowi aukcji rynkowej służy matematyka. Matematyka pozwala
+na porównywanie wartości oraz na przewidywanie ich wartości rynkowej
+dzięki oferowaniu pewnych zasad i modeli przydatnych do
+wyceny. Matematyczne wyrafinowanie metod i modeli wyceny wzrasta
+bardzo szybko. Komputery ułatwiają przeprowadzanie skomplikowanych
+obliczeń, niemniej jednak głębokie zrozumienie matematycznych reguł
+rządzących finansami jest podstawą tej dziedziny wiedzy. Zdrowy
+rozsadek nadal obowiązuje i koniecznym jest głębokie rozumienie co się
+liczy i dlaczego.
+
+Wartość aktywów mierzona jest najczęściej wartością
+pieniądza. Używając pieniądza do wyceny odkryć można szereg jego
+specyficznych cech, o których będzie poniżej.
+
+Pierwsza uwaga dotyczy praktycznego spostrzeżenia, że poszukując
+danych finansowych ceny w różnych źródłach znajduje się szeregi (
+najczęściej czasowe) danych ceny.  Jeśli dokonuje się porównywania
+tych danych należy mieć pewność, że mamy do czynienia z tą samą
+wielkością oraz że wielkości te występującą w tych samych jednostkach
+miary. Jeśli jednostki są różne wprowadzić należy właściwe
+przeliczniki jednostki tak by porównywać to samo a nie przykładowo
+mile i kilometry , w przypadku porównywania odległości. Ceny w
+finansach wyrażane są nie tylko w różnych walutach ale i w różnych
+sposobach oddzielania wartości mniejszych od jedności i wartości
+oddzielania tysięcy.
+
+
 Na pytanie co wolimy otrzymać: pewną kwotę pieniężną dzisiaj czy za
 jakiś czas odpowiadamy, że wolimy otrzymać tę kwotę dziś. Posiadanie
 kwoty dziś jest dla nas lepsze niż otrzymanie jej kiedyś w
@@ -18,73 +62,27 @@ upływa między każdorazowym transferem pieniądza jest istotnym
 elementem w finansach.
 
 
-Jak obliczyć ilość dni pomiędzy dwoma datami?
----------------------------------------------
 
-Jedną z możliwości jest konwersja daty do ilości dni Juliańskch. Jest
-to liczba dni, która upłynęła od 1 stycznia roku 4713 p.n.e., według
-kalendarza juliańskiego. Metoda i algorytm jest opisana na stronach
-Wikipedii: `Data Juliańska
-<https://pl.wikipedia.org/wiki/Data_julia%C5%84ska>`_.
-
-
-
-Większość systemów komputerowych ma wbudowaną funkcję pozwalającą na
-obliczanie ilości dni pomiędzy dwoma datami. Na przykład w języku
-python można wykorzystać moduł datetime w następujący sposób: 
-
-
-.. sagecellserver::
-
-   from datetime import date
-   data1,data2 = (1980,10,31), (1989,5,1)
-   print date(*data2)-date(*data1)
-
-   
+Pieniądz dzisiaj ma dla nas większą wartość niż ten sam pieniądz w
+przyszłości.  Jest to odczucie oparte o doświadczenie . Wartość
+pieniądza zmienia się w czasie.  Matematyczne zasady zmiany wartości
+pieniądza w czasie opierają się na założeniu, że za udostępnienie
+pieniędzy komuś, kto potrafi je lepiej zagospodarować należy się
+pożyczającemu nagroda w postaci jakiejś części ich wartości. Jest
+kilka powodów takiego myślenia.  Pierwszy z powodów to
+inflacja. Często obserwuje się wzrost cen w czasie. Nagroda wspomniana
+powinna rekompensować zmianę tego poziomu cen. Drugi powód to ryzyko
+tego ,że pożyczkobiorca nie zwróci pożyczonej sumy.  Nagroda powinna
+rekompensować ryzyko niespłacenia długu. Trzeci powód to utrata
+możliwości. Pożyczając pieniądze nie możemy zrealizować wspaniałych
+możliwości jakie mogą się pojawić czasie gdy nie mamy pieniędzy i
+czekamy na ich zwrot. Nagroda wspomniana ma za zadanie rekompensować
+wszelkie, możliwe , stracone możliwości. Nawet jeśli dwa pierwsze
+powody nie występują trzeci wpływa na zmianę wartości pieniądza w
+czasie.  To że pieniądz ma różna wartość w czasie powoduje konieczność
+szczególnej ostrożności w porównywaniu kwot cyfrowych.
 
 
-Wyliczmy
-jeszcze ile mamy dni pracujących począwszy od 1 października 2014 do
-17 lutego 2015 - czyli w semestrze zimowym: 
-
-
-.. sagecellserver::
-
-    from datetime import date,timedelta
-    data1,data2 = (2014,10,1), (2015,2,17)
-
-    d = date(*data1)
-    c=0
-
-    while d<=date(*data2):
-        if  d.weekday()<5:
-            print d,d.strftime("%A")
-        d += timedelta(days=int(1))
-        c+=1
-    print c
-
-
-Ilość dni pracujących - dni roboczych ma istotne znaczenie dla różnych
-obliczeń na rynkach finansowych. Dlatego umiejętność takich obliczeń
-jest bardzo istotna.  Przy takich obliczeniach należy pamiętać o
-różnych kulturach i różnych dniach świątecznych obowiązujących na
-świecie jeśli nasze rozliczenia dotyczą różnych krajów.  Dla obliczeń
-instrumentów finansowych przyjmuje się rożne ilości dni w
-roku. Długość roku kalendarzowego wymosi 365/366 dni. Taki rok
-charakteryzuje pewne instrumenty szczególnie popularne na rynku
-brytyjskim. Rok o długości 360 dni - to tzw. rok obrotowy
-(:math:`12\times30` dni). Taka miara roku popularna jest na rynku
-amerykańskim. Instrument finansowy posiada w swym opisie informacje
-jaki format dni w roku jest stosowny dla tego instrumentu.
-
-
-.. admonition:: Poeksperymentuj z komputerem!
-
-   Ile wtorków będzie w tym semestrze?
-
-.. sagecellserver::
-
-   print "liczba wtorków:"
 
 Linia czasu i strumienie finansowe.
 -----------------------------------
@@ -111,10 +109,21 @@ przepływy. Ilustracja poniżej pokazuje przykład lini czasu.
  p    
 
 
+Aktywo możemy przedstawić na osi czasowej jako pewien zbiór przepływów
+generowanych przez to aktywo.  Strumienie pieniężne mogą mieć znak
+plus lub minus. W zależności od tego czy wpływają na wzrost stanu
+posiadania gotówki (+) czy też go zmniejszają będąc wpłatą na „obce”
+konto(-).  Oś czasowa pozwala na ilustracje efektu wpływu czasu na
+wartość pieniężną. Posuwanie się po wartościach pieniądza w kierunku
+przyszłości czyli liczenie wartości przyszłej to
+kapitalizacja. Liczenie w kierunku przeszłości to dyskontowanie.
+Dokonując obliczeń uwzględniających czas należy stosować wykres
+czasowy.
 
 
-Wartość przyszła
-----------------
+
+Wartość pieniądza w czasie
+--------------------------
 
 Mając w posiadaniu pewną kwotę pieniędzy stajemy przed następującym
 wyborem: czy wydać te pieniądze natychmiast i kupić sobie coś czyli
@@ -284,24 +293,63 @@ zwrócić po pewnym czasie. Dzisiaj wiemy ile potrzebujemu więc:
 
    P_V= \frac{F_V}{(1+r)^n}
 
-Taki proces nazywa się dyskontowaniem. Bardziej szczegółowa analiza
-tego procesu kolejnym rozdziale. 
 
 Rynek pieniądza znajduje się w równowadze i warunki oprocentowania
 "komuś" są takie same jak "od kogoś", czyli stopa dyskontowa jest
 równa stopie oprocentowania.
 
-Jak widać stopa procentowa jest "zapłatą" za niepewność oddania
-naszych pieniędzy w czyjeś ręce. Jej wielkość wynagradza inflacje i
-ryzyko pożyczki.
+Ostatnia prezentowana zależność pozwala nam obliczyć wartość pieniędzy
+w przyszłości - „wartość przyszłą”, znając wartość aktualną
+(bieżącą). Proces ten nazywamy kapitalizacją.
 
-Powyższe rozważania a szczególnie wzory, pozwalają na sformułowanie
-dwu ważnych praw charakteryzujących zachowania się pieniędzy w czasie.
+Z powyższego wzory możemy też wyliczyć wartość dzisiejszą (aktualną)
+znając wartość przyszłą. Taki proces zwany jest dyskontowaniem. 
 
- I. Pieniądz dzisiaj jest więcej wart niż pieniądz w przyszłości.
+W obu przypadkach należy znać stopę procentową. Stopę tę określa
+każdorazowo rynek.
+ 
 
- II. Pieniądz ulokowany w ryzykownej inwestycji jest mniej wart niż
-     pieniądz ulokowany w bezpiecznej inwestycji (mniejsze r).
+
+
+
+
+
+Zdyskontowane strumienie pieniężne
+----------------------------------
+
+
+Jeśli nabywamy jakiś instrument finansowy to instrument ten generuje
+przepływy finansowe. Przepływy mogą być
+
+ - wypływem na nabycie instrumentu
+ - wpływem do inwestora w postaci odsetek lub dywidendy albo końcowej
+   wypłaty pieniężnej (zwrot zaciągniętej pożyczki albo wpływ ze
+   sprzedaży akcji)
+
+Ponieważ przepływy są odległe od siebie w czasie ich dzisiejsza
+wartość musimy obliczyć uwzględniając wartość pieniądza w czasie.
+
+
+Dyskontowanie przepływów to wyrażanie ich w pieniądzu z okresu
+bieżącego czyli wartości aktualnej.
+
+.. math:: 
+
+   P_V =\sum_{i=1}^n P_V(D_i),
+
+
+gdzie :math:`PV(D_i)` to wartość zaktualizowana przepływu :math:`D_i`.
+W przypadku stałych wartości płatności w czasie wzór ten przybierze
+postać:
+
+.. math::  
+
+   P_o=\sum\limits_{i=1}^n\frac{D}{(1+r)^i}
+
+
+
+
+
 
 
 Stopa nominalna i efektywna
@@ -376,13 +424,13 @@ przy naliczaniu miesięcznym
 
 .. math:: 
 
-   r_w=(1+r/12)^12
+   r_w=(1+r/12)^{12}
 
 a przy naliczaniu dziennym
 
 .. math::
 
-   r_w=(1+r/365)^365
+   r_w=(1+r/365)^{365}
 
 gdzie:
 
@@ -407,49 +455,25 @@ gdzie:
 
 
 
+Sposoby  oceny efektywności  aktywa 
+-----------------------------------
 
+Dyskontowanie strumieni pieniężnych pozwala na porównanie różnych
+przepływów pieniężnych poprzez sprowadzenie ich do porównania ich
+wartości w tym samym punkcie czasu.  Dyskontowanie pozwala na
+mierzenie efektywności alokacji.
 
-
-Wartość bieżąca netto
----------------------
-
-
-Jeśli nabywamy jakiś instrument finansowy to instrument ten generuje
-przepływy finansowe. Przepływy mogą być
-
- - wypływem na nabycie instrumentu
- - wpływem do inwestora w postaci odsetek lub dywidendy albo końcowej
-   wypłaty pieniężnej (zwrot zaciągniętej pożyczki albo wpływ ze
-   sprzedaży akcji)
-
-Ponieważ przepływy są odległe od siebie w czasie ich dzisiejsza
-wartość musimy obliczyć uwzględniając wartość pieniądza w czasie.
-
-Zdyskontowane strumienie pieniężne
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Dyskontowanie przepływów to wyrażanie ich w pieniądzu z okresu
-bieżącego czyli wartości aktualnej.
-
-.. math:: 
-
-   P_V =\sum_{i=1}^n P_V(D_i),
-
-
-gdzie :math:`PV(D_i)` to wartość zaktualizowana przepływu :math:`D_i`.
-W przypadku stałych wartości płatności w czasie wzór ten przybierze
-postać:
-
-.. math::  
-
-   P_o=\sum\limits_{i=1}^n\frac{D}{(1+r)^i}
 
 Wartość bieżąca netto
 ~~~~~~~~~~~~~~~~~~~~~
 
+Jest to wielkość pozwalająca na ocenę efektywności inwestycji.  W
+chwili :math:`t = 0` nabywamy aktywo. Nabycie to ujemny przepływ
+finansowy w chwili t=0 często ten przepływ nazywamy kosztem
+inwestycji.
 
-Wartość tę wyliczamy odejmując od przyszłych wpływów finansowych
-dzisiejsze koszty inwestycji np. nabycie instrumentu
+Wartość bieżącą netto wyliczamy odejmując od przyszłych wpływów
+finansowych dzisiejsze koszty inwestycji np. nabycie instrumentu:
 
 .. math::
 
@@ -471,8 +495,9 @@ generowanych przez inwestycje.
 Jeśli NPV jest mniejsze od zera to inwestycja jest niekorzystna.
 
 
+
 IRR czyli wewnętrzna stopa zwrotu
----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Wartość NPV zależy od stopy procentowej. Wyobraźmy sobie sytuację w
 której inwestujemy w pewny biznes środki z kredytu na pięć lat. Biznes
@@ -492,14 +517,21 @@ metody przybliżone.
 Obliczanie  wartości pieniadza w czasie
 ---------------------------------------
 
-Poniżej pokazane będa dwa przykłady obliczeń z tego zakresu. Nie
-wymagają bardzo uzycia bardzo skomplikowanych metod obliczeń ale mają
+Poniżej pokazane będą dwa przykłady obliczeń z tego zakresu. Nie
+wymagają bardzo użycia bardzo skomplikowanych metod obliczeń ale mają
 za zadanie pokazać specyfikę tego rodzaju obliczeń i przydatność w tym
 celu komputera oraz wymaganych na wielu egzaminach zawodowych
-umejetności posługiwania sie kalkulatorem finansowym, które to
-urządzenie ma wbudowane mozliwości liczenia szeregów geometrycznych i
+umiejętności posługiwania sie kalkulatorem finansowym, które to
+urządzenie ma wbudowane możliwości liczenia szeregów geometrycznych i
 jest niezwykle przydatne w finansach. Warto zapoznać sie z tym
-urzadzeniem i umieć dokonywać na nim róznych obliczeń.
+urządzeniem i umieć dokonywać na nim różnych obliczeń.
+
+Zgodnie z komunikatem nr 8 Komisji Egzaminacyjnej dla doradców
+inwestycyjnych z dnia 22 lutego 2006 podczas egzaminów na doradców
+finansowych mogą być używane jedynie kalkulatory rekomendowane przez
+Komisję. Przykładowo kalkulatory finansowe HP 10BII oraz 12C Platinum
+zostały dopuszczone do używania podczas egzaminów na doradców
+inwestycyjnych.
 
 .. admonition:: Przykład
 
@@ -508,10 +540,528 @@ urzadzeniem i umieć dokonywać na nim róznych obliczeń.
 
 
 
+Wartość pieniądza w czasie - uwagi podsumowujące
+------------------------------------------------
+
+Mówiąc o wartości pieniężnej  należy mieć na uwadze czas dla którego wartość ta jest określana. 
+Czas bowiem zmienia wartość pieniędzy.
+Uwagi końcowe:
+
+* Porównując wartości pieniężne sprawdzić należy w jakich jednostkach są  podawane.
+* Dwie wielkości  wartości pieniężnych mogą być porównywane ( w tym dodawane lub odejmowane) , jeśli  dotyczą tego samego momentu czasu.
+* Jeśli porównuje się  wartości monetarne w różnych momentach czasowych należy zastosować odpowiednie przeliczniki zwane dyskontowaniem lub kapitalizacją.
+* Jeśli mamy dwie wartości monetarne :math:`X` i :math:`Y`, to:
+
+  - Jeśli wartość :math:`X > Y` (lub :math:`X<Y`) w czasie :math:`t_1` to
+    jest większa (lub odpowiednio mniejsza) w czasie :math:`t_2`.
+  - Jeśli :math:`X =Y` w czasie :math:`t_1` to :math:`X` będzie
+    równa :math:`Y` w każdym czasie :math:`t_2`.
+
+
+
+Jak obliczyć ilość dni pomiędzy dwoma datami?
+---------------------------------------------
+
+Ilość dni jaki upływa między każdorazowym transferem pieniądza jest
+istotnym elementem w finansach.
+
+Ilość dni między datami 
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Jedną z możliwości jest konwersja daty do ilości dni Juliańskch. Jest
+to liczba dni, która upłynęła od 1 stycznia roku 4713 p.n.e., według
+kalendarza juliańskiego. Metoda i algorytm jest opisana na stronach
+Wikipedii: `Data Juliańska
+<https://pl.wikipedia.org/wiki/Data_julia%C5%84ska>`_.
+
+
+
+Większość systemów komputerowych ma wbudowaną funkcję pozwalającą na
+obliczanie ilości dni pomiędzy dwoma datami. Na przykład w języku
+python można wykorzystać moduł datetime w następujący sposób: 
+
+
+.. sagecellserver::
+
+   from datetime import date
+   data1,data2 = (1980,10,31), (1989,5,1)
+   print date(*data2)-date(*data1)
+
+   
+
+
+Wyliczmy jeszcze ile mamy dni pracujących począwszy od 1 października 2014 do
+17 lutego 2015 - czyli w semestrze zimowym: 
+
+
+.. sagecellserver::
+
+    from datetime import date,timedelta
+    data1,data2 = (2014,10,1), (2015,2,17)
+
+    d = date(*data1)
+    c=0
+
+    while d<=date(*data2):
+        if  d.weekday()<5:
+            print d,d.strftime("%A")
+        d += timedelta(days=int(1))
+        c+=1
+    print c
+
+
+Ilość dni pracujących - dni roboczych ma istotne znaczenie dla różnych
+obliczeń na rynkach finansowych. Dlatego umiejętność takich obliczeń
+jest bardzo istotna.  Przy takich obliczeniach należy pamiętać o
+różnych kulturach i różnych dniach świątecznych obowiązujących na
+świecie jeśli nasze rozliczenia dotyczą różnych krajów.  Dla obliczeń
+instrumentów finansowych przyjmuje się rożne ilości dni w
+roku. Długość roku kalendarzowego wymosi 365/366 dni. Taki rok
+charakteryzuje pewne instrumenty szczególnie popularne na rynku
+brytyjskim. Rok o długości 360 dni - to tzw. rok obrotowy
+(:math:`12\times30` dni). Taka miara roku popularna jest na rynku
+amerykańskim. Instrument finansowy posiada w swym opisie informacje
+jaki format dni w roku jest stosowny dla tego instrumentu.
+
+
+.. admonition:: Poeksperymentuj z komputerem!
+
+   Ile wtorków będzie w tym semestrze?
+
+.. sagecellserver::
+
+   print "liczba wtorków:"
+
+
+Standardy liczenia dni w praktyce finansowej
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+W matematyce finansowej spotkać można kilka standardów na określanie
+odległości w czasie.
+
+1.  Dokładna liczba dni Przyjmuje się, że rok liczy 365/366 dni a
+    ilość dni liczy sie przykładowo tak ja w powyżej pokazano. Każdy
+    miesiąc ma tyle dni ile przewiduje kalendarz. Ilość lat określa
+    się dzieląc ilość dni między datami przez ilość dni w roku.
+2.  Zasada równych miesięcy Według tej zasady rok liczy 360 dni dzieli
+    się na 12 miesięcy po 30 dni. Tzn. w lutym jest data 29luty oraz
+    30luty.  A 31 nie występuje w żadnym miesiącu.  Zasada ta
+    stosowana jest w 3 wersjach:
+   
+    A. Metoda Europejska - 12 miesięcy po 30 dni. 360 dni w roku.
+       Metoda czasem nazywana 30/360.  W tej konwencji liczone są
+       renty i spłaty kredytów większości kalkulatorów.  Stosuje się
+       tą metodę do szybkich przybliżeń w matematyce finansowej.
+
+    B. Dokładna liczba dni w miesiącach - rok 360 dni Wylicza się
+       prawdziwa ilość dni między datami (tak jak w przypadku
+       kalendarza juliańskiego). Stosowanie tej metody zwanej czasami
+       metoda bankową powoduje to ,że kredytobiorca powinien płacić
+       odsetki od rzeczywistych dni w miesiącu. Innymi słowy powinien
+       zapłacić za dodatkowe 5 lub 6 dni w roku w porównaniu do metody
+       30/360 .Czyli stopa oprocentowania rocznego kredytu praktyczne
+       dla niego wyniesie: :math:`r=\frac{365}{360}r' =20.28\%`, gdzie
+       :math:`r'` - stopa określona dla kredytu
+    C. Metoda stosowana na rynku amerykańskim (NASD) to 12 miesięcy po
+       30 dni każdy.
+       http://www.hsbcnet.com/gbm/attachments/standalone/2006-isda-definitions.pdf
+       Zasady poprawek do daty aktualnej dla instrumentów
+       naliczających odsetki na koniec kalendarzowego miesiąca. Może
+       być potrzebne stosowanie kilku poprawek. Stosuje się je w
+       następującej kolejności:
+
+          * Jeśli data1 przypada na ostatni dzień miesiąca lutego I
+            data2 przypada też na ostatni dzień miesiąca lutego
+            (innego roku) to zmienia się date2 na 30.
+          * Jeśli data1 przypada na ostatni dzień lutego to zmieniamy
+            ją na 30.
+          * Jeśli data 2 przypada na 31 I data 1 przypada na 30 to
+            zmieni sie date 2 na 30.
+          * Jeśli data1  przypada na 31 to zmienia sie ja na 30.
+
+Należy pamiętać ,ze pewne instrumenty finansowe rozliczane są w
+tygodniach. Przykładowo bony Skarbowe . W tym przypadku rok ma 52
+tygodnie i dzieli się na 45 kwartały po 13 tygodni. Tydzień to 7 dni.
+
+Instrumenty finansowe maja bardzo interesujące zasady naliczania czasu
+zawsze należy zaznajomić się regulacjami przyjętymi dla danego
+instrumentu finansowego.  Sprawę dodatkowo komplikują różne standardy
+używane na świecie.
+
+
+Renty i kredyty
+---------------
+
+Renty
+~~~~~
+
+Renta to jest ciąg płatności. Zazwyczaj płatności występują
+regularnie( równe okresy) i zazwyczaj w równej wielkości. Źródłem
+takich strumieni finansowych mogą być np;, obligacje( płatności
+kuponowe) opłaty czynszowe wpływające za wynajem lokalu, akcje
+wypłacające regularnie dywidendę, odsetki od lokat terminowych etc. .
+
+ Wielkości charakterystyczne dla rent to : Wielkość płatności, odstęp czasowy między płatnościami, moment płatności, sposób naliczania odsetek, otoczenie stopy procentowej  i ilość rat .
+
+Renta wieczysta
++++++++++++++++
+
+Renta wieczysta to nieskończony ciąg, równookresowych i równych
+płatności. Rozpoczęcie analizy przypadku rent od takiego modelu
+spowodowane jest jego znaczącym miejscem w matematyce
+finansowej. Niech renta ta to ciąg płatności C. Płatności są płacone
+na koniec kolejnych okresów, czyli pierwszy strumień pojawia się w
+okresie1.  Wartość bieżącą tego ciągu płatności w punkcie t = 0
+policzyć można dyskontując płatności do chwili t = 0 w następujący
+sposób:
+
+.. math::
+
+  PV = \frac {C}{(1+r)}+\frac{C}{(1+r)^2} + \frac{C}{(1+r)^3}+ ... \frac{C}{(1+r)^n} +  ...
+
+Jeśli obie strony pomnożymy przez :math:`(1+r)`, otrzymamy:
+
+.. math::
+
+   PV(1+r) = \ C + \frac {C}{(1+r)}+\frac{C}{(1+r)^2} + \frac{C}{(1+r)^3}+ ... \frac{C}{(1+r)^	n} + ...
+
+
+Po prawej stronie równania wyrazy występujące po :math:`C` to
+nieskończony szereg płatności jak w wyjściowym równaniu czyli ta cześć
+sumy to :math:`PV`
+
+Czyli
+
+.. math::
+
+   PV(1+r) =  C + PV 
+
+Stąd 
+
+.. math::
+
+  PV= \frac{C}{r} 
+
+
+Wartość bieżąca takiego instrument to cena tegoż instrument zwana też
+wartością godziwą.
+
+ - :math:`PV` - to tyle ile jest warty taki  instrument
+
+Wzór prosty i łatwy do zapamiętania ale pojawia sie pytanie czy jest
+to tylko model teoretyczny czy takie instrumenty istnieją. Takie
+obligacje, zwana konsolami wyemitował rząd brytyjski na potrzeby
+finansowania wojny z Napoleonem Bonaparte i spłaca je do dziś i
+zamierza to robić do końca swego istnienia. Korporacja Disneya
+wyemitowała obligacje stuletnie. Można policzyć wartość tej obligacji
+i porównać go z wartością konsoli aby przekonać się jak dobrze
+obligacje Disneya przybliżają obligacje wieczystą.  
+
+
+Zastosowanie renty do określenia wartości godziwej akcji czyli renta wieczysta o rosnącej racie
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Zanim zostanie opisane zachowanie się aktywa zwanego akcją czyli
+instrumentu własnościowego rozważyć należ przypadek jak wycenić rentę
+wieczystą, której wartość raty w czasie będzie wzrastała. Wzrost
+następuje co okres o g %. Innymi słowy :w po okresie 1 rata jest
+równa c, po okresie 2 rata to :math:`\frac{c}{(1+g)}` a po okresi 3 rata jest równa :math:`\frac{c}{(1+g)^2}` etc.
+
+.. math::
+ 
+ P_V = \frac {C}{(1+r)}+\frac{C(1+g)}{(1+r)^2} + \frac{C(1+g)^2}{(1+r)^3}+ ... \frac{C}{(1+r)^n} + ...
+
+Wartość bieżąca czyli cena będzie równa sumie zdyskontowanych rat:
+
+.. math::
+
+   PV = \frac{C}{1+r}+\frac{C}{(1+r)^2} + \frac{C}{(1+r)^2}+...\frac{C}{(1+r)^n} + ...
+
+Mnożąc obie strony równania przez :math:`\frac{1+r}{1+g}` postępując
+podobnie jak w przypadku renty wieczystej otrzymujemy: 
+
+.. math::
+
+   PV \frac{1+r}{1+g} = \frac{C}{1+g} + PV
+
+Po prostych przeliczeniach algebraicznych otrzymujemy: 
+
+.. math::
+
+   PV= \frac{C}{r-g}
+
+Gdzie g<r.  
+
+Zastosowanie tego rozumowania do wyceny wartości akcji samo się
+narzuca. Akcja to instrument właścicielski dający właścicielowi prawo
+do udziału w majątku emitenta akcji,  w tym prawo do
+dywidendy. Dywidenda to udział w zysku.  Należy pamiętać, że jeśli
+akcje kupujemy na nieznany okres to należy traktować spółkę jako
+źródło dywidendy na okres nieskończony. Spółka bowiem nie ma
+zdefiniowanego czasu życia. Raczej należy myślec tu o czasie
+nieskończonym a nie o skończonym ciągu rat.  Jeśli tak to w tym
+przypadku :math:`n\to\infty` to dla skończonej ceny w
+nieskończoności Otrzymujemy 
+
+.. math:: 
+
+   PV=\sum\limits_{i=1}^n\frac{Ci_i }{(1+r)^i} 
+
+
+Model powyższy określania ceny godziwej akcji jest zwany modelem
+dyskontowanej dywidendy.  Należy podkreślić w tym miejscu kilka
+aspektów stosowania modeli. Pierwszy aspekt, należy pamiętać, ze jest
+to model. Założenie nieskończonego życia spółki powoduje, ze wycenę
+dzisiejszej wartości spółki nie wymaga znajomości przyszłej ceny
+akcji. Model ten wskazuje ,ze w cenie aktualnej akcji są „zawarte”
+nieskończony ciąg przyszłych dywidend.
+
+
+Wycena w oparciu o oczekiwany wzrost.
+
+Jeśli w tytule wyczuwa się problem wzrostu czego to powód tego jest
+ następujący.  Jeśli weźmie się do analizy zyski firmy to uwaga, ze
+ firma niezwykle rzadko przeznacza cały zysk na dywidendę jest
+ niezwykle trafna uwagą. Konsekwencja takiego myślenia jest, ze cena
+ wyliczona z dywidend, które zazwyczaj są mniejsze niż zyski firmy
+ może dać wartość mniejsza niż w oparciu o wzrost zysków. Ale dla tego
+ modelu przyjmuje się jeszcze jedno założenie- jeśli zyski firmy
+ rosną, to dywidenda też powinna rosnąc w tym samym tempie.
+
+Przypadek stałego wzrostu. Wzrost zerowy dywidendy.
+
+Załóżmy, że spółka płaci stała dywidendę nie ma szans na jej wzrost w
+rozsądnej przyszłości.  Czyli:
+ 
+.. math::
+
+  D_1 >   = D_2   = ... = D_i
+
+Gdzie :math:`D_i` to i-ta dywidenda.
+
+Jeśli ma stała wartość :math:`C`, to stały strumień pieniądza
+generowany przez wypłatę dywidend do nieskończoności jako sumy szeregu
+nieskończonego daje wynik:
+
+.. math::
+
+   P_o = \frac {C}{r}
+
+Czyli mamy przypadke renty wieczystej.
+
+
+Innymi słowy cena akcji jest równa wartości wieczystej dywidendy
+dzielonej przez stopę dyskontową. Jeśli stopa dyskontowa jest stopą
+rynkową dyskonta (właściwą dla ryzyka inwestycji w tą akcje) to tak
+uzyskana cena jest ceną rynkową. Chociaż liczba firm wypłacających w
+nieskończoność stałą dywidendę jest praktycznie raczej niewielka, to
+ten model jest przydatny do wyceny jeśli aktualnie wypłacane dywidendy
+nie zmieniają się od pewnego czasu. Z pewnością równanie takie można
+stosować dla wyceny akcji uprzywilejowanych (co do wielkości wypłaty
+dywidendy).  
+
+Stały wzrost dywidendy. Wzrost większy od zera.  
+
+Przyjmujemy, że dywidenda wzrasta z roku na rok o czynnik g.
+
+Cena z modelu dyskontowego dywidendy jest
+
+.. math::
+
+   P_o=\sum_{i=1}^n\frac{D_i}{(1+r)^i}
+
+
+Jeśli wzrost dywidendy jest stały możemy kolejne dywidendy zapisać  korzystając z dywidendy okresu poprzedniego i czynnika wzrostu
+ 
+.. math::
+
+   D_1 = D_0(1+g) 
+
+Gdzie
+
+  G -  jest procentowym wzrostem dywidendy (zysków)  W kolejnym roku
+
+.. math::
+
+  D_2=(D_1 )(1+g)
+
+Czyli:
+
+.. math::
+
+  D_2=(D_0 )(1+g)^2 
+
+Dla  i-tego roku
+
+.. math::
+
+  D_i=(D_0 )(1+g)^i
+
+Wstawiając tak wyliczoną i-tą dywidende do wzoru na cene akcji w
+modelu dyskontowania dywidendy otrzymamy tosamo co dla wzrostu renty
+wieczystej o czynnik g:
+
+.. math::
+
+   PV = P_0 = \frac{C}{r-g}
+
+
+To ostatnie równanie jest zwane równaniem modelu Gordona i jest
+najczęściej stosowanym równaniem dla dywidendowej wyceny akcji
+spółki. Nazwa równanie Gordona jest przyjęte w literaturze mimo, kilka
+lat wcześniej równoważny model została zaprezentowany przez
+J.B.Williams’a w „Theory of Investment Value”( Cambridge, MA: Harvard
+University Press, 1938).
+
+Na pytanie co w przypadku gdy g jest większe od r???  odsyłamy do
+rozważań przedstawionych w pozycjach : Ramesh Rao „Financial
+Management” –Uniwersity of TexasSoth Western College Publishing1995i
+lub R.A.Brealey, S.T.Myers-„ Priciple of corporate Finance” McGraw
+HillComp-1996.
+
+
+
+Renta dla skończonej ilości okresów
++++++++++++++++++++++++++++++++++++
+
+
+Jeśli mamy do czynienia ze skończona liczbą rat to pytanie o wartość
+aktualną takiego szeregu możemy policzyć.  Możemy postąpić również w
+taki sposób: Kupujemy rentę wieczystą a po n okresach jej posiadania
+sprzedajemy ją na rynku. Tak więc z nieskończonego ciągu rat
+wybraliśmy dla siebie wartość skończonego szeregu
+rat. Przeprowadziliśmy operacje kupna nieskończonego ciągu rat i jego
+sprzedaży po n okresach. Jak jest wartość transakcji?  Kupiliśmy rentę
+wieczystą za cenę: 
+
+.. math::
+
+   P_o =PV= \frac {C}{r}
+
+A następnie sprzedaliśmy po czasie n okresów rentę wieczystą za którą
+dostaliśmy taką cenę jak jest warta renta wieczysta czyli: :math:`P_o
+= \frac{C}{r}`. Tylko, że dostaliśmy tę cenę po n okresach. Jej
+wartość bieżąca to :math:`P_o=PV=\frac{C/r }{(1+r)^n}`.
+
+Czyli cena transakcji, która jest wartością skończonego szeregu
+płatności to: 
+
+.. math::
+
+   P_0=PV=\frac {C}{r}-\frac{C/r }{(1+r)^n}
+
+Albo inaczej: 
+
+.. math::
+ 
+   P_0=PV=\frac {C}{r}\left(1-\frac{1 }{(1+r)^n}\right)
+
+
+A ten wzór opisuje  kredyt wzięty dzisiaj o wartości bieżącej sumy n spłat płaconych w przyszłości w kolejnych okresach.
+
+Renta płatna  na początku okresów
++++++++++++++++++++++++++++++++++
+
+.. todo MK z sage teoria procentu 
+
+Może być taka sytuacja ,że płatności nie występują na końcu okresu ale
+na jego początku. Innymi słowy w chwili t=o następuje płatność za
+okres1 a w chwili =2 płatność za okres 1. Czyli wartość przyszła jest
+kapitalizowana o jeden okres więcej czyli:
+
+.. math:: 
+
+   FV_2=FV_1 (1+r)
+
+Gdzie :math:`FV_{2}` to wartość przyszła płatności na początku okresu
+a :math:`FV_{2}` to wartość ptrzyszła płatności na końcu okresu.
+Wzory na wartość bieżąca można prosto wyliczyć podobnie.  Wyliczenia
+wydaja się intuicyjnie proste bo następuje przesuniecie płatności o
+jeden okres
+
+Kredyty
+~~~~~~~
+
+Wyliczenia wartości aktualnej przyszłych, równych strumienie
+pieniężnych , tak jak w przypadku renty, może zostać zastosowane do
+wyliczenia spłaty kredytu.  Kredyt bowiem to kwota pieniędzy
+otrzymywana dzisiaj od kredytodawcy i spłacana w przyszłości
+najczęściej w równych odstępach czasu. Jeśli kwoty spłat są równe to
+jest to jak w przypadku renty.  Spłata kredytu określona przez zasady
+renty to spłata równymi ratami okresowymi (przykładowo płaconymi co
+miesiąc).  Z wyliczeń dotyczących renty wynika, że:
+
+.. math::
+
+   PV = PMT \frac{1-\frac{1}{(1+r)^n}}{r}
+
+Gdzie:
+   - PV - wartość aktualna (bieżąca)
+   - PMT - płatność regularna, okresowa, rata.
+   - R -  stopa procentowa
+
+Proste matematyczne przekształcenie wzoru pozwala obliczyć wartość
+raty spłaty kredytu w tym sposobie spłacania.
+
+.. math::
+
+   PMT  = \frac{\mathrm{PV}\; r}{1-(1+r)^{-n}}
+
+
+Innym sposobem spłacania kredytu, stosowanym przez banki, jest sposób
+spłacania równymi ratami kapitałowymi.  W tym sposobie wysokość
+okresowej raty spłacania kredytu obliczana jest w następujący sposób:
+Wielkość pożyczonej kwoty jest dzielona przez ilość okresów
+spłaty. Otrzyma w ten sposób wielkość rata kapitałowa. Kapitał
+pożyczony w ramach kredytu jest spłacany równymi ratami
+kapitałowymi. Do tej raty należy doliczyć koszty pieniądza czasie
+czyli koszt odsetek od pożyczonego (a nie zwróconego jeszcze)
+kapitału.  Wielkość raty spłaty na koniec każdego kresu określona jest
+jako suma raty kapitałowej i wartość czasowa odsetek od niespłaconego
+kapitału.  Obrazuje to poniższy wzór:
+
+.. TODO!!!! z sage !
+
+.. math::
+
+   d
+   
+
+gdzie :
+ - dj- rata spłaty kredytu
+ - P/N- rata kapitałowa (P – kwota pożyczona, N ilość okresów spłaty)
+ - Odj- odsetki od niespłaconego kapitału.
+część odsetkowa = kwota kredytu pozostała do spłaty X oprocentowanie w skali roku/ilość rat w roku
+Sumaryczna wielkość raty spłaty kredytu składająca się z raty kapitałowej i odsetek jest wielkością malejącą w czasie spłaty gdyż  wielkość odsetek  maleje.
+Porównanie spłaty  kredytów pokazuje tabela
+
+TABELA
+
+Przykładowo policzony kredyt w wysokości 1000 PLN zaciągnięty na stopę roczna 10% i spłacony w 6 ratach miesięcznych
+Metoda malejących rat spłaty ( równych rat kapitałowych)
+Przykład:
+kwota zaciągniętego kredytu (kwota początkowa) = 1000 zł
+oprocentowanie w skali roku =  10%
+okres kredytu = 1 lat
+ilość rat w roku = 12
+Pierwsza rata:
+część kapitałowa = 1000/6 = 166,7 PLN
+ część odsetkowa = 1000 X 10%/12 = 8,33 PLN 
+rata = 166,7 +8,33 = 175,03
+
+Druga rata:
+część kapitałowa = 1000/6 = 166,7 PLN
+część odsetkowa = (1000 – 166,7) X 10%/12 = 6,94 PLN
+rata =   166,7 + 6,94 = 173,64 PLN
+itd…
+Wzór na obliczenie raty stałej kredytu:
 
 
 
 
+
+.. NOWY ROZDZIAL!
 
 
 Depozyt na rynku pieniężnym
@@ -704,7 +1254,7 @@ gdzie
 
    :math:`C=0,06x100 = 0,06`
 
-   :math:`R = 7% = 0,07.`
+   :math:`R = 7\% = 0,07.`
 
    Wartość nominalna wynosi 100 czyli w 2 roku nastąpi wpływ
    :math:`\frac{100+6}{(1+0,07)^2}`
@@ -1320,6 +1870,9 @@ cena A.
 
 Wysoka wypukłość to niezwykle pożądana cecha obligacji szczególnie
 przydatna przy ocenie ryzyka.
+
+
+
 
 
 
