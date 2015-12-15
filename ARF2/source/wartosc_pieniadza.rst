@@ -149,9 +149,9 @@ Przykładowo:
 
 Jesli kwote 100 PLN umieścimy na depozycie wypłacajacym 3% rocznie  to:
 
- - po 1 roku otrzymamy odsetki w wysokosci 3 PLN - ktore odprowadzamy na osobne konto
- - po 2 roku otrzymamy odsetki w wysokości 3 PLN - ktore odprowadzamy na osobne konto
- - po 3 roku otrzymamy odsetki w wysokości 3 PLN - ktore odprowadzamy na osobne konto
+ - po 1 roku otrzymamy odsetki w wysokosci 3 PLN - które odprowadzamy na osobne konto
+ - po 2 roku otrzymamy odsetki w wysokości 3 PLN - które odprowadzamy na osobne konto
+ - po 3 roku otrzymamy odsetki w wysokości 3 PLN - które odprowadzamy na osobne konto
 
 Po trzech latach dysponujemu kwotą 100 PLN na końcie depozytowym i
 kwotą 9 PLN na osobnym koncie.  Taki sposób naliczania odsetek to
@@ -165,7 +165,7 @@ Stosując procent prosty można by wpłacić odsetki na tak samo
 oprocentowane konto. Jest to równoważne dodaniem odsetek do kapitału
 po każdym okresie. Taki zabieg zwany jest procentem składanym.
 
-Procent składany to sposób oprocentowania kapitału, polegający natym,
+Procent składany to sposób oprocentowania kapitału, polegający na tym,
 że odsetki są doliczane do wartości początkowej kapitału i procentują
 wraz z nim w kolejnym okresie bazowym. Odsetki otrzymane po upływie
 każdego okresu bazowego są natychmiast reinwestowane na tych samych

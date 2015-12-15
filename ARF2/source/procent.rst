@@ -1,6 +1,6 @@
 Dodatek: Praktyczna teoria procentu 
 ===================================
-
+ 
 
 Wyobraźmy sobie, że mamy depozyt na kwotę :math:`100` na
 oprocentowaniu na pewną stopę :math:`r`. Ile będziemy mieli na

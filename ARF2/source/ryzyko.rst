@@ -316,8 +316,7 @@ Literatura fachowa podaje wiele ich klasyfikacji. Przykładowo zaproponowana prz
      stopy zwrotu wyrażone w dwóch różnych walutach nie są takie same.
 
    - **Ryzyko inflacji**, - występuje wtedy, gdy inflacja zmienia siłę nabywcza dochodu z inwestycji.   
-   - **Ryzyko rynku** - to ryzyko zmiany ceny na rynkach
-finansowych. Ceny na rynkach finansowych zmieniają sie pod wpływem
+   - **Ryzyko rynku** - to ryzyko zmiany ceny na rynkach finansowych. Ceny na rynkach finansowych zmieniają sie pod wpływem
 wielu czynników zarówno fundamentalnych (czynniki gospodarcze) jak i
 emocji uczestników rynku.  
   

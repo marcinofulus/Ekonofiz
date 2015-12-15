@@ -640,9 +640,9 @@ częściej niż przewiduje to rozkład normalny, natomiast mniej jest
 średnich zmian (wartości odchylających się od średniej od 0.5 do 2.5
 odchyleń standardowych).  W związku z powyższym konieczne jest
 poszukiwanie o nowych modeli. Na podstawie przeprowadzonych analiz (
-np. Katarzyna Brzozowska-Rup, Wiesław Dziubdziela „ESTYMACJA INDEKSU
-OGONA” WYBRANYCH SZEREGÓW FINANSOWYCH ZA POMOCĄ ENTROPII
-RENYI’EGO. -szukaj
+np. Katarzyna Brzozowska-Rup, Wiesław Dziubdziela „Estymacja indeksu
+ogona wybranych szeregów finansowych za pomocą entropii
+Renyi’ego". 
 http://www.wne.sggw.pl/czasopisma/pdf/EIOGZ_2006_nr60_s69.pdf) oraz (
 Ewa Miłoś- Finansowy Kwartalnik Internetowy „e-Finanse” 2011, vol. 7,
 nr 1 www.e-finanse.com Wyższa Szkoła Informatyki i Zarządzania w
@@ -1044,7 +1044,7 @@ o -20%, -10%, oraz +10% i +20% . Zasadnym jest podjęcie decyzji które
 dane będzie grupować razem co będzie lepiej ilustrowało problem.
 
 
-Metoda” scenariuszy awaryjnych”.
+**"Metoda” scenariuszy awaryjnych”"**.
 
 Stress testing i analiza scenariuszy są podobnymi metodami i są
 stosowane celem wyliczenia co się może wydarzyć w określonej sytuacji
