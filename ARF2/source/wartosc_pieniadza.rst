@@ -28,7 +28,7 @@ wyceny. Matematyczne wyrafinowanie metod i modeli wyceny wzrasta
 bardzo szybko. Komputery ułatwiają przeprowadzanie skomplikowanych
 obliczeń, niemniej jednak głębokie zrozumienie matematycznych reguł
 rządzących finansami jest podstawą tej dziedziny wiedzy. Zdrowy
-rozsadek nadal obowiązuje i koniecznym jest głębokie rozumienie co się
+rozsadek nadal obowiązuje i koniecznym jest głębokie rozumienie tego, co się
 liczy i dlaczego.
 
 Wartość aktywów mierzona jest najczęściej wartością
@@ -42,7 +42,7 @@ tych danych należy mieć pewność, że mamy do czynienia z tą samą
 wielkością oraz że wielkości te występującą w tych samych jednostkach
 miary. Jeśli jednostki są różne wprowadzić należy właściwe
 przeliczniki jednostki tak by porównywać to samo a nie przykładowo
-mile i kilometry , w przypadku porównywania odległości. Ceny w
+mile i kilometry w przypadku porównywania odległości. Ceny w
 finansach wyrażane są nie tylko w różnych walutach ale i w różnych
 sposobach oddzielania wartości mniejszych od jedności i wartości
 oddzielania tysięcy.
@@ -53,18 +53,18 @@ jakiś czas odpowiadamy, że wolimy otrzymać tę kwotę dziś. Posiadanie
 kwoty dziś jest dla nas lepsze niż otrzymanie jej kiedyś w
 przyszłości. Można wiec powiedzieć, że pieniądz dzisiaj ma dla nas
 większą wartość niż ten sam pieniądz w przyszłości.  Posiadając
-pieniądz możemy nim rozporządzać. Możemy kupić coś za nie teraz lub
-przeznaczyć je na inny cel. Jeśli udostępnimy je innym to odczuwamy
-dyskomfort braku kontroli nad nimi poczucie ryzyka ich utraty. Za ten
+pieniądz możemy nim rozporządzać. Możemy kupić coś teraz lub
+przeznaczyć je na inny cel. Jeśli udostępnimy nasze pieniądze innym to odczuwamy
+dyskomfort braku kontroli nad nimi, poczucie ryzyka ich utraty. Za ten
 dyskomfort spodziewamy się od pożyczającego jakiejś nagrody. Nagroda
-powinna być zależna do czasu na jaki je pożyczamy.  Ilość dni jaki
+powinna być zależna od czasu na jaki je pożyczamy.  Ilość dni jaki
 upływa między każdorazowym transferem pieniądza jest istotnym
 elementem w finansach.
 
 
 
 Pieniądz dzisiaj ma dla nas większą wartość niż ten sam pieniądz w
-przyszłości.  Jest to odczucie oparte o doświadczenie . Wartość
+przyszłości.  Jest to odczucie oparte o doświadczenie. Wartość
 pieniądza zmienia się w czasie.  Matematyczne zasady zmiany wartości
 pieniądza w czasie opierają się na założeniu, że za udostępnienie
 pieniędzy komuś, kto potrafi je lepiej zagospodarować należy się
@@ -72,13 +72,13 @@ pożyczającemu nagroda w postaci jakiejś części ich wartości. Jest
 kilka powodów takiego myślenia.  Pierwszy z powodów to
 inflacja. Często obserwuje się wzrost cen w czasie. Nagroda wspomniana
 powinna rekompensować zmianę tego poziomu cen. Drugi powód to ryzyko
-tego ,że pożyczkobiorca nie zwróci pożyczonej sumy.  Nagroda powinna
+tego, że pożyczkobiorca nie zwróci pożyczonej sumy.  Nagroda powinna
 rekompensować ryzyko niespłacenia długu. Trzeci powód to utrata
 możliwości. Pożyczając pieniądze nie możemy zrealizować wspaniałych
 możliwości jakie mogą się pojawić czasie gdy nie mamy pieniędzy i
 czekamy na ich zwrot. Nagroda wspomniana ma za zadanie rekompensować
-wszelkie, możliwe , stracone możliwości. Nawet jeśli dwa pierwsze
-powody nie występują trzeci wpływa na zmianę wartości pieniądza w
+wszelkie, możliwe, stracone możliwości. Nawet jeśli dwa pierwsze
+powody nie występują, trzeci - wpływa na zmianę wartości pieniądza w
 czasie.  To że pieniądz ma różna wartość w czasie powoduje konieczność
 szczególnej ostrożności w porównywaniu kwot cyfrowych.
 
@@ -95,8 +95,8 @@ się strzałki pionowe ilustrujące strumienie pieniężne opisywanej
 operacji korzystając z następującej konwencji: wpływ gotówki to
 strumień dodatni a wypływ gotówki to strumień ujemny. Linia czasu
 ilustrujaca przepływy pieniężne to prosta podzielona na odcinki
-okresów (nad osią kolejne numery okresów, na dole lini - kolejne
-przepływy. Ilustracja poniżej pokazuje przykład lini czasu.
+okresów (nad osią kolejne numery okresów), na dole lini, lub na górze - kolejne
+przepływy( zaleznie  od znaku). Ilustracja poniżej pokazuje przykład lini czasu.
 
 **przykład**
 
@@ -230,7 +230,7 @@ składanym przy danej stopie odsetek.
 
  
 Wyliczanie wartości przyszłej wymaga poruszania sie w przód po osi
-czasu i naliczania odsetek. Taki proces nazywa sie kapitalizacją.
+czasu i naliczania odsetek. Innymi słowy, jest to kapitalizacja.
 
 .. admonition:: Przykład 
 
@@ -300,10 +300,10 @@ równa stopie oprocentowania.
 
 Ostatnia prezentowana zależność pozwala nam obliczyć wartość pieniędzy
 w przyszłości - „wartość przyszłą”, znając wartość aktualną
-(bieżącą). Proces ten nazywamy kapitalizacją.
+(bieżącą). Proces ten,już wcześniej nazywamy był, kapitalizacją.
 
-Z powyższego wzory możemy też wyliczyć wartość dzisiejszą (aktualną)
-znając wartość przyszłą. Taki proces zwany jest dyskontowaniem. 
+Z powyższego wzoru możemy też wyliczyć wartość dzisiejszą (aktualną)
+znając wartość przyszłą. Taki proces , posuwania sie w czasie wstecz, zwany jest dyskontowaniem. 
 
 W obu przypadkach należy znać stopę procentową. Stopę tę określa
 każdorazowo rynek.
@@ -397,7 +397,7 @@ gdzie:
  - :math:`r` - stopa procentowa za jeden okres bazowy,
  - :math:`n` - liczba kapitalizacji w roku (liczba okresów bazowych w roku).
 
-Innymi słowy; Jeśli jesli naliczanie odsetek ma miejsce m razy w roku
+Innymi słowy; Jeśli naliczanie odsetek ma miejsce m razy w roku
 i na koniec roku n będzie mn płatności odsetek to
 
 .. math:: 
@@ -548,7 +548,7 @@ Czas bowiem zmienia wartość pieniędzy.
 Uwagi końcowe:
 
 * Porównując wartości pieniężne sprawdzić należy w jakich jednostkach są  podawane.
-* Dwie wielkości  wartości pieniężnych mogą być porównywane ( w tym dodawane lub odejmowane) , jeśli  dotyczą tego samego momentu czasu.
+* Dwie wielkości  wartości pieniężnych mogą być porównywane ( w tym dodawane lub odejmowane) jeśli  dotyczą tego samego momentu czasu.
 * Jeśli porównuje się  wartości monetarne w różnych momentach czasowych należy zastosować odpowiednie przeliczniki zwane dyskontowaniem lub kapitalizacją.
 * Jeśli mamy dwie wartości monetarne :math:`X` i :math:`Y`, to:
 
@@ -615,7 +615,7 @@ obliczeń na rynkach finansowych. Dlatego umiejętność takich obliczeń
 jest bardzo istotna.  Przy takich obliczeniach należy pamiętać o
 różnych kulturach i różnych dniach świątecznych obowiązujących na
 świecie jeśli nasze rozliczenia dotyczą różnych krajów.  Dla obliczeń
-instrumentów finansowych przyjmuje się rożne ilości dni w
+instrumentów finansowych przyjmuje się różne ilości dni w
 roku. Długość roku kalendarzowego wymosi 365/366 dni. Taki rok
 charakteryzuje pewne instrumenty szczególnie popularne na rynku
 brytyjskim. Rok o długości 360 dni - to tzw. rok obrotowy
@@ -644,7 +644,7 @@ odległości w czasie.
     ilość dni liczy sie przykładowo tak ja w powyżej pokazano. Każdy
     miesiąc ma tyle dni ile przewiduje kalendarz. Ilość lat określa
     się dzieląc ilość dni między datami przez ilość dni w roku.
-2.  Zasada równych miesięcy Według tej zasady rok liczy 360 dni dzieli
+2.  Zasada równych miesięcy. Według tej zasady rok liczy 360 dni i dzieli
     się na 12 miesięcy po 30 dni. Tzn. w lutym jest data 29luty oraz
     30luty.  A 31 nie występuje w żadnym miesiącu.  Zasada ta
     stosowana jest w 3 wersjach:
@@ -654,14 +654,15 @@ odległości w czasie.
        renty i spłaty kredytów większości kalkulatorów.  Stosuje się
        tą metodę do szybkich przybliżeń w matematyce finansowej.
 
-    B. Dokładna liczba dni w miesiącach - rok 360 dni Wylicza się
-       prawdziwa ilość dni między datami (tak jak w przypadku
+    B. Dokładna liczba dni w miesiącach - rok 360 dni. Wylicza się
+       prawdziwą ilość dni między datami (tak jak w przypadku
        kalendarza juliańskiego). Stosowanie tej metody zwanej czasami
-       metoda bankową powoduje to ,że kredytobiorca powinien płacić
+       metodą bankową powoduje to, że kredytobiorca powinien płacić
        odsetki od rzeczywistych dni w miesiącu. Innymi słowy powinien
        zapłacić za dodatkowe 5 lub 6 dni w roku w porównaniu do metody
-       30/360 .Czyli stopa oprocentowania rocznego kredytu praktyczne
-       dla niego wyniesie: :math:`r=\frac{365}{360}r' =20.28\%`, gdzie
+       30/360. Czyli stopa oprocentowania rocznego kredytu praktycznie
+       dla niego wyniesie:
+       :math:`r=\frac{365}{360}r' =20.28\%`, gdzie
        :math:`r'` - stopa określona dla kredytu
     C. Metoda stosowana na rynku amerykańskim (NASD) to 12 miesięcy po
        30 dni każdy.
@@ -671,21 +672,21 @@ odległości w czasie.
        być potrzebne stosowanie kilku poprawek. Stosuje się je w
        następującej kolejności:
 
-          * Jeśli data1 przypada na ostatni dzień miesiąca lutego I
+          * Jeśli data1 przypada na ostatni dzień miesiąca lutego i
             data2 przypada też na ostatni dzień miesiąca lutego
-            (innego roku) to zmienia się date2 na 30.
+            (innego roku) to zmienia się datę2 na 30.
           * Jeśli data1 przypada na ostatni dzień lutego to zmieniamy
             ją na 30.
-          * Jeśli data 2 przypada na 31 I data 1 przypada na 30 to
-            zmieni sie date 2 na 30.
-          * Jeśli data1  przypada na 31 to zmienia sie ja na 30.
+          * Jeśli data 2 przypada na 31 i data 1 przypada na 30 to
+            zmieni się datę 2 na 30.
+          * Jeśli data1  przypada na 31 to zmienia się ją na 30.
 
-Należy pamiętać ,ze pewne instrumenty finansowe rozliczane są w
-tygodniach. Przykładowo bony Skarbowe . W tym przypadku rok ma 52
-tygodnie i dzieli się na 45 kwartały po 13 tygodni. Tydzień to 7 dni.
+Należy pamiętać, że pewne instrumenty finansowe rozliczane są w
+tygodniach. Przykładowo bony skarbowe. W tym przypadku rok ma 52
+tygodnie i dzieli się na 4 kwartały po 13 tygodni. Tydzień to 7 dni.
 
-Instrumenty finansowe maja bardzo interesujące zasady naliczania czasu
-zawsze należy zaznajomić się regulacjami przyjętymi dla danego
+Instrumenty finansowe mają bardzo interesujące zasady naliczania czasu
+i zawsze należy zaznajomić się regulacjami przyjętymi dla danego
 instrumentu finansowego.  Sprawę dodatkowo komplikują różne standardy
 używane na świecie.
 
@@ -697,12 +698,13 @@ Renty
 ~~~~~
 
 Renta to jest ciąg płatności. Zazwyczaj płatności występują
-regularnie( równe okresy) i zazwyczaj w równej wielkości. Źródłem
-takich strumieni finansowych mogą być np;, obligacje( płatności
-kuponowe) opłaty czynszowe wpływające za wynajem lokalu, akcje
+regularnie (równe okresy) i zazwyczaj w równej wielkości. Źródłem
+takich strumieni finansowych mogą być np;, obligacje (płatności
+kuponowe), opłaty czynszowe wpływające za wynajem lokalu, akcje
 wypłacające regularnie dywidendę, odsetki od lokat terminowych etc. .
 
- Wielkości charakterystyczne dla rent to : Wielkość płatności, odstęp czasowy między płatnościami, moment płatności, sposób naliczania odsetek, otoczenie stopy procentowej  i ilość rat .
+Wielkości charakterystyczne dla rent to :
+Wielkość płatności, odstęp czasowy między płatnościami, moment płatności, sposób naliczania odsetek, otoczenie stopy procentowej  i ilość rat .
 
 Renta wieczysta
 +++++++++++++++
@@ -765,25 +767,24 @@ Zastosowanie renty do określenia wartości godziwej akcji czyli renta wieczysta
 Zanim zostanie opisane zachowanie się aktywa zwanego akcją czyli
 instrumentu własnościowego rozważyć należ przypadek jak wycenić rentę
 wieczystą, której wartość raty w czasie będzie wzrastała. Wzrost
-następuje co okres o g %. Innymi słowy :w po okresie 1 rata jest
-równa c, po okresie 2 rata to :math:`\frac{c}{(1+g)}` a po okresi 3 rata jest równa :math:`\frac{c}{(1+g)^2}` etc.
-
-.. math::
- 
- P_V = \frac {C}{(1+r)}+\frac{C(1+g)}{(1+r)^2} + \frac{C(1+g)^2}{(1+r)^3}+ ... \frac{C}{(1+r)^n} + ...
+następuje co okres o g %. Innymi słowy:
+w po okresie 1 rata jest
+równa C,
+po okresie 2 rata to :math:`\frac{C}{(1+g)}` 
+a po okresi 3 rata jest równa :math:`\frac{C}{(1+g)^2}` etc.
 
 Wartość bieżąca czyli cena będzie równa sumie zdyskontowanych rat:
 
 .. math::
 
-   PV = \frac{C}{1+r}+\frac{C}{(1+r)^2} + \frac{C}{(1+r)^2}+...\frac{C}{(1+r)^n} + ...
+   PV = \frac{C}{1+r}+\frac{C(1+g)}{(1+r)^2} + \frac{C(1+g)^2}{(1+r)^2}+...\frac{C(1+g)^n-1}{(1+r)^n} + ...
 
 Mnożąc obie strony równania przez :math:`\frac{1+r}{1+g}` postępując
 podobnie jak w przypadku renty wieczystej otrzymujemy: 
 
 .. math::
 
-   PV \frac{1+r}{1+g} = \frac{C}{1+g} + PV
+   PV \frac{1+r}{1+g} = \frac{C}{1+g} + PV \frac{1+r}{1+g}
 
 Po prostych przeliczeniach algebraicznych otrzymujemy: 
 
@@ -791,9 +792,13 @@ Po prostych przeliczeniach algebraicznych otrzymujemy:
 
    PV= \frac{C}{r-g}
 
-Gdzie g<r.  
+Gdzie g<r.
 
-Zastosowanie tego rozumowania do wyceny wartości akcji samo się
+Wycena  akcji w oparciu o wartość wypłacanej dywidendy
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Zastosowanie powyższego rozumowania do wyceny wartości akcji samo się
 narzuca. Akcja to instrument właścicielski dający właścicielowi prawo
 do udziału w majątku emitenta akcji,  w tym prawo do
 dywidendy. Dywidenda to udział w zysku.  Należy pamiętać, że jeśli
@@ -814,22 +819,19 @@ dyskontowanej dywidendy.  Należy podkreślić w tym miejscu kilka
 aspektów stosowania modeli. Pierwszy aspekt, należy pamiętać, ze jest
 to model. Założenie nieskończonego życia spółki powoduje, ze wycenę
 dzisiejszej wartości spółki nie wymaga znajomości przyszłej ceny
-akcji. Model ten wskazuje ,ze w cenie aktualnej akcji są „zawarte”
+akcji. Model ten wskazuje, że w cenie aktualnej akcji są „zawarte”
 nieskończony ciąg przyszłych dywidend.
 
+Jeśli weźmie się do analizy zyski firmy to uwaga, że
+firma niezwykle rzadko przeznacza cały zysk na dywidendę jest
+niezwykle trafną uwagą. Konsekwencją takiego myślenia jest, to, że cena
+wyliczona z dywidend, które zazwyczaj są mniejsze niż zyski firmy
+może dać wartość mniejszą niż w oparciu o wzrost zysków. Ale dla tego
+modelu przyjmuje się jeszcze jedno założenie- jeśli zyski firmy
+rosną, to dywidenda też powinna rosnąć w tym samym tempie.
 
-Wycena w oparciu o oczekiwany wzrost.
-
-Jeśli w tytule wyczuwa się problem wzrostu czego to powód tego jest
- następujący.  Jeśli weźmie się do analizy zyski firmy to uwaga, ze
- firma niezwykle rzadko przeznacza cały zysk na dywidendę jest
- niezwykle trafna uwagą. Konsekwencja takiego myślenia jest, ze cena
- wyliczona z dywidend, które zazwyczaj są mniejsze niż zyski firmy
- może dać wartość mniejsza niż w oparciu o wzrost zysków. Ale dla tego
- modelu przyjmuje się jeszcze jedno założenie- jeśli zyski firmy
- rosną, to dywidenda też powinna rosnąc w tym samym tempie.
-
-Przypadek stałego wzrostu. Wzrost zerowy dywidendy.
+Przypadek stałego wzrostu. Wzrost zerowy dywidendy
+++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Załóżmy, że spółka płaci stała dywidendę nie ma szans na jej wzrost w
 rozsądnej przyszłości.  Czyli:
@@ -848,7 +850,7 @@ nieskończonego daje wynik:
 
    P_o = \frac {C}{r}
 
-Czyli mamy przypadke renty wieczystej.
+Czyli mamy przypadek renty wieczystej.
 
 
 Innymi słowy cena akcji jest równa wartości wieczystej dywidendy
@@ -861,7 +863,8 @@ nie zmieniają się od pewnego czasu. Z pewnością równanie takie można
 stosować dla wyceny akcji uprzywilejowanych (co do wielkości wypłaty
 dywidendy).  
 
-Stały wzrost dywidendy. Wzrost większy od zera.  
+Stały wzrost dywidendy. Wzrost większy od zera
+++++++++++++++++++++++++++++++++++++++++++++++
 
 Przyjmujemy, że dywidenda wzrasta z roku na rok o czynnik g.
 
@@ -872,7 +875,8 @@ Cena z modelu dyskontowego dywidendy jest
    P_o=\sum_{i=1}^n\frac{D_i}{(1+r)^i}
 
 
-Jeśli wzrost dywidendy jest stały możemy kolejne dywidendy zapisać  korzystając z dywidendy okresu poprzedniego i czynnika wzrostu
+Jeśli wzrost dywidendy jest stały możemy kolejne dywidendy zapisać
+korzystając z dywidendy okresu poprzedniego i czynnika wzrostu
  
 .. math::
 
@@ -926,8 +930,8 @@ Renta dla skończonej ilości okresów
 +++++++++++++++++++++++++++++++++++
 
 
-Jeśli mamy do czynienia ze skończona liczbą rat to pytanie o wartość
-aktualną takiego szeregu możemy policzyć.  Możemy postąpić również w
+Jeśli mamy do czynienia ze skończona liczbą rat to wartość
+aktualną takiego szeregu możemy policzyć.  Możemy postąpić na przykład w 
 taki sposób: Kupujemy rentę wieczystą a po n okresach jej posiadania
 sprzedajemy ją na rynku. Tak więc z nieskończonego ciągu rat
 wybraliśmy dla siebie wartość skończonego szeregu
@@ -940,9 +944,12 @@ wieczystą za cenę:
    P_o =PV= \frac {C}{r}
 
 A następnie sprzedaliśmy po czasie n okresów rentę wieczystą za którą
-dostaliśmy taką cenę jak jest warta renta wieczysta czyli: :math:`P_o
-= \frac{C}{r}`. Tylko, że dostaliśmy tę cenę po n okresach. Jej
-wartość bieżąca to :math:`P_o=PV=\frac{C/r }{(1+r)^n}`.
+dostaliśmy taką cenę jak jest warta renta wieczysta czyli:
+:math:`P_o
+= \frac{C}{r}`.
+Tylko, że dostaliśmy tę cenę po n okresach. Jej
+wartość bieżąca to :
+math:`P_o=PV=\frac{C/r }{(1+r)^n}`.
 
 Czyli cena transakcji, która jest wartością skończonego szeregu
 płatności to: 
@@ -965,7 +972,7 @@ Renta płatna  na początku okresów
 
 .. todo MK z sage teoria procentu 
 
-Może być taka sytuacja ,że płatności nie występują na końcu okresu ale
+Może być taka sytuacja, że płatności nie występują na końcu okresu ale
 na jego początku. Innymi słowy w chwili t=o następuje płatność za
 okres1 a w chwili =2 płatność za okres 1. Czyli wartość przyszła jest
 kapitalizowana o jeden okres więcej czyli:
@@ -1000,7 +1007,8 @@ Gdzie:
    - PV - wartość aktualna (bieżąca)
    - PMT - płatność regularna, okresowa, rata.
    - R -  stopa procentowa
-
+   
+Oznaczenie PMT użyte zostało, gdyż jest to światowy standard, używany we wszelkich kalkulatoprach finansowych. Wcześniej ta wielkośc była nazywana C.
 Proste matematyczne przekształcenie wzoru pozwala obliczyć wartość
 raty spłaty kredytu w tym sposobie spłacania.
 
@@ -1025,38 +1033,22 @@ kapitału.  Obrazuje to poniższy wzór:
 
 .. math::
 
-   d
+   dj = \frac{P}{N} + Odj
+   
    
 
 gdzie :
  - dj- rata spłaty kredytu
  - P/N- rata kapitałowa (P – kwota pożyczona, N ilość okresów spłaty)
  - Odj- odsetki od niespłaconego kapitału.
-część odsetkowa = kwota kredytu pozostała do spłaty X oprocentowanie w skali roku/ilość rat w roku
+
+część odsetkowa = kwota kredytu pozostała do spłaty razy oprocentowanie w skali roku/ilość rat w roku
 Sumaryczna wielkość raty spłaty kredytu składająca się z raty kapitałowej i odsetek jest wielkością malejącą w czasie spłaty gdyż  wielkość odsetek  maleje.
 Porównanie spłaty  kredytów pokazuje tabela
 
 TABELA
 
-Przykładowo policzony kredyt w wysokości 1000 PLN zaciągnięty na stopę roczna 10% i spłacony w 6 ratach miesięcznych
-Metoda malejących rat spłaty ( równych rat kapitałowych)
-Przykład:
-kwota zaciągniętego kredytu (kwota początkowa) = 1000 zł
-oprocentowanie w skali roku =  10%
-okres kredytu = 1 lat
-ilość rat w roku = 12
-Pierwsza rata:
-część kapitałowa = 1000/6 = 166,7 PLN
- część odsetkowa = 1000 X 10%/12 = 8,33 PLN 
-rata = 166,7 +8,33 = 175,03
-
-Druga rata:
-część kapitałowa = 1000/6 = 166,7 PLN
-część odsetkowa = (1000 – 166,7) X 10%/12 = 6,94 PLN
-rata =   166,7 + 6,94 = 173,64 PLN
-itd…
-Wzór na obliczenie raty stałej kredytu:
-
+Wstawić tabele!!!!!!!!!!!!!!!!!
 
 
 
@@ -1068,7 +1060,7 @@ Depozyt na rynku pieniężnym
 ---------------------------
 
 Depozyty rynku pieniężnego to instrumenty stałego oprocentowania,
-które są zawierane na określony okres czasu i nie mogą być likwidowane
+które to kontrakty są zawierane na określony okres czasu i nie mogą być likwidowane
 przed terminem zapadalności.
 
 Ponieważ są instrumentami rynku pieniężnego ich okres do zapadalności
@@ -1089,8 +1081,8 @@ Gdzie:
 
 
 Należy zwrócić uwagę,ze przyjęto tutaj standard roku liczącego 360
-dni.  Gdyby standard był inny (a jest top częsty przypadek) należy
-uwzględniać inna wartość dni w roku.  Efektywna stopę zwrotu na
+dni.  Gdyby standard był inny (a jest to częsty przypadek) należy
+uwzględniać inną wartość dni w roku.  Efektywną stopę zwrotu na
 depozycie można wyliczyć ze wzoru na wartość pieniądza w czasie.
 
 
@@ -1104,7 +1096,7 @@ nominalnej. Jak już to było wykazane, ich cena aktualna jest równa
 
 .. math::
 
-   P =\frac{FV}{(1+Y x \frac{DTM}{360}}
+   P =\frac{FV}{(1+Y \frac{DDW}{360})}
 
 gdzie:
 
@@ -1114,7 +1106,7 @@ gdzie:
  
  - Y - rentowność
 
- - DTM - ilość dni do wykupu,
+ - DDW - ilość dni do wykupu,
 
 Przyjęto standard roku liczącego 360 dni- standard dla Bonów
 Skarbowych na polskim rynku.
@@ -1209,11 +1201,11 @@ powinna odzwierciedlać wartość obligacji. Najczęściej stosowaną metodą
 przy wycenie jest metoda dochodowa, inaczej zwana metodą
 zdyskontowanych przepływów pieniężnych.
 
-Wycena obligacji polecana literatura poszerzająca, objaśniająca ten
+Wycena obligacji - polecana literatura poszerzająca, objaśniająca ten
 rozdział to: Joanna Place- "Basic Bond Analysis"- Handbook in Central
 banking- nr.20- Bank of England,2000; raz pozycja autorstwa Jerzego
 Dzieży - 'Instrumenty stałego dochodu- AGH- dostepne w sieci Internet,
-oraz David Blake - Financial Market Analysis- Mcgraw- Hill.
+oraz David Blake - Financial Market Analysis- McGraw- Hill.
 
 Cena godziwa (fair price)
 -------------------------
@@ -1266,11 +1258,18 @@ Cena godziwa dla obligacji wieczystych
 --------------------------------------
 
 Obligacje wieczyste zwane konsolami nie są nigdy wykupywane, a ich
- posiadacz otrzymuje nieskończony strumień odsetek, zwany rentą
- wieczystą. W tym przypadku :math:`n\to\infty`. Więc cena
- godziwa :math:`P_o = \frac {C}{r}` jest to sumą szeregu geometrycznego. 
+posiadacz otrzymuje nieskończony strumień odsetek, zwany rentą
+wieczystą. W tym przypadku :math:`n\to\infty`.
 
-..note::
+Więc cena godziwa:
+
+.. math::
+
+    P_o = \frac {C}{r}
+    
+jest to sumą szeregu geometrycznego. 
+
+... admonition:: 
 
  Pierwsze tego typu obligacje wyemitował rząd brytyjski by finansować
  nimi działania wojenne przeciw Napoleonowi Bonaparte.
@@ -1366,6 +1365,11 @@ obligacja do niego nie należy.  W takiej sytuacji nowy właściciel jest
 „wynagradzany” przez starego właściciela tym, że cena brudna w tym
 czasie jest niższa od ceny czystej. Rysunek obok modelowo obrazuje
 taką sytuację i zachowanie się w czasie cen obligacji.
+
+.. figure:: figs/D1110.png 
+
+Brak rysunku
+wstawić!!!!!
 
 Zgodnie z (David Blake - Fin. Mark. Analysis), dla roku o 365 dniach,
 narosłe odsetki są równe:
@@ -1546,7 +1550,7 @@ Ryzyko drugie, czyli ryzyko zmian stóp procentowych wiążę się z
 obiektywnie istniejącymi na rynku pieniężnym zmianami cen instrumentów.
 Rynek finansowy podlega szeregowi wpływów a ceny obligacji, podobnie
 jak każdego instrumentu wycenianego przez rynek, reagują na każdą
-istotna informacje gospodarczą. Nawet intuicyjnie widać, że ryzyko
+istotną informację gospodarczą. Nawet intuicyjnie widać, że ryzyko
 zmiany stóp procentowych dla obligacji jest większe im dłuższy jest
 czas życia tego instrumentu.  Różne rodzaje obligacji są narażone na
 tego typu ryzyko w różnym stopniu. Najbardziej wrażliwe są ceny
@@ -1559,76 +1563,81 @@ procentowe. Przy spadających stopach procentowych rosnąć będą ceny
 tych obligacji, ale także tych o zmiennym oprocentowaniu, które
 zapewniają odsetki wyższe niż nowo emitowane papiery.
 
-Aby zilustrować mechanizm zmiany ceny obligacji przy zmianie stóp
-procentowych zanalizujmy poniższy przykład: Inwestor zakupił 10 letnią
-obligację oprocentowaną na 8% rocznie. Oznacza to tyle, że przez
-najbliższe 10 lat będzie otrzymywał roczne odsetki w wysokości 8
-zł. To gwarantuje mu zakupiona obligacja, bez względu na poziom stóp
-procentowych na rynku. Niech wartość nominalna obligacji wynosi 100
-PLN.  Jednakże stopy procentowe zostały np. decyzją Rady Polityki
-Pieniężnej, podniesione. Zaraz po tej decyzji emitent wypuścił nową
-obligację oprocentowaną na 10% rocznie. Inwestor widzi, że jego
-inwestycja nie jest tak dobra jak byłaby nowa inwestycja w nową
-obligacje. Rozsądnie postępując powinien on sprzedać „starą” obligację
-i kupić nową, bardziej dochodową.
+.. admonition:: Przykład
 
-Ale jak sprzedać starą nisko oprocentowaną, gdy na rynku dostępne są
-obligacje o wyższej rentowności? Aby sprzedać Inwestor musi obniżyć
-cenę posiadanej obligacji tak by nowa cena kompensowała nabywcy niższe
-odsetki. Jest to możliwe, gdy zaoferuje posiadaną obligację (o
-wartości nominalnej 100PLN) za 80 PLN. Przy takiej cenie nowy inwestor
-widzi, że może kupić albo „starą „ obligację za 80 PLN od Inwestora i
-przynoszącą 8 PLN rocznie, (czyli 10%) albo nową obligację z rynku o
-wartości 100 zł przynoszący 10 zł zysku. W każdym przypadku zarobi 10
-procent. Czyli, przy takiej cenie obligacji może brać pod uwagę
-propozycje sprzedaży Inwestora.
+  Aby zilustrować mechanizm zmiany ceny obligacji przy zmianie stóp
+  procentowych zanalizujmy poniższy przykład: Inwestor zakupił 10 letnią
+  obligację oprocentowaną na 8% rocznie. Oznacza to tyle, że przez
+  najbliższe 10 lat będzie otrzymywał roczne odsetki w wysokości 8
+  zł. To gwarantuje mu zakupiona obligacja, bez względu na poziom stóp
+  procentowych na rynku. Niech wartość nominalna obligacji wynosi 100
+  PLN.  Jednakże stopy procentowe zostały np. decyzją Rady Polityki
+  Pieniężnej, podniesione. Zaraz po tej decyzji emitent wypuścił nową
+  obligację oprocentowaną na 10% rocznie. Inwestor widzi, że jego
+  inwestycja nie jest tak dobra jak byłaby nowa inwestycja w nową
+  obligacje. Rozsądnie postępując powinien on sprzedać „starą” obligację
+  i kupić nową, bardziej dochodową.
+
+  Ale jak sprzedać starą nisko oprocentowaną, gdy na rynku dostępne są
+  obligacje o wyższej rentowności? Aby sprzedać Inwestor musi obniżyć
+  cenę posiadanej obligacji tak by nowa cena kompensowała nabywcy niższe
+  odsetki. Jest to możliwe, gdy zaoferuje posiadaną obligację (o
+  wartości nominalnej 100PLN) za 80 PLN. Przy takiej cenie nowy inwestor
+  widzi, że może kupić albo „starą „ obligację za 80 PLN od Inwestora i
+  przynoszącą 8 PLN rocznie, (czyli 10%) albo nową obligację z rynku o
+  wartości 100 zł przynoszący 10 zł zysku. W każdym przypadku zarobi 10
+  procent. Czyli, przy takiej cenie obligacji może brać pod uwagę
+  propozycje sprzedaży Inwestora.
 
 Inwestor doznał konsekwencji efektu ryzyka zmiany stopy procentowej i
 przy jej wzroście poniósł stratę na swojej inwestycji.  Ryzyko
 inwestycji w obligacje istnieje mimo, że uważane są za instrumenty
 finansowe należące do grupy bezpiecznych.
 
-.. admonition:: Przykład
 
-  Zastanawiając się nad tym ryzykiem popatrzmy na trzy obligacje zero
-  kuponowe.  Roczną, 2-letnią i 10-letnią obligacje
-  zerokuponową. Wartość nominalna P=1,000 jednostek
-  pieniężnych. Roczna stopa R=10%,.Policzmy zmianę stopy procentowej i
-  cenę obligacji przy zmianie oprocentowania o 1%.  Otrzymamy
-  następującą tabelę wiążącą zmiany stopy procentowej i cenę obligacji
-  biorąc pod uwagę zmiany o 1%:
+Zastanawiając się nad tym ryzykiem popatrzmy na trzy obligacje zero
+kuponowe.  Roczną, 2-letnią i 10-letnią obligacje
+zerokuponową. Wartość nominalna P=1,000 jednostek
+pieniężnych. Roczna stopa R=10%,.Policzmy zmianę stopy procentowej i
+cenę obligacji przy zmianie oprocentowania o 1%.  Otrzymamy
+następującą tabelę wiążącą zmiany stopy procentowej i cenę obligacji
+biorąc pod uwagę zmiany o 1%:
 
-  Związek między ceną obligacji a jej rentownością przypomina krzywa
-  na rysunku obok.  Jej zamieszczenie ma na celu pokazanie, że związek
-  miedzy ceną a rentownością nie jest liniowy, gdyż, aby podać jej
-  cenę należy wyliczyć jej :math:`P_o` czyli wartość aktualną ze wzoru
-  przytaczanego wcześniej gdzie stopa procentowa występuje w
-  mianowniku ułamka dyskontującego. Kształt tej krzywej jest różny dla
-  różnego czasu życia obligacji (w wyliczeniach należy wtedy brać pod
-  uwagę więcej okresów kuponowych, czyli sumować więcej wyrazów, w
-  których stopa procentowa występować będzie w wyższych
-  potęgach). Innymi słowy obligacje o długim okresie zapadalności mają
-  bardziej stromą krzywą rentowność/ cena niż obligacje o krótkim
-  okresie życia. Zatem są bardziej wrażliwe na zmiany rynkowych stóp
-  procentowych niż te o krótszym życiu . Zatem czas do zapadalności
-  nie jest najlepszą miarą wrażliwości obligacji. W tym miejscu można
-  zadać jeszcze jedno pytanie czy zmiana stopy o +1% ma taki sam wpływ
-  na cenę jak o jak o-1%???
+Związek między ceną obligacji a jej rentownością przypomina krzywa
+na rysunku obok.!!!!!! Rysunek to wykres zrobiony przez ciebie!!!!!
 
 .. sagecellserver::
 
    V = 1000
    var('r')
-   sum(plot(1000/(1+r)^n,(0,0,0.25) ) for n in [1,3,10])
+   sum(plot(1000/(1+r)^n,(0,0,0.25) ) for n in [1,2,10])
+   
+   
+Jej zamieszczenie ma na celu pokazanie, że związek
+miedzy ceną a rentownością nie jest liniowy, gdyż, aby podać jej
+cenę należy wyliczyć jej :math:`P_o` czyli wartość aktualną ze wzoru
+przytaczanego wcześniej gdzie stopa procentowa występuje w
+mianowniku ułamka dyskontującego. Kształt tej krzywej jest różny dla
+różnego czasu życia obligacji (w wyliczeniach należy wtedy brać pod
+uwagę więcej okresów kuponowych, czyli sumować więcej wyrazów, w
+których stopa procentowa występować będzie w wyższych
+potęgach). Innymi słowy obligacje o długim okresie zapadalności mają
+bardziej stromą krzywą rentowność/ cena niż obligacje o krótkim
+okresie życia. Zatem są bardziej wrażliwe na zmiany rynkowych stóp
+procentowych niż te o krótszym życiu . Zatem czas do zapadalności
+nie jest najlepszą miarą wrażliwości obligacji. W tym miejscu można
+zadać jeszcze jedno pytanie czy zmiana stopy o +1% ma taki sam wpływ
+na cenę jak o jak o-1%???
+
 
 Aby ocenić ryzyko zmiany stóp procentowych  w przypadku obligacji można użyć kilku metod.
 
 .. note:: 
 
-   Bardzo ciekawe opracowanie zawiera link
-   `<http://home.agh.edu.pl/~dzieza/fixed_income/tp_not_agh.pdf.>`_
-   Opracowanie to było inspirujące również przy pisaniu niniejszego
-   tekstu.
+  Bardzo ciekawe opracowanie zawiera link
+  `<http://home.agh.edu.pl/~dzieza/fixed_income/tp_not_agh.pdf.>`_
+  Opracowanie to było inspirujące również przy pisaniu niniejszego
+  tekstu.
 
 
 **Jak powinien wyglądać sposób na pomiar ryzyka  obligacji?**
@@ -1688,7 +1697,7 @@ do zapadalności.
    :figwidth: 629px
 
 
-Ostatnie dwa obrazki maja służyć ilustracji sensu „ duration” jako
+Zamieszczone tu dwa obrazki maja służyć ilustracji sensu „ duration” jako
 punktu równowagi strumieni pieniężnych generowanych przez
 obligacje. Ilustracja ta jednak nie pokazuje znanego dobrze efektu
 zmiany wartości pieniądza w czasie.
@@ -1778,8 +1787,12 @@ Czyli, z dokładnością do znaku,
 Lewa strona równania określa elastyczność ceny względem zmiany stopy
 procentowej.
 
-Rysunek  obok ilustruje sens  duration na wykresie lnP w zależności od logarytmu naturalnego stopy procentowej (YTM)
+Rysunek obok ilustruje sens duration na wykresie lnP w zależności od
+logarytmu naturalnego stopy procentowej (YTM)
 
+.. figure:: figs/D10000.png 
+
+   Brak rysunku!!!!!
 
 Duration ilustruje stromość, nachylenie krzywej w punkcie :math:`r`.
 Oznacza to, że aktywa o takiej samej duration są tak samo czułe na zmianę stopy
@@ -1855,6 +1868,8 @@ Można wykazać, że  wypukłość wzrasta z kwadratem zapadalności. Maleje ze 
 
 ..figure::
   :caption: Krzywe bieżącej ceny a wypukłość.
+   brak rysunku!!!!!
+   
 
 Rysunek obok pokazuje cechy tej miary ryzyka stopy procentowej na
 przykładzie dwu obligacji, obligacji A i obligacji B.

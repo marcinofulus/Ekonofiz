@@ -21,7 +21,7 @@ wzrost stosowania opcji ma swe źródło w szczególnych cechach opcji.
 Opcje:
 
 - Stwarzają na rynku możliwości do korygowania ryzyka lub zmieniania
-  przepływów przychodów co bez ich istnienia nie byłoby możliwym.
+  przepływów przychodów co bez ich istnienia nie byłoby możliwe.
 - Stwarzają możliwość  stosowania dźwigni finansowej. 
 - Mogą być używane jako generator dodatkowego dochodu z portfela
   inwestycyjnego.
@@ -78,7 +78,7 @@ okresie czasie aktywa za określoną cenę.
 Nabywający opcji płaci pieniądze w wysokości **Premii** sprzedawcy
 opcji w zamian za to prawo.
 
-Sprzedawca opcji bierze pieniądze (**Premia**) za obowiązek sprzedaży w
+**Sprzedawca** opcji bierze pieniądze (**Premia**) za **obowiązek sprzedaży** w
 określonym okresie czasu, aktywa, za określona cenę, jeśli posiadacz
 opcji zechce skorzystać z tego prawa.
 
@@ -92,15 +92,14 @@ seansu):
   jest wyjątkowo atrakcyjny)
 - Nie iść do kina (pozwolić opcji na wygaśniecie).
 
-Opcja **put** daje prawo (ale nie obowiązek) do sprzedaży aktywa w
-określonym czasie, za określoną cenę. acz opcji płaci pieniądze w
+Opcja **put** daje **prawo (ale nie obowiązek)** do sprzedaży aktywa w
+określonym czasie, za określoną cenę. Kupujący opcję płaci pieniądze w
 wysokości **Premii** sprzedawcy opcji w zamian za prawo do
-sprzedania. Sprzedawca opcji bierze pieniądze w zamian za obowiązek
-kupienia określone aktywa za, określoną cenę, w określonym czasie. Nie
-jest koniecznym posiadanie aktywa przed wykorzystaniem prawa z
+sprzedania. **Sprzedawca** opcji bierze pieniądze w zamian za **obowiązek kupienia** określone aktywa za określoną cenę, w określonym czasie.
+Nie jest koniecznym posiadanie aktywa przed wykorzystaniem prawa z
 wystawienia opcji **Put**.
 
-Aby wejść w posiadanie opcji, ktoś ja musi sprzedać (wystawić).  Jeśli
+Aby wejść w posiadanie opcji, ktoś ją musi sprzedać (wystawić).  Jeśli
 wystawi się opcję a nikt jej nie kupi można ją zniszczyć. Ilość opcji
 call w obrocie nie jest równa ilości opcji put. Ilość opcji w obrocie
 zmienia się w trakcie każdego dnia funkcjonowania rynku finansowego.
@@ -146,10 +145,11 @@ Kupno podstawowego aktywa (w przypadku call), sprzedaż aktywa
 podstawowego (w przypadku put). Zazwyczaj jest jedna cena wykonania
 powyżej i jedna cena poniżej aktualnej ceny aktywa.
 
-Prawo
-~~~~~
+Prawa i obowiązki
+~~~~~~~~~~~~~~~~~
 
-Tylko posiadacz opcji ma **prawo**. Prawo by sprzedać lub kupić aktywo
+
+Tylko *posiadacz opcji* ma **prawo**. Prawo by sprzedać lub kupić aktywo
 podstawowe. *Wystawca opcji* (sprzedający) ma wypełnić **obowiązek**
 wynikający z prawa posiadacza opcji.
 
@@ -197,14 +197,14 @@ opcje nazywa się **at the money**.
    :figwidth: 629px
 
    Ewolucja czasowa ceny aktywa. Jeśli mamy opcję Call o cenie wykupu
-   :math:`K=125` to w obszarze czerwonym jest ona *out of the money**,
+   :math:`K=125` to w obszarze czerwonym jest ona **out of the money**,
    w zielonym **in the money** a punktach w których kurs aktywa
    przechodzi przez cenę wykonania **at the money**.
 
 
 
 Kupując opcje musimy się liczyć z dwoma opłatami
-transakcyjnymi. Jedna - zakup opcji, druga transakcja
+transakcyjnymi. Jedna - za zakup opcji, druga  opłata transakcji
 nabycia/sprzedania aktywa. Wystawca opcji zarabia wartość premii jeśli
 nabywca nie wykorzysta opcji.
 
@@ -258,8 +258,8 @@ czerwoną linią zaznaczono cenę opcji w czasie :math:`t=0`.
 
 
 Załóżmy teraz, że nabędziemy taką opcje w momencie :math:`t=0`. Jej
-cena zgodnie z założeniami wynosi 3.25. Zakładając, że nie mamy
-żadnego kapitału, pod takim zakupie jesteśmy zadłużeni na 3.25 i mamy
+cena zgodnie z założeniami wynosi 3.25. Zakładając, że nie mieliśmy
+żadnego kapitału, po takim zakupie jesteśmy zadłużeni na 3.25 i mamy
 opcje z pewnym profilem wypłaty w okresie zapadalności
 :math:`t=T`. Jeżeli wieć przesuniemy wykres o 3.25 do góry, to wykres
 ceny opcji w czasie :math:`t=0` będzie przechodził przez zero
@@ -274,14 +274,12 @@ dokładnie dla tej wartości ceny aktywa jaka akurat jest w
    Long - Call: czyli nabyliśmy prawo do kupna po cenie :math:`K`.
 
 Punkt na wykresię :math:`(115,0)` możemy interpetować jako stan
-naszego portfela, mamy bowiem. na chwilę zakupu opcji :math:`t=0` mamy
+naszego portfela, bowiem, na chwilę zakupu opcji :math:`t=0` mamy
 dokładnie zero a aktywo ma wartość 115. Czy zarobimy na kupnie tej
 opcji zależy od scenariusza ewolucji ceny aktywa na rynku w czasie do
-:math:`t=T`. W przypadku opcji europejskiej, jedynie od jego końcowej
-wartości.
+:math:`t=T`. W przypadku opcji europejskiej, jedynie od jego 
+wartościm w chwili wygasania opcji.
 
-Posiadacz opcji call, wystawca opcji call, posiadacz opcji put,
-wystawca opcji put.  
 
 Innymi słowy: 
 
@@ -292,8 +290,8 @@ jej zakupu, bo oczywiście pozwoli jej wygasnąć a kupi aktywo
 poniższych cenach rynkowych. W naszym przypadku -3.25.  Gdy cena
 aktywa wzrośnie powyżej ceny wykonania + cena opcji (125+3.25=128.25)
 (break even point) zysk będzie praktycznie nieograniczony i zależny od
-wzrostu.  Miedzy cena wykonania a cena wykonania + cena opcji zysk
-będzie równy ujemny ale ograniczony. Te punkty punkty zaznaczone są
+wzrostu.  Między ceną wykonania a ceną wykonania + cena opcji zysk
+będzie ujemny ale ograniczony . Te punkty punkty zaznaczone są
 czerwonymi kropkami na osi odciętych na powyższym wykresie.
 
 
@@ -343,7 +341,7 @@ Wystawca opcji *put* natomiast realizuje zysk w wysokości premii jeśli
 nabywca nie zrealizuje opcji czyli gdy ceny aktywa będą powyżej
 125.0. Natomiast jeśli spadną poniżej 117.5 poniesie stratę.
 
-Kupując opcje kupujący zabezpiecza się przed niekorzystna zmianą ceny
+Kupując opcje kupujący zabezpiecza się przed niekorzystną zmianą ceny
 aktywa. Wystawca opcji kupna zarabia, gdy nie zrealizujemy opcji,
 czyli wtedy gdy cena akcji na rynku spadnie. Wystawca opcji sprzedaży
 zarabia wtedy, gdy na wskutek wzrostu cen nie wykorzystamy opcji.
@@ -360,9 +358,9 @@ Jak zależy profil wypłaty od parametrów K,S?
 
 Poeksperymentujmy z wykresem zysku/straty na zakupie opcji w
 zależności od parametrów :math:`S_0,K`. Tak jak poprzednio, zakładamy,
-że w chwili początkowej nie mamy zadnego kapitału i jedyną operacją,
+że w chwili początkowej nie mamy żadnego kapitału i jedyną operacją,
 którą wykonujemy jest zakup lub sprzedaż opcji. W przypadku zakupu
-stan naszego portfela jest obciąża nasz na kredyt, jeśli zaś
+stan naszego portfela obciąża nam nasz na kredyt, jeśli zaś
 sprzedajemy to mamy depozyt. Zakładamy, że w chwili początkowej
 istnieje pewna godziwa cena opcji, którą wliczamy w nasz początkowy
 bilans. Innymi słowy na poniższych wykresach zielona linia oznacza
@@ -572,7 +570,7 @@ Wycena opcji
 
 Na wartość opcji wpływają czynniki rynkowe. Na przykładzie
 europejskiej opcji *call* (pierwszej opcji wycenionej teoretycznie)
-widać, ze wartość opcji zależy od pięciu czynników. Czynnikami tym są:
+widać, że wartość opcji zależy od pięciu czynników. Czynnikami tymi są:
 
 - cena  aktywa podstawowego na rynku kasowym
 - cena wykonania
@@ -589,7 +587,7 @@ aktywa tym wyższa wartość opcji.
 **Czas do wygaśnięcia** (zapadalności) - Czas do wygaśnięcia jest
 mierzony jako część roku. Podobnie jak zmienność (*volatility*),
 dłuższy czas do wygaśnięcia zwiększa wartość wszelkich opcji. To
-dlatego, ze są większe szanse że opcja wygaśnie w cenie
+dlatego, że są większe szanse że opcja wygaśnie w cenie
 (*in-the-money*) w dłuższym czasie.
 
 **Stopa wolna od ryzyka** - Stopa wolna od ryzyka jest najmniej
@@ -655,7 +653,7 @@ Opcje i lekcja na ich temat,  jaka wynika z kłopotów  polskich firm z opcjami 
 W każdym rozdziale niniejszego opracowania, tam gdzie wspomina się o
 opcjach podkreślane jest, że opcja to świetny instrument do
 zabezpieczania się przed ryzykiem ale jeśli chodzi o relacje do tego
-ryzyka - asymetryczny. Asymetryczność przejawia się m.in. w tym, ze
+ryzyka - asymetryczny. Asymetryczność przejawia się m.in. w tym, że
 kupujący opcje czuje się jak posiadacz polisy
 ubezpieczeniowej. Zapłacił za nią, czyli poniósł koszt, ale wie, że za
 tą cenę może być spokojny o przyszłość. Bo jeśli ceny aktywa na które
@@ -675,40 +673,40 @@ zabezpieczał. Czyli kupić od nabywcy opcji put aktywo po określonej
 cenie lub sprzedać nabywcy opcji call aktywo po określonej
 cenie. Przypomnieć należy, że aby wystawić opcje nie jest wymagane
 posiadanie aktywa na które opcja opiewa. Wystawca opcji działa
-podobnie do firmy ubezpieczeniowej.  W zamian za premie , czyli cenę
+podobnie do firmy ubezpieczeniowej.  W zamian za premię, czyli cenę
 sprzedanej opcji zobowiązuje się „wyrównania” niekorzystnych zmian
 ceny.  Zarabia wtedy gdy nabywca nie skorzysta z opcji ale musi
-wywiązać się ze zobowiązania jeśli ten co kupił u niego opcje zażąda
+wywiązać się ze zobowiązania jeśli ten co kupił u niego opcję zażąda
 tego i to bez względu na to ile go to będzie kosztować. To znaczy, że
 sprzedając opcje powinien skalkulować sobie ile to może kosztować i
-wziął to pod uwagę roztropnie zanim wystawił opcję.
+wziął to pod uwagę zanim wystawił opcję.
 
 Jak wynika z powyższego straty z nabycia opcji nie przekraczają
-kosztów jej kupna ale korzyść z jej posiadania znaczna i nie
-ograniczana żadnymi barierami poza wielkością zmiany ceny na rynku, a
+kosztów jej kupna ale korzyść z jej posiadania  jest znaczna i nie
+ograniczana żadnymi barierami poza wielkością zmiany ceny na rynku a
 ta zmiana może być, przynajmniej teoretycznie, nieograniczona. Koszty
 z wystawienia opcji niestety mogą być wysokie, bo zależą od zmiany
-ceny na rynku , a ta, przynajmniej teoretycznie, może być
+ceny na rynku, a ta zmiana, przynajmniej teoretycznie, może być
 nieograniczona. Korzyść natomiast ograniczona jest do wysokości premii
 czyli ceny za którą nabywca opcji kupił, opcje od wystawcy.
 
 
 Jeśli po lekturze powyższego tekstu pojawi się refleksja, że wystawcy
-opcji bardzo ryzykują to ta refleksja na tym poziomie wiedzy o rynku i
+opcji bardzo ryzykują to, ta refleksja na tym poziomie wiedzy o rynku i
 opcjach jest w pełni słuszna ( i taką pozostaje). Żałować należy, że
 taką wiedzą albo inaczej, że do takiej konkluzji nie doszli
 zarządzający pewnymi spółkami w kraju w roku 2008. Spółki te popadły
 bowiem w tym czasie w duże kłopoty finansowe w związku z transakcjami
-opcyjnymi , które, zawarły. Zanim sytuacja roku 2008 zostanie
+opcyjnymi, które, zawarły. Zanim sytuacja roku 2008 zostanie
 przedstawiona istotnym jest zrobienie jeszcze jednego wyjaśnienia.
 
 
-Uwaga o tym ,ze ryzyko wystawcy opcji jest większe niż nabywającego
+Uwaga o tym, że ryzyko wystawcy opcji jest większe niż nabywającego
 jest prawdą na tym poziomie wiedzy i taką prawdą pozostaje, tak jak
 zasady zachowania mechaniki klasycznej przykładowo są ważne w fizyce
 kwantowej i innych bardziej zaawansowanych działach fizyki. Prawda ta
-jednak nie wyklucza wystawiania opcji. Aby można było nabyć opcje ,
-ktoś ja musi wystawić. Opcje są wystawiane i jest to robione w celach
+jednak nie wyklucza wystawiania opcji. Aby można było nabyć opcje,
+ktoś ją musi wystawić. Opcje są wystawiane i jest to robione w celach
 uzyskania zysku a nie straty. Zaleca się jednak by czytający ten tekst
 nie wystawiali opcji tak długo, jak długo będą odkrywać jakieś istotne
 informacje w niniejszym opracowaniu. Jeśli bowiem ich doświadczenie i
@@ -766,7 +764,7 @@ następująco:
                 transakcji i skorzysta z zakupionej opcji, jeśli
                 natomiast złoty się osłabi pozwoli opcji wygasnąć i
                 skorzysta z zaistniałej sytuacji na rynku. W tym
-                drugim przypadku można mówić o stracie w wysokości
+                drugim przypadku można mówić o stracie a prawidłowo, o kosztach nabycia w wysokości
                 opłaty za transakcje czyli ceny opcji, w tym
                 przypadku 10 000 PLN. Ten koszt już był poniesiony i
                 jest już zaksięgowany w kosztach i wielkość
@@ -777,7 +775,7 @@ powinno działać zabezpieczenie.
 
 Tylko że z czasem firmie bardzo nie podoba się poziom kosztów
 transakcji zawieranych. Jeśli obroty wynoszą dziesiątki i setki
-milionów koszty te stanowią pokaźną pozycje.
+milionów koszty te stanowią pokaźną pozycje. Tym bardziej,że zgodnie  z opinią podatkową Urzędów Skarbowych koszty nabycia opcji nie są zaliczany do kosztów uzyskania przychodu.
 
 Bank, któremu klient zwierzył się ze swych obserwacji o kosztach i w
 obawie o stratę klienta a może w trosce o jego komfort??  wymyśla taką
@@ -874,18 +872,17 @@ był spory i w przypadku niektórych firm zakończył się bankructwem [#f1]_.
 Konkluzje prawie wszystkich opracowań były zgodne i
 podobne. Wypracowując opisaną strategie zabezpieczającą przed ryzykiem
 kursowym i podpisując umowy z bankami firmy przyjęły na siebie jeszcze
-większe ryzyko kursowe niż to, przed którym szukały ochrony. A nawet
-wystawiły się na to ryzyko w stopniu większym niż były wystawione.
+większe ryzyko kursowe niż to, przed którym szukały ochrony. 
 Ponadto, asymetria umów, w których nominał opcji wystawionych
 przewyższa nominał opcji nabytych, wskazywał na brak orientacji w
-działaniu opcji albo brak zrozumienia wykonywanych transakcji( co
+działaniu opcji albo brak zrozumienia wykonywanych transakcji(co
 wydaje się mało prawdopodobne) albo na działania spekulacyjne. Firmy
 jako podmioty nie zajmujące się działalnością na rynkach finansowych
 nie powinny były wystawiać opcji.  
 
 Zawsze, w każdej działalności, należy kierować się zasadą
-ograniczonego zaufania do partnerów ( a szczególnie finansowych i
-oferujących coś „ za darmo”) i nigdy nie wchodzić posiadanie
+ograniczonego zaufania do partnerów ( a szczególnie finansowych a szczególnie gdy
+oferowane jest " coś za darmo") i nigdy nie wchodzić posiadanie
 instrumentów finansowych, których działania do końca się nie rozumie.
 Na rynku pojawiają się ciągle coraz bardziej skomplikowane i wymyślne
 instrumenty finansowe projektowane przez świetne wyszkolonych
@@ -895,8 +892,8 @@ jest w pełni znane.
  
 Jednak należy podkreślić jedna pozytywną element omawianej
 sytuacji. Firmy nie finansowe podeszły aktywnie do zarządzania ryzykiem
-finansowym, w tym przypadku , kursowym. Omówiony został przypadek firm
-, które nie zrobiły tego idealnie i popełniły pewne błędy na słusznej
+finansowym, w tym przypadku , kursowym. Omówiony został przypadek firm, 
+które nie zrobiły tego idealnie i popełniły pewne błędy na słusznej
 drodze słusznych decyzji o zabezpieczeniu. W powyższym przypadku nie
 mówiono o firmach, które zrobiły to zabezpieczenie właściwie.
 

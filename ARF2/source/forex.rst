@@ -1,11 +1,12 @@
 ﻿Forex - Foreing Currency Exchange
 ---------------------------------
 
+Rynek wymiany walut istnieje skutkiem globalnego zasięgu handlu i lokalnego zasięgu waluty.To jedna z najstarszych usług oferowanych przez  rynki finansowe. 
 Wiele firm oferuje możliwość prowadzenia transakcji na tym rynku. W
 Internecie można znaleźć szereg podręczników handlu, spekulacji i
 odkrywania przygód i emocji związanych z handlowaniem na tym rynku
 przez każdego osobiście. Liczne reklamy zachęcają możliwością
-osiągania znaczących zysków. Rynek jako taki ani prowadzenie
+osiągania znaczących zysków. Rynek jako taki, ani prowadzenie
 transakcji nie jest niczym złym. Pamiętać jednak należy, że podobnie
 jak w przypadku jazdy samochodem gdzie warto najpierw nauczyć się
 jeździć na kursie by potem czerpać przyjemność z samodzielnej jazdy
@@ -40,7 +41,7 @@ obu państw.
 W `poprzednich tekstach
 <http://el.us.edu.pl/ekonofizyka/index.php/RF:Rynek_wymiany_walut>`_
 dotyczących wymiany walut rozdziale dotyczącym rynku wymiany walut
-można było zauważyć powiązanie miedzy przyszłym kursem wymiany a stopa
+można było zauważyć powiązanie miedzy przyszłym kursem wymiany a stopą
 procentową depozytów w krajach walut.  Widać powiązanie, ale nie jest
 to wiedza w pełni pozwalająca przewidzieć przyszłe zmiany wartości
 względnej walut.
@@ -64,7 +65,7 @@ Właściwe kursy wzajemne
 +++++++++++++++++++++++
 
 
-W warunkach równowagi  między kursami  trzech walut zachodzi związek:
+W warunkach równowagi  między kursami wymiany trzech walut zachodzi związek:
 
 .. math::
    :label: F1
@@ -75,12 +76,12 @@ W warunkach równowagi  między kursami  trzech walut zachodzi związek:
 Czyli porównując kursy walut możemy określić czy kursy ich znajdują
 się w równowadze i spełniają pokazane równanie, czy też równanie nie
 jest spełnione i występuję możliwość arbitrażu. Arbitraż oznacza
-szanse na wygenerowanie dochodu z operacji rynkowej.
+szanse na wygenerowanie dochodu z operacji kupna/sprzedaży.
 
 
 .. admonition:: Przykład
 
-    Niech to będzie przykładowo waluta 1- to dolar amerykański -USD,
+    Niech przykładowo waluta 1- to dolar amerykański -USD,
     waluta 2 to funt brytyjski - GBP a waluta 3 to jen japoński – JPY.
 
     Na rynku zauważyliśmy, że dealer z banku A (powiedzmy Deutsche Bank
@@ -114,7 +115,7 @@ szanse na wygenerowanie dochodu z operacji rynkowej.
 
       - Przykładowo:  1 275 000/ 120 = 106 250 funtów
 
-    Czyli zarobić można było by:
+    Czyli zarobić można było :
 
     106.250 - 100.000 = 6.250 funta.
 
@@ -193,11 +194,11 @@ http://www.economist.com/media/audio/burgernomics.ram
 
 Porównywanie siły nabywczej waluty (PPP) przy pomocy Big Maca wydaję
 się być ryzykowną podstawa inwestycji na rynku Forex.  Ale jest to
-jakaś metoda wyceny. Pakko i Pollard [1]_ wykazali w swych badaniach, ze
-zasada siły nabywczej na podstawie Hamburgera obowiązuje w długim
+jakaś metoda wyceny. Pakko i Pollard [1]_ wykazali w swych badaniach, że
+zasada siły nabywczej na podstawie hamburgera obowiązuje w długim
 okresie czasu jednakże odchylenia kursów walut również otrzymują się
-długo. Cóż bariery celne istnieją więc i założenia PPP nie są w pełni
-spełnione. Mimo , że kursy odbiegają od relacji PPP to widać związek
+długo. Cóż, bariery celne istnieją więc i założenia PPP nie są w pełni
+spełnione. Mimo, że kursy odbiegają od relacji PPP to widać związek
 między względną inflacją a zmianami kursów walut.
 
 A jeśli jeszcze nie widać to wprowadźmy  „cenę realną”
@@ -239,7 +240,8 @@ Albo inaczej:
 
 .. math::
 
-   S_{t+1}^{PPP} = S_t ^{D/F} x \frac{1+ I_d}{1+ I_f}
+      
+ \S_{t+1}^{D/F} - S_t^{D/F} = S_{t+1}^{PPP} = S_t ^{D/F}(\frac{I_d - I_f}{1+ I_f})
 
 
 Jeśli inflacja zagraniczna jest niska to zmiana kursu będzie równa:
@@ -259,7 +261,7 @@ Międzynarodowy efekt Fishera
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Równanie Fishera podaje związek między stopą procentową i inflacją
-wprowadzają stopę realną. Ten związek zachodzi w przypadku każdego
+wprowadzając stopę realną. Ten związek zachodzi w przypadku każdego
 kraju.
 
 .. math::
@@ -323,7 +325,7 @@ co po pewnym prostym przekształceniu daje:
 
 .. math::
 
-   S_1- \frac{S_o}{S_o} = \frac{r^d- r^f}{1 +r^f}
+   \frac{S_1 - S_0}{S_o} = \frac{r^d- r^f}{1 +r^f}
 
 Gdzie :
 

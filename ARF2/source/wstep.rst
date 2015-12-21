@@ -15,7 +15,7 @@ pieniądze zabezpieczające przyszłość. Nadzieja na lepszą przyszłość,
 ambitne plany, marzenia i również bezpieczeństwo codziennego
 życia. Czyli należna jest im należyta troska i rozwaga oraz głęboko
 etyczne postępowanie z nimi. Ta rozwaga jest tez częścią limitowania
-ryzyka operacji i funkcjonowania rynków , częścią bezpieczeństwa
+ryzyka operacji i funkcjonowania rynków, częścią bezpieczeństwa
 rynków finansowych. Bezpieczeństwo tych rynków opiera się na zdrowym
 rozsądku, dobrej i dokładnej znajomości oraz rozumieniu funkcjonowania
 instrumentów i rynków finansowych. Temu celowi ma tez służyć niniejsze
@@ -28,11 +28,11 @@ odpowiada na pytania czytającego, trudno z książka prowadzić dialog,
 trudno zadać książce pytanie "co by było gdyby wziąć pod uwagę inne
 parametry?"  albo "jak mogę zastosować te wiedze do mojej konkretnej
 potrzeby?"  Proponowana przez nas forma "interaktywnej książki"
-pozwala na bardzo aktywna  i indywidualna współpracę z zawartością
+pozwala na bardzo aktywną  i indywidualną współpracę z zawartością
 opracowania. Wykresy zależności w wielu miejscach pozwalają na
 interaktywne zmienianie parametrów zależności w celu obserwacji jak
-zależności te mogą zmieniać się w zależności od zmian wspomnianych
-parametrów.  Podane kody komputerowe pozwalają na wyliczenia własnych
+zmiany te wpływaja na zmianę kształtu zależności.
+Podane kody komputerowe pozwalają na wyliczenia własnych
 przypadków czytelników.
  
 Literatura przedmiotu jest bardzo obszerna i ciągle się wzbogaca o
@@ -42,8 +42,8 @@ sami często korzystaliśmy:
 1. **David Blake**: "Financial Market Analysis",  McGraw-Hill  Book Comp.;
 2. **Stanley R. Pliska**: "Wprowadzenie do matematyki finansowej", WNT;
 3. **Maria Podgórska, Joanna Klimkowska**: "Matematyka finansowa", PWN;
-#. **Andrzej Sławiński**: "Rynki Finansowe" PWE Warszawa 2006;
-#. A. Weron, R. Weron: Inżynieria Finansowa, WNT, Warszawa 2009;
-#. S. Benninga, Z. Wiener, Mathematica in Education and Research
+4. **Andrzej Sławiński**: "Rynki Finansowe" PWE Warszawa 2006;
+5. **A. Weron, R. Weron**: Inżynieria Finansowa, WNT, Warszawa 2009;
+6. **S. Benninga, Z. Wiener**, Mathematica in Education and Research
    Vol. 7 No. 1-4, (1998) oraz Vol.6 No. 3-4, (1997), (seria
    artykułów)

@@ -7,13 +7,10 @@ wspomniane to na początku rozdziału o opcjach, opcje należą do tych
 składowych. **Instrumenty syntetyczne** to instrumenty składające (dające
 się rozłożyć) na składowe instrumenty. Instrumenty syntetyczne
 składają się z kombinacji dwu lub więcej elementów
-składowych. Konstrukcja takich instrumentów nazywana jest inżynierią
+składowych. Oprócz opcji "cegiełkami" tworzacymi inne instrumenty są obligacje, akcje swapy. Konstruowanie takich instrumentów nazywane jest inżynierią
 finansową.
 
-Oprócz opcji „cegiełkami” tworzącymi inne instrumenty są obligacje,
-akcje oraz swapy.
-
-Na początek budujemy portfel inwestycyjny. Kupujemy aktywo i od
+Zbudujmy portfel inwestycyjny. Kupujemy aktywo i od
 momentu posiadania aktywa obawiamy się spadku jego ceny i chcemy by
 wartość naszego portfela nie zmalała w przypadku spadku cen tego
 aktywa na rynku. Aby się zabezpieczyc przed spadkiem wartości portfela
@@ -23,12 +20,12 @@ zachowaniu szans na wzrost wartości aktywa. W takiej strategii widać
 podobieństwo do płacenia polisy ubezpieczeniowej za ograniczenie
 strat.
 
-Ale widać strategie alternatywna dla opisanej sytuacji.  Zamiast
+Istnieje strategia alternatywna dla opisanej sytuacji.  Zamiast
 kupować aktywo i opcje Put zapewniającą „atrakcyjna” cenę jego
 sprzedaży możemy kupić jedynie opcje Call na „atrakcyjną” cenę aktywa.
-Zaoszczędzone pieniądze (różnica miedzy ceną kupna aktywa i premia
-opcji Put) możemy zainwestować w instrument dłużny oprocentowany stopa
-wolna od ryzyka.  Jeśli wartość aktywa wzrośnie możemy kupić je
+Zaoszczędzone pieniądze (różnica miedzy ceną kupna aktywa i premią
+opcji Put) możemy zainwestować w instrument dłużny oprocentowany stopą
+wolną od ryzyka.  Jeśli wartość aktywa wzrośnie możemy kupić je
 wykorzystując opcje Call i swoją inwestycje. Jeśli wartość aktywa
 spadnie można pozwolić wygasnąć opcji i zachować pieniądze w
 inwestycji w stopę wolną od ryzyka.
@@ -107,10 +104,10 @@ Prześledźmy, jeśli :math:`S>K` to pierwszy składnik różnicy w równaniu
 przypadku :math:`K>S` pierwszy się zeruje a drugi daje
 :math:`-(K-S)=S-K` czyli w efekcie to samo co pierwszy. Funkcja
 wypłaty dla różnicy dwóch opcji - Call i Put, jest więc taka sama jak
-funkcja wypłaty dla posiadanej opcji i kredytu na wartość :math:`K`.
+funkcja wypłaty dla posiadanej akcji i instrumentu dłużnego (obligacji) o  wartość :math:`K`.
 
 Funkcja wypłady zobowiązuje w czasie zapadalności obydwu opcji - czyli
-math:`t=T`).  Wyobrażmy sobie, że jesteśmy w dowolnym momencie przed
+:math:`t=T`).  Wyobrażmy sobie, że jesteśmy w dowolnym momencie przed
 tym czasem, (niech będzie on oznaczony przez :math:`t=0`). Wtedy cena
 akcji jest inna. Opcje przez ich czasem zapadalności możemy wycenić,
 np. za pomocą wzoru Blacka-Scholesa. Kredyt :math:`K` będzie trzeba
@@ -124,7 +121,7 @@ spodziewać, że będzie zachodził wzór:
 gdzie przez :math:`P_C,P_P` to ceny opcji Call i Put, odpowiednio, w
 czasie :math:`t=0`. 
 
-Wzór ten powinien zachodzić na wyceny opcji, sprawdźmy więc czy
+Wzór ten powinien zachodzić dla wycen opcji, sprawdźmy więc czy
 rzeczywiście tak jest. Możemy wykorzystać system algebry komputerowej
 by wykonal mozolną robotę za nas.
 
@@ -214,7 +211,7 @@ obligacji o stopie bez ryzyka :eq:`IS1` wygląda:
    S + P = C + Ke^{-Rt} 
 
 
-Gdzie :math:`K` - to wartość obligacji na stopę wolna od ryzyka na
+Gdzie :math:`K` - to wartość obligacji na stopę wolną od ryzyka na
 datę wygaśnięcia opcji. :math:`K` to również cena wykonania opcji
 (obu) w czasie wygaśnięcia.
 
@@ -234,8 +231,9 @@ równanie :eq:`putcall` jako równość wartości dwu portfeli.
    wykonania.
 
 Istota parytetu zasadza się w równości tych dwu portfeli. Ta równość
-zachodzi niezależnie od ceny (wykonania) aktywa. Sprawdźmy to:
+zachodzi niezależnie od ceny (wykonania) aktywa.
 
+Sprawdźmy to:
 
 Dla ceny aktywa 12 równość ta, wygląda następująco:
 
@@ -342,7 +340,7 @@ Graficznie wygląda to tak:
    otrzymać taki sam efekt finansowy jak z instrumentu Put. 
 
 	 Na prawym panelu pomarańczowa gruba linia oznacza zależność
-	 zysku/straty z opcji Put. Na prawym panelu naniesiona trzy
+	 zysku/straty z opcji Put. Na prawym panelu naniesiono trzy
 	 instrumenty z prawej strony równania :eq:`IS2`. Dodając je do
 	 siebie otrzymujemy zysk/stratę całego portfela. Suma ta jest
 	 zaznaczona na wykresie lewym czarną linią. Widzimy, że pokrywa się
@@ -378,7 +376,7 @@ Blacka-Scholesa:
     P(S0,K,r,T,sigma) = K*exp(-r*T)*cdf(-d2)-S0*cdf(-d1)
     print "Wczytano definicje!"
 
-Rozważmy aktywo o wartości chwilowej (spot price) :math:`S=50` i
+Rozważmy aktywo o wartości chwilowej (cena spot ) :math:`S=50` i
 zmienności (volatility) :math:`\sigma=0.5`. Ponadto, niech wolna od
 ryzyka stopa procentowa wynosi :math:`r=0.05`. Będziemy rozważać opcje
 o czasie wygaśnięcia trzy miesiące czyli :math:`T=90/365`. W chwili
@@ -495,7 +493,7 @@ Syntetyczna pozycja short Put
 -----------------------------
 
 Można stworzyć syntetyczną short Put poprzez sprzedaż opcji Call,
-kupno aktywa za pożyczone na stopę wolna od ryzyka do wygaśnięcia.
+kupno aktywa za kwotę pożyczoną na stopę wolna od ryzyka do wygaśnięcia.
 
 .. math::
 
@@ -509,14 +507,16 @@ Graficznie przedstawia wykres
 
    Parytet put-call: :math:`-P = S - C - Ke^{-Rt}`
 
-
+Przypadek kontraktów terminowych
+--------------------------------
 
 Jeśli w miejsce kontraktów kasowych na aktywo wstawimy do równania
 parytetu kontrakty terminowe to otrzymamy podobne zależności dla rynku
-futures ( forward).  W równości parytetu dla tego rynku opcje są
+futures ( forward). W równości parytetu dla tego rynku opcje są
 opcjami dla kupna i sprzedaży kontraktu futures.
 
-**Podsumowując.**
+Podsumowanie
+------------
 
 Równość zwana parytetem cen opcji call i put jest spełniona przy
 następujących warunkach:
@@ -541,7 +541,7 @@ put nie spełniają warunków parytetu, ale spełniają słabszą relacje:
 
 .. math::
 
-	S_0 - K \leq C - P \leq S0 - K e^{-Rt}
+	S_0 - K \leq C - P \leq S_0 - K e^{-Rt}
 
 
 Warunek wypłacania dywidendy czyli warunek nr. 5 parytetu jest dość
@@ -564,7 +564,7 @@ Kilka uwag o instrumentach syntetycznych.
 Istnienie ich warunkuje ważność parytetu Call- Put. Do tego miejsca
 zajecie pozycji na rynku oznaczało kupno/sprzedaż aktywa lub kontraktu
 futures , kupno/sprzedaż opcji call lub put na dany
-instrument. Parytet call- put jest podstawa pewnego nowego innego
+instrument. Parytet call- put jest podstawą pewnego, nowego i innego
 spojrzenia na aktywo. Pozwala na tworzenie instrumentów rynkowych jako
 kombinacji innych instrumentów dających ten sam efekt i wartość dla
 inwestora.
@@ -573,7 +573,7 @@ Pozycja syntetyczna pozwala na osiągnięcie tego samego zysku( lub
 straty) co posiadanie instrumentu poprzez zajecie dwu innych pozycji
 na tym samym rynku. To jest często bardzo wygodne.  Przykładowo, jeśli
 inwestor jest long call a chce być long put. Zamiast likwidować
-pozycję i otwierać nową ,inwestor może zostać long call a sprzedać
+pozycję i otwierać nową, inwestor może zostać long call a sprzedać
 aktywo lub kontrakt futures jeśli na takim rynku działa. Zamiast więc
 dwu transakcji zawiera jedną i to dzięki temu przyjmuje syntetyczną
 pozycje long put. Innymi słowy inwestor „sfabrykował” syntetyczną
@@ -597,18 +597,18 @@ Instrumenty syntetyczne  stwarzają w pewnych sytuacjach możliwości  które mo
    „fizycznego’.
 3. Często ( ale nie zawsze) syntetyki są mniej zmienne niż ceny
    instrumentów fizycznych.
-4. Przykładem zalety syntetyka jest sytuacja krótkiej sprzedaży
-. Jeśli sprzedajemy krótko akcje nie musimy jej pożyczać i nie musimy
-się martwić o płatność dywidendy na sprzedaną krótko akcje.
+4. Przykładem zalety syntetyka jest sytuacja krótkiej sprzedaży.
+   Jeśli sprzedajemy krótko akcje nie musimy jej pożyczać i nie musimy
+   się martwić o płatność dywidendy na sprzedaną krótko akcje.
 
-Niemniej jednak należy pamiętać , ze instrumenty syntetyczne pozwalają
+Wydawać się może, że instrumenty syntetyczne pozwalają
 na większą spekulacje i pozwalają na uniknięcie depozytów
-zabezpieczających. Przykładowo może się wydawać , że w przypadku
+zabezpieczających. Przykładowo może się wydawać, że w przypadku
 syntetycznego long/short futures można uniknąć płacenia depozytu
-zabezpieczającego. Niestety , pozycja short put wymaga tego samego
+zabezpieczającego. Niestety, pozycja short put wymaga tego samego
 depozytu jak pozycja short futures. Syntetyczna pozycja long futures
-wymaga wpłaty podiobnego rzędu jak „fizyczna” pozycja długa na rynku
-kontraktów fures.
+wymaga wpłaty podobnego rzędu jak „fizyczna” pozycja długa na rynku
+kontraktów futures.
 
 
 
@@ -618,7 +618,7 @@ Swapy
 
 Transakcje swapowe to syntetyczne instrumenty zbudowane z dwu
 podstawowych „cegiełek” instrumentów finansowych. Przykładowo są to
-polaczenia instrumentu dłużnego o stałym oprocentowaniu z instrumentem
+połączenia instrumentu dłużnego o stałym oprocentowaniu z instrumentem
 dłużnym o zmiennym oprocentowaniu. Często do tej kombinacji
 instrumentów dochodzi transakcja wymiany walut.  
 
@@ -644,7 +644,7 @@ Swap kuponowy
 Najbardziej typowy swap dotyczy wymiany płatności opartej na zmiennej
 stopie na płatność opartą o stopę stałą. Na ilustracji spółka A zgadza
 się wykonać płatność do spółki B liczoną w oparciu o zmienne
-oprocentowanie (np. LIBOR 6 - miesięczny) ustalonej kwoty. W zamian
+oprocentowanie (np. LIBOR 6 - miesięczny)  dla ustalonej kwoty. W zamian
 Spółka B zgadza się dokonać płatności odsetek od tej kwoty dla stałego
 oprocentowania ( np. 10% na rok) Wymiana płatności nastąpi co 6
 miesięcy.
@@ -664,8 +664,8 @@ procentowej( np. 3- miesięczny LIBOR) na inne płatności oparte o inną
 zmienną stopę oprocentowania. ( np. LIBOR 6- miesięczny).
 
 
-SWAP jest transakcją zawierana przez dwie strony. Podstawową
-trudnością dla instytucji z chcącej zawrzeć transakcje tego typu jest
+SWAP jest transakcją zawieraną przez dwie strony. Podstawową
+trudnością dla instytucji chcącej zawrzeć transakcje tego typu jest
 znalezienie drugiej strony transakcji, czyli firmy chcącej również
 zawrzeć transakcje swap na warunkach atrakcyjnych. To stwarza nowe
 możliwości dla banków, które to pośredniczą w transakcjach i są stroną
@@ -679,7 +679,7 @@ Swap stopy procentowej
 Inaczej nazywany IRS (czyli interest rate swap).  Polega ten swap na
 tym, że płatności wynikające dla stron z kontraktu swap dotyczą tego
 samego nominału kwoty, ale nie następuje tu żaden transfer tejże kwoty
-ani inna forma zmiany własności. Raczej mówi się o wymianie
+ani inna forma zmiany jej własności. Raczej mówi się o wymianie
 oprocentowania, ale nie wynika z tego, że następuje tu jakaś pożyczka.
 
 Kontrakt swap reguluje okresowość płatności. Najczęściej są to okresy
@@ -736,7 +736,7 @@ zobowiązuje się do płacenia na rzecz B zmiennej stopy WIBOR.  Czyli:
 W wyniku zawartej transakcji Spółka  B płaci:
 
  * -stałą stopę 8.5% 
- * -WIBOR+1% 
+ * -(WIBOR+1%) 
 
 
 ale dostaje:
@@ -748,7 +748,7 @@ Czyli, w sumie płaci 9.5% odsetek wg stałej stopy procentowej.  Dzięki
 zastosowaniu takiego swapu firma B zaoszczędza 0.5% w stosunku do
 stopy oferowanej przez kredytodawcę.
 
-Natomiast spółka   A płaci:	
+Natomiast spółka A płaci:
   * -stałą stopę 8% 
   * -WIBOR  
 
@@ -761,23 +761,24 @@ Dzięki zastosowaniu takiego swapu firma A zaoszczędza 1% w stosunku do
 stopy oferowanej przez kredytodawcę.
 
 Analiza powyższego przykładu jest ilustracją ogólniejszej
-zasady. Podział zysków ze swapu może jest dowolny i negocjowany miedzy
+zasady. Podział zysków ze swapu może jest dowolny i negocjowany między
 partnerami swapu i zależy od ich porozumienia (warunków kontraktu),
 aczkolwiek ograniczony.  Korzyść osiągana przez obie strony jest równa
-wartości różnicy stóp oferowanych firmom na rynku stałych
+wartości różnicy stóp oferowanych firmom na rynku stóp stałych
 pomniejszonej o wartość różnicy stóp na rynku stóp zmiennych.
 
-W naszym przypadku wartości te wynoszą 2%-0.5%=1.5%. Natomiast w
-sytuacji gdy jedna z firm ma przewagę bezwzględną na jednym rynku a
+W naszym przypadku wartości te wynoszą 2%-0.5%=1.5%.
+
+Natomiast w sytuacji gdy jedna z firm ma przewagę bezwzględną na jednym rynku a
 druga na drugim zysk będzie sumą wartość różnicy stóp oferowanym
 firmom na rynku stóp stałych powiększoną o wartość różnicy na rynku
 stóp zmiennych. W warunkach rynkowych przewaga komparatywna nie
 zawsze musi występować oraz ewentualne korzyści osiągane ze swapu mogą
 być zbyt małe w porównaniu do kosztów transakcji. Znalezienie drugiej
-strony swapu często jest trudne. Trudność tą usuwa pośrednik
-finansowy, który niejako staje się strona dla obu stron
+strony swapu często jest trudne. Trudność tą usuwa pośrednik finansowy, którym najczęsciej jest bank,
+który to, niejako, staje się stroną dla obu stron
 swapu. Pośrednik przejmuje na siebie ryzyko związane z niedotrzymaniem
-warunków umowy przez kontrahenta (ryzyko kredytowe), oraz może
+warunków umowy przez każdego z kontrahentów (ryzyko kredytowe), oraz może
 przejmować na siebie część ryzyka walutowego (w swapach
 walutowych). Żąda w zamian wynagrodzenia- czyli każda ze stron
 rezygnuje na rzecz pośrednika z części beneficjów swapu.
@@ -790,7 +791,7 @@ Swap walutowy
 ~~~~~~~~~~~~~
 
 W transakcji swapu walutowego ( currency swap), strony wymieniają
-waluty po ustalonym kursie, Następnie w określonych okresach dokonują
+waluty po ustalonym kursie. Następnie w określonych okresach dokonują
 wzajemnie płatności odsetkowych w oparciu o wcześniej ustalone pary
 stóp procentowych. Na koniec, dokonują powtórnej wymiany do
 oryginalnych walut w terminie zapadalności transakcji.
@@ -818,8 +819,8 @@ same ruchy i zasady przepływu strumieni pieniężnych jak w swapie
 walutowym). Dodatkowo zamieniane jest oprocentowanie o stopie stałej
 na zmienna, lub odwrotnie.
 
-**Przykład:** Dolarowy kredyt o stałej stopie odsetek zamieniany jest
- na kredyt w Euro o zmiennym oprocentowaniu.
+Przykładowo: Dolarowy kredyt o stałej stopie odsetek zamieniany jest
+na kredyt w Euro o zmiennym oprocentowaniu.
 
 Assets swap
 ~~~~~~~~~~~
@@ -832,20 +833,26 @@ Strony transakcji : Fundusz inwestycyjny i bank.
 Fundusz inwestycyjny zamierza kupić na rynku : albo obligacje o stałym
 oprocentowaniu o rentowności 4 % rocznie, albo papier o zmiennym
 oprocentowaniu wyceniany na poziomie LIBOR.  Bank jest zainteresowany
-posiadaniem obligacji stał.opr.-4 %, albo zamierza udzielić kredytu
+posiadaniem obligacji stał.opr. 4 %, albo zamierza udzielić kredytu
 hipotecznego dla klienta na poziomie LIBOR + 0.5%.  Fundusz kupuje
-obligacje i „swapuje” ją z bankiem, bez pośrednika.  Mechanizm swapu :
-Fundusz: Kupuje obl. o rentowności 4% Płaci do banku - 3,75% Otrzymuje
-z banku LIBOR
+obligacje i „swapuje” ją z bankiem, bez pośrednika.
 
-Czyli w wyniku  otrzymuje 		                                                       LIBOR +0,25
-Bank:     Udziela kredytu hipotecznego o oprocentowaniu                 LIBOR +0,5%
-   Otrzymuje   od Funduszu                            3,75%
-       Płaci do funduszu                      - LIBOR
-Czyli w sumie otrzymuje   4,25%.
+Mechanizm swapu :
 
-W wyniku transakcji swapu z funduszem Bank wykreował syntetyczna
-obligacje stało procentowa o oprocentowaniu wyższym niż rynek a
+Fundusz: Kupuje obligacje o rentowności 4%
+Płaci do banku                        - 3,75%
+Otrzymuje  z banku                    LIBOR
+
+Czyli w wyniku  otrzymuje= LIBOR +0,25
+
+
+Bank:     Udziela kredytu hipotecznego o oprocentowaniu     LIBOR +0,5%
+Otrzymuje   od Funduszu                                            3,75%
+Płaci do funduszu                                         - LIBOR
+Czyli w sumie otrzymuje =  4,25%.
+
+W wyniku transakcji swapu z funduszem Bank wykreował syntetyczną
+obligację stało procentową o oprocentowaniu wyższym niż rynek a
 fundusz syntetyczny papier dłużny zmienno procentowy o rentowności
 wyższej niż rynek.
 
@@ -886,11 +893,11 @@ FRA są równoważne kontraktom forward w krótkoterminowych swap'ach
 stopy procentowej. FRA są syntetycznymi kontraktami swap kontraktów
 forward lub futures.
 
-FRA jest umową stron aby wymienić się (swap)płatnościami wynikającymi
+FRA jest umową stron aby wymienić się (swap) płatnościami wynikającymi
 ze stóp procentowych poprzez umówiony okres od pewnej daty w
 przyszłości. Jedna ze stron takiego kontraktu ustala sobie stałe
-oprocentowanie a druga zmienne. Kwota główna nie zostaje przesuwana”
-miedzy stronami, natomiast w dacie umowy jedna strona dokonuje wpłaty
+oprocentowanie a druga zmienne. Kwota główna nie zostaje "przesuwana”
+między stronami, natomiast w dacie umowy jedna strona dokonuje wpłaty
 by skompensować drugiej stronie różnicę pomiędzy uzgodnionym
 oprocentowaniem a stopą spot w dniu zawarcia.
 
@@ -911,8 +918,8 @@ instrument finansowy, który jest opcją na zakup/sprzedaż swapu. Długa
 pozycja w opcji kupna daje prawo, ale nie obowiązek kupna
 swapu. Innymi słowy swapcja daje temu, kto ją posiada prawo (ale nie
 obowiązek) do zawarcia umowy swap'u z wystawcą swapcji. Warunki
-transakcji swap'u ustalone zostają w umowie swapcji . Warunki te
-okreslają: nominalna kwota główna wymiany, okresowość płatności stron
+transakcji swap'u ustalone zostają w umowie swapcji. Warunki te
+określają: nominalna kwota główna wymiany, okresowość płatności stron
 (np. półrocznie, rocznie), płacone i otrzymywane stopy dla wymiany
 płatności, które to stopy określane są jako cena wykonania swapcji.
 
@@ -925,7 +932,7 @@ Swapcja typu amerykańskiego daje większą elastyczność w wyborze
 najlepszego czasu wykonania niż swapcja europejska co ma odbicie w
 cenie. Swapcje amerykańskie są znacznie droższe od europejskich.
 
-Wysokość premii za swapcje jest ustalana miedzy nabywcą a
+Wysokość premii za swapcje jest ustalana między nabywcą a
 sprzedającym. Swapcja jest instrumentem OTC, czyli umową zawieraną
 pomiędzy bankiem specjalizującym się w transakcjach swap a klientem.
 Zależy ona od stóp procentowych, ich zmienności i czasu do
@@ -943,19 +950,19 @@ między trzy a 12 miesięcy.
    kredytowej gdzieś w przyszłości do roku czasu i zamierza wejść w
    tym czasie w transakcje swapu płatności.  Swap dotyczy kapitału w
    wysokości 100 milionów USD i terminu 5 lat. Firma zamierza zapewnić
-   sobie płatności , powiedzmy, 1% stałego oprocentowania i otrzymywać
+   sobie płatności, powiedzmy, 1% stałego oprocentowania i otrzymywać
    zmienne w wysokości USD LIBOR, w sześciomiesięcznych płatnościach
-   swapowych. Premia za swapcje wynosi , powiedzmy, 300 000 i jest
+   swapowych. Premia za swapcje wynosi, powiedzmy, 300 000 i jest
    płatna w EUR.
 
-Przyczyna dla której firma kupiła swapcje to przewidywanie ze firma
+Przyczyna dla której firma kupiła swapcje to przewidywanie, że firma
 wejdzie ( lub może wejść) w umowę swapu kiedyś w ciągu roku. W ramach
 tej umowy zapewnia sobie płatności stało- procentowe na poziomie 1%by
 otrzymywać USD LIBOR. Taki poziom płatności byłby dla niej
-zadawalający. Chce wiec zapewnić sobie takie warunki swapu, którego
-umowę chce zawrzeć w przyszłości. Obawia się jednak ,ze oprocentowanie
+zadawalający. Chce więc zapewnić sobie takie warunki swapu, którego
+umowę chce zawrzeć w przyszłości. Obawia się jednak, że oprocentowanie
 stało procentowe może wzrosnąć zanim umowa swapu się
-rozpocznie. Płacąc premie za swapcje zabezpiecza sobie już dziś niższe
+rozpocznie. Płacąc premię za swapcje zabezpiecza sobie już dziś niższe
 płatności oprocentowania stałego.
 
 Jeśli stopy wzrosną zanim firma będzie chciała zacząć swap to
@@ -967,28 +974,26 @@ Jeśli stopy obniżą się to oprocentowanie stałe też będzie niższe i
 firma nie skorzysta ze swapcji wchodząc w umowę swapu na warunkach
 rynkowych płacąc niższą stopę stałą niż 1 % a otrzymując LIBOR w USD.
 
-**Dlaczego Bank  wystawia swapcje? **
+**Dlaczego Bank  wystawia swapcje?**
 
-Wystawiając swapcje bank bierze na siebie ryzyko, ze w czasie od
+Wystawiając swapcje bank bierze na siebie ryzyko, że w czasie od
 wystawienia swapcji do jej wygaśnięcia stopy procentowe mogą się
 zmienić w kierunku niekorzystnym i swapcja zostanie wykorzystana przez
 jej posiadacza. Gdy to się zdarzy wystawca swapcji jest zobowiązany do
 zawarcia kontraktu swapu na warunkach lepszych dla posiadacza swapcji
 niż aktualne warunki rynkowe.
 
-W zamian za to ryzyko zyskuje premie za wystawienie swapcji. Wystawca
-opcji spodziewa się zysku z zawartych transakcji to znaczy, ze premia
+W zamian za to ryzyko zyskuje premię za wystawienie swapcji. Wystawca
+opcji spodziewa się zysku z zawartych transakcji to znaczy, że premia
 za swapcje przewyższy straty na oprocentowaniu gdy posiadacz swapcji
-ją wykorzysta. Najwięcej zyskuje gdy swapcja nie zostaje wykonana (
-podobnie jak w przypadku opcji).
+ją wykorzysta. Najwięcej zyskuje gdy swapcja nie zostaje wykonana (podobnie jak ma to miejsce w przypadku opcji).
 
-Jeśli swapcja zostaje wykonana, czyli stopy procentowe wykonywane (
-wynikające z umowy swapcji) są bardziej korzystne dla posiadacza
-swapcji w stosunku do stóp na rynku swapów, to zysk posiadacza swapcji
-to niższe płatności oprocentowania albo wyższe przychody z
+Jeśli swapcja zostaje wykonana, czyli stopy procentowe wykonywane (wynikające z umowy swapcji)
+są bardziej korzystne dla posiadacza swapcji w stosunku do stóp na rynku swapów,
+to zyskiem posiadacza swapcji są niższe płatności oprocentowania albo wyższe przychody z
 oprocentowania w swapie. A jego stratą jest płacona za swapcje premia.
 
-Należy podkreślić, że ryzykom wystawcy swapcji może być duże jeśli
+Należy podkreślić, że ryzyko wystawcy swapcji może być duże jeśli
 zmienność stóp procentowych na rynku jest znaczna, a nominał kapitału
 wielki. Załóżmy że swap dotyczy 100 milionów a posiadacz swapcji
 zamierza płacić 1% stałego otrzymując LIBOR w zamian. Gdy stopy na
@@ -998,7 +1003,7 @@ LIBOR, który będzie płacił). Jego „ strata” w tym przypadku wyniesie
 1% (2%-1%) roczne od kapitału czyli 1 milion rocznie. Jeśli stopy
 będą bardziej zmienne ( i wyniosą np. 3%) to rozmiar tej straty
 wyniesie 2 miliony. W przypadku dużej zmienności na rynku stóp
-procentowych premia za swapcje będzie tez wyższa.
+procentowych premia za swapcje będzie też wyższa.
 
 Swapcje stosuje się by zabezpieczyć swą ekspozycje na ryzyko stóp
 procentowych, w przypadku spodziewanego zawierania swapu w

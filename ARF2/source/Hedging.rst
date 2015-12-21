@@ -42,7 +42,7 @@ posiadana w portfelu akcja firmy holenderskiej kupiona po 200EUR,
 ostatnio była wyceniona na 230 EUR, czy akurat cena jej wzrosła. A co
 by było gdyby zmalala?
 
-Nic dziwnego, ze będzie się starał o zabezpieczenie się przed taka
+Nic dziwnego, ze będzie się starał o zabezpieczenie się przed taką
 ewentualnością.
 
 W zależności od potrzeb, umiejętności i wielkości prowadzonych
@@ -53,13 +53,13 @@ zabezpieczenia. Zarówno metoda zabezpieczenia, zestaw stosowanych
 technik i instrumentów zależy od sytuacji i celu
 zabezpieczającego. Najważniejszym jest bowiem rozumienie jaki cel chce
 się osiągnąć i jak funkcjonuje rynek i jakie instrumenty mogą być
-pomocne biorąc pod uwagę, ich mocne ich strony jak i ich
+pomocne, biorąc pod uwagę, ich mocne ich strony jak i ich
 niedostatki. Należy pamiętać, że zabezpieczanie się przed ryzykiem
 rynkowym kosztuje, ale koszt ten jeśli jest niższy od możliwych strat
-jest często wartym podniesienia.
+jest często wartym poniesienia.
 
 Nie podjęcie decyzji o zabezpieczeniu się przed ryzykiem jest
-naturalnie podjęciem decyzji o jego absorpcji. Z wszystkimi
+naturalnie podjęciem decyzji o jego absorbcji. Z wszystkimi
 konsekwencjami tej decyzji. Czasami takie działania wynikają nie z
 braku świadomości ryzyka czy braku umiejętności hedgingu. Często taka
 metoda stosowana jest przez firmy mające możliwość przełożenia ryzyka
@@ -117,18 +117,18 @@ Ryzyko walutowe i ryzyko zmiany ceny
 Firmy prowadząc swą działalność poddane są efektom ryzyk ich
 działalności. Oba wymienione w tytule ryzyka dotyczą firm, których
 działalność opiera się na korzystaniu z międzynarodowych rynków
-finansowych. 
+finansowych. Do tej grupy nalężą firmy kupujące/sprzedające surowce na rynku globalnym.
 
 Krótkie spojrzenie na takie firmy uwidacznia dwie sytuacje. Firma
 sprzedając swe produkty chce, by cena za jej produkty nie
 zmalała. Firma, która kupuje za granicą, np. surowiec chce by jego
 cena nie wzrosła. Takie zachowanie bowiem gwarantuje firmom uzyskanie
-założonego wyniku finansowego oraz generowanie zysku, co jest główną
-przyczyną ich funkcjonowania.
+założonego wyniku finansowego oraz generowanie zysku, co jest głównym
+powodem ich funkcjonowania.
 
 Jeśli ich działalność dotyczy korzystania z rynków zagranicznych to
 szczególnie w przypadku polskich firm narażone są na ryzyko
-walutowe. Złoty w odróżnieniu od euro nie jest walutą używaną przez
+walutowe. Złoty w odróżnieniu od euro czy USD, nie jest walutą używaną przez
 inne niż Polska kraje. Najczęściej aktywa na rynkach światowych
 wyceniane są w USD.
 
@@ -168,7 +168,7 @@ powoduje duże problemy płynnościowe kupującego taki kontrakt.
 
 Analizując sytuacje omawianych firm obserwuje się, że oprócz
 wspomnianego ryzyka kursowego (PLN nie jest walutą światową jak USD
-czy EUR) występuję w ich przypadku ryzyko ich rynku, czyli wahań cen
+czy EUR) występuję w ich przypadku ryzyko rynku, czyli wahań cen
 surowców. Surowce te na globalnym rynku wyceniane są zazwyczaj w
 którejś z głównych walut światowych.
 
@@ -181,7 +181,7 @@ poziomu. Jego naturalna pozycja rynkowa jest LONG i jest
 zainteresowany by cena dostawy była odpowiednio wysoka. Chętnie będzie
 negocjował kontrakty długoterminowe na dostawy swej produkcji po
 cenach, które dzisiaj może zaakceptować i ustalić na przyszłość tak by
-stabilizować produkcje swej firmy w przyszłości.
+stabilizować produkcję swej firmy w przyszłości.
 
 Importer surowca, firma kupująca surowiec by przykładowo zrobić z
 niego inny produkt, jest zainteresowana by kupować go najtaniej i
@@ -263,7 +263,7 @@ Taka transakcja zabezpieczająca nazywa się *Short Hedge*, gdzie
 zabezpiecza przed stratami spadku ceny instrumentu
 posiadanego. Zastosowanie właściwe takiej strategii pozwala na to by
 zyski z instrumentu pochodnego równoważyły straty z pozycji długiej
-(i\ odwrotnie).
+(i odwrotnie).
 
 **Short hedge** jest często stosowana strategia zabezpieczania przez
 producentów (surowce, produkty spożywcze, etc.), którzy chętnie 
@@ -319,7 +319,7 @@ niższa niż koszty wytwarzania produktu.
 
 
 
-Podobną strategie zastosuje firma, która pożyczyła 10 milionów w
+Podobną strategię zastosuje firma, która pożyczyła 10 milionów w
 banku na 1% powyżej trzymiesięcznej stopy depozytowej z prawem
 rolowania co kwartał. W dacie następnego rolowania stopa procentowa
 może być wyższa, więc firma decyduje się zabezpieczyć poprzez sprzedaż
@@ -345,12 +345,14 @@ Sytuacja  na początku transakcji:
 |                                        |                                        |
 +----------------------------------------+----------------------------------------+
 |Firma roluje, czyli pożycza znów 10     |Skupuje z rynku kontrakty je zgodnie z  |
-|milionów na trzy kolejne miesiące po 14%|86,75 (tj. 100-13,25%)                  |
+|milionów na trzy kolejne miesiące po 14%|86,75 tj.( 100-13,25%)                  |
 |(13%+1%)                                |                                        |
 |                                        |                                        |
 +----------------------------------------+----------------------------------------+
-|Czyli płaci dodatkowe odsetki z jeden   |Zysk na transakcji 10mln z 3/12= 25000  |
-|kwartał (0.14-0.13)/4 z 10mln = 25 tys  |                                        |
+|Czyli płaci dodatkowe odsetki za jeden  |Zysk na transakcji                      |
+|                                        | 1% 10mln razy 3/12= 25000              |
+|kwartał czyli                           |                                        |
+|10 000 000(0.14-0.13)/4  = 25 000       |                                        |
 |                                        |                                        |
 |                                        |                                        |
 |                                        |                                        |
@@ -384,8 +386,8 @@ krótkoterminowym. Firma (a właściwie jej zarząd) obawia się, że stopy
 depozytowe spadną zanim pieniądze wpłyną do firmy i zamierza się przed
 skutkiem takiej zmiany zabezpieczyć, kupując znane z poprzedniego
 przykładu kontrakty terminowe na stopę trzymiesięczną. Oczywiście, ich
-liczba wynika z wartości kwoty zabezpieczanej. Jest to strategia Long
-hedge.
+liczba wynika z wartości kwoty zabezpieczanej. Jest to strategia **Long Hedge** 
+
 
 Czyli 
 
@@ -397,10 +399,11 @@ Czyli
 |luty                |                                        |trzymiesięczną stopę za 88.5%=100%-11,5%|
 |                    |                                        |                                        |
 +--------------------+----------------------------------------+----------------------------------------+
-|maj                 |   stopa depozytowa tylko 9.5%,         |sprzedaje kontrakty po 90.5%=100%-9.5%  |
-|                    |inwestuje 2mln na 9.5%,                 |                                        |
+|maj                 |   stopa depozytowa tylko 9.0%,         |sprzedaje kontrakty po 90.5%=100%-9.5%  |
+|                    |inwestuje 2mln na 9.%,                  |                                        |
 +--------------------+----------------------------------------+----------------------------------------+
-|zysk/strata         | strata w odsetkach 10tys               |             zysk = 10tys.              |
+|zysk/strata         | strata w odsetkach w kwartale          |   2 000 000x2%x 3/12= 10 000           |
+|                    |  2 000 000[(0,11-0,09)/4=10 tys        |                   zysk = 10tys.        |
 +--------------------+----------------------------------------+----------------------------------------+
 
 
@@ -426,7 +429,7 @@ Czyli jawi się jasna zasada:
    futures**. Czyli stosujemy **short hedge**.
 
 Dotąd zakładaliśmy, że zabezpieczona jest cała kwota wynikająca ze
-strategii i ze dzień dostawy na rynku terminowym przypada w dniu
+strategii i że dzień dostawy na rynku terminowym przypada w dniu
 transakcji na rynku kasowym. Teraz powoli uwolnimy się od
 uproszczeń. Popatrzmy formalnie na stosowane strategie. 
 
@@ -462,8 +465,10 @@ AG. Firma ta doświadczyła boleśnie istnienia ryzyka bazy w handlu nie
 metalami (jak by to mogło kojarzyć się z nazwą), ale ropa naftową, przy
 rolowaniu zabezpieczenia.
 
+
 Powstaje pytanie ile kontraktów futures jest potrzebne do
 zabezpieczenia pozycji kasowej?
+
 
 W celu odpowiedzi konstruujemy portfel z długiej pozycji kasowej i
 krótkiej pozycji :math:`\boldsymbol{h}` jednostek odpowiednich
@@ -505,7 +510,7 @@ pozycji na rynku kasowym jest równa:
 
    I_f =\frac{\text{ Wart. nom. pozycji kasowej}}{\text{Wart. nom. kontraktu futures}}\times h.
 
-W przypadku dyskutowanych przykładów powyżej ceny aktywa na rynku
+W przypadku dyskutowanych przykładów powyżej zmiany ceny aktywa na rynku
 futures były takie same jak zmiany ceny aktywa na rynku
 kasowym. Niestety nie zawsze tak jest w praktyce i co za tym idzie,
 idealne zabezpieczenie nie zawsze jest możliwe. 
@@ -533,23 +538,23 @@ były pełne.
 Cross hedging
 ~~~~~~~~~~~~~ 
 
-Ponownie rozważmy definicje bazy - basis. Baza (basis) to róznica
-miedzy ceną kasową aktywa zabezpieczanego a cena kontraktu futures na
+Ponownie rozważmy definicje bazy - basis. Baza (basis) to różnica
+między ceną kasową aktywa zabezpieczanego a ceną kontraktu futures na
 to aktywo. Jeśli zabezpieczane aktywo jest identyczne co aktywo
 podstawowe dla kontraktu futures, cena aktywa na rynku kasowym i cena
 kontraktu futures powinny "zbiegać się" (konwergencja) w pobliżu
 terminu dostawy futures. Ta konwergencja nazywana jest też ceną
-bazy. Baza nie wpływa na cenę futures ale ma wpływ na cenę dostawy
-fizycznej. Jej zachowania generalne to:
+bazy. 
 
+Zachowanie bazy generalne cechuje:
 a. Sezonowość zachowania
 b. Zmienność bazy jest zazwyczaj mniejsza niż zmienność ceny
 c. Cena bazy wprowadzić może dodatkowe ryzyko zmiany ceny powyżej, jak i
 poniżej ceny futures.
-
-Jednak jeśli okresy do zapadalności użytych instrumentów będą różne to
+To zachowanie zaburza perfekcyjność zabezpieczenia.
+Ponadto, jeśli okresy do do dostawy użytych instrumentów będą różne to
 zabezpieczenie nie będzie już tak idealne jak w przypadku gdy
-zapadalności na instrumentu kasowego i zapadalności instrumentu
+termin dostawy instrumentu kasowego i dostawy instrumentu
 futures będą równe. Współczynnik h nie jest wtedy równy 1. W takich
 przypadkach stosuje się zabezpieczenie "cross hedge".  
 
@@ -567,10 +572,8 @@ taką określa się poszukując najmniejszej wariancji.
 Zabezpieczenia metodą najmniejszej wariancji
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Jednak jeśli okresy do zapadalności użytych instrumentów będą różne to
-zabezpieczenie nie będzie już tak idealne jak w przypadku gdy
-zapadalności instrumentu kasowego i zapadalności instrumentu futures
-będą równe. Należy pamiętać o cost of carry. Szczególnie instrumenty
+Jeśli czasy dostawy użytych instrumentów będą różne to
+należy pamiętać o cost of carry. Szczególnie instrumenty
 dłużne mają skomplikowaną zależność generowanego dochodu od duration i
 stopy procentowej.
 
@@ -578,7 +581,7 @@ Tak więc reakcja instrumentu kasowego i terminowego mogą być różne,
 tzn. ich zmiany mogą być inne na koniec okresu zabezpieczenia.
 
 
-Jasne, ze zmiany aktywów na rynku kasowym i terminowym nie są takie
+Jasnym jest, że zmiany aktywów na rynku kasowym i terminowym nie są takie
 same (chociaż w jakimś stopniu podobne). Jak to wpłynie na
 współczynnik h? Jak wybrać najlepsze h?
 
@@ -676,11 +679,11 @@ Metoda powyższa jest pomocna w wielu przypadkach. Poniże rozpatrzone
 będą pewne przykłady zastosowania tej metody, przedstawione by lepiej
 zilustrować sposoby postępowania w takich przypadkach.
 
- Zarządzający portfelem, mający portfel instrumentów inwestycyjnych o
- określonej jego wartości w danym dniu może chcieć zabezpieczyć jego
- wartość w najbliższym okresie czasu. Spodziewa się bowiem
- przykładowo, że cena aktywów może chwilowo się obniżyć ale uważa, że
- posiadane w portfelu aktywa są warte trzymania.  
+Zarządzający portfelem, mający portfel instrumentów inwestycyjnych o
+określonej jego wartości w danym dniu może chcieć zabezpieczyć jego
+wartość w najbliższym okresie czasu. Spodziewa się bowiem
+przykładowo, że cena aktywów może chwilowo się obniżyć ale uważa, że
+posiadane w portfelu aktywa są warte trzymania.  
 
 .. note::
 
@@ -691,7 +694,7 @@ zilustrować sposoby postępowania w takich przypadkach.
    transakcyjnych opisanych operacji.
 
 Chcąc zabezpieczyć posiadany portfel na rynku instrumentów futures
-jest niezwykle trudno, wręcz niemożliwym by znaleźć kontrakt futures
+jest niezwykle trudno, wręcz niemożliwym jest, by znaleźć kontrakt futures
 odpowiadający swym zachowaniem zachowaniu czasowemu portfela.  Sposób
 w jaki można próbować się zabezpieczyć przed zmianami stanu posiadania
 jest zabezpieczenie przy pomocy kontraktu futures na indeks
@@ -707,28 +710,27 @@ o wartości 1 miliona USD ( waluta i skład portfela wybrany do
 wyjaśnienia przykładu poniżej- czyli użycia kontraktu futures na
 indeks S&P 500- podobnie można myśleć używając innych indeksów
 rynkowych na które są kontrakty futures)).  Wybieramy kontrakt futures
-na indeks S&P 500 celem zabezpieczenia portfela. Obawiamy się o ,ze
-rynkowa wartość portfela może się obniżyć . w takiej sytuacji sprzedaż
+na indeks S&P 500 celem zabezpieczenia portfela. Obawiamy się, że
+rynkowa wartość portfela może się obniżyć. W takiej sytuacji sprzedaż
 kontraktu futures na indeks może być sposobem na zabezpieczenie się
 przed obniżeniem się wartości portfela.
 
 Jeśli rynek spadnie zysk na pozycji krótkiej na rynku futures może
-zrównoważy starte na portfelu. Jeśli rynek jednak wzrośnie stratę na
+zrównoważy stratę na portfelu. Jeśli rynek jednak wzrośnie stratę na
 pozycji futures będzie pokrywać zysk na portfelu.
 
 Kontrakt futures na indeks S&P 500 jest wyceniany jako wartość indeksu
-pomnożoną razy 250 USD. Czyli zakładając ,ze wartość indeksu wynosi
-2000 jego wartość wynosi 500 000 USD , Czyli Dwa kontrakty Futures
-stanowią wartość porównywalna z wartością kasowa portfela.
+pomnożoną razy 250 USD. Czyli zakładając, że wartość indeksu wynosi
+2000 jego wartość kasowa wynosi 500 000 USD. Czyli dwa kontrakty Futures
+stanowią wartość porównywalną z wartością kasową portfela.
 
-Kontrakty futures na indeks S&P 500 maja cztery daty dostawy w
-roku. Marcową czerwcowa, wrześniową i grudniową.  Na rynku są dostępne
+Kontrakty futures na indeks S&P 500 mają cztery daty dostawy w
+roku. Marcową, czerwcowa, wrześniową i grudniową.  Na rynku są dostępne
 również kontrakty e – mini S&P 500 których wartość jest 50 USD razy
-wartość indeksu.
-
-Te często dają lepsze dopasowanie do wielkości portfela dzieki
+wartość indeksu.Te często dają lepsze dopasowanie do wielkości portfela dzięki
 mniejszemu mnożnikowi niż typowe kontrakty na indeks S&P 500.
-Pierwszym krokiem do zabezpieczenia jest znalezienie kkorelacjizmian
+
+Pierwszym krokiem do zabezpieczenia jest znalezienie korelacji zmian
 indeksu i zmian wartości portfela.  Stad można wyliczyć ilość
 kontraktów które należy sprzedać by zabezpieczyć portfel.
  
@@ -737,7 +739,7 @@ Przykład zamieszony poniżej  ilustruje sposób działania.
 Zabezpieczenie portfela indeksem giełdowym
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Załóżmy, że mamy gotówkę i chcemy są zabezpieczyć przed zmianami kursu
+Załóżmy, że mamy portfel o wartośći rynkowej i chcemy zabezpieczyć tę wartość przed zmianami kursu
 za pomocą indeksu giełdowego. W kolejnych kolumnach znajdują się
 wartości portfela oraz indeks S\&P500 z okresu 2000-09-15 do
 2002-09-19. Używamy tych danych do zabezpieczenia kontraktem Futures
@@ -754,7 +756,7 @@ na S\&P500 w ostatnim dniu - czyli 2002-09-19.
     plt += line(enumerate(data[:,1]/data[-1,1]),color='green')
     plt.show()
 
-Ponieważ zarówno indeks jak i gotówka jest w "innych jednostkach",
+Ponieważ zarówno indeks jak i wartość portfela jest w "innych jednostkach",
 możemy posługiwać się bezwymiarowymi zwrotami, zamiast przyrostów
 cen. I tak zwroty z portfela i S\&P500 obliczamy:
 
@@ -766,8 +768,8 @@ cen. I tak zwroty z portfela i S\&P500 obliczamy:
     plt += line(enumerate(dSP500),color='green')
     plt.show()
 
-Z tych danych widzimy, że zachodzi duża korelacja między zwrotami tych
-instrumentów. Współczynnik dopasowania obliczamy ze wzoru:
+Z tych danych widzimy, że zachodzi duża korelacja między zwrotami portfela i indeksu.
+Współczynnik dopasowania obliczamy ze wzoru:
 
 .. sagecellserver::
 
@@ -781,7 +783,7 @@ które w chwili zabezpieczenia mają dokładnie wartość naszego portfela.
 Oczywiście nie można kupować ułamkowej ilości kontraktów
 futures. Zabezpieczający się musi kupić 5 kontraktów.
 
-Dopasowysując model linowej zależności zwrotów otrzymamy znowu ten sam
+Dopasowując model linowej zależności zwrotów otrzymamy znowu ten sam
 wynik:
 
 
@@ -801,19 +803,20 @@ Przykład obliczeń hedgingu za pomocą kontraktów futures
 -------------------------------------------------------
 
 Metoda najmniejszej wariancji jest skutecznie stosowana w procesie
-zabezpieczania się przed zmiennością ceny paliwa lotniczego stosowana
-przez niektóre linie lotnicze.  Tak się składa ,ze kontrakty futures
+zabezpieczania się przed zmiennością ceny paliwa lotniczego stosowaną
+przez niektóre linie lotnicze.
+Tak się składa, że kontrakty futures
 na paliwo lotnicze są rzadkością na rynku i do zabezpieczania stosuje
 się kontrakty futures na olej opałowy, które to kontrakty są bardziej
-płynne. Porównując ceny paliwa lotniczego i ceny oleju opałowego widać
-,że zmienność ceny obu surowców jest w pewnej mierze podobny ale nie
-identyczny. Problemowi zabezpieczania cen paliwa lotniczego przy
-pomocy instrumentów rynków futures poswiecone są poniższae pozycje:
+płynne. Porównując ceny paliwa lotniczego i ceny oleju opałowego widać,
+że zmienność ceny obu surowców jest w pewnej mierze podobna ale nie
+identyczna. Problemowi zabezpieczania cen paliwa lotniczego przy
+pomocy instrumentów rynków futures poswiecone są poniższe pozycje:
 (http://bettingthebusiness.com/2011/02/03/the-perils-of-hedging-the-price-of-jet-fuel/
 https://www.kellogg.northwestern.edu/research/fimrc/papers/jet_fuel.pdf
 https://dspace.lib.cranfield.ac.uk/bitstream/1826/3029/1/Airline%20jet%20fuel%20hedging%20-%20theory%20and%20practice.pdf)
-Problem ten jest szeroko dyskutowany i analizowany.
 
+Problem ten jest szeroko dyskutowany i analizowany literaturze fachowej.
 
 
 Paliwo lotnicze oraz olej opałowy
@@ -821,7 +824,7 @@ Paliwo lotnicze oraz olej opałowy
 
 Rozważmy następujący przykład. Chcemy zabezpieczyć cenę na paliwo
 lotnicze na jeden miesiąc do przodu mając do dyspozycji kontrakty
-Futures na olej opałowy na 60 i 90 dni. Zakładamy, że istnieje duża
+Futures na olej opałowy na 60 i 90 dni. Oczekuje się, że istnieje duża
 korelacja pomiędzy tymi surowcami. Rzeczywiście, ich historyczne
 comiesięczne notowania wyglądają następującą:
 
@@ -863,9 +866,9 @@ numerycznie korzystając z narzędzi znajdujących się w bibliotece
 `numpy`. Uczynimy to w dwóch krokach. W pierwszej kolejności obliczmy
 miesięczne zmiany cen. Dla wartości ceny paliwa lotniczego na rynku
 kasowym jest to proste: obliczamy różnicę pomiędzy każdą parą
-kolejnych wartości. Dla kontraktu Futures jest torchę bardziej
+kolejnych wartości. Dla kontraktu Futures jest trochę bardziej
 skomplikowane zadanie. Jeżeli kupimy kontrakt 90 dniowy to po 30
-dniach mamy kontrakt 60 dniowy w ręce. Dlatego mając możliwość handlu
+dniach mamy kontrakt 60 dniowy w ręce. Dlatego, mając możliwość handlu
 kontraktami 60 i 90 dniowymi możemy efektywnie użyć ich do hedgingu na
 30 dni, biorąc różnicę między ceną kontrakty 60 dniowego a ceną 90
 dniowego po miesiącu.
@@ -926,6 +929,7 @@ modelu liniowych (co jest czasem zwane regresją liniową):
 
 
 
+*Przypadek zabezpieczania w przypadku instrumentów opartych o stopę procentową*
 
 Jako ilustracje powyższych rozważań przykładowo zadajmy sobie pytanie: Ile
 kontraktów terminowych na stopę procentową potrzebujemy by
@@ -979,7 +983,6 @@ Współczynnik odpowiedniości pieniężnej K jest stosunkiem dwu odpowiednich w
    instrumentów i ich kształt krzywej dochodowości.
 
 
-Współczynnik regresji.
 
 Przyjmijmy, że doświadczalnie wyliczone równanie regresji dla CD i
 trzymiesięcznych futures na stopę procentową daje następujące
@@ -997,10 +1000,6 @@ trzymiesięczna stopę procentową potrzebne jest:
 
 Jak widać ilość kontraktów jest różna od prostej zależności
 nominalnych wartości kontraktów na obu rynkach.
-
-
-Hedging portfela obligacji
-~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 Podsumowując powyższe rozważania można stwierdzić:
@@ -1060,6 +1059,9 @@ podejście często jest statystycznie bardziej efektywne i ma lepsze
 własności przewidywania.
 
 
+Hedging portfela obligacji
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 
 **Zabezpieczanie przed ryzykiem stopy procentowej portfela  obligacji.**
@@ -1079,7 +1081,7 @@ kosztach transakcyjnych i o tym, ze może być niemożliwym odkupić
 wszystkie poprzednio posiadane obligacje. Może on również, kolejna
 tańsza możliwość, użyć kontraktu futures na obligacje. Na większości
 rynków futures taki kontrakt jest wyceniany na podstawie wyceny
-koszyka obligacji "cheapest -to- deliver" (CDT).
+koszyka obligacji "cheapest -to- deliver" (CDT).( Definicja - koszyka CDT  Investopedia-www.rynki finansowe.pl/rynki finansowe _W10 _2015L.pdf lub www.youtube.com.watch?v=jA14ZJaPa8c
 
 Tak więc kluczowym jest kupienie właściwej ilości kontraktów do
 zabezpieczenia. Należy więc wyliczyć współczynnik zabezpieczenia
@@ -1293,8 +1295,8 @@ Mając, więc, do zabezpieczenia portfel obligacji określamy jego
 duration a następnie określamy współczynnik zabezpieczenia
 analogicznie jak w poprzednim przypadku.
 
-Dla portfela otrzymujemy równa na współczynnik zabezpieczenia
-:math:`h_p` w podobne, jak w poprzednim przypadku, postaci
+Dla portfela otrzymujemy równanie na współczynnik zabezpieczenia
+:math:`h_p` w podobne, jak równanie w poprzednim przypadku, w postaci
 
 .. math::
 

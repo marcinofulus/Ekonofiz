@@ -1,8 +1,8 @@
 ﻿VaR
 ---
 
-Wstęp
-=====
+Wstęp- co to jest VaR?
+=====================
 
 Zarządzanie portfelem to proces ustawicznej analizy sytuacji na rynku
 i zachowania się cen aktywów, proces optymalizacji składu posiadanego
@@ -19,11 +19,10 @@ wymagało stworzenia w miarę prostego, ale jednocześnie elastycznego
 narzędzia kontroli ekspozycji na ryzyko.
 
 Przykładowo w koncepcji CAPM takim parametrem charakteryzującym poziom
-ryzyka akcji jest współczynnik beta. VaR jako metoda (a także wskaźnik
+ryzyka akcji jest współczynnik beta. VaR (skrót od angielskiego *Value at Risk*) jako metoda (a także wskaźnik
 podejmowanego ryzyka), powstała w związku z koniecznością wyceny
 ryzyka instrumentów, portfeli instrumentów, które to stają się coraz
-bardziej wyrafinowane i skomplikowane gdyż nowe instrumenty
-pojawiające się na rynku są coraz bardziej wyrafinowane. Wartość VaR
+bardziej wyrafinowane i skomplikowane. Wartość VaR
 wyraża stopień ekspozycji podmiotu na ryzyko w zakresie posiadania
 określonego portfela aktywów. Zadaniem VaRu jest określenie pewnej
 wartości potencjalnej straty (przy założonym poziomie
@@ -44,10 +43,10 @@ powinny być większe od wyliczone kwoty.
 Definiując VaR uznajemy, że VaR jest poziomem straty, który może
 zostać przekroczony z prawdopodobieństwem równym a.
 
-Nie należy interpretować wyliczonej wartości VaRu jako stwierdzenie,
+Nie należy interpretować wyliczonej wartości VaR'u jako stwierdzenie,
 że „VaR jest maksymalną stratą” nawet jeśli autorzy dodają do tego
 wyrażenia uwagę, że mamy do czynienia ze statystyką, np. „przy
-ustalonym poziomie istotności (ufności)”.  Bywają sytuacje, ze straty
+ustalonym poziomie istotności (ufności)”.  Bywają sytuacje, że straty
 mogą być dużo wyższe [#f1]_
 
 Innymi słowy VaR to wartość strat, która może być przekroczona z
@@ -55,7 +54,7 @@ prawdopodobieństwem α lub to wielkość straty, która może nie być
 przekroczona z prawdopodobieństwem równym :math:`(1-\alpha)` w
 kolejnym dniu. VaR jest bardzo wygodną i praktyczna miarą
 ryzyka. Prostota jej to przede wszystkim to, że jest to konkretna
-liczba. To daje prosta możliwość porównania i pewność w interpretacji
+liczba. To daje prostą możliwość porównania i pewność w interpretacji
 odnośnie do porównywania zasad zarządzania finansowego. Jest to
 metoda, która podaje ogólny poziom ryzyka, niezależnie od rodzaju
 aktywów w powszechnie zrozumiałych jednostkach jakimi są pieniądze
@@ -97,9 +96,9 @@ co łatwo pokazać wiedząc, że dystybuanta zmiennej normalnej wynosi:
 
    \frac12\left[1 + \operatorname{erf}\left( \frac{x-\mu}{\sigma\sqrt{2}}\right)\right] 
 
-Wzór :eq:`kwantyl_norm` ma ważną własności - widzimy, że wystarczy
-znać kwantyl dla rozkładu o średniej zero i wariancji jeden by łatwo
-sobie przetransformować na zmienna losową o dowonych parametrach
+Wzór :eq:`kwantyl_norm` ma ważną własność - widzimy, że wystarczy
+znać kwantyl dla rozkładu o średniej zero i wariancji jeden by łatwo go
+sobie przetransformować na zmienną losową o dowonych parametrach
 (oczywiście gaussowską).
 
 Wzory te są dostępne w każdym podręczniku statystyki więc nie warto
@@ -127,9 +126,9 @@ Teraz, sprawdźmy, że rzeczywiście wycałkowanie funkcji gęstości od
    
 
 Kwantyl możemy obliczyć nie tylko dla normalnej zmiennej
-losowej. Załóżmy, że mamy pewną liczbę (np. 100tys) realizacji
+losowej. Załóżmy, że mamy pewną liczbę (np. 100 000) realizacji
 zmiennej losowej w wektorze :math:`X`. Jeżeli posortujemy te wartości
-rosnąco i weżmiemy element o indeksie :math:`5\% \times 100000 =
+rosnąco i weźniemy element o indeksie :math:`5\% \times 100000 =
 5000`, to będziemy mieli wartość zmiennej losowej, poniżej której
 znajduję sie 5% "populacji" wyników losowania.  Oczywiście, jeśli
 liczba losowań nie będzie podzielna przez 20, to musimy
@@ -146,17 +145,17 @@ na wejsciu :math:`p \times 100\%`. Sprawdźmy sami:
       print "Wbudowana funkcja w numpy, daje:", np.percentile(X,int(5))
 
 Przy małej liczbie danych widać pewne różnice pomiędzy `np.percentile`
-a naszą procedura, wynikająca ze sposobu interpolacji. Warto też
+a naszą procedurą, wynikającą ze sposobu interpolacji. Warto też
 zauważyć, że jeśli dysponujemy małą próbką danych, to wyznaczenie
-kwantyla obarczone jest dużym błędem. W szczególności jesli mamy
-próbke o liczebności 100 (co w analizie dnaych finansowych nie jest
+kwantyla obarczone jest dużym błędem. W szczególności jeśli mamy
+próbkę o liczebności 100 (co w analizie danych finansowych nie jest
 rzadkie) to kwantyl rzędu 0.01, ma taką samą wariancję jak badana
 zmienna losowa, i jego wartość będzie tego samego rzędu co do
 wielkości jak wariancja. Fakt ten znacznie rzutuje na wybór metod
 obliczeniowych stosowanych w analizie wartości zagrożonej.
    
 Warto też nadmienić, że wartość kwantyla dla dowolnego poziomu można
-odczytać w arkuszu kalkulacyjnym (np. OpenOffice, Excel,Arkusze
+odczytać w arkuszu kalkulacyjnym (np. OpenOffice, Excel, Arkusze
 Google) w funkcji: `NORMSINV`.
 
 
@@ -221,7 +220,7 @@ a ekstremalnie duże, wręcz niemożliwe. Decydując jak bardzo mało
 prawdopodobne są to zmiany decydujemy jakie skoki są praktycznie
 niemożliwe czyli jakie straty portfela są bardzo mało prawdopodobne (
 lub nawet niemożliwe). Wybrany poziom prawdopodobieństwa to poziom
-tolerancji . Mówimy tutaj o ufności a właściwie poziomie ufności.
+tolerancji. Mówimy tutaj o ufności a właściwie poziomie ufności.
 
 Jeśli poziom tolerancji czyli prawdopodobieństwo przekroczenia to
 :math:`\alpha`, to poziom ufności :math:`c` jest równy :math:`1-\alpha`.
@@ -244,7 +243,7 @@ przyjąć założenie, ze średnia zmian dla jednego dnia wynosi zero.
 
 gdzie:
 
-   :math:`W` - wartość portfela w dniu poprzednim( w okresie poprzednim)
+   :math:`W` - wartość portfela w dniu poprzednim (w okresie poprzednim)
 
    :math:`\sigma` - odchylenie  standardowe ceny aktywa
 
@@ -291,7 +290,7 @@ czasowy), korzysta się z zależności odchylenia standardowego od czasu.
 Odchylenie standardowe po t okresach (np. dniach) jest równe
 odchyleniu standardowemu dziennemu (jednego okresu) razy pierwiastek z
 ilości okresów. Zachodzi to oczywiście, jeżeli procesy zmiany ceny w
-kaźdym z okresów są niezależnymi od siebie normalnymi zmiennymi
+każdym z okresów są niezależnymi od siebie normalnymi zmiennymi
 losowymi o tych samych parametrach.
 
 .. math::
@@ -352,7 +351,7 @@ Co jeśli w naszym portfelu znajduje się więcej niż jedno aktywo?
 Wtedy należy uwzględnić istnienie  korelacji miedzy zachowaniem się aktywów. 
 
 Uwzględnienie korelacji prowadzi do stosowania tych samych elementów
-jak teori portfela której autorem jest Markowitz. Z tej teorii
+jak teorii portfela której autorem jest Markowitz. Z tej teorii
 wiadomo, że ryzyko portfela zmniejsza jego dywersyfikacja i taki efekt
 powinna odzwierciedlać również miara ryzyka jaką jest VaR.
 
@@ -395,7 +394,7 @@ VaR jest dany przez taki sam wzór:
    VaR = (\mu_P - k\sigma_P ) W  
 
 jednak wartości :math:`\mu_P` i :math:`\sigma_P` są odpowienio: średnią
-wartościa oraz odchyleniem standardowym całego portfela. Niech ceny
+wartością oraz odchyleniem standardowym całego portfela. Niech ceny
 aktywów będą dane jako wektor :math:`\mathbf{\mu} =
 (\mu_1,\mu_2,...,\mu_n)`. Zakładając, że mamy do czynienia z
 gausowskimi zmiennymi losowymi, średnie odchylenie i wartość
@@ -410,7 +409,7 @@ portfela dane są przez:
 
 .. attention::
 
-   Liniowa kombinacja zmiennych gaussowskich ma rozkład Gaussa wieć
+   Liniowa kombinacja zmiennych gaussowskich ma rozkład Gaussa więc
    zakładając, że mamy normalne rozkłady zmian cen będziemy mogli
    opisywać rozkład wartości portfela przez :eq:`sigma_mu`
 
@@ -461,8 +460,8 @@ korzystając z wektora dryftu i  macierzy kowariancji danych.
    \boldsymbol{\mu} = \sum_{i=1}^{n} w_i \mu_{i}   
 
 
-Zaś :math:`\mu` oraz :math:`\sigma` są określone przez powyższym
-wektorem :math:`\boldsymbol{\mu}` i macierzą
+Zaś :math:`\mu` oraz :math:`\sigma` są określone przez powyższy
+wektor :math:`\boldsymbol{\mu}` i macierzą
 :math:`\boldsymbol{\Sigma}`.  Po podstawieniu ostatnich dwu wzorów do
 wzoru :eq:`var2` obliczyć można VaR.  Powyższe podejście nosi nazwę
 metody wariancji-kowariancji. 
@@ -534,7 +533,7 @@ W ten sposób zostaje wygenerowany rozkład statystyczny stóp
 zwrotu. Wyznaczenie odpowiedniego kwantyla tego rozkładu pozwala na
 wyliczenie VaR bezpośrednio z definicji, czyli wg. pokazanych w
 poprzednich metodach zasad. Tym razem nie zakłada się, że rozkład
-jest rozkładem normalnym oaz unika się szacowania parametrów takich
+jest rozkładem normalnym oraz unika się szacowania parametrów takich
 jak średnia czy odchylenie standardowe korzystając z danych
 historycznych.
 
@@ -627,11 +626,11 @@ czyli:
 VaR z uwzględnieniem wartości ekstremalnych - "Grube ogony  rozkładu"
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Dokładna analiza stóp zwrotu doświadczalnych szeregów finansowych
-czasowych pozwala stwierdzić, że to co dość często było w powtarzane,
+Dokładna analiza stóp zwrotu doświadczalnych, czasowych szeregów finansowych
+pozwala stwierdzić, że to co dość często było w powtarzane,
 czyli o rozkładzie normalnym jako modelu, w wielu przypadkach jest
 nieprawdą. Większość szeregów finansowych wykazuje: istnienie „
-grubych ogonów” czyli prawdopodobieństwo pojawienia się skrajnych
+grubych ogonów” czyli tego, że prawdopodobieństwo pojawienia się skrajnych
 wartości, czy bardzo dużych zmian jest wyraźnie większe niż w
 przypadku rozkładu Gaussa.
 
@@ -650,10 +649,12 @@ Rzeszowie) wykazać można, że w wielu zjawiskach wartości ekstremalne
 pojawiają się zgodne z rozkładami potęgowymi.  W obliczeniach VaR
 skupiamy się na poziomie ufności 99% zakładając, że strata się nie
 zdarzy. W modelach wartości ekstremalnych skupiamy się na tych
-niekorzystnych zdarzeniach, które maja bardzo małe prawdopodobieństwo
+niekorzystnych zdarzeniach, które mają bardzo małe prawdopodobieństwo
 wystąpienia ale mogą przynieść duże straty.  Szczególnie w
 instytucjach ubezpieczeniowych istnieje potrzeba analizy zjawisk
-katastrof.  Rozkłady wykazujące cechy „ grubych ogonów to przykładowo
+katastrof.
+
+Rozkłady wykazujące cechy „ grubych ogonów to przykładowo
 rozkład t- Studenta, Pareto, etc. Modele rozkładów jakie stosowane są
 w analizach i szacowaniach VaR opisane są przykładowo (Tomasz
 Bałamut- Metody estymacji Value AT Risk - NBP- Materiały i studia;
@@ -663,8 +664,8 @@ zeszyt 147; 2002r.)
 Nieliniowa funkcja wyceny
 +++++++++++++++++++++++++
 
-W przypadku, gdy portfel składa się z instrumentów podstawowowych, to
-jego wartość jest liniową funckją cen składników. Może się jednak
+W przypadku, gdy portfel składa się z instrumentów podstawowych, to
+jego wartość jest liniową funkcją cen składników. Może się jednak
 zdarzyć, a dzieje się to często w praktyce, że nasz portfel zawiera
 instrumenty, które w nieliniowy sposób zależą od parametrów rynku.  W
 takim przypadku metody: historyczna i Monte-Carlo mogą być zastosowane
@@ -685,15 +686,15 @@ przyrosty zmiennych będą dane przez proces:
 gdzie :math:`dt,S` to przedział czasu i macierz kowariancji przyrostów
 procesu na tym przedziale. 
 
-Zakładamy więć, że przyrosty indeksów :math:`\mathbf{dx}` w okresie
+Zakładamy więc, że przyrosty indeksów :math:`\mathbf{dx}` w okresie
 :math:`dt` są skorelowanymi zmiennymi gaussowskimi. W metodzie
-wariancji-kowariancji dla liniwej funkcji wyceny, to założenie
-implikowało normalność rozkładu wartośći portfela. Nie jest to jednak
-prawdą jesli funkcja wyceny jest nielinowa. Możemy jednak wyznaczyć
-parametry rozkładu normalnego, który jak najlepiej przpliża
+wariancji-kowariancji dla liniowej funkcji wyceny, to założenie
+implikowało normalność rozkładu wartości portfela. Nie jest to jednak
+prawdą jeśli funkcja wyceny jest nielinowa. Możemy jednak wyznaczyć
+parametry rozkładu normalnego, który jak najlepiej przybliża
 rzeczywisty rozkład wartości portfela.
 
-W tym celu, naturalnym wydaje się być zlinearyzownaie funkcji wyceny i
+W tym celu, naturalnym wydaje się być zlinearyzowanie funkcji wyceny i
 zastosowanie wzorów :eq:`sigma_mu`. Popełnilibyśmy jednak duży
 błąd. Pamiętajmy, że jeżeli chcemy otrzymać wynik, który jest rzędu
 pierwszego w :math:`dt` to musimy uwględnić możliwość pojawienia się
@@ -733,7 +734,7 @@ Przykład obliczenia VaR
 Zaimportujmy sobie dane historyczne notować dwóch spółek, Comarch i
 Colian. W tym przypadku pliki z danymi mamy w publicznym katalogu
 serwisu Dropbox, ale mogą być to dowolne miejsca w sieci, dostępne
-poprzez www. Po zaimportowaniu, danych narysujemy historię notować i
+poprzez www. Po zaimportowaniu, danych narysujemy historię notowań i
 ich dziennych zmian.
 
 
@@ -796,7 +797,7 @@ możemy sobie zaimplementowac metodę historyczną. W tym celu obliczamy
 przyrosty notowań, działając na macierz :code:`dataVAR` funkcją
 :code:`np.diff` względem rzędu. Następnie zapisujemy w pod nazwą
 :code:`hist_sim` hipotetyczne kursy przyszłe aktywów, dla każdej
-wartości przyrostu. Pozostaje już tylko wycenic portfel dla nowych
+wartości przyrostu. Pozostaje już tylko wycenić portfel dla nowych
 wartości rynku i wziąć piąty kwantyl.
 
 .. sagecellserver::
@@ -864,7 +865,7 @@ Carlo - są do siebie badzo zbliżone. W rzeczywistości powinny one
 dawać w tym przypadku dokładnie tą samą wartość. Dlaczego? Zauważmy,
 że mamy liniową zależność wartości porftela od indeksów
 rynkowych. Oznacza to, że symulowany rozkład będzie normalny (jako
-liniowa kombinacja założonych w MC normalnych rozkładów zmian
+liniowa kombinacja założonych w Monte Carlo normalnych rozkładów zmian
 indeksów. Najlepiej zobaczyć do na wykresie:
 
 
@@ -878,7 +879,7 @@ indeksów. Najlepiej zobaczyć do na wykresie:
     point( zip(H[1],H[0]/normalizacja) )+\
      plot(Gaussian(x,muP,sqrt(sigma2P)),(x,-16,16),color='red',figsize=5)
 
-Porównajmy więc dofitowany rozkład normalny z tym który realizuje się
+Porównajmy więc dopasowany rozkład normalny z tym który realizuje się
 w rzeczywistości - który możemy otrzymać przez znormalizowanie
 histogramu przyrostów historycznych:
 
@@ -893,7 +894,7 @@ histogramu przyrostów historycznych:
 
 Widzimy, że tu różnice są znaczne. Interpretując histogram danych
 rzeczywistych widzimy, że w praktyce mamy o wiele większe
-prawdopodobieństwo zajścia duzych fluktuacji niż przewiduje rozkład
+prawdopodobieństwo zajścia dużych fluktuacji niż przewiduje rozkład
 Gaussa.
 
 
@@ -901,7 +902,7 @@ VaR  w systemie Risk Metrics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 VaR jako miara ryzyka powstała przy opracowaniu systemu pomiaru ryzyka
-w J.P. Morgan na początku lat 90.  Na ten system składa ( składało w
+w J.P. Morgan na początku lat 90.  Na ten system składa ( składała w
 przeszłości przy opracowywaniu systemu) się metodologia, zgromadzone
 dane dotyczące setek instrumentów na całym świecie i oprogramowanie
 pozwalające na wyliczenia VaR zgodnie z metodologia i zebranymi
@@ -925,11 +926,11 @@ Wady i zalety VaR-u
 VaR to stosunkowo prosta w praktycznym działaniu metoda porównania
 ryzyka w przypadku instytucji działającej na rynku. Porównanie jest
 stosunkowo proste bo polega na porównaniu wielkości wyliczonych VaR
-dla proponowanych portfeli . Wielkość ta wyrażona jest w pieniądzu i
+dla proponowanych portfeli. Wielkość ta wyrażona jest w pieniądzu i
 jest konkretną liczbą. Interpretacja i porównanie jest więc
 proste. Pozwala na łatwiejsze zarządzanie ryzykiem pojedynczego
 portfela jak i na wyższych szczeblach zarządzania ryzykiem działu czy
-całej instytucji. Pozwala na oszacowanie wielości i tworzenie rezerwy
+całej instytucji. Pozwala na oszacowanie wielkości i tworzenie rezerwy
 kapitałowej na wypadek strat. Jest metoda uznaną przez Nadzór
 Finansowy. Nie jest to jednak wartość idealna.
 
@@ -976,14 +977,14 @@ addytywności jest spełniony. Ale taka sytuacje zachowania
 dywersyfikacji wg. Markowitza.  
 
 Należy ponownie zwrócić uwagę na jeszcze jedno przyjęte
-założenie. Założono, ze rozkłady zmiany cen są rozkładem normalnym,
-lub do niego zbliżony.  W rzeczywistości rozkłady doświadczalne zmian
+założenie. Założono, że rozkłady zmiany cen są rozkładem normalnym,
+lub do niego zbliżonym.  W rzeczywistości rozkłady doświadczalne zmian
 cen aktywów finansowych często nie odpowiadają rozkładowi
 normalnemu. W praktyce, rzeczywiście, większość zmian cen oscyluje
 wokół wartości oczekiwanej, ale występują jednak częściej (niż w
 rozkładzie normalnym) zmiany ekstremalne. Zmiany te charakteryzują
 występowanie tzw. „grubych ogonów” rozkładu, co wpływa na zwiększenie
-zmienności i nie są ujmowane w VaR, w sposób adekwatny. Przyjęcie
+zmienności i nie jest ujmowane w VaR, w sposób adekwatny. Przyjęcie
 założenia o rozkładzie normalnym zmian wartości ułatwia jednak
 obliczeniach znacznie zmniejsza koszty pomiaru ryzyka.  
 
@@ -991,7 +992,7 @@ Nadzorcy rynku, mimo, że formalnie uznają VaR jako narzędzie
 zarządzania ryzykiem pozwalające na określenie wielkości rezerwy
 tworzonej na wypadek ewentualnej straty to wielkość tej rezerwy
 wymaganej przez Nadzór jest większy zazwyczaj od wyliczonego tak jak
-powyżej o współczynnik - a zwiększając rozmiar tej rezerwy :math:`a`
+powyżej o współczynnik - :math:`a` i zwiększając rozmiar tej rezerwy :math:`a`
 razy.
 
 
@@ -999,13 +1000,13 @@ Analizy Scenariuszy
 +++++++++++++++++++
 
 
-Jak to już było podkreślane Var jest prostą miara ryzyka. To pewna
+Jak to już było podkreślane Var jest prostą miarą ryzyka. To pewna
 wartość pieniędzy, które mogą być „stracone” przy niekorzystnej
 sytuacji zmienności rynku. Pierwsze co wydaje się koniecznym do
 zrobienia to weryfikacja otrzymanych wyników w ujęciu historycznym.
 
-Sposób myślenia zwany z angielska „ back testing” czyli porównanie
-historyczne. 
+Sposób myślenia zwany z angielska **"back testing”** czyli porównanie
+historyczne
 
 Mając już opracowany model i sposób liczenia Var dla portfela warto
 popatrzeć wstecz jak wyliczony z metody i modelu VaR miał się do
@@ -1016,15 +1017,15 @@ pytanie czy wyliczony VaR był przekraczany w przeszłości i jak często.
 
 Jeśli wyliczany VaR jest systematycznie za niski znaczy to, że
 przyjęty model nie dowartościowuje ryzyko i dlatego straty portfela
-przekraczają. Znaczy to, ze należy zwiększyć „mnożnik“ dla liczenia
+przekraczają VaR. Znaczy to, ze należy zwiększyć „mnożnik“ dla liczenia
 wymogów kapitałowych.  Jeśli VaR jest „za wysoki“ model przecenia
 ryzyko i wymagany kapitał jest może być za duży (czyli - za drogi).
-Kolejne kryterium analizy to Analiza Czułości. Znając skład portfela
-powinniśmy wyliczyć na jakie zmiany I jakich wielkości jest
+
+Kolejne kryterium analizy to **Analiza Czułości**.
+Znając skład portfela powinniśmy wyliczyć na jakie zmiany i jakich wielkości jest
 szczególnie czuły nasz portfel. Takiej analizie służy zróżniczkowanie
 równania na wartość portfela w zależności od zmiennych rynkowych.
-
-O ile analiza czułości jest daje dobre wyniki dla niewielkich zmian
+O ile analiza czułości daje dobre wyniki dla niewielkich zmian
 rynku to jeśli mamy do czynienie z warunkami kryzysowymi to nie jest
 dobrą aproksymacją ryzyka.
 
@@ -1060,8 +1061,8 @@ najgorszych scenariuszy.
 
 
 Scenariusze zazwyczaj bazują na: poprzednich kryzysach, aktualnym
-portfelu firmy, opiniach ekspertów (scenariusze proponują: Risk
-Menedżer, szefowie pionów etc.) . Biorąc pod uwagi ubiegłe kryzysy,
+portfelu firmy, opiniach ekspertów (scenariusze zazwyczaj proponują: Risk
+Menedżer, szefowie pionów etc.). Biorąc pod uwagi ubiegłe kryzysy,
 porównuje się dane historyczne z różnych rynków i sprawdza się co by
 się stało gdyby aktualnie to się nam przydarzyło dziś.  Przykładowo,
 jeśli 20% spadek w jeden dzień na rynku U.S.A. ( co miało miejsce
@@ -1079,7 +1080,7 @@ Taki zestaw analiz pozwala na lepsze zrozumienie ryzyka.
 
 .. rubric:: Footnotes
 
-.. [#f1] VaR jest konstrukcja oparta o statystykę rynków czyli zdarzeń
+.. [#f1] VaR jest to konstrukcja oparta o statystykę rynków czyli zdarzeń
  statystycznie najczęściej występujących czyli mimo, że w 99 % sytuacji
  jest wspaniałym wynalazkiem, to niestety kiedy mamy do czynienie z
  ekstremalną sytuacją, VaR jest mało użyteczny. Stratę bowiem liczy
@@ -1089,4 +1090,4 @@ Taki zestaw analiz pozwala na lepsze zrozumienie ryzyka.
  kryzysowej) i bezwzględność konkurencji. Innymi słowy; strata,
  realizowana przy zamykaniu pozycji, w wyniku braku płynności na rynku,
  może być dużo wyższa. Ponadto, konkurencja może straty pogłębić,
- jeszcze bardziej zwiększając podaż.)
+ jeszcze bardziej np. zwiększając podaż.)

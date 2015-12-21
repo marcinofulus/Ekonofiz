@@ -6,8 +6,8 @@ Kontrakty terminowe
 
 Kontrakt terminowy to kontrakt zawarty dziś na dostawę dobra w
 przyszłości za ceną ustaloną dziś, płatną w przyszłości. Innymi słowy,
-kontrakt taki zobowiązuje sprzedającego do sprzedaży a kupującego do
-kupna Określonego Aktywa za Określoną Cenę w Określonym Czasie.
+kontrakt taki **zobowiązuje** sprzedającego do sprzedaży a kupującego do
+kupna **Określonego Aktywa za Określoną Cenę w Określonym Czasie**.
 
 Tego typu kontrakty to kontrakty forward i futures. 
 
@@ -29,19 +29,18 @@ dostawy. Standaryzacja kontrakty futures polega na zdefiniowaniu:
  * "Ilości" jednostek podstawowego towaru przypadającej na jeden
    kontrakt. Może to być przykładowo ilość ton miedzi, ilość baryłek
    ropy, czy jednostek obcej waluty.
- * Waluta, w której kontrakt jest kwotowany.
- * Specyfikacja, jakość dostawy. W przypadku obligacji określenie,
-   które obligacje maja być dostarczone. W przypadku dostawy fizycznej
+ * Waluty, w której kontrakt jest kwotowany.
+ * Specyfikacji, jakości dostawy. W przypadku obligacji określenie,
+   które obligacje mają być dostarczone. W przypadku dostawy fizycznej
    towaru, dotyczy to nie tylko jego jakości, ale i sposobu i miejsca
    dostawy.
- * Miesiąc dostawy.
- * Ostatnia data, w której kontrakt może być handlowany.
+ * Miesiąca dostawy.
+ * Ostatniej daty, w której kontrakt może być handlowany.
 
-Jest  handlowany na rynku giełdowym i jest raczej  kontraktem płynnym ( o ile  giełda handluje i nie jest zamknięta).
+Kontrakt futures jest  handlowany na rynku giełdowym i jest raczej  kontraktem płynnym (o ile  giełda handluje i nie jest zamknięta).
 
 Kontrakty terminowe maja swoja długą historie na rynku
-finansowym. Kontrakty futures mają swe początki w bardzo odległych
-czasach. Powstały z potrzeby zapewnienia sobie znanych cen na produkty
+finansowym. Powstały z potrzeby zapewnienia sobie znanych cen na produkty
 rolne. Pewne zapiski historyczne wskazują na możliwość istnienia
 handlowania ryżem z przyszłych zbiorów 6000 lat temu w Chinach. W
 zapiskach Arystotelesa można znaleźć wzmiankę o Talesie z Miletu,
@@ -62,12 +61,12 @@ rozsądnie finansowanie działalności. Tak wiec producenci surowców
 bardziej skomplikowane produkty ( Przetwórcy) potrzebują tego rynku
 aby "ustalać" ceny w przyszłości.
 
-Rynek terminowy to rynek którym rządza prawa podaży i popytu, tak samo
+Rynek terminowy to rynek którym rządzi prawo podaży i popytu, tak samo
 jak na rynku transakcji natychmiastowych ( zwanego rynkiem kasowym lub
 spot). Czyli im więcej będzie potrzeba surowca w przyszłości przy
 niezmiennej podaży, tym wyższa będzie cena na ten surowiec.  Cena na
 dostawę ustalana jest jako cena równowagi na dany towar. Jednak
-istnieją związki rynku terminowego z rynkiem dostaw fizycznych( rynek
+istnieją związki rynku terminowego z rynkiem dostaw fizycznych (rynek
 -natychmiastowy). Związek ten jest intuicyjnie oczywisty. Ceny na
 rynku fizycznym dobra i ceny tego dobra na rynku terminowym są z sobą
 związane. Kontrakt futures jest przecież instrumentem pochodnym i cena
@@ -86,7 +85,7 @@ cen miedzy rynkami nazywana jest bazą.
 .. note::
 
  Niektórzy autorzy definiują bazę jako różnicę miedzy ceną spot a ceną
-futures.
+ futures.
 
 Jeśli cena futures jest wyższa niż cena spot, baza jest dodatnia. Ceny
 futures w tym przypadku maleją w kierunku ceny spot, do dnia dostawy,
@@ -106,8 +105,8 @@ M.D. Fitzgerald- „Financial Futures”- Euromoney Books 1993)
   nazw reportu i deportu. Jednak uczestnicy rynku terminowego używają
   nazw angielskich.
 
-Mimo, iż cena kontraktów terminowych zależy od podaży i popytu to
-powyższe komentarze będą pomocne gdy pojawi się pytanie o cenę godziwą
+
+Powyższe komentarze dotyczące  contango  i backwardation będą pomocne gdy pojawi się pytanie o cenę godziwą
 kontraktu terminowego.
 
 Rynek kontraktów futures, podobieństwa i różnice
@@ -156,14 +155,13 @@ aktualnej(bieżącej) do terminu realizacji kontraktu.-
 przyp. autorów</ref>
 
 Zasady zawierania kontraktów futures w obrocie rynkowym przypominają
-zasady obrotu instrumentami podstawowymi na rynku giełdowym.  Kolejna
-różnica w tych podobnych zasadach to istnienie depozytu
+zasady obrotu instrumentami podstawowymi na rynku giełdowym.Różnicą w tych, podobnych zasadach jest istnienie depozytu
 zabezpieczającego ( margin), wymaganego od obu stron transakcji chwili
 jej zawarcia. Ponieważ ceny na rynku danego aktywa zmieniają się
 ustawicznie, zawarta transakcja może zmieniać swą atrakcyjność dla
 stron jakie je zawarły. Depozyt zabezpieczający ma za zadanie
 zmniejszenie ryzyka kredytowego stron zawierających transakcje. Innymi
-słowy jeśli ruch cen zimniejsza atrakcyjność zawartej transakcji dla
+słowy jeśli ruch cen zmniejsza atrakcyjność zawartej transakcji dla
 jednej ze stron, to strona ta musi zwiększyć swój depozyt
 zabezpieczający. Jest to akt pokazania chęci wywiązania się z
 transakcji w przyszłości. Wielkość depozytu jest codziennie wyceniana
@@ -209,8 +207,8 @@ Wycena godziwa kontraktów  futures.
 
 Ceny kontraktów futures zależą od równowagi miedzy podażą a popytem
 ale mimo tego „ przypadkowego” tła pochodzenia ceny można określić
-wartość godziwą, cenę godziwą kontraktu futures. Jeśli na rynku nie ma
-niepewności, wycena godziwa kontraktu futures ( forward) opiera się na
+wartość godziwą, cenę godziwą kontraktu futures.
+Jeśli na rynku nie ma niepewności, wycena godziwa kontraktu futures ( forward) opiera się na
 następującym sposobie myślenia. Zakładany jest brak kosztów transakcji
 oraz brak ograniczeń wyobraźni oraz brak gotówki. Inwestor obserwując
 rynek transakcji spot i futures zauważył, że są dwa sposoby
@@ -227,10 +225,10 @@ skorzystania z tych rynków aby osiągnąć zysk.
     miedzy ceną kontraktu futures w dniu sprzedaży a ceną aktywa na
     rynku spot w dniu dostawy.
  2. Ponieważ nie posiada gotówki w dniu „ zero” pożycza pieniądze w
-    kwocie równej c enie aktywa na rynku spot.  Kupuje aktywa na rynku
-    kasowym Nie lubiąc ryzyka sprzedaje kontrakt futures na datę
-    dostawy i juz wie jaka cenę uzyska za aktywo w dniu dostawy.  Jego
-    zysk tom różnica miedzy ceną kontraktu spot a cena kontraktu
+    kwocie równej cenie aktywa na rynku spot.  Kupuje aktywa na rynku
+    kasowym. Nie lubiąc ryzyka sprzedaje kontrakt futures na datę
+    dostawy i juz wie jaką cenę uzyska za aktywo w dniu dostawy.  Jego
+    zysk to różnica miedzy ceną kontraktu spot a ceną kontraktu
     futures pomniejszona o wartość odsetek od pożyczonych pieniędzy na
     kupno początkowego kontraktu.
 
@@ -255,41 +253,41 @@ gdzie:
  - :math:`P_f` - aktualna cena na rynku futures
  - :math:`P_s(T)` -  cena spot w roku :math:`T`.
 
-Jasnym jest, ze w świecie całkowitej pewności :math:`P_f=P_s(T)`,
-czyli,że ceny futures musza być równe aktualnej przyszłej cenie rynku
+Jasnym jest, że w świecie całkowitej pewności :math:`P_f=P_s(T)`,
+czyli, że ceny futures muszą być równe aktualnej przyszłej cenie rynku
 spot.  Należy w tym miejscu przypomnieć sobie to co było mówione o
 zachowaniu przyszłych kursów wymiany w stosunku do dzisiejszych kursów
-wymiany, w Rynkach Finansowych. Tak więc zysk z takiej transakcji
-będzie równy zero. Należy zauważyć,że z powodu pełnej pewności nie ma
-potrzeby na pobieranie „initial margin” czyli depozytu
+wymiany, w skrypcie "Wprowadzenie do funkcjonowania rynków finansowych" a szczególnie o konwergencji cen na rynkach futures i spot. Tak więc zysk z takiej transakcji
+będzie równy zero. Należy zauważyć, że z powodu pełnej pewności nie ma
+potrzeby  pobierania „initial margin” czyli depozytu
 zabezpieczającego ani depozyt ten nie będzie się zmieniał. Czyli w
 strategii 1 nie wystąpią żadne wypływy pieniężne ani wpływy w czasie
 życia inwestycji. Również koszty przechowywania nie występują w
 kontrakcie futures całe koszty przechowywania są związane z transakcją
 na rynku kasowym i nie wystąpią do końca okresu.
 
-W przypadku strategii 2 sytuacja jest bardziej skomplikowana, mimo, ze
+W przypadku strategii 2 sytuacja jest bardziej skomplikowana, mimo, że
 podobnie jak w 1 na początku nie ma przepływu pieniądza. Jeśli na
 zakup fizycznego zakupu aktywa potrzebne jest wzięcie kredytu o stopie
 r, to koszt tego kredytu będzie obniżał końcowy zysk. Ten zysk jest
 również obniżony o koszty przechowywania aktywa przez omawiany okres
 czasu. Koszty przechowywania (jeśli wystąpią) są z reguły jakimś
 procentem od ceny spot aktywa. Zazwyczaj bardzo małym procentem.
-Widać, ze działają podobnie jak oprocentowanie pożyczki.  Przyjmijmy
-dla prostoty, ze r to sumaryczna stopa kredytu i składowania. To
-uproszczenie jest o tyle uzasadnione, ze koszty składowania występują
-tylko w przypadku surowców (i w tym przypadku należy uwzględniać to że
+Widać, że działają podobnie jak oprocentowanie pożyczki.  Przyjmijmy
+dla prostoty, że r to sumaryczna stopa kredytu i składowania. To
+uproszczenie jest o tyle uzasadnione, że koszty składowania występują
+tylko w przypadku surowców (i w tym przypadku należy uwzględniać, że
 r jest równe sumie obu stóp) albo w przypadku olbrzymiej ilości
 kontraktów kosztów tych nie ma i r jest tylko oprocentowaniem kredytu.
 Należy jeszcze wspomnieć o jeszcze innym aspekcie posiadania
 fizycznego aktywa. Czasem w przypadku pewnych aktywów w trakcie ich
 posiadania mogą pojawić się pewne beneficja. Jeśli przykładowo
-posiadamy fizyczna benzynę możemy ja zatankować gdy na stacjach jej
+posiadamy fizyczna benzynę możemy ją zatankować gdy na stacjach jej
 braknie jeśli posiadamy fizyczny portfel akcji możemy otrzymać
-dywidendę należna posiadaczom akcji.  Posiadacze fizycznego złota w
+dywidendę należną posiadaczom akcji.  Posiadacze fizycznego złota w
 czasie zawieruchy dziejowej czują swą przewagę nad posiadaczami
 kontraktu na dostawę tegoż w terminie późniejszym. Jest to dodatkowy
-zwrot z posiadania aktywa, z reguły to pewien procent ceny kasowej
+zwrot z posiadania aktywa, z reguły jest to pewien procent ceny kasowej
 aktywa. Tak więc zysk, z transakcji 2 wynosi:
 
 
@@ -315,9 +313,9 @@ ujemne albo dodatnie.
 Obie strategie dają ten sam wynik czyli sprzedaż aktywa w roku
 :math:`T`. Obydwie nie wymagają zaangażowania czyjegoś kapitału i obie
 wolne są od ryzyka. Dwie identyczne strategie nie zużywające kapitału,
-odbywające się bez ryzyka (takie dwie transakcje zwane są arbitrażem)w
+odbywające się bez ryzyka (takie dwie transakcje zwane są arbitrażem) w
 warunkach równowagi powinny generować ten sam zysk, a zysk ten
-powinien być równy zero. Jeśli wiemy, ze strategia 2 generuje zysk
+powinien być równy zero. Jeśli wiemy, że strategia 2 generuje zysk
 zero to strategia 1 tez powinna generować zysk równy zero.
 
 Porównując te równania można wyliczyć cenę godziwa kontraktu futures
@@ -370,7 +368,7 @@ Z arbitrażem (bez ryzyka) możemy mieć do czynienia jeśli cena  :math:`\ Pf_2
 
 Wtedy mając kontrakt long do czasu dostawy w :math:`T_1` a kontrakt
 short do czasu dostawy :math:`T_2` byłoby możliwe przyjąć dostawę w
-:math:`T_1` za :math:` Pf_1` i trzymać aktywo aby dostarczyć go w
+:math:`T_1` za :math:`Pf_1` i trzymać aktywo aby dostarczyć go w
 czasie :math:`T_2` za cenę :math:`Pf_2` i wygenerować zysk dla
 siebie. Jednakże, jeśli kontrakty futures są wycenione godziwie taka
 sytuacja nie może się zdarzyć. Arbitraż zostanie zilustrowany bardziej
@@ -379,9 +377,9 @@ szczegółowo w dalszej części rozdziału.
 Przykłady wyceny
 ~~~~~~~~~~~~~~~~
 
-Przypadek1.  Wycena kontraktu futures- krótkoterminowy instrument zero kuponowy.
+Przypadek1.  Wycena kontraktu futures - krótkoterminowy instrument zero kuponowy.
 
-Przyjmijmy, że będzie to bon skarbowy, powiedzmy 360 dniowy bon skarbowy, przyjmijmy, ze wyceniamy kontrakt futures na  bony skarbowe US Treasury. Można wiec przyjąć że w stopie futures nie ma premii za ryzyko. Rozważania na przypadek polskich Bonów Skarbowych będą wyglądać tak samo, ale w praktyce, rynek futures dla  US Treasury istnieje  i jest dość duży znacznie większy niż na Bony Skarbowe.
+Przyjmijmy, że będzie to bon skarbowy, powiedzmy 360 dniowy bon skarbowy, przyjmijmy, że wyceniamy kontrakt futures na  bony skarbowe US Treasury. Można wiec przyjąć że w stopie futures nie ma premii za ryzyko. Rozważania na przypadek polskich Bonów Skarbowych będą wyglądać tak samo, ale w praktyce, rynek futures dla  US Treasury istnieje  i jest dość duży znacznie większy niż na Bony Skarbowe.
   
 Ponieważ  instrument nie generuje płatności kuponowych  korzystając ze wzoru 
 
@@ -410,11 +408,10 @@ Czyli  np. konieczność  wyceny przyszłego  kursu wymiany.
 
   Rozumowanie przeprowadzone dla kontraktu futures nie będzie się
   różnić od rozważań przeprowadzonych dla wyceny kontraktu forward dla
-  kursów wymiany przeprowadzonych w Rynkach Finansowych autorstwa
-  M.Łukaszewski i J.Sładkowski. Ma jednak w tym miejscu cel
-  wykazania,ze przyjęta i omawiana zasada wyceny kontraktów futures
-  obowiązuje. Jest to również przykład ilustrujący funkcjonowanie tej
-  zasady
+  kursów wymiany przeprowadzonych w `skrypcie  autorstwa  M.Łukaszewski i J.Sładkowski <http://el.us.edu.pl/ekonofizyka/index.php/RF:Rynek_wymiany_walut>`_ 
+  Ma jednak w tym miejscu cel
+  wykazania, że przyjęta i omawiana powyżej zasada wyceny kontraktów futures
+  można też zastosować w pokazany poniżej sposób. 
 
 Załóżmy, ze jesteśmy już w strefie EURO i celem jest pozyskanie USD w
 terminie za rok.
@@ -429,8 +426,8 @@ równoważne. Założenie jest w pełni uzasadnione co wykazano w rozdziale
 o kursach walutowych ( hipoteza oczekiwania w przypadku stóp
 procentowych).
 
-Innymi słowy,są dwie możliwe strategie. Kupić dziś kontrakt
-terminowy. Kupno kontraktu terminowego za cenę Pf oznacza ze za rok od
+Innymi słowy, są dwie możliwe strategie. Kupić dziś kontrakt
+terminowy. Kupno kontraktu terminowego za cenę Pf oznacza, że za rok od
 dziś posiadacz kontraktu zamieni Pf euro na jednego dolara. Druga
 strategia polega na tym, że pożyczamy Euro na początku okresu po
 stopie re, wymieniamy je na dolary po cenie spot i inwestujemy na
@@ -466,12 +463,12 @@ Ten wzór można przekształcić do bardziej przydatnej formy:
 
 .. math:: 
 
-  frac{Pf_o - P_s}{P_s}=r_e-r_d 
+  frac\{Pf_o - P_s}{P_s}=r_e-r_d 
 
-Jest to tzw. Równanie parytetu stop procentowych. Mówi ono, ze wzrost
+Jest to tzw. Równanie parytetu stop procentowych. Mówi ono, że wzrost
 terminowego kurs wymiany jest równy różnicy stóp procentowych rynków
 walut wymienianych. Innymi słowy równanie pozwala oceniać jak rynek
-terminowy ocenia aprecjację jednej waluty względemq drugiej.
+terminowy ocenia aprecjację jednej waluty względem drugiej.
 
 Przykład 3.
 
@@ -479,7 +476,7 @@ Cena godziwa futures na akcje  lub indeks  rynku akcji.
 
 Cenę na kontrakt futures na akcje  można obliczyć w następujący sposób. 
 
-Uproszczenie  - kontrakt futures na 1 rok i trzymamy jest do terminu  dostawy.
+Zakładamy istnienie uproszczenia - kontrakt futures na 1 rok i trzymamy jest do terminu  dostawy.
 
 Strategia1. Na początku roku kupujemy odpowiednią dla warunku
 kontraktu ilość akcji. Na koniec roku sprzedajemy. To co zyskujemy to
@@ -498,12 +495,12 @@ gdzie
 
 Strategia2.
 
-Kupujemy kontrakt futures na akcje. Dodatkowo kwotę równa cenie
+Kupujemy kontrakt futures na akcje. Dodatkowo, kwota równa cenie
 odpowiedniej do warunków kontraktu ilości akcji zostaje zainwestowana
 na rynku pieniężnym na okres roku.
 
-Zysk z tych transakcji to Oprocentowanie uzyskane na rynku
-pieniężnym, - cena kontraktu futures plus różnica miedzy ceną akcji na
+Zysk z tych transakcji to oprocentowanie uzyskane na rynku
+pieniężnym, minus cena kontraktu futures plus różnica miedzy ceną akcji na
 końcu roku i na początku roku( to co daje kontrakt futures).
 
 Czyli
@@ -516,7 +513,7 @@ gdzie :math:`r` - stopa procentowa oprocentowani na rynku pieniężnym a
 inne oznaczenia jak wyżej.
 
 Obie strategie powinny odbywają się w tych samych warunkach ryzyka i
-są tak samo wyceniane wiec wynik musza przynęci identyczny. Jeśli tak
+są tak samo wyceniane wiec wynik muszą przynieść identyczny. Jeśli tak,
 to równając zyski z sobą otrzymujemy.
 
 .. math::
@@ -524,7 +521,7 @@ to równając zyski z sobą otrzymujemy.
 
 Czyli znów cena futures równa się cenie spot plus “cost-of-carry”.
 
-Proszę zauważyć, ze robienie depozytu obrazuje w praktyce kredytowanie
+Proszę zauważyć, że robienie depozytu obrazuje w praktyce kredytowanie
 całej transakcji na rynku pieniężnym i jest kosztem inwestycji.
 
 Jeśli   transakcje przeprowadzamy  na okres krótszy niż rok to wzór ten  należy zapisać w poniższej formie:
@@ -540,9 +537,9 @@ oznaczenia jak wyżej. Rok obrachunkowy jest 360 dniowy.
 Przykład 3a. Cena futures na indeks rynku akcji.
 
 
-Rozumowanie przebiega tak samo jak w przypadku akcji. Tylko że cena
-zakupu indeksu to cena zakupu takiej ilości akcji i z taka waga jak
-opisane jest w indeksie i zasadach kontraktu futures,
+Rozumowanie przebiega tak samo jak w przypadku akcji. Tylko, że cena
+zakupu indeksu to cena zakupu takiej ilości akcji i z taką wagą jak
+opisane jest w indeksie i zasadach kontraktu futures.
  
 Skoro rozumowanie jest takie samo więc  cena kontaktu futures na indeks wynosi:
 
@@ -565,16 +562,21 @@ Jeśli inwestycja dotyczy inne okresu niż równo jeden rok to wzór  na cene go
 gdzie :math:`n` to liczba dni w których trwa inwestycja a pozostałe
 oznaczenia są jak wyżej.
 
-Kapitalizacja ciągła  a wycena kontraktów terminowych.
-Dotychczas  omawiając  efekt stopy procentowej używany był  model kapitalizacji dyskretnej, czyli typowego procentu składanego. W analizie finansowej często wykorzystuje się logarytmiczną stopę zwrotu albo inaczej kapitalizacje ciągłą,  co jest uzasadnione własnościami statystycznymi. Kapitalizacja ciągła jest uzasadniona dodatkowo tym,ze w przeciwieństwie do zwykłych stóp, stopy logarytmiczne maja charakter addytywny, co pozwala na wykorzystywani rozkładu normalnego ( Agnieszka Pasztyła. „Badania dochodu i ryzyka inwestycji za pomocą analizy rozkładów”. `<http://www.statsoft.pl/portals/0/Downloads/pasztyla.pdf>`_).
+**Kapitalizacja ciągła  a wycena kontraktów terminowych**
 
-Przykład: Jaka stopa ciągłego naliczanie jest równoważna dla stopy
-miesięcznej kapitalizacji 15%?
+Dotychczas  omawiając  efekt stopy procentowej używany był  model kapitalizacji dyskretnej, czyli typowego procentu składanego. W analizie finansowej często wykorzystuje się logarytmiczną stopę zwrotu albo inaczej kapitalizacje ciągłą,  co jest uzasadnione własnościami statystycznymi. Kapitalizacja ciągła jest uzasadniona dodatkowo tym, że w przeciwieństwie do zwykłych stóp, stopy logarytmiczne maja charakter addytywny, co pozwala na wykorzystywani rozkładu normalnego (Agnieszka Pasztyła. „Badania dochodu i ryzyka inwestycji za pomocą analizy rozkładów”. `<http://www.statsoft.pl/portals/0/Downloads/pasztyla.pdf>`_).
+
+.. admonition:: Przykład 
+
+ Jaka stopa ciągłego naliczanie jest równoważna dla stopy
+ miesięcznej kapitalizacji 15%?
 
 .. math:: e^R = (1+0.15/12)12 
 
-Rozwiązując ze względu na :math:`R` otrzymujemy: :math:`R
-=14,91\%`. Kapitalizacja ciągła jest jak widać dobrym przybliżeniem i
+  Rozwiązując ze względu na :math:`R` otrzymujemy: :math:`R
+  =14,91\%`.
+  
+Kapitalizacja ciągła jest jak widać dobrym przybliżeniem i
 stosowana jest przez wiele systemów informacji rynkowej.
 
 Czyli cena kontraktu futures :math:`Pf_o` dla aktywa nie generującego
@@ -587,13 +589,14 @@ ciągłej, wynosi:
 
 Jest to przykładowo  słuszne dla złota.
 
-Jeśli aktywo generuje przychód w pieniądzu to przy braku kosztów składowania cena godziwa kontakty, przy ciągłej  kapitalizacji wycenia się :
+
+Jeśli aktywo generuje przychód w pieniądzu to przy braku kosztów składowania cena godziwa kontaktu, przy ciągłej  kapitalizacji wycenia się :
 
 .. math::  F_0 = (S_0 - I )e^{rT},    
 
 gdzie :math:`I` to wartość bieżąca przychodu.
 
-Jeśli aktywa generują znana rentowność q to cena kontraktu futures,
+Jeśli aktywa generują znaną rentowność q to cena kontraktu futures,
 dla kapitalizacji ciągłej wynosi:
 
 .. math::  F_0 = S_0 e^{(r-q)T},    
@@ -612,7 +615,7 @@ procent od wartości to cena kontraktu wyniesie:
 .. math::  Pf_o = Ps e^{(r+d)T},    
 
 
-Albo inaczej :math:`\ Pf_o=(Ps +D)e^{rT}`, gdzie :math`D` to wartość
+Albo inaczej :math:`\ Pf_o=(Ps +D)e^{rT}`, gdzie :math:`D` to wartość
 aktualna kosztów składowania.
 
 
@@ -629,11 +632,10 @@ gdzie
  - :math:`r_j` stopa wolna od ryzyka waluty obcej, 
  - :math:`T` czas do dostawy.
 
-Strategia  arbitrażu
+**Strategia  arbitrażu**
 
 Strategia arbitrażu (jeśli taki istnieje) przykład dla wyceny ciągłej
-a dla sytuacji na rynku odwrotnej do omówionej powyżej przy
-kapitalizacji dyskretnej. Sytuacja wygląda następująco:
+a dla sytuacji na rynkach nie zachodzi równość cen. Sytuacja wygląda następująco:
 
 Jeśli 
 

@@ -5,7 +5,7 @@ Metody wyznaczania ceny opcji
 Jak wyznaczyć cenę opcji?
 -------------------------
 
-Wyznaczenie ceny opcji polega na tym by określić jej wartość godziną w
+Wyznaczenie ceny opcji polega na tym by określić jej wartość godziwą w
 dowolnej chwili czasu. Wartość zależy od ceny aktywa w przyszłości a
 ta z kolei zmienia się w losowy sposób.  Niestety, nie ma sposobu by
 znać tę wartość z wyprzedzeniem.
@@ -45,7 +45,7 @@ Wyobraźmy sobie, że mamy pewne aktywo :math:`S`, które w chwili
 początkowej :math:`t=0` posiada wartość :math:`S(t=0)=S_0`. Po czasie
 :math:`T` dopuszczamy jeden z dwóch możliwych scenariuszy: aktywo
 drożeje do wartości :math:`S_{up}` albo tanieje do wartości
-:math:`S_{down}`. W tym momencie prawdopodobieństwa zajęcia każdego ze
+:math:`S_{down}`. W tym momencie prawdopodobieństwa każdego ze
 scenariuszy są niewiadomą. Rynek jest jednookresowy, co oznacza, że
 rozważamy tylko dwie chwile czasu: początkową: :math:`t=0` i przyszłą: :math:`t=T`.
 
@@ -55,7 +55,7 @@ jest pozbawiona jakiegokolwiek ryzyka. Innymi słowy po czasie
 :math:`T` depozyt bankowy gwarantuje nam, że nasz kapitał będzie
 wynosił :math:`S_0 e^{rT}`.
 
-Kolejnym elementem stosowanym przy wycenie instrumentów co do których
+Kolejnym elementem stosowanym przy wycenie instrumentów, co do których
 przyszłości nie mamy pewności, jest pojęcie rynku wolnego od
 arbitrażu. Arbitraż oznacza, że startując z pewnego kapitału możemy
 zarobić - w sensie wartości średniej, kupując lub sprzedająć dostępne
@@ -391,7 +391,7 @@ ciągłym a drzewami dyskretnymi.
 Związek pomiędzy modelem ciągłym i binarnym
 -------------------------------------------
 
-*kalibracja modelu binarnego*
+**kalibracja modelu binarnego**
 
 Rozważmy model dwustanowy - jednookresowy. Niech cenę aktywa określa
 reguła multiplikatywna.
@@ -596,17 +596,15 @@ Przykład - wyceny opcji z danymi z rynku ciągłego.
 Wzory Blacka Scholesa dla europejskiech opcji Call i Put
 --------------------------------------------------------
 
-W tym rozdziale pozamy własności metody opartej o ciagły proces
-losowy. Jest olbrzymią zaletą jest istnienie prostych analitycznych
+W tym rozdziale przedstawione zostaną własności metody opartej o ciagły proces
+losowy. Olbrzymią zaletą jest istnienie prostych analitycznych
 wzorów na cenę opcji Europejskich, co pozwala na łatwą ich analizę i
 poznanie własności.
 
 Model dwumianowy zakładał stacjonarny dwumianowy proces stochastyczny
 dla ruchu ceny aktywa (akcji) zachodzący w dyskretnych przedziałach
 czasowych. Jeśli przejdziemy do granicy skracając dyskretne okresy
-czasowe to ten stochastyczny proces stanie procesem dyfuzji (Ito
-proces) zwanym geometrycznym ruchem Browna. Podobnie jak w poprzednim
-modelu dwumianowym konstruowany jest portfel wolny od ryzyka
+czasowe to ten stochastyczny proces stanie procesem dyfuzji (proces Ito) zwanym geometrycznym ruchem Browna. Podobnie jak w poprzednim modelu dwumianowym konstruowany jest portfel wolny od ryzyka
 składający się z aktywa i wystawionej opcji call. Taki portfel
 generuje bezpieczna stopę zwrotu. Struktura zabezpieczonego portfela
 posiada formę zbliżoną do równania dyfuzji ciepła w fizyce.
@@ -757,10 +755,10 @@ obliczamy średnią z funkcji wyceny opcji w ostatnim momencie czasu.
 
 
 
-Porównanie wyceny modelem binarnym i BS
----------------------------------------
+Porównanie wyceny modelem binarnym i modelem wyceny Blacka Scholes'a
+--------------------------------------------------------------------
 
-Załóżmy, że wyceniamy opcję Europejską.  Można zadać sobie pytanie o
+Załóżmy, że wyceniamy opcję europejską.  Można zadać sobie pytanie o
 ile będą różniły się wyceny według modelu ciągłego i binarnego z
 :math:`N` okresami. W tym celu definiujemy sobie funkcje wyceniające
 opcje modelem binarnym :code:`Bin_Call`. Można narysować wykres ceny
@@ -820,15 +818,14 @@ Powstaje pytanie jak cena opcji jest czuła na zmiany tych parametrów ?
 
 Aby odpowiedzieć na to pytanie możemy posłużyć się, może nie
 eleganckim ale usprawiedliwionym i skutecznym do tego celu,
-rozwinięciem tej funkcji we szereg Taylora i uwzględnić w nim tylko
+rozwinięciem tej funkcji w szereg Taylora i uwzględnić w nim tylko
 pierwsze pochodne cząstkowe (z wyjątkowo drugą pochodną względem
 ceny opcji względem ceny aktywa).
 
-W ten sposób określoną zmianę ceny przybliżamy otrzymanym wzorem
-zakładając ze zmiana nie jest mniejsza niż.
+W ten sposób określoną zmianę ceny przybliżamy otrzymanym wzorem.
 
-Pochodne cząstkowe ceny opcji wchodzące w sklad tego przybliżenia maja
-znaczenie praktyczne bedac używane i oznaczane swymi nazwami.
+Pochodne cząstkowe ceny opcji wchodzące w skład tego przybliżenia mają
+znaczenie praktyczne będąc używane i oznaczane swymi nazwami.
 
 Oznaczmy symbolem :math:`V` cenę naszej opcji. W przypadku
 europejskiej opcji Put lub Call będziemy stosować symbole od
@@ -839,7 +836,7 @@ dowolnej opcji zawsze możemy zapisać:
 
    \Delta V \simeq \frac{\partial V}{\partial T} \Delta T + \frac{\partial V}{\partial S} \Delta S + \frac{1}{2} \frac{\partial ^2 V}{\partial S^2}(\Delta S)^2 + \frac{\partial V}{\partial \sigma} \Delta \sigma + \frac{\partial V}{\partial r} \Delta r .
 
-Współczynniki w powyższym wzorze można ławto obliczyć jeśli dany jest
+Współczynniki w powyższym wzorze można łatwo obliczyć, jeśli danay jest
 formuła  analityczna na cenę opcji. Najczęsciej spotykanym przypadkiem są
 wzory  Blacka-Scholesa dla europejskich opcji kupna i
 sprzedaży.
@@ -847,8 +844,8 @@ sprzedaży.
 
 .. admonition:: Dla dociekliwych
 
-   Spróbuj obliczyć poniższe współczynniki dla modelu CRR. Czy można
-   policzyć jeśli jedyną metodą wyceny jest metoda Monte Carlo.
+   Spróbuj obliczyć poniższe współczynniki dla modelu Cox'a, Ross'a, Rubinsteina (CRR). Czy można
+   je policzyć jeśli jedyną metodą wyceny jest metoda Monte Carlo?
 
 
 
@@ -910,7 +907,6 @@ Widać, że zachodzi własność:
 
    \Delta_{call} - \Delta_{put} = 1,
 
-która jest bezpośrednią konsekwencja parytetu kupna sprzedaży.
 
 
 Delta wskazuje na ilość akcji potrzebnych do otworzenia zwrotu z
@@ -922,7 +918,7 @@ cecha ta pozwala na budowanie strategii zabezpieczających. Ale o
 zastosowania analizy wrażliwości w strategii zabezpieczania przed
 ryzykiem można znaleźć w **Hedging za pomoca opcji**.
 
-Narysujmy jak zależy dla pewnej opcji Call Delta od ceny instrumentu
+Narysujmy jak zależy dla pewnej opcji Call - Delta od ceny instrumentu
 bazowego:
 
 .. sagecellserver::
@@ -990,14 +986,14 @@ będzie wartość współczynnika gamma.
 Współczynnik Theta
 ~~~~~~~~~~~~~~~~~~
 
-Kolejna pochodna cząstkowa jest wielkość zwana Theta. 
+Kolejną pochodną cząstkową jest wielkość zwana Theta. 
 
 Określa ona jak się zachowa cena opcji call (put) jeśli zmieni się
 czas do wygaśnięcia, a wszystko inne zostanie stałe?
 
 Theta jest to pierwsza pochodna ceny względem czasu.
 
-Opcje to „psujące się” aktywa, ponieważ wartość ich zanika po pewnym
+Opcje to „psujące się” aktywa, ponieważ wartość ich zanika po pewnym czasie
 (wygaśnięcie).
 
 Wartość opcji = wartość wewnętrzna + premia czasowa.
@@ -1140,10 +1136,10 @@ niewiele.
 
 
 
-Wycena opcji Amerykańskiej modelami binarnymi i ciągłym
+Wycena opcji Amerykańskiej modelami binarnym i ciągłym
 -------------------------------------------------------
 
-Nie zawsze wycena opcji jest możliwa poprzez uśrednianie po rozkładzie
+Nie zawsze wycena opcji jest możliwa do wyliczenia poprzez uśrednianie po rozkładzie
 brzegowym dla :math:`t=T`. Przykładem są opcje amerykańskie. Różnią się
 one od europejskich tym, że prawo do zawarcia transakcji obowiązuje
 nie tylko w chwili :math:`t=T`, ale w dowolnej chwili przed

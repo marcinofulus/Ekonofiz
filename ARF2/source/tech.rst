@@ -1,5 +1,5 @@
 ========================
-Analiza danych rynkowych
+Specyfika danych rynkowych
 ========================
 
 Oprogramowanie Sage a w szczególności zawarte w nim biblioteki `numpy`
@@ -16,7 +16,7 @@ aktywa są pewnym procesem losowym. W analizie jego zmienności ważnym
 pojęciem jest "zwrot", który jest matematycznie rzecz biorąc
 przyrostem procesu na pewnym okresie czasu. Załóżmy, że mamy pewien
 dyskretny ciąg chwil czasu :math:`t_i` w których aktywo ma cenę  :math:`S_i`.
-W finansach spotykamy trzy Ważne pojęcia:
+W finansach spotykamy trzy ważne pojęcia:
 
 - zwrot absolutny w chwili :math:`t_i`: :math:`S_i-S_{i-1}`
 - zwrot względny w chwili  :math:`t_i`: :math:`\displaystyle\frac{S_i-S_{i-1}}{S_{i-1}}`
@@ -93,14 +93,14 @@ log-normalny:
    Sprawdź jaka jest kanoniczna postać rozkładu log-normalnego np. w
    `Wikipedii
    <http://pl.wikipedia.org/wiki/Rozk%C5%82ad_logarytmicznie_normalny>`_. Zauważ,
-   że w naszej notacji zarówno średnia jak i wariancja rosną z liniowo
+   że w naszej notacji zarówno średnia jak i wariancja rosną  liniowo z
    czasem.  Jak to zinterpretować?
 
 
 
 Rozkład log-normalny jest zupełnie odmienny od rozkładu normalnego,
 jednak dla małych zmian ceny można by się spodziewać pewnych
-podobieństw. Rozważmy sytuację w której mamy wartość początkową ceny
+podobieństw. Rozważmy sytuację, w której mamy wartość początkową ceny
 pewnego aktywa równą :math:`S_0` i rozważamy najbliższą przyszłość. Co
 to znaczy? W tej sytuacji będzie to taki horyzont czasowy na którym
 cena akcji niewiele się zmieni w stosunku do ceny początkowej tzn.:
@@ -113,7 +113,7 @@ W praktyce, taki krótki horyzont czasowy może typowo oznaczać zmianę
 kursów pomiędzy notowaniami dziennymi. Przekonamy się teraz, że
 rozkład ceny na któtkich czasach jest "prawie" gaussowski. Do równania
 :eq:`Pwar` wstawmy w mianowniku :math:`S_0` zamiast :math:`S` a w
-eksponencie zastąpny logarytm rozwinięciem :math:`\log
+eksponencie zastąpmy logarytm rozwinięciem :math:`\log
 \frac{S}{S_0}\simeq \frac{S-S_0}{S_0}`. Otrzymamy wówczas rozkład
 normany w postaci:
 
@@ -201,7 +201,7 @@ Policzmy teraz zwroty względne i logarytmiczne i narysujmy wykres log-zwrotów 
 
 
 Jak widać praktycznie wielkości te się pokrywają.  Możemy też łatwo
-sporządzić histogram wartość tychże zwrotów co jeszcze bardziej
+sporządzić histogram wartości tychże zwrotów co jeszcze bardziej
 uwydatnia tą własność:
 
 .. sagecellserver::
@@ -246,7 +246,7 @@ Sprawdźmy jak dobrze jest spełniony warunek stacjonarności :math:`r,\sigma^2`
    print np.std(r_log[:1000]),np.std(r_log[1000:2000])
 
 
-Widzimy, że jest kiepsko spełniona! Widać to już całkiem nieżle z wykresu
+Widzimy, że jest kiepsko spełniona! Widać to już całkiem nieźle z wykresu
 log-zwrotów, który to ma okresy większej i mniejszej zmienności. 
 
 .. admonition:: Poeksperymentuj z komputerem

@@ -5,7 +5,7 @@ Podstawowe zależności
 ---------------------
 
 Jeśli mamy do czynienie z instrumentem dłużnym generującym określoną
-stopę zwrotu w określonym czasie . I jeśli ponadto inwestujemy kwotę
+stopę zwrotu w określonym czasie . Ponadto, jeśli inwestujemy kwotę
 inwestycji na końcu każdego etapu na okres następny, w którym stopa
 procentowa może być inna albo taka sama to mamy do czynienia z
 inwestycją wieloetapową.
@@ -65,13 +65,13 @@ Stąd wynika wzór:
 
 Inaczej :math:`r_s` nosi nazwę średniej geometrycznej stopy zwrotu
 
-Przypominam, że w finansach występuję wiele rodzajów
+Przypominamy, że w finansach występuje wiele rodzajów
 "średnich". Należy zawsze pamiętać jak się je liczy i wiedzieć, że nie
 są to raczej średnie arytmetyczne. Średnia arytmetyczna w przypadku
-wieloetapowej inwestycji w instrument stałego dochodu była by średnia
+wieloetapowej inwestycji w instrument stałego dochodu była by średnią
 arytmetyczną gdyby w każdym etapie inwestowana była ta sama wartość
-portfela. Dla takich samych ri takich samych i średnia geometryczna
-stopa zwrotu jest zawsze mniejsza lub równa średniej arytmetycznej
+portfela. Dla takich samych :math:`r_i` i  takich samych :math:`i` 
+średnia geometryczna stopa zwrotu jest zawsze mniejsza lub równa średniej arytmetycznej
 stopie zwrotu.  
 
 
@@ -79,14 +79,14 @@ Krzywa dochodowości
 -------------------  
 
 Związek miedzy dochodowościami obligacji a czasem ich życia określa
-krzywa zwana krzywa dochodowości.  Konstrukcja krzywej dochodowości
+krzywa zwana krzywą dochodowości. Konstrukcja krzywej dochodowości
 jest tylko łatwa jeśli dysponujemy jednorodnymi obligacjami o różnych
 datach zapadalności pozwalających na konstrukcje tejże
-krzywej. Powinien ten zbiór danych zawierać wszystkie kolejne daty
-zapadalności.  Największy problem to właśnie założenie jednorodnego
+krzywej.  Ten zbiór danych powinien zawierać wszystkie kolejne daty
+zapadalności.  Największy problem to właśnie założenie istnienia jednorodnego
 zbioru obligacji o różnej zapadalności. Obligacje raczej nie są
-jednorodne czyli np. charakteryzować się tym samym ryzykiem
-charakteryzować się dużą i taka samą płynnością.  Z tych przykładowo
+jednorodne czyli mogą charakteryzować się nie tym samym ryzykiem
+i nie musi charakteryzować ich dużą i taka sama płynnością.  Z tych przykładowo
 powodów strukturę terminowa stóp procentowych określa się na podstawie
 krzywej dochodowości dla wybranych obligacji, przykładowo o tym samym
 oprocentowaniu, czy też biorąc pod uwagę stopę zwrotu do zapadalności.
@@ -100,24 +100,26 @@ oprocentowaniu, czy też biorąc pod uwagę stopę zwrotu do zapadalności.
    Krzywa dochodowości
 
 Stopy spot to stopy oprocentowania pożyczek dzisiaj: rok, 2 lata,
-5lat, 10 lat, etc...  Krzywa rentowności to pokazane aktualnych stóp
+5lat, 10 lat, etc...  Krzywa rentowności to pokazanie aktualnych stóp
 spot dla różnych zapadalności.  Z kształtu krzywej rentowności
 inwestorzy optymalizują swe działania inwestycyjne. Decydują czy
-lepiej reinwestować środki na okresy krótsze czy dłuższe.  
+lepiej reinwestować środki na okresy krótsze czy dłuższe. Stopy spot to stopy realnie występujące na rynku. 
 
+Stopy forward to stopy, których okres odsetkowy rozpocznie sie w przyszłości.
+Stopy forward sa implikowane przez instrumenty finansowe. Stopy forward można wyliczyć z wartości stóp spot.
 Wyliczanie stop forward ilustrować może poniższy przykład.
-Przykładowo przyjmijmy hipotetycznie istniejące instrumenty dłużne,
+Przykładowo, przyjmijmy hipotetycznie istniejące instrumenty dłużne,
 które obserwujemy na hipotetycznym rynku.  Instrumenty te są
 instrumentami emitowanymi przez Skarb Państwa (hipotetycznego) więc
 możemy przyjąć, że są to instrumenty o minimalnym ryzyku na naszym
-rynku i ryzyku podobnym.  Przyjmijmy ponadto, że instrumenty te mają
+rynku i o ryzyku podobnym.  Przyjmijmy ponadto, że instrumenty te mają
 wartość nominalna jednakową - powiedzmy 100 000.  
 
 Tak więc bierzemy pod uwagę:
 
 1.  Jednoroczny bon skarbowy sprzedawany na rynku po 86 956. 
-2.  Skarbowa obligacje dwuletnią wypłacającą kupon 15.5% i handlowana po 100\ 060 
-3.  Trzyletnią obligacje skarbową o kuponie 16.2% handlowana po 100680. 
+2.  Skarbową obligację dwuletnią wypłacającą kupon 15.5% i handlowaną po 100060 
+3.  Trzyletnią obligację skarbową o kuponie 16.2% handlowaną po 100680. 
 
 Aby określić stopy forward postępuje się następująco. Z danych bonu
 skarbowego wyliczamy stopę roczną:
@@ -289,9 +291,9 @@ wartośc stopy w kolejnym okresie czasu z określonym
 prawdopodobieństwem zmienia się w górę lub w dół albo nie zmienia się
 w ogóle.
 
-Rozważając modele dwumienne, należy odróżnić dwa zasadnicze typu -
+Rozważając modele dwumienne, należy odróżnić dwa zasadnicze typy -
 drzewa rekombinujące i nierekombinujące. Te pierwsze mają w każdym
-kolejnym okresię dokładnie o jedną unikalną wartość stopy procentowej
+kolejnym okresie dokładnie o jedną unikalną wartość stopy procentowej
 więcej. Te drugie mają po każdym okresie dwa razy więcej wartości
 stopy procentowej, co implikuje wzrost liczby stanów z liczbą okresów
 jak :math:`2^n`.
@@ -598,8 +600,8 @@ procentową. Algorytm, można zapisać w trzech liniach:
      odpowiedni iloczyn oraz uśredniamy wynik po ścieżkach
 
 
-Możemy sprawdzić czy powyższy program obliczy poprawnie testując do na
-przeliczonym w uprzendnio :ref:`przykładzie <_przyklad_drzewa>`:
+Możemy sprawdzić czy powyższy program obliczy poprawnie testując go na
+przeliczonym w uprzednio :ref:`przykładzie <_przyklad_drzewa>`:
 
 
 .. sagecellserver::
@@ -616,7 +618,7 @@ przeliczonym w uprzendnio :ref:`przykładzie <_przyklad_drzewa>`:
 
 
 Wykonując powyższą komórkę powinniśmy otrzymać wynik taki sam jak w
-rachunkach na piechotę. Po co nam więc algoryym? Rachunków na piechotę
+rachunkach "na piechotę". Po co nam więc algoryym? Rachunków "na piechotę"
 nie da się przeprowadzać dla zbyt dużej ilości okresów, bo liczba
 scieżek rośnie wykładniczo jak :math:`2^N`! A w następnym rozdziale
 będziemy potrzebowali wyników dla :math:`N>10`.
@@ -625,11 +627,11 @@ będziemy potrzebowali wyników dla :math:`N>10`.
 Krzywa dochodowości
 -------------------
 
-Mając napisany algorytm do oblicznania średnie zanualizowanej stopy,
+Mając napisany algorytm do oblicznania średniej zanualizowanej stopy,
 możemy policzyć krzywą dochodowości w modelu dwumiennym. W tym celu
 liczymy, zakładając ewolucję stopy zgodnie z regułami- 
 multyplikatywną lub addytywną, stopę :math:`r_s` dla różnych ilości
-okresów i nanosimy otrzymane wartości na wykresię
+okresów i nanosimy otrzymane wartości na wykresie
 :math:`r_s(N)`. Mamy:
 
 .. figure:: figs/krzywa_dochodowosci1.png
@@ -643,7 +645,7 @@ okresów i nanosimy otrzymane wartości na wykresię
 
 Implementacja algorytmu w zasadzie polega na umieszczeniu kodu
 liczącego zanulizowaną średnią stopę po :math:`N` okresach wewnątrz
-funkcji w której parametrem będzie właśnie liczba okresów.
+funkcji, w której parametrem będzie właśnie liczba okresów.
 
 
 .. admonition:: Poeksperymentuj sam
@@ -700,7 +702,7 @@ gdzie:
 
  - :math:`r(t)` - chwilowa stopa zwrotu
  - :math:`\lambda` - prędkość relaksacji
- - :math:`\mu` -   wartość asyptotyczna procesu
+ - :math:`\mu` -   wartość asymptotyczna procesu
  - :math:`\xi(t)` - biały szum Gaussowski z funkcją korelacji: 
    :math:`\langle x(t) x(t+\tau) \rangle = \delta(\tau)`
    

@@ -2,11 +2,11 @@ Wstęp techniczny czyli jak korzystać z części interaktywnych?
 =============================================================
 
 
-Skrypt ten kładzie szczególny praktyczny aspekt zrozumienia teorii
+Skrypt ten kładzie szczególny nacisk na  praktyczny aspekt zrozumienia teorii
 rynków finansowych. Wychodzimy z założenia, że ćwiczenia w
 samodzielnej implementacji wielu algorytmów pozwolą na praktyczne
 sprawdzenie nabytej wiedzy teoretycznej. Nie podważamy tutaj istoty i
-piekna teorii matematycznych. Pragniemy jedynie podkreślić, że
+piękna teorii matematycznych. Pragniemy jedynie podkreślić, że
 napisanie algorytmu wymaga nie tylko jej zrozumienia, ale i jest
 podwierdzemien poprawności toku rozumowania. Otrzymanie poprawnego
 wyniku liczbowego nie wybacza pomyłki. Samodzielne eksperymentowanie z
@@ -30,15 +30,15 @@ numerycznych. Z systemu Sage można korzystać na wiele sposobów.
    instalacji oferowanej przez Wydział MFiCh.
 
 2. Do wykonania pojedyńczych eksperymentów i prostych obliczeń, możemy
-   korzystać z serwera pojedyńczyć obliczeń, znanego `Sagecell
+   korzystać z serwera pojedyńczych obliczeń, zwanego `Sagecell
    <http://sagecell.icse.us.edu.pl:6363/>`_.
 
-#. Interaktywne książki - jak ten sktypt, korzystający z systemu
+3. Interaktywne książki - jak ten sktypt, korzystający z systemu
    Sagecell, umożliwiają korzystanie z systemu Sage z poziomu
    przeglądarki, bez uprzedniej rejestracji czy logowania, tak jak w
    tym przykładzie.
 
-#. Można skorzystać z darmowago systemu stworzonego przez Wiliama
+4. Można skorzystać z darmowago systemu stworzonego przez Wiliama
    Steina zmanego `Sage Math Cloud <https://cloud.sagemath.com>`_.
 
 Interaktywne komórki Sagecell
@@ -46,7 +46,7 @@ Interaktywne komórki Sagecell
 
 Jak skorzystać z elementów interaktywnych w tym skrypcie? Jeśli
 zobaczymy taką komórkę wystarczy nacisnąć przyciska "Wykonaj" i
-zostanie uruchomiony system Sage na jednym z serwerów i wykonany na
+zostanie uruchomiony system Sage na jednym z serwerów i zostanie wykonany na
 nim kod programu znajdującego się w polu tekstowym:
 
 .. admonition:: Poeksperymentuj z komputerem
@@ -108,7 +108,7 @@ sposób we wstępie opisać jego możliwości, ale zachęcamy do
 przeczytania licznych materiałów:
 
 - Bardzo krótkie wprowadzenie do `Sage'a <http://visual.icse.us.edu.pl/Warsztaty/iCSE_1a_Wprowadzenie_CubeProject.html>`_
-- Książka "Matematyka łatwiejsza niż przypuszczasz" `link <http://icse.us.edu.pl/e-book/>`_
-- Materiały do zajęc Technologie Informacyjne dla I roku Studentów: `link <http://visual.icse.us.edu.pl/iCSE_main/icse_final.html#technologia-informacyjna>`_.
+- Książka "Matematyka łatwiejsza niż przypuszczasz" `<http://icse.us.edu.pl/e-book/>`_
+- Materiały do zajęć Technologie Informacyjne dla I roku Studentów: `<http://visual.icse.us.edu.pl/iCSE_main/icse_final.html#technologia-informacyjna>`_.
 - Dociekliwych zachęcamy do `zanurkowania w Pythonie <http://pl.wikibooks.org/wiki/Zanurkuj_w_Pythonie>`_
 
