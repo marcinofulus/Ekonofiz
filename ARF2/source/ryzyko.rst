@@ -263,7 +263,7 @@ zysku jeśli nie podejmie się ryzyka). Zazwyczaj polega to na
 wprowadzeniu zasad jak organizacja podejmuje decyzje finansowe i
 określenie co to jest właściwe ryzyko.  
 
-Zarządzanie ryzykiem finansowym  
+Zarządzanie ryzykiem finansowym
 -------------------------------
 
 Organizacja podejmując decyzje finansowe, zazwyczaj podejmuje pewne
@@ -304,26 +304,30 @@ Literatura fachowa podaje wiele ich klasyfikacji. Przykładowo zaproponowana prz
    dokumentacji, złych zapisów w umowach, konfliktu interpretacji
    prawnych czy systemów prawnych.
 
-   Źródło definicji (Bank for International Settlement) jest wiodącym
-   źródłem dla zasad zarządzania ryzykiem obowiązujących banki. Banki
-   operują głównie kapitałem klientów wiec szczególna ostrożność
-   prowadzenia operacji jest wymagana.  Bezpieczeństwo systemu
-   bankowego i jego operacji zostało omówione w rozdziale
-   „Bezpieczeństwo systemu finansowego- Rynki Finansowe. Zarządzanie
-   ryzykiem banki opierają na zasadach Nowej Umowy Kapitałowej (Basel
-   II i III). W kształtowaniu zarządzania ryzykiem Bank BIS odgrywa wiodąca
-   rolę.
+Źródło definicji (Bank for International Settlement) jest wiodącym
+źródłem dla zasad zarządzania ryzykiem obowiązujących banki. Banki
+operują głównie kapitałem klientów wiec szczególna ostrożność
+prowadzenia operacji jest wymagana.  Bezpieczeństwo systemu bankowego
+i jego operacji zostało omówione w rozdziale „Bezpieczeństwo systemu
+finansowego- Wprowadzenie do funkcjonowania rynków
+finansowych. Zarządzanie ryzykiem banki opierają na zasadach Nowej
+Umowy Kapitałowej (Basel II i III). W kształtowaniu zarządzania
+ryzykiem Bank BIS odgrywa wiodąca rolę.
 
-   Inwestor w swych operacjach na rynkach finansowych spotkać się może
-   z ryzykami powodującymi inne od zamierzonego efektami prowadzonych
-   operacji inwestowania. Biorąc pod uwagę instrumenty finansowe to
-   wiążące się z nimi ryzyk można pogrupować:
+Inwestor w swych operacjach na rynkach finansowych spotkać się może z
+ryzykami powodującymi inne od zamierzonego efektami prowadzonych
+operacji inwestowania. Biorąc pod uwagę instrumenty finansowe to
+wiążące się z nimi ryzyk można pogrupować:
+
  - **Ryzyka związane ze zmiennością na rynkach finansowych** 
 
-    - **Ryzyko stopy procentowej** - dotyczy inwestycji w instrumenty dłużne. Jeśli na rynku finansowym zmieniają się
-    stopy procentowe, to taka zmiana powoduje zmiany dochodu z posiadanych instrumentów.
-    Inne dochody powodują inna wycenę wartości instrumentów. Wzrost stopy procentowej powoduje spadek ceny instrumentu
-    dłużnego, a spadek stopy procentowej wzrost ceny instrumentu.
+   - **Ryzyko stopy procentowej** - dotyczy inwestycji w instrumenty
+     dłużne. Jeśli na rynku finansowym zmieniają się stopy procentowe,
+     to taka zmiana powoduje zmiany dochodu z posiadanych
+     instrumentów.  Inne dochody powodują inna wycenę wartości
+     instrumentów. Wzrost stopy procentowej powoduje spadek ceny
+     instrumentu dłużnego, a spadek stopy procentowej wzrost ceny
+     instrumentu.
 
    - **Ryzyko zmiany kursów walut** - występuje, gdy instrument
      finansowy, jest denominowany w innej walucie niż waluta
@@ -331,18 +335,22 @@ Literatura fachowa podaje wiele ich klasyfikacji. Przykładowo zaproponowana prz
      stopy zwrotu wyrażone w dwóch różnych walutach nie są takie same.
 
    - **Ryzyko inflacji** - występuje wtedy, gdy inflacja zmienia siłę nabywczą dochodu z inwestycji.   
-   - **Ryzyko rynku** - to ryzyko zmiany ceny na rynkach finansowych. Ceny na rynkach finansowych zmieniają sie pod wpływem
-     wielu czynników zarówno fundamentalnych (czynniki gospodarcze) jak i emocji uczestników rynku.  
+   - **Ryzyko rynku** - to ryzyko zmiany ceny na rynkach
+     finansowych. Ceny na rynkach finansowych zmieniają sie pod
+     wpływem wielu czynników zarówno fundamentalnych (czynniki
+     gospodarcze) jak i emocji uczestników rynku.
   
    - **Ryzyko braku płynności instrumentu** - występuje w przypadku
-    instrumentów finansowych handlowanych rynku o niewielkiej aktywności
-    uczestników. A na takich rynkach instrumenty stosunkowo trudno jest
-    sprzedać po godziwej cenie.
+     instrumentów finansowych handlowanych rynku o niewielkiej
+     aktywności uczestników. A na takich rynkach instrumenty
+     stosunkowo trudno jest sprzedać po godziwej cenie.
 
-   - **Ryzyka  wiążące się z zachowaniem drugiej strony transakcji**
+ - **Ryzyka  wiążące się z zachowaniem drugiej strony transakcji**
 
-   - **Ryzyko niedotrzymania warunków emisji instrumentu (default risk)** - występuje wtedy, gdy emitent instrumentu finansowego      nie może dotrzymać warunków umowy emisji. Przykładowo - nie wypłaca
-     odsetek(instrument dłużny)w terminie, wcale etc.
+   - **Ryzyko niedotrzymania warunków emisji instrumentu (default
+     risk)** - występuje wtedy, gdy emitent instrumentu finansowego
+     nie może dotrzymać warunków umowy emisji. Przykładowo - nie
+     wypłaca odsetek(instrument dłużny)w terminie, wcale etc.
  
    - **Ryzyko zarządzania** - wynika błędów w zarządzania spółką
      emitującą papiery wartościowe mających wpływ na uzyskiwane przez
@@ -358,10 +366,12 @@ Literatura fachowa podaje wiele ich klasyfikacji. Przykładowo zaproponowana prz
      braku możliwości do wypełnienia zobowiązań finansowych emitenta w
      terminie.
 
-   - **Ryzyko biznesu** - nazywane ryzykiem operacyjnym, wynika ze zmienności dochodów uzyskiwanych przez emitenta
-       instrumentu finansowego skutkiem zmiany  otoczenia  rynkowego emitenta lub błędów w zarządzaniu. 
+   - **Ryzyko biznesu** - nazywane ryzykiem operacyjnym, wynika ze
+       zmienności dochodów uzyskiwanych przez emitenta instrumentu
+       finansowego skutkiem zmiany otoczenia rynkowego emitenta lub
+       błędów w zarządzaniu.
 
-   - **Ryzyka otoczenia rynków**
+ - **Ryzyka otoczenia rynków**
 
    - **Ryzyko polityczne** - występuje wtedy, gdy rząd, parlament lub
      inne władze uchwalają regulacje prawne lub podejmują decyzje

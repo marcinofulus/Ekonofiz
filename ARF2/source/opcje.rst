@@ -900,10 +900,10 @@ mówiono o firmach, które zrobiły to zabezpieczenie właściwie.
 .. rubric:: Footnotes
 
 .. [#f1] Ciekawą analizę problemu można przykładowo znaleźć w pracy:
-         Danuta Dziagwo, Leszek Dziagwo. „RYZYKO INSTRUMENTÓW
-         POCHODNYCH W OBROCIE GOSPODARCZYM NA PRZYKŁADZIE „OPCJI
-         TOKSYCZNYCH””- ZESZYTY NAUKOWE UNIWERSYTETU SZCZECIŃSKIEGO NR
-         752 EKONOMICZNE PROBLEMY USŁUG NR 102 2013.
+         Danuta Dziagwo, Leszek Dziagwo. „Ryzyko instrumentów
+         pochodnych w obrocie gospodarczym na przykładzie „Opcji
+         toksycznych””- Zeszyty Naukowe Uniwersytetu Szczecińskiego Nr
+         752 Ekonomiczne Problemy Usług NR 102 2013.
 
 
 

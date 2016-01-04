@@ -1,6 +1,6 @@
 .. _binarne:
 
-Dodatek: Komputerowa analiza drzew binarnych 
+Dodatek: Komputerowa analiza drzew binarnych
 ============================================
 
 Modele zachowania zmienającej się w czasie ceny pewnego aktywa
@@ -43,11 +43,11 @@ większych drzewach.
 Następujące dwa scenariusze wyboru reguł zmian cen prowadzą do drzew
 rekombinujących.
 
- - drzewa addytywne: Jeśli cena aktywa po jednym okresie może wzrosnąć
+ - Drzewa addytywne: Jeśli cena aktywa po jednym okresie może wzrosnąć
    o :math:`\Delta_1` lub zmaleć o :math:`\Delta_2` i wartości te są
-   stałe w czasie oraz niezależne od wartości ceny aktywa, to
+   stałe w czasie oraz niezależne od wartości ceny aktywa.
 
- - drzewa multiplikatywne: Jeśli cena aktywa po jednym okresie może
+ - Drzewa multiplikatywne: Jeśli cena aktywa po jednym okresie może
    wzrosnąć do :math:`S u` lub zmaleć do :math:`S d`, dla pewnych
    liczb :math:`u>1` oraz :math:`0<d<1`, niezależnych od ceny akcji i
    czasu.
@@ -260,8 +260,7 @@ wygenerować sobie wszystkie scenariusze ewolucji na tym drzewie:
 
     .. end of output
 
-Weźmy prawdopodobieństwa :math:`q` jako wartości miary (jeszcze nie
-wiemy czy martyngałowej):
+Weźmy prawdopodobieństwa :math:`q`:
 
 
 .. code-block:: python
@@ -299,9 +298,10 @@ dokładnie te węzły o które nam chodzi.
 .. end of output
 
 
-Dla miary :math:`q=\frac{1}{2}` możemy obliczyć jaka będzie stopa
-oprocentowanie wolnego od ryzyka, które zapewni to, że ta miara będzie
-miarą arbitrażową:
+Dla prawdopodobieństwa :math:`q=\frac{1}{2}` możemy obliczyć jaka
+będzie stopa oprocentowanie wolnego od ryzyka, które zapewni to, że
+nie będzie mógł zachodzić arbitraż (w podręcznikach matematycznych
+zwane jest ono też miarą arbitrażową):
 
 
 .. code-block:: python
@@ -370,8 +370,8 @@ aktywa, z notają, że:
 .. end of output
 
 Ruchom tym przyporządkowujemy prawdopodobieństwa. Korzystamy z faktu,
-że miara martryngałowa jest taka sama w każdym punkcie drzewa
-binarnego.
+że prawdopodobieństwa wzrostu lub spadku nie zależą od miejsca w
+drzewie w którym się znajdujemy.
 
 
 .. code-block:: python
@@ -452,7 +452,7 @@ sprawdźmy korzystając np. z jego implementacji w pakiecie scipy:
 
 .. end of output
 
-Możemy teraz obliczyć średnią z ceny aktywa po Obliczny średnią po ścieżkach:
+Możemy teraz obliczyć średnią z ceny aktywa po ścieżkach:
 
 
 .. code-block:: python
@@ -481,11 +481,11 @@ Możemy teraz obliczyć średnią z ceny aktywa po Obliczny średnią po ścież
 
 gdzie oznaczyliśmy przez dla ścieżki  :math:`p` ze zbioru wszystkich scieżek  :math:`P` przez:
 
-- :math:`q_i` \- prawdopodobieństwo, skoku ceny między okresami
+ - :math:`q_i` \- prawdopodobieństwo, skoku ceny między okresami
    :math:`i` i :math:`i+1`
-- :math:`p_N` \- indeks w drzewie wartości aktywa na końcu ścieżki
+ - :math:`p_N` \- indeks w drzewie wartości aktywa na końcu ścieżki
    :math:`p`
-- :math:`SP_{i,j}` jest tablicą cen aktywa, w :math:`i` oznacza okres
+ - :math:`SP_{i,j}` jest tablicą cen aktywa, w :math:`i` oznacza okres
    a :math:`j` indeks w drzewie wartości.
 
 
@@ -519,7 +519,7 @@ której cena jest dana przez: :math:`\max(0,S-K)`
 Ewolucja portfela na drzewie binarnym.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Mamy portfel :math:`P` \- [akcje,obligacje] w chwili
+Mamy portfel :math:`P` \- [liczba akcji, liczba obligacji] w chwili
 :math:`t=0`. Obliczmy jego ewolucję czasową. Zanim to uczynimy,
 policzmy jak zmienia się cena aktywa na pewnej ścieżce:
 
@@ -811,7 +811,7 @@ Generujemy drzewko prawdopodobieństw arbitrażowych:
 
 .. end of output
 
-Generacja drzewka prawdopodobienstw martyngałowych z  :math:`q=q_t`
+Generacja drzewka prawdopodobienstw  :math:`q=q_t`
 
 
 .. code-block:: python

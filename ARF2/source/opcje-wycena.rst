@@ -69,7 +69,7 @@ to przy ustalonych stanach aktywa :math:`S_{up}` i :math:`S_{down}`,
 prawdopodobieństwo tego, że aktywo podrożeje :math:`p` musi spełniać:
 
 .. math::
-  :label: eq:Parb
+  :label: Parb
 
    p S_{up} + (1-p) S_{down} = S_0 e^{rT}
 
@@ -81,13 +81,13 @@ na depozycie. Po okresie :math:`T` za wartość depozytu moglibyśmy
 nabyć więcej jednostek aktywa niż mieliśmy na początku. Znowu
 zyskaliśmy w sensie wartości średniej.
 
-Równanie :eq:`eq:Parb` jest podstawą konstrukcji wszystkich metod
+Równanie :eq:`Parb` jest podstawą konstrukcji wszystkich metod
 wyceny instrumentów finansowych. Korzystając z niego możemy się
 przekonać jaka jest wartość instrumentu w chwili początkowej czyli
 wycenić dany instrument.
 
 Jeśli znamy, albo założymy, wartości cen po czasie :math:`T`, to
-równanie :eq:`eq:Parb` jest równaniem na prawdopodobieństwo
+równanie :eq:`Parb` jest równaniem na prawdopodobieństwo
 :math:`p`. Możemy je wyliczyć. Wtedy mając wszystkie dane na temat
 drzewa kombinacji, jesteśmy w stanie analizować proces ewolucji cen
 różnych instrumentów na takim drzewie.
@@ -219,8 +219,9 @@ aktywa oraz ceny wykupu i jest równa:
 
 Znając te liczby możemy obliczyć cenę opcji w przedostatnim okresie
 rozliczeniowym. Skorzystamy z tym celu z równania :eq:`Parb`, dla ceny
-nie aktywa podstawowoego ale opcji.  Zauważmy, że miarę martyngałową
-obliczyliśmy z równania :eq:`Parb` dla cen opcji. Mamy więc:
+nie aktywa podstawowoego ale opcji.  Zauważmy, że prawdopodopieństwa
+:math:`p` i :math:`1-p` obliczyliśmy z równania :eq:`Parb` dla cen
+opcji. Mamy więc:
 
 .. math::
 
@@ -230,7 +231,7 @@ obliczyliśmy z równania :eq:`Parb` dla cen opcji. Mamy więc:
 Możemy więc napisać następujący algorytm. Zaczynamy od ceny opcji w
 chwili :math:`t=T` - czyli od prawej strony drzewa binarnego, która
 jest dana przez :math:`\mathrm{max}(0,S-K)`. Następnie stosując wzrór
-:eq:`eq:Parb` dla każdego rozgałędzienia z osobna wyliczamy ceny
+:eq:`Parb` dla każdego rozgałędzienia z osobna wyliczamy ceny
 arbitrażowe dla czasu o jeden okres wcześniej.  Podstępując dalej w
 ten sposób możemy otrzymać całe drzewo cen:
 
@@ -360,10 +361,9 @@ zasymulowania numerycznego.
        Można zautomatyzować ten proces uruchamiając część kodu w dodatkowej pętli. 
    
      - Wykonaj histogram cen końcowych i porównaj z rozkładem
-       :math:`P(S,t=T)`. W rozdziale `geometryczny ruch Browna
-       <http://el.us.edu.pl/ekonofizyka/index.php/MKZR:Numeryczne_rozwi%C4%85zania_r%C3%B3wna%C5%84_stochastycznch-przyk%C5%82ady>`_
-       znajduje się zarówno postać wzoru końcowego jak i obliczanie
-       histogramu, jednak w języku matlab.
+       :math:`P(S,t=T)`. Można skorzystać z rozdziału `geometryczny ruch Browna
+       <http://el.us.edu.pl/ekonofizyka/index.php/MKZR:Numeryczne_rozwi%C4%85zania_r%C3%B3wna%C5%84_stochastycznch-przyk%C5%82ady>`_ w którym znajduje się zarówno postać wzoru końcowego jak i algorytm obliczający
+       histogram.
  
 
 .. sagecellserver::
@@ -390,8 +390,6 @@ ciągłym a drzewami dyskretnymi.
 
 Związek pomiędzy modelem ciągłym i binarnym
 -------------------------------------------
-
-**kalibracja modelu binarnego**
 
 Rozważmy model dwustanowy - jednookresowy. Niech cenę aktywa określa
 reguła multiplikatywna.
@@ -748,7 +746,7 @@ obliczamy średnią z funkcji wyceny opcji w ostatnim momencie czasu.
 
     call_MC=np.exp(-r*T)*np.mean( np.maximum(S[:,N-1]-K,0) )
     put_MC=np.exp(-r*T)*np.mean( np.maximum(K-S[:,N-1],0) )
-    print "Wycena z symuacji Monte-Carlo:",call_MC,put_MC
+    print "Wycena z symulacji Monte-Carlo:",call_MC,put_MC
 
     sum([line(enumerate(S[i,:]),thickness=0.2,figsize=4) for i in range(123)])
 
@@ -844,8 +842,9 @@ sprzedaży.
 
 .. admonition:: Dla dociekliwych
 
-   Spróbuj obliczyć poniższe współczynniki dla modelu Cox'a, Ross'a, Rubinsteina (CRR). Czy można
-   je policzyć jeśli jedyną metodą wyceny jest metoda Monte Carlo?
+   Spróbuj obliczyć poniższe współczynniki dla modelu Cox'a, Ross'a,
+   Rubinsteina (CRR). Czy można je policzyć jeśli jedyną metodą wyceny
+   jest metoda Monte Carlo?
 
 
 
@@ -1154,10 +1153,10 @@ tylko po wartości końcowej.
 Algorytm wyznaczania ceny opcji korzysta z warunku braku
 arbitrażu. Postępujemy podobnie jak przy wycenie opcji europejskiej na
 całym drzewie. Jednak w każdym rozwidleniu drzewa, sprawdzamy czy
-wartość otrzymana z warunku braku arbitrażu :eq:`eq:Parb` nie jest
+wartość otrzymana z warunku braku arbitrażu :eq:`Parb` nie jest
 mniejsza od wartości wewnętrzej opcji. Jesli tak jest to wpisujemy
 właśnie tą wartość wewnętrzą do drzewa, zamiast wartości wynikającej z
-:eq:`eq:Parb`. Poniżej prezentujemy możliwą implementację tego
+:eq:`Parb`. Poniżej prezentujemy możliwą implementację tego
 algorytmu:
 
 .. sagecellserver::
@@ -1198,13 +1197,13 @@ różni się znacznie od opcji europejskiej. Mozna się przypatrzeć na drzewie 
 
 .. sagecellserver::
 
-   html.table( [[max(l-K,0)>l2 for l,l2 in zip(b,b2)] for b,b2 in zip(SP,OP)] )
+   table( [[max(l-K,0)>l2 for l,l2 in zip(b,b2)] for b,b2 in zip(SP,OP)] )
 
 
 .. admonition:: Poeksperymentuj z komputerem
 
    - W powyższym kodzie pozmieniaj wartość początkową aktywa. Jak
-     zmienia się cena opcji? Jak zmienia się tabla z ostatniej komórki
+     zmienia się cena opcji? Jak zmienia się tabela z ostatniej komórki
      Sage?
 
    - Zaimplementuj wycenę amerykańskiej opcji Call. Porównaj wartość z
@@ -1246,7 +1245,7 @@ różni się znacznie od opcji europejskiej. Mozna się przypatrzeć na drzewie 
            return exp(-r*T).n()*sum([binomial(N,j)*p^j*(1-p)^(N-j)*max(S0*u^j*d^(N-j)-K,0) for j in range(N+1)])
 
 
-       html.table( [[max(l-K,0)>l2 for l,l2 in zip(b,b2)] for b,b2 in zip(SP,OP)] )
+       table( [[max(l-K,0)>l2 for l,l2 in zip(b,b2)] for b,b2 in zip(SP,OP)] )
 
 
 

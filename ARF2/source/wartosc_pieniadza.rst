@@ -28,8 +28,8 @@ wyceny. Matematyczne wyrafinowanie metod i modeli wyceny wzrasta
 bardzo szybko. Komputery ułatwiają przeprowadzanie skomplikowanych
 obliczeń, niemniej jednak głębokie zrozumienie matematycznych reguł
 rządzących finansami jest podstawą tej dziedziny wiedzy. Zdrowy
-rozsadek nadal obowiązuje i koniecznym jest głębokie rozumienie tego, co się
-liczy i dlaczego.
+rozsadek nadal obowiązuje i koniecznym jest głębokie rozumienie tego,
+co się liczy i dlaczego.
 
 Wartość aktywów mierzona jest najczęściej wartością
 pieniądza. Używając pieniądza do wyceny odkryć można szereg jego
@@ -42,10 +42,10 @@ tych danych należy mieć pewność, że mamy do czynienia z tą samą
 wielkością oraz że wielkości te występującą w tych samych jednostkach
 miary. Jeśli jednostki są różne wprowadzić należy właściwe
 przeliczniki jednostki tak by porównywać to samo a nie przykładowo
-mile i kilometry w przypadku porównywania odległości. Ceny w
-finansach wyrażane są nie tylko w różnych walutach ale i w różnych
-sposobach oddzielania wartości mniejszych od jedności i wartości
-oddzielania tysięcy.
+mile i kilometry w przypadku porównywania odległości. Ceny w finansach
+wyrażane są nie tylko w różnych walutach ale i w różnych sposobach
+oddzielania wartości mniejszych od jedności i wartości oddzielania
+tysięcy.
 
 
 Na pytanie co wolimy otrzymać: pewną kwotę pieniężną dzisiaj czy za
@@ -54,12 +54,12 @@ kwoty dziś jest dla nas lepsze niż otrzymanie jej kiedyś w
 przyszłości. Można wiec powiedzieć, że pieniądz dzisiaj ma dla nas
 większą wartość niż ten sam pieniądz w przyszłości.  Posiadając
 pieniądz możemy nim rozporządzać. Możemy kupić coś teraz lub
-przeznaczyć je na inny cel. Jeśli udostępnimy nasze pieniądze innym to odczuwamy
-dyskomfort braku kontroli nad nimi, poczucie ryzyka ich utraty. Za ten
-dyskomfort spodziewamy się od pożyczającego jakiejś nagrody. Nagroda
-powinna być zależna od czasu na jaki je pożyczamy.  Ilość dni jaki
-upływa między każdorazowym transferem pieniądza jest istotnym
-elementem w finansach.
+przeznaczyć je na inny cel. Jeśli udostępnimy nasze pieniądze innym to
+odczuwamy dyskomfort braku kontroli nad nimi, poczucie ryzyka ich
+utraty. Za ten dyskomfort spodziewamy się od pożyczającego jakiejś
+nagrody. Nagroda powinna być zależna od czasu na jaki je pożyczamy.
+Ilość dni jaki upływa między każdorazowym transferem pieniądza jest
+istotnym elementem w finansach.
 
 
 
@@ -95,8 +95,9 @@ się strzałki pionowe ilustrujące strumienie pieniężne opisywanej
 operacji korzystając z następującej konwencji: wpływ gotówki to
 strumień dodatni a wypływ gotówki to strumień ujemny. Linia czasu
 ilustrujaca przepływy pieniężne to prosta podzielona na odcinki
-okresów (nad osią kolejne numery okresów), na dole lini, lub na górze - kolejne
-przepływy( zaleznie  od znaku). Ilustracja poniżej pokazuje przykład lini czasu.
+okresów (nad osią kolejne numery okresów), na dole lini, lub na
+górze - kolejne przepływy( zaleznie od znaku). Ilustracja poniżej
+pokazuje przykład lini czasu.
 
 **przykład**
 
@@ -158,9 +159,12 @@ Przykładowo:
 
 Jesli kwote 100 PLN umieścimy na depozycie wypłacajacym 3% rocznie  to:
 
- - po 1 roku otrzymamy odsetki w wysokosci 3 PLN - które odprowadzamy na osobne konto
- - po 2 roku otrzymamy odsetki w wysokości 3 PLN - które odprowadzamy na osobne konto
- - po 3 roku otrzymamy odsetki w wysokości 3 PLN - które odprowadzamy na osobne konto
+ - po 1 roku otrzymamy odsetki w wysokosci 3 PLN - które odprowadzamy
+   na osobne konto
+ - po 2 roku otrzymamy odsetki w wysokości 3 PLN - które odprowadzamy
+   na osobne konto
+ - po 3 roku otrzymamy odsetki w wysokości 3 PLN - które odprowadzamy
+   na osobne konto
 
 Po trzech latach dysponujemu kwotą 100 PLN na końcie depozytowym i
 kwotą 9 PLN na osobnym koncie.  Taki sposób naliczania odsetek to
@@ -194,16 +198,16 @@ kwotę wraz z odsetkami:
 
 .. math::
   
-   F=P(1+r) + F (1+r) r = F(1+r)(1+r) = F (1+r)^2 
+   F = P(1+r)(1+r) = F (1+r)^2 
 
 
 Gdzie:
 
  - F = wartość przyszła
  - P = wartość aktualna (bieżąca) pieniędzy
- - r = stopa procentowa(oprocentowanie roczne)
+ - r = stopa procentowa (oprocentowanie roczne)
 
-po n latach wartość ta będzie wynosić:
+po :math:`n` latach wartość ta będzie wynosić:
 
 .. math::
 
@@ -221,7 +225,7 @@ Gdzie:
  * :math:`F_V` nazywa się  wartościa przyszłą (*future value*)
  * :math:`P_V` to wartość bieżąca  pieniedzy (*present value*)
  * :math:`n` ilość lat
- * :math:`r`- stopa  odsetkowa.
+ * :math:`r` - stopa  odsetkowa.
 
 W ten sposób wyliczona została wartośc przyszła zainwestowanych
 pieniędzy.  Wartość przyszła jest to wartość jaka narośnie z sumy
@@ -237,46 +241,51 @@ czasu i naliczania odsetek. Innymi słowy, jest to kapitalizacja.
    Obliczyć składane odsetki od 100 PLN zainwestowanych na 6% przez 3
    lata. Naliczanie odsetek roczne.
 
-    - 1szy rok odsetki wynoszą 6.00. Końcowa kwota inwestycji wynosi
+    - 1-szy rok odsetki wynoszą 6.00. Końcowa kwota inwestycji wynosi
       106.00 PLN. Kwota ta jest inwestowana w całości na kolejny rok.
-    - 2gi rok odsetki wynoszą 6.36. Końcowa kwota inwestycji wynosi
+    - 2-gi rok odsetki wynoszą 6.36. Końcowa kwota inwestycji wynosi
       112.36 PLN. Kwota ta jest inwestowana w całości na kolejny rok.
-    - 3ci rok odsetki wynoszą 6.74. Końcowa kwota inwestycji wynosi
+    - 3-ci rok odsetki wynoszą 6.74. Końcowa kwota inwestycji wynosi
       119.11PLN.
 
    Całkowite odsetki: 19.10 PLN
 
 
+Kapitalizacja ciągła
+~~~~~~~~~~~~~~~~~~~~
+
+Wyobraźmy sobie, że wykonujemy kapitalizację odsetek :math:`m`-razy w
+ciągu roku. W takim przypadku stopa procentowa stosowana do obliczenia
+odsetek jest będzie wynosiła :math:`\frac{r}{m}`. Na przykład
+kapitalizując odsetki półrocznie (:math:`m=2`) ze stopą roczną
+:math:`r=6\%` to dwa razy w roku do kapitału dodamy po :math:`r=3\%`:
+
+.. math:: 
+   
+   F_V = ( 1 + \frac{0.06}{2} )^2 P_V
 
 
-.. admonition:: Poeksperymentuj z komputerem!
+Okazuje się, że istnieje granica :math:`m\to\infty`, która jest zwana
+procesem kapitalizacji ciągłej. W takim procesie kapilalizujemy na
+biężąco otrzymywane odsetki. Dla procesu :math:`m` kapitalizacji w
+ciągu :math:`n` lat mamy:
 
- Wyobraźmy sobie, że mamy depozyt na kwotę :math:`100` na
- oprocentowaniu na pewną stopę :math:`r`. Zbadaj ile będziemy mieli na
- depozycie środków po np. :math:`4` latach w przypadku:
 
- - kapitalizacji rocznej,
- - kapitalizacji miesięcznej,
- - kapitalizacji ciągłej.
+.. math::
 
- Na wykresie kolorem czerwonym zaznaczona jest kapitalizacja ciągła,
- zielone punkty to kapilalizacja roczna. Można też zwiększyć częstość
- kapitalizacji depozytu zmieniąc parametr "liczba kapitalizacji w
- miesiącu". Pod wykresem pokazana jest nominalna wartość końcowego
- kapitału w obu procesach i ich względna różnica.
- 
-.. sagecellserver::
+   F_V = P_V (1+\frac{r}{m})^{m n}   
 
-		var('x')
-		@interact
-		def _(years=slider(range(1,30),default=4,label='Lata'),rate=slider(0,100,1,default=27,label='stopa roczna (%)'),N=slider(range(1,30),default=1,label='liczba kapitalizacji w roku')):
+Jak wiemy funkcja wykładnicza jest granicą następującego ciągu:
+:math:`e^x = \lim_{m\to\infty}(1+\frac{x}{m})^m`, więc mamy:
 
-				pkts = [(float(i)/N,100*(1+(rate/(N))/100.)^i) for i in range(years*N+1)]
-				plt = line(pkts,color='green',marker='o')
-				plt += plot(100*exp(x*rate/100.),(x,0,years),color='red')
-				sd,sc = pkts[-1][1],100*exp(years*rate/100.)
-				print sd,sc,round((sc-sd)/((sc+sd)*0.5)*100,2),"%"
-				plt.show(figsize=(6,2))
+
+.. math::
+
+   F_V = \lim_{m\to\infty} P_V (1+\frac{r}{m})^{m n} = \lim_{m\to\infty} P_V \left( (1+\frac{r}{m})^m \right)^n = e^{n r} P_V  
+
+
+
+
 
 
 
@@ -382,13 +391,13 @@ Wzór na efektywną roczną stopę procentową ma postać:
 
 .. math::
 
-   r_{ERSP}={(1+r)^n}-1
+   r_{ERSP}={(1+r)^n}-1,
 
-Lub też
+lub też
 
 .. math::
 
-   r_{ERSP}={(1+r_{NRSP} / n)^n}-1
+   r_{ERSP}={(1+\frac{r_{NRSP}}{n})^n}-1
 
 gdzie:
 
@@ -402,7 +411,7 @@ i na koniec roku n będzie mn płatności odsetek to
 
 .. math:: 
 
-   F_V=P_V(1+r/m)^{nm}
+   F_V=P_V(1+\frac{r}{m})^{nm}
 
 czyli przy jednokrotnym  naliczaniu odsetek w roku  wzrost kapitału w ciągu roku bedzie równy
 
@@ -412,25 +421,25 @@ przy półrocznym naliczaniu;
 
 .. math:: 
 
-   r_{wf}=(1+r/2)^2
+   r_{wf}=(1+\frac{r}{2})^2
 
 przy naliczaniu kwartalnym
 
 .. math:: 
 
-   r_w=(1+r/4)^4
+   r_w=(1+\frac{r}{4})^4
 
 przy naliczaniu miesięcznym
 
 .. math:: 
 
-   r_w=(1+r/12)^{12}
+   r_w=(1+\frac{r}{12})^{12}
 
 a przy naliczaniu dziennym
 
 .. math::
 
-   r_w=(1+r/365)^{365}
+   r_w=(1+\frac{r}{365})^{365}
 
 gdzie:
 
@@ -452,6 +461,40 @@ gdzie:
  - :math:`r_{ERSPC}` - efektywna roczna stopa procentowa przy ciągłej kapitalizacji  odsetek,
  - :math:`r_{NRSP}` - nominalna roczna stopa procentowa,
  - :math:`e` -podstawa logarytmu naturalnego.
+
+
+
+.. admonition:: Poeksperymentuj z komputerem!
+
+ Wyobraźmy sobie, że mamy depozyt na kwotę :math:`100` na
+ oprocentowaniu na pewną stopę :math:`r`. Zbadaj ile będziemy mieli na
+ depozycie środków po np. :math:`4` latach w przypadku:
+
+ - kapitalizacji rocznej,
+ - kapitalizacji miesięcznej,
+ - kapitalizacji ciągłej.
+
+ Na wykresie kolorem czerwonym zaznaczona jest kapitalizacja ciągła,
+ zielone punkty to kapilalizacja roczna. Można też zwiększyć częstość
+ kapitalizacji depozytu zmieniąc parametr "liczba kapitalizacji w
+ miesiącu". Pod wykresem pokazana jest nominalna wartość końcowego
+ kapitału w obu procesach i ich względna różnica.
+ 
+.. sagecellserver::
+   :linked: false
+
+   var('x')
+   @interact
+   def _(years=slider(range(1,30),default=4,label='Lata'),rate=slider(0,100,1,default=27,label='stopa roczna (%)'),N=slider(range(1,30),default=1,label='liczba kapitalizacji w roku')):
+
+	    pkts = [(float(i)/N,100*(1+(rate/(N))/100.)^i) for i in range(years*N+1)]
+	    plt = line(pkts,color='green',marker='o')
+	    plt += plot(100*exp(x*rate/100.),(x,0,years),color='red')
+	    sd,sc = pkts[-1][1],100*exp(years*rate/100.)
+	    print sd,sc,round((sc-sd)/((sc+sd)*0.5)*100,2),"%"
+	    plt.show(figsize=(6,2))
+
+
 
 
 
@@ -949,7 +992,11 @@ dostaliśmy taką cenę jak jest warta renta wieczysta czyli:
 = \frac{C}{r}`.
 Tylko, że dostaliśmy tę cenę po n okresach. Jej
 wartość bieżąca to :
-math:`P_o=PV=\frac{C/r }{(1+r)^n}`.
+
+.. math:: 
+
+   P_o=PV=\frac{C/r }{(1+r)^n}
+
 
 Czyli cena transakcji, która jest wartością skończonego szeregu
 płatności to: 
@@ -961,6 +1008,7 @@ płatności to:
 Albo inaczej: 
 
 .. math::
+   :label: PV1
  
    P_0=PV=\frac {C}{r}\left(1-\frac{1 }{(1+r)^n}\right)
 
@@ -1008,9 +1056,10 @@ Gdzie:
    - PMT - płatność regularna, okresowa, rata.
    - R -  stopa procentowa
    
-Oznaczenie PMT użyte zostało, gdyż jest to światowy standard, używany we wszelkich kalkulatoprach finansowych. Wcześniej ta wielkośc była nazywana C.
-Proste matematyczne przekształcenie wzoru pozwala obliczyć wartość
-raty spłaty kredytu w tym sposobie spłacania.
+Oznaczenie PMT użyte zostało, gdyż jest to światowy standard, używany
+we wszelkich kalkulatoprach finansowych. Wcześniej ta wielkośc była
+nazywana C (patrz wzór :eq:`PV1`).  Proste matematyczne przekształcenie wzoru pozwala
+obliczyć wartość raty spłaty kredytu w tym sposobie spłacania.
 
 .. math::
 
@@ -1050,6 +1099,37 @@ TABELA
 
 Wstawić tabele!!!!!!!!!!!!!!!!!
 
+
+
+.. sagecellserver::
+   :linked: false
+
+   K = 1000.0
+   r = 0.2
+   N = 5
+   Kt=[["winny","rata","odsetki","rata kapitalowa"],[K,0.,0.,0.]]
+   PMT = Kt[-1][0]/sum( [1/(1+r)^i for i in range(1,N+1)] )
+   for i in range(1,N+1):
+       kredyt = Kt[-1][0]
+       odsetki = kredyt*r
+       rata_kapitalowa = PMT - odsetki
+       Kt.append( [kredyt+odsetki - PMT, PMT, odsetki, PMT-odsetki])
+   table(Kt) 
+
+
+.. sagecellserver::
+   :linked: false
+
+   Kt=[["winny","rata","odsetki","rata kapitalowa"],[K,0.,0.,0.]]
+   for i in range(1,N+1):
+      kredyt = Kt[-1][0]
+      odsetki = kredyt*r
+      rata_kapitalowa = 200
+      PMT = rata_kapitalowa + odsetki
+
+      Kt.append( [kredyt+odsetki - PMT, PMT, odsetki, PMT-odsetki])
+   table(Kt)
+		    
 
 
 
@@ -1366,10 +1446,11 @@ obligacja do niego nie należy.  W takiej sytuacji nowy właściciel jest
 czasie jest niższa od ceny czystej. Rysunek obok modelowo obrazuje
 taką sytuację i zachowanie się w czasie cen obligacji.
 
-.. figure:: figs/D1110.png 
 
-Brak rysunku
-wstawić!!!!!
+.. figure:: figs/Obnyf.jpg
+   :align: center
+   :figwidth: 629px
+
 
 Zgodnie z (David Blake - Fin. Mark. Analysis), dla roku o 365 dniach,
 narosłe odsetki są równe:
@@ -1864,10 +1945,12 @@ rozwinięcie tej funkcji doprowadzić do postaci:
 
 gdzie :math:`C`  - jest wypukłością  obligacji.
 
-Można wykazać, że  wypukłość wzrasta z kwadratem zapadalności. Maleje ze wzrostem wartości kuponu i rentowności.
+Można wykazać, że wypukłość wzrasta z kwadratem zapadalności. Maleje
+ze wzrostem wartości kuponu i rentowności.
 
 ..figure::
   :caption: Krzywe bieżącej ceny a wypukłość.
+
    brak rysunku!!!!!
    
 

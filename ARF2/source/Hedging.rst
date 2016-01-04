@@ -161,10 +161,12 @@ Innym sposobem zabezpieczenia się przed ryzykiem kursowym jest
 zabezpieczenie dostaw waluty po niezmiennym kursie.  Ale takie
 zabezpieczenie wymaga już używania innych, bardziej złożonych technik
 i instrumentów finansowych. Przykładem takiego rozwiązania są
-kontrakty **forward** omówione w części „Wstęp do Funkcjonowania
-Rynków finansowych”. Wadą takich kontraktów jest to, że jako kontrakty
-OTC, są mało płynne i każde nawet małe opóźnienie czasu wpływów
-powoduje duże problemy płynnościowe kupującego taki kontrakt.
+kontrakty **forward** omówione w części „Wprowadzenie do
+Funkcjonowania Rynków finansowych” `link
+<http://el.us.edu.pl/ekonofizyka/index.php/RF:Rynek_wymiany_walut#Kurs_wymiany_transakcji_spot_a_kurs_transakcji_terminowej_-forward.2C_ryzyko_kursowe>`_. Wadą
+takich kontraktów jest to, że jako kontrakty OTC, są mało płynne i
+każde nawet małe opóźnienie czasu wpływów powoduje duże problemy
+płynnościowe kupującego taki kontrakt.
 
 Analizując sytuacje omawianych firm obserwuje się, że oprócz
 wspomnianego ryzyka kursowego (PLN nie jest walutą światową jak USD
@@ -350,11 +352,8 @@ Sytuacja  na początku transakcji:
 |                                        |                                        |
 +----------------------------------------+----------------------------------------+
 |Czyli płaci dodatkowe odsetki za jeden  |Zysk na transakcji                      |
-|                                        | 1% 10mln razy 3/12= 25000              |
-|kwartał czyli                           |                                        |
+|kwartał czyli                           | 1% 10mln :math:`\times` 3/12= 25000    |
 |10 000 000(0.14-0.13)/4  = 25 000       |                                        |
-|                                        |                                        |
-|                                        |                                        |
 |                                        |                                        |
 +----------------------------------------+----------------------------------------+
 
@@ -402,8 +401,8 @@ Czyli
 |maj                 |   stopa depozytowa tylko 9.0%,         |sprzedaje kontrakty po 90.5%=100%-9.5%  |
 |                    |inwestuje 2mln na 9.%,                  |                                        |
 +--------------------+----------------------------------------+----------------------------------------+
-|zysk/strata         | strata w odsetkach w kwartale          |   2 000 000x2%x 3/12= 10 000           |
-|                    |  2 000 000[(0,11-0,09)/4=10 tys        |                   zysk = 10tys.        |
+|zysk/strata         | strata w odsetkach w kwartale          |   2 000 000 :math:`\times` 2%  3/12=   |
+|                    |  2 000 000[(0,11-0,09)/4=10 000        |  :math:`\times` 10 000  zysk=10 000    |
 +--------------------+----------------------------------------+----------------------------------------+
 
 
@@ -811,10 +810,13 @@ się kontrakty futures na olej opałowy, które to kontrakty są bardziej
 płynne. Porównując ceny paliwa lotniczego i ceny oleju opałowego widać,
 że zmienność ceny obu surowców jest w pewnej mierze podobna ale nie
 identyczna. Problemowi zabezpieczania cen paliwa lotniczego przy
-pomocy instrumentów rynków futures poswiecone są poniższe pozycje:
-(http://bettingthebusiness.com/2011/02/03/the-perils-of-hedging-the-price-of-jet-fuel/
-https://www.kellogg.northwestern.edu/research/fimrc/papers/jet_fuel.pdf
-https://dspace.lib.cranfield.ac.uk/bitstream/1826/3029/1/Airline%20jet%20fuel%20hedging%20-%20theory%20and%20practice.pdf)
+pomocy instrumentów rynków futures poświęcone są poniższe pozycje:
+ * `The perils of hedging the price of jet fuel
+   <http://bettingthebusiness.com/2011/02/03/the-perils-of-hedging-the-price-of-jet-fuel/>`_
+ * `Jet Fuel Hedging Strategies
+   <https://www.kellogg.northwestern.edu/research/fimrc/papers/jet_fuel.pdf>`_
+ * `Airline Jet Fuel Hedging: Theory and practice
+   <https://dspace.lib.cranfield.ac.uk/bitstream/1826/3029/1/Airline%20jet%20fuel%20hedging%20-%20theory%20and%20practice.pdf>`_
 
 Problem ten jest szeroko dyskutowany i analizowany literaturze fachowej.
 
@@ -1081,7 +1083,9 @@ kosztach transakcyjnych i o tym, ze może być niemożliwym odkupić
 wszystkie poprzednio posiadane obligacje. Może on również, kolejna
 tańsza możliwość, użyć kontraktu futures na obligacje. Na większości
 rynków futures taki kontrakt jest wyceniany na podstawie wyceny
-koszyka obligacji "cheapest -to- deliver" (CDT).( Definicja - koszyka CDT  Investopedia-www.rynki finansowe.pl/rynki finansowe _W10 _2015L.pdf lub www.youtube.com.watch?v=jA14ZJaPa8c
+koszyka obligacji "cheapest -to- deliver" (`CDT
+<http://www.investopedia.com/terms/c/cheapesttodeliver.asp>`_ lub na
+`YouTube <http://www.youtube.com/watch?v=jA14ZJaPu8c>`_).
 
 Tak więc kluczowym jest kupienie właściwej ilości kontraktów do
 zabezpieczenia. Należy więc wyliczyć współczynnik zabezpieczenia
@@ -1226,7 +1230,7 @@ Dlatego dokładniej jest używać metody opartej na **duration**. Definicja
 duration została wprowadzona z równania:
 
 .. math::
-   :label: wzor124
+   :label: wzor
 
    \Delta P = - D \times P  \times [ \Delta y/(1+y)]
 
@@ -1336,7 +1340,7 @@ cenę na danym poziomie ale uniemożliwiał skorzystanie z zysków.
 Generalnie kontrakty terminowe są stosowane kiedy ilości aktywów i
 czas zamknięcia pozycji jest znany z dużą pewnością. Kontrakt
 terminowy ustala cenę określonej ilości aktywa w danym czasie w
-przyszłości.  Jeśli któryś z wymienionych parametrów nie jest znany
+przyszłości. Jeśli któryś z wymienionych parametrów nie jest znany
 raczej stosuje się opcje.
 
 Z rozważań na temat opcji znane są profile zysków i strat dla
@@ -1365,7 +1369,7 @@ wygasającą w tym właśnie czasie.  Alternatywna strategia to sprzedać
 akcje i kupić opcje call. Którą wybrać?
 
 Wybrać należy tańszą strategię, biorąc pod uwagę, koszty opcji,
-ewentualną wypłatę dywidendy, i stopę wolną od ryzyka. Kupując dziś
+ewentualną wypłatę dywidendy i stopę wolną od ryzyka. Kupując dziś
 opcje put i trzymając ją do czasu wygaśnięcia ponosimy koszty zakupu
 opcji + koszty pieniądza w czasie, ale zyskujemy dywidendę. W
 przypadku sprzedaży dzisiaj akcji ABC zyskujemy wartość tej kwoty w
@@ -1395,10 +1399,10 @@ straty premii).
 Strategie opcyjne  polegające na stosowaniu  kombinacji opcji 
 -------------------------------------------------------------
 
-Do zabezpieczenia pozycji możemy kombinacje opcji. Opcji, które
+Do zabezpieczenia pozycji możemy użyć kombinacje opcji. Opcji, które
 dotyczą tego samego aktywa, tego samego czasu wygaśnięcia opcji i tej
 samej ceny wykonania (jeśli nie potrafimy przewidzieć kierunku ruchu
-cen). Przykładem tego jest strategia, która polega na kupnie (bądź
+cen). Przykładem takiego zabezpieczenia  jest strategia, która polega na kupnie (bądź
 sprzedaży) zarówno opcji put i call (at the money) (w równych
 ilościach).
 
@@ -1494,23 +1498,22 @@ Strategia ta jest nazywana Straddle - stelaż.
 Należy ponownie podkreślić, że w przypadku używania opcji w celu
 zabezpieczenia możemy kupować opcje albo je wystawiać. Opcje nie są
 instrumentami o symetrycznym ryzyku. Wystawiając opcje ryzykujemy
-konieczność dostawy aktywa wiec koszty nabycia takiego aktywa są
+konieczność dostawy aktywa więc koszty nabycia takiego aktywa są
 często znacznie wyższe niż premia za opcje a w przypadku kupna opcji
 ryzykujemy tylko stratę w wysokości jej ceny.
 
 Powyższy przykład to strategia Long stradle czyli nabywamy opcje i
 nasze ryzyko jest ograniczone do sumy premii zapłaconych za opcje a
-zysk jest praktycznie nieograniczony.
+ ewentualny zysk jest praktycznie nieograniczony.
 
-Jednakże jeśli zastosujemy strategie short straddle czyli wystawimy ta
-sama ilość opcji kupna i sprzedaży na ta sama cenę wykonania i czas
-zapadalności, a stosujemy to gdy spodziewamy się, ze cena wykonania
-aktywa podstawowego nie zmieni się. Jeśli sprzedamy straddle,
-zyskujemy jeśli akcja nie przesunie się w żadnym kierunku. Strategia
+Jednakże, jeślispodziewamy się, że cena wykonania aktywa podstawowego nie zmieni
+się zastosujemy strategie short straddle czyli wystawimy tą samą ilość opcji
+kupna i sprzedaży na tą samą cenę wykonania i czas
+zapadalności. Jeśli sprzedamy straddle,zyskujemy jeśli akcja nie przesunie się w żadnym kierunku. Strategia
 jest opłacalna w sytuacji gdy spodziewana jest stabilizacja ceny
 instrumentu podstawowego na poziomie ceny wykonania S1. Wadą tej
 strategii może być brak ograniczenia maksymalnej straty jaką można
-ponieść w wyniku zastosowania strategii. Maksymalny zysk wynikający z
+ponieść w wyniku zastosowania strategii, gdy cena jenak ulegnie zmianie. Maksymalny zysk wynikający z
 zastosowania takiej strategii jest równy sumie premii uzyskanych z
 tytułu wystawienia opcji.
 
@@ -1549,7 +1552,7 @@ Delta hedging
 Wiedząc jak wrażliwa jest cena opcji na zmianę parametrów rynkowych
 wiedząc o znaczeniu współczynników greckich opcji (kolejne pochodne
 cząstkowe- Patrz opcje  rozdział :ref:`greeks` ) Możemy posłużyć
-się ta wiedzą konstruując strategie zabezpieczania pozycji (portfela)
+się tą wiedzą konstruując strategie zabezpieczania pozycji (portfela)
 przed zmianami cen na rynku.  Metoda zwana hedgingiem delta neutralnym
 ma na celu utworzenie i zachowanie pozycji portfela składającego się z
 pozycji kasowej i pozycji opcyjne mającego deltę równą zero (delta
@@ -1748,7 +1751,7 @@ je:
     plt_sp.show()
 
 Wycenimy teraz opcję sprzedaży aktywa za cenę :math:`K` w czasie
-:math:`t=3`. Zaczynamy od ceny opcji w czasie jej wynonania i
+:math:`t=3`. Zaczynamy od ceny opcji w czasie jej wykonania i
 propagujemy w dół drzewa obliczając za każdym razem średnie ważone z
 miarą arbitrażową :math:`p`. Dochodzimy w ten sposób do ceny opcji w
 czasie :math:`t=0`. Algorytm może być zaimplementowany na przykład
@@ -1797,9 +1800,9 @@ dokładnie tyle jednostek aktywa ile wynosi delta. Mamy więc:
  - W każdym punkcie drzewa modyfikujemy portfel tak by mieć dokładnie
    :math:`\Delta` jednostek aktywa. Jeśli trzeba to się zadłużamy.
 
- Możemy więc łatwo zaimplementować funkcję :code:`calculate_evo`,
+Możemy więc łatwo zaimplementować funkcję :code:`calculate_evo`,
 która obliczy dla danego scenariusza w każdym momencie portfel
-zabezpieczający.. Następnie generujemy liste wszystkich scenariuszy i
+zabezpieczający. Następnie generujemy listę wszystkich scenariuszy i
 w elementcie interaktywnym obliczamy kolejne portfele.
 
 .. admonition:: Poeksperymentujmy sami

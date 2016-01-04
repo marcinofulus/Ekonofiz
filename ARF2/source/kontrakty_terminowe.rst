@@ -37,7 +37,8 @@ dostawy. Standaryzacja kontrakty futures polega na zdefiniowaniu:
  * Miesiąca dostawy.
  * Ostatniej daty, w której kontrakt może być handlowany.
 
-Kontrakt futures jest  handlowany na rynku giełdowym i jest raczej  kontraktem płynnym (o ile  giełda handluje i nie jest zamknięta).
+Kontrakt futures jest handlowany na rynku giełdowym i jest raczej
+kontraktem płynnym (o ile giełda handluje i nie jest zamknięta).
 
 Kontrakty terminowe maja swoja długą historie na rynku
 finansowym. Powstały z potrzeby zapewnienia sobie znanych cen na produkty
@@ -84,8 +85,8 @@ cen miedzy rynkami nazywana jest bazą.
 
 .. note::
 
- Niektórzy autorzy definiują bazę jako różnicę miedzy ceną spot a ceną
- futures.
+ Niektórzy autorzy definiują bazę jako różnicę miedzy ceną spot a ceną futures.
+
 
 Jeśli cena futures jest wyższa niż cena spot, baza jest dodatnia. Ceny
 futures w tym przypadku maleją w kierunku ceny spot, do dnia dostawy,
@@ -257,14 +258,17 @@ Jasnym jest, że w świecie całkowitej pewności :math:`P_f=P_s(T)`,
 czyli, że ceny futures muszą być równe aktualnej przyszłej cenie rynku
 spot.  Należy w tym miejscu przypomnieć sobie to co było mówione o
 zachowaniu przyszłych kursów wymiany w stosunku do dzisiejszych kursów
-wymiany, w skrypcie "Wprowadzenie do funkcjonowania rynków finansowych" a szczególnie o konwergencji cen na rynkach futures i spot. Tak więc zysk z takiej transakcji
-będzie równy zero. Należy zauważyć, że z powodu pełnej pewności nie ma
-potrzeby  pobierania „initial margin” czyli depozytu
-zabezpieczającego ani depozyt ten nie będzie się zmieniał. Czyli w
-strategii 1 nie wystąpią żadne wypływy pieniężne ani wpływy w czasie
-życia inwestycji. Również koszty przechowywania nie występują w
-kontrakcie futures całe koszty przechowywania są związane z transakcją
-na rynku kasowym i nie wystąpią do końca okresu.
+wymiany, w skrypcie "Wprowadzenie do funkcjonowania rynków
+finansowych" (`link
+<http://el.us.edu.pl/ekonofizyka/index.php/RF:Rynek_wymiany_walut#Rynek_wymiany_walut>`_)
+a szczególnie o konwergencji cen na rynkach futures i spot. Tak więc
+zysk z takiej transakcji będzie równy zero. Należy zauważyć, że z
+powodu pełnej pewności nie ma potrzeby pobierania „initial margin”
+czyli depozytu zabezpieczającego ani depozyt ten nie będzie się
+zmieniał. Czyli w strategii 1 nie wystąpią żadne wypływy pieniężne ani
+wpływy w czasie życia inwestycji. Również koszty przechowywania nie
+występują w kontrakcie futures całe koszty przechowywania są związane
+z transakcją na rynku kasowym i nie wystąpią do końca okresu.
 
 W przypadku strategii 2 sytuacja jest bardziej skomplikowana, mimo, że
 podobnie jak w 1 na początku nie ma przepływu pieniądza. Jeśli na

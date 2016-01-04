@@ -139,6 +139,7 @@ normany w postaci:
 
 
 .. sagecellserver::
+    :linked: false
  
     var('r,sigma,t,x0')
     logN = 1/(sigma*sqrt(2*pi*t)*x)*exp(-(log(x)-log(x0)-(r-sigma^2)*t)^2/(2*sigma^2*t))

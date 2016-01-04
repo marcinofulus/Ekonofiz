@@ -118,7 +118,8 @@ kwantyla dla danych parametrów numerycznie. Niestety, widzimy, że wzór
    print k
 
 
-Teraz, sprawdźmy, że rzeczywiście wycałkowanie funkcji gęstości od 
+Teraz, sprawdźmy, że rzeczywiście wycałkowanie funkcji gęstości od
+minus nieskończoności do :math:`k` daje 0.05:
    
 .. sagecellserver::
 
@@ -272,7 +273,7 @@ Dla poziomu ufności :math:`95\%`, :math:`c=0.95` czyli :math:`(1-c)` jest piąt
 
   .. math::
     
-     100 00 \times 0.0251 \times -1.645 = -4128.95 
+     100 000 \times 0.0251 \times -1.645 = -4128.95 
 
   Znaczy to, że posiadając taki portfel w ciągu następnego dnia
   istnieje 5% szans na to, że straty portfela mogą wynieś 4129
@@ -312,7 +313,7 @@ wyliczamy:
 
 .. math::
 
-   VaR = 10000 \times 0,0251 \times 1.645 \times \sqrt{225} = 19 366.5  \text{ jednostek pieniężnych}
+   VaR = 100000 \times 0,0251 \times 1.645 \times \sqrt{22} = 19 366.5  \text{ jednostek pieniężnych}
 
 
 Należy jeszcze uogólnić sytuacje na przypadek, gdy że średnia wartość

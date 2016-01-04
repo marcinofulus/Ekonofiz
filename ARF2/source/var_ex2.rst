@@ -80,7 +80,7 @@ Na przykład dnia 13.1.1997 było:
    
 Wyobraźmy sobie, że jest 10.2.1997 i mamy portfel dwóch akcji i
 jesteśmy dłużni jedną obligację na sto jednostek waluty zagranicznej z
-data wykonania 8 maja 2000. Oznaczmy przez :code:`P` strukturę danych
+data zapadalności 8 maja 2000. Oznaczmy przez :code:`P` strukturę danych
 określającą nasz portfel, stan rynku przez :code:`mrkt10Feb97` oraz
 zdefiniujmy funkcję wyceny portfela :code:`valueP`:
 

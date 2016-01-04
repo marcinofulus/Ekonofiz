@@ -407,7 +407,7 @@ działanie zawsze prowadzi do drzewa rekombinującego.
 
 .. admonition:: Poeksperymentuj sam
 
-   Wykonaj poniższy kod i porównaj wynik z poprzednim!
+   Wykonaj poniższy kod!
 
 
 .. sagecellserver::
@@ -430,12 +430,7 @@ działanie zawsze prowadzi do drzewa rekombinującego.
             SP.append(tmp)
         return SP
     print "Na przyklad gen_recombining(3) daje:"
-    html.table(gen_recombining(3))
-
-
-
-Najlepiej przyjrzeć się na przykładzie jak ta procedura te generuje te
-dane startując od danej stopy procentowej np. wywołanie:
+    table(gen_recombining(3))
 
 
 
@@ -720,23 +715,22 @@ Poniższy kod wykonuje :math:`N` kroków symulacji:
 
     import numpy as np
 
-    N=10000;
-    M=10000;
-    T=100.;
-    h=T/N;
-    time=np.linspace(0.,1.,N)
+    N = 1000
+    M = 1000
+    T = 100.
+    h = T/N
+    time = np.linspace(0.,1.,N)
 
-    S0=8
-    sigma=0.2
+    S0 = 8
+    sigma = 0.2
     k = 0.1
     theta = 6.0
-    x=np.zeros((M,N))
-    x[:,0]=S0*np.ones(M)
+    x = np.zeros((M,N))
+    x[:,0] = S0*np.ones(M)
     for i in range(1,N):
-      x[:,i]=x[:,i-1] + k*(theta-x[:,i-1])*h + sigma*np.sqrt(h)*np.random.randn(M)
+      x[:,i] = x[:,i-1] + k*(theta-x[:,i-1])*h + sigma*np.sqrt(h)*np.random.randn(M)
 
     line( zip(time,x[13,:]) ) + point(zip(time[::100],x[13,::100]),color='red')
-    (np.prod(1+np.average(x[:,::100],axis=0)*0.01)**(0.1)-1)*100
 
     rav  = np.average(x[:,::100],axis=0)*0.01
 
@@ -746,16 +740,21 @@ Poniższy kod wykonuje :math:`N` kroków symulacji:
 .. admonition:: Opis programu
 
     Wykorzystujemy stochastyczny algorytm Eulera w którym całka z
-    białego szumu jest równa:
+    białego szumu  jest równa:
 
     .. math::
-             \int_0^h \xi(t) dt = \sqrt(h) N(0,1),
+             \int_0^h \xi(t) dt = \sqrt{h} N(0,1),
 
     gdzie :math:`N(0,1)` jest zmienną losową o rozkładzie Gaussowskim
     ze średnią zero i wariancją :math:`1`.
 
-    Inicjalizujemy macierz w której będziemy przechowywać wszystkie
-    :math:`N` kroków dla :math:`M` trajektorii. 
+    *  inicjalizujemy macierz :code:`x` w której będziemy przechowywać wszystkie
+       :math:`N` kroków dla :math:`M` trajektorii
+    * w pierwszej kolumnie tej macierzy umieszczamy wartości
+       początkowe dla wszystkich realizacji - :code:`x[:,0]=S0*np.ones(M)`  
+
+    * wykonujemy równoczesną symulację :math:`N` trajektorii
+    * obliczamy średnie stopy zwrotu po trajaketoriach
 
    
 

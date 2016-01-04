@@ -338,13 +338,13 @@ Graficznie wygląda to tak:
    Syntetyczna opcja Put. Korzystając z parytetu put-call w postaci:
    :math:`P = C - S + K e^{-Rt}` możemy za pomoca trzech instrumentów
    otrzymać taki sam efekt finansowy jak z instrumentu Put. 
-
-	 Na prawym panelu pomarańczowa gruba linia oznacza zależność
-	 zysku/straty z opcji Put. Na prawym panelu naniesiono trzy
-	 instrumenty z prawej strony równania :eq:`IS2`. Dodając je do
-	 siebie otrzymujemy zysk/stratę całego portfela. Suma ta jest
-	 zaznaczona na wykresie lewym czarną linią. Widzimy, że pokrywa się
-	 ona zyskiem/stratą z opcji Put.
+ 
+   Na lewym panelu pomarańczowa gruba linia oznacza zależność
+   zysku/straty z opcji Put. Na prawym panelu naniesiono trzy
+   instrumenty z prawej strony równania :eq:`IS2`. Dodając je do
+   siebie otrzymujemy zysk/stratę całego portfela. Suma ta jest
+   zaznaczona na wykresie lewym czarną linią. Widzimy, że pokrywa się
+   ona zyskiem/stratą z opcji Put.
 
 
 
@@ -400,7 +400,10 @@ Blacka-Scholesa:
 
    p2=plot( longCALL(S,50,0)-P_c-( S-50) + ( 50-50*exp(-0.05*90/365.) ),(S,0,100),color='black',aspect_ratio=1,zorder=10)
    p2 += plot( longPUT(S,50,0)-P_p,(S,0,100),color='pink',thickness=5,figsize=4)
-   html.table([["Instrumenty bazowe","Instrument syntetyczny"],[p3,p2]])
+   print "Instrumenty bazowe"
+   p3.show()
+   print "Instrument syntetyczny"
+   p2.show()
 
 
 Na ostatnim rysunku widzimy po prawej - profil zysku/straty dla
@@ -735,24 +738,24 @@ zobowiązuje się do płacenia na rzecz B zmiennej stopy WIBOR.  Czyli:
  
 W wyniku zawartej transakcji Spółka  B płaci:
 
- * -stałą stopę 8.5% 
- * -(WIBOR+1%) 
-
+  * stałą stopę 8.5% 
+  * (WIBOR+1%) 
 
 ale dostaje:
 
- *  +WIBOR
-
+  *  +WIBOR
 
 Czyli, w sumie płaci 9.5% odsetek wg stałej stopy procentowej.  Dzięki
 zastosowaniu takiego swapu firma B zaoszczędza 0.5% w stosunku do
 stopy oferowanej przez kredytodawcę.
 
 Natomiast spółka A płaci:
-  * -stałą stopę 8% 
-  * -WIBOR  
+
+  * stałą stopę 8% 
+  * WIBOR  
 
 Lecz dostaje od spółki B:
+
   * +stałą stopę 8.5%, 
 
 i w sumie płaci WIBOR-0.5% odsetek (zmienna stopa procentowa).
@@ -769,19 +772,20 @@ pomniejszonej o wartość różnicy stóp na rynku stóp zmiennych.
 
 W naszym przypadku wartości te wynoszą 2%-0.5%=1.5%.
 
-Natomiast w sytuacji gdy jedna z firm ma przewagę bezwzględną na jednym rynku a
-druga na drugim zysk będzie sumą wartość różnicy stóp oferowanym
-firmom na rynku stóp stałych powiększoną o wartość różnicy na rynku
-stóp zmiennych. W warunkach rynkowych przewaga komparatywna nie
-zawsze musi występować oraz ewentualne korzyści osiągane ze swapu mogą
-być zbyt małe w porównaniu do kosztów transakcji. Znalezienie drugiej
-strony swapu często jest trudne. Trudność tą usuwa pośrednik finansowy, którym najczęsciej jest bank,
-który to, niejako, staje się stroną dla obu stron
-swapu. Pośrednik przejmuje na siebie ryzyko związane z niedotrzymaniem
-warunków umowy przez każdego z kontrahentów (ryzyko kredytowe), oraz może
-przejmować na siebie część ryzyka walutowego (w swapach
-walutowych). Żąda w zamian wynagrodzenia- czyli każda ze stron
-rezygnuje na rzecz pośrednika z części beneficjów swapu.
+Natomiast w sytuacji gdy jedna z firm ma przewagę bezwzględną na
+jednym rynku a druga na drugim zysk będzie sumą wartość różnicy stóp
+oferowanym firmom na rynku stóp stałych powiększoną o wartość różnicy
+na rynku stóp zmiennych. W warunkach rynkowych przewaga komparatywna
+nie zawsze musi występować oraz ewentualne korzyści osiągane ze swapu
+mogą być zbyt małe w porównaniu do kosztów transakcji. Znalezienie
+drugiej strony swapu często jest trudne. Trudność tą usuwa pośrednik
+finansowy, którym najczęsciej jest bank, który to, niejako, staje się
+stroną dla obu stron swapu. Pośrednik przejmuje na siebie ryzyko
+związane z niedotrzymaniem warunków umowy przez każdego z kontrahentów
+(ryzyko kredytowe), oraz może przejmować na siebie część ryzyka
+walutowego (w swapach walutowych). Żąda w zamian wynagrodzenia- czyli
+każda ze stron rezygnuje na rzecz pośrednika z części beneficjów
+swapu.
 
 Swap stopy procentowej ma podobną strukturę do kontraktu terminowego
 futures (forward) na stopę procentową, w tym sensie, że przyszłe
@@ -825,31 +829,42 @@ na kredyt w Euro o zmiennym oprocentowaniu.
 Assets swap
 ~~~~~~~~~~~
 
-Swap aktywów jest kombinacją  aktywów i swapu, tak by stworzyć syntetyczne aktywa. Przykładowo: aktywo stałego oprocentowania może zostać zamienione w aktywo o zmiennym oprocentowaniu wyceniane w tej samej lub innej  walucie. 
+Swap aktywów jest kombinacją aktywów i swapu, tak by stworzyć
+syntetyczne aktywa. Przykładowo: aktywo stałego oprocentowania może
+zostać zamienione w aktywo o zmiennym oprocentowaniu wyceniane w tej
+samej lub innej walucie.
 
 **Przykład:**
-Strony transakcji : Fundusz inwestycyjny i bank.
 
-Fundusz inwestycyjny zamierza kupić na rynku : albo obligacje o stałym
+Strony transakcji: Fundusz inwestycyjny i bank.
+
+Fundusz inwestycyjny zamierza kupić na rynku: albo obligacje o stałym
 oprocentowaniu o rentowności 4 % rocznie, albo papier o zmiennym
-oprocentowaniu wyceniany na poziomie LIBOR.  Bank jest zainteresowany
-posiadaniem obligacji stał.opr. 4 %, albo zamierza udzielić kredytu
-hipotecznego dla klienta na poziomie LIBOR + 0.5%.  Fundusz kupuje
-obligacje i „swapuje” ją z bankiem, bez pośrednika.
+oprocentowaniu wyceniany na poziomie LIBOR.  
 
-Mechanizm swapu :
+Bank jest zainteresowany posiadaniem obligacji stałym oprocentowaniu
+równym 4 %, albo zamierza udzielić kredytu hipotecznego dla klienta na
+poziomie LIBOR + 0.5%. Fundusz kupuje obligacje i „swapuje” ją z
+bankiem, bez pośrednika.
 
-Fundusz: Kupuje obligacje o rentowności 4%
-Płaci do banku                        - 3,75%
-Otrzymuje  z banku                    LIBOR
+Mechanizm swapu:
 
-Czyli w wyniku  otrzymuje= LIBOR +0,25
+Fundusz: 
+
+ * Kupuje obligacje o rentowności 4%
+ * Płaci do banku - 3,75%
+ * Otrzymuje  z banku  LIBOR
+
+Czyli w wyniku  otrzymuje:  LIBOR +0,25
 
 
-Bank:     Udziela kredytu hipotecznego o oprocentowaniu     LIBOR +0,5%
-Otrzymuje   od Funduszu                                            3,75%
-Płaci do funduszu                                         - LIBOR
-Czyli w sumie otrzymuje =  4,25%.
+Bank:     
+
+ * Udziela kredytu hipotecznego o oprocentowaniu LIBOR +0,5%
+ * Otrzymuje od Funduszu 3,75%
+ * Płaci do funduszu LIBOR
+
+Czyli w sumie otrzymuje: 4,25%.
 
 W wyniku transakcji swapu z funduszem Bank wykreował syntetyczną
 obligację stało procentową o oprocentowaniu wyższym niż rynek a
