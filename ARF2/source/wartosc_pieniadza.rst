@@ -580,6 +580,17 @@ inwestycyjnych.
 
  Jaka jest wartość aktualna (bieżąca) kwoty 1000 PLN którą otrzymamy
  za 15 lat jeśli dzisiaj oferują nam depozyt na 7% rocznie?
+ 
+ Przewidywana cena samochodu za  siedem lat wynosi  40 000.
+ 
+ a) Ile musisz odkładać  rocznie na konto oprocentowane 10% rocznie  by móc oszczędzić tę kwote przez  te  7 lat?
+ 
+ b) Jeśli masz dzisiaj 15 000 na ten cel, to jaka musi być stopa zwrotu z tej , Twojej, inwestycji by  za 7 lat wyniosła ona   40 000?
+ 
+Na pytania te mozna odpowiedzieć korzystając z  wyliczen matematyki finansowej w zakresie wartości pieniadza w czasie.
+Kłopotem moze być wyliczenie sum wyrazów o dość wysokich potęgach, ale od czego jest kalkulator.
+Można udzielić odpowiedzi korzystajac z akusza kalkulacyjnego, kodów pokazanych powyżej w Sage oraz wspomnianych kalkulatorów finansowych, gdzie te i podobne zagadnienie wylicza się bardzo prosto wprowadzajac wiadome w postaci danych, a to; stopy procentowej, raty spłaty, ilości spłat, wartości początkowej lub wartości końcowej i wyliczeniu brakującj a szukanej wielkości poprzez naciśnięcie odpowiedniego przycisku. 
+
 
 
 
@@ -1039,11 +1050,10 @@ Kredyty
 ~~~~~~~
 
 Wyliczenia wartości aktualnej przyszłych, równych strumienie
-pieniężnych , tak jak w przypadku renty, może zostać zastosowane do
+pieniężnych, tak jak w przypadku renty, może zostać zastosowane do
 wyliczenia spłaty kredytu.  Kredyt bowiem to kwota pieniędzy
 otrzymywana dzisiaj od kredytodawcy i spłacana w przyszłości
-najczęściej w równych odstępach czasu. Jeśli kwoty spłat są równe to
-jest to jak w przypadku renty.  Spłata kredytu określona przez zasady
+najczęściej w równych odstępach czasu. Spłata kredytu określona przez zasady
 renty to spłata równymi ratami okresowymi (przykładowo płaconymi co
 miesiąc).  Z wyliczeń dotyczących renty wynika, że:
 
@@ -1093,11 +1103,9 @@ gdzie :
 
 część odsetkowa = kwota kredytu pozostała do spłaty razy oprocentowanie w skali roku/ilość rat w roku
 Sumaryczna wielkość raty spłaty kredytu składająca się z raty kapitałowej i odsetek jest wielkością malejącą w czasie spłaty gdyż  wielkość odsetek  maleje.
-Porównanie spłaty  kredytów pokazuje tabela
+Porównanie spłaty kredytów  omówionymi metodami pokazują  przeliczenia  poniżej: 
 
-TABELA
 
-Wstawić tabele!!!!!!!!!!!!!!!!!
 
 
 
@@ -1119,7 +1127,10 @@ Wstawić tabele!!!!!!!!!!!!!!!!!
 
 .. sagecellserver::
    :linked: false
-
+   
+   K = 1000.0
+   r = 0.2
+   N = 5
    Kt=[["winny","rata","odsetki","rata kapitalowa"],[K,0.,0.,0.]]
    for i in range(1,N+1):
       kredyt = Kt[-1][0]
@@ -1129,6 +1140,28 @@ Wstawić tabele!!!!!!!!!!!!!!!!!
 
       Kt.append( [kredyt+odsetki - PMT, PMT, odsetki, PMT-odsetki])
    table(Kt)
+   
+Porównując  powyższe harmonogramy spłat kredytu dwoma sposobami należy pamiętać, że z punktu matematyki finansowej i wartości pieniądza w czasie te dwa rodzaje spłaty są sobie równe.  Czyli koszt kredytu jest prawie taki sam, niezależnie, czy wybierzemy formę spłat równych, czy malejących. Nie mniej jednak raty płacone nie są sobie równe i pojawia się pytanie który sposób jest (??) lepszy?
+
+Rozważmy porównanie w sytuacji  stałej stopy procentowej w czasie spłacania kredytu. Ponadto z punktu czysto praktycznego przyjmijmy, że kredyt spłacany jest w ratach miesięcznych.
+
+Gdy wybierzemy spłaty równe, to, przez cały okres spłaty kredytu comiesięczne wpłaty do banku będą takie same. Część kapitałowa raty systematycznie rośnie w ciągu całego okresu spłaty, zaś część odsetkowa sukcesywnie maleje. Początkowo większą część spłaty stanowią więc odsetki, a bardzo niewielką - kapitał. Proporcje te zmieniają się w miarę dokonywania kolejnych spłat. Pod koniec okresu spłaty pojedyncza rata zawiera już głównie część kapitałową.
+
+Przy stałym oprocentowaniu wysokość rat równych przez cały czas jest taka sama.
+
+Spłaty malejące, jak zresztą sama nazwa wskazuje, z każdym kolejnym miesiącem są coraz niższe. W każdej spłacie spłacana jest równa część pożyczonego kapitału, natomiast coraz mniejsze odsetki. Wynika to z prostej zależności - malejący stan zadłużenia to stale mniejsza suma, od której naliczane są odsetki.
+Sumując arytmetycznie odsetki, widać, że ich suma w przypadku spłat malejących jest mniejsza  niż analogiczna suma w przypadku spłat równych.
+Natomiast spłaty w okresie początkowym są wyższe niż w przypadku spłat równych.  
+Metoda  malejących spłat jest bardziej uciążliwa dla budżetu kredytobiorcy i wymaga  posiadania większych „rezerw” na początku okresu spłat. Metoda stałych spłat jest równym obciążeniem  czasie całej spłaty kredytu i jest łatwiejsza do oceny czy kredytobiorca jest w stanie spłacać kredyt.
+
+Tak więc wybór metody spłaty kredytu zależy głównie od sytuacji finansowej kredytobiorcy.  
+ 
+ 
+   
+   
+   
+   
+   
 		    
 
 
