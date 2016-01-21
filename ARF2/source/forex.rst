@@ -1,18 +1,19 @@
-﻿Forex - Foreing Currency Exchange
----------------------------------
+﻿Pewne aspekty wymiany walut
+---------------------------
 
-Rynek wymiany walut istnieje skutkiem globalnego zasięgu handlu i lokalnego zasięgu waluty.To jedna z najstarszych usług oferowanych przez  rynki finansowe. 
-Wiele firm oferuje możliwość prowadzenia transakcji na tym rynku. W
-Internecie można znaleźć szereg podręczników handlu, spekulacji i
-odkrywania przygód i emocji związanych z handlowaniem na tym rynku
-przez każdego osobiście. Liczne reklamy zachęcają możliwością
-osiągania znaczących zysków. Rynek jako taki, ani prowadzenie
-transakcji nie jest niczym złym. Pamiętać jednak należy, że podobnie
-jak w przypadku jazdy samochodem gdzie warto najpierw nauczyć się
-jeździć na kursie by potem czerpać przyjemność z samodzielnej jazdy
-tak i w przypadku samodzielnych operacji na rynku finansowym należy
-unikać „przygód„ samodzielnych prób i błędów, które to błędy i pomyłki
-mogą być kosztowne.
+Rynek wymiany walut istnieje skutkiem globalnego zasięgu handlu i
+lokalnego zasięgu waluty. To jedna z najstarszych usług oferowanych
+przez rynki finansowe. Wiele firm oferuje możliwość prowadzenia
+transakcji na tym rynku. W Internecie można znaleźć szereg
+podręczników handlu, spekulacji i odkrywania przygód i emocji
+związanych z handlowaniem na tym rynku przez każdego osobiście. Liczne
+reklamy zachęcają możliwością osiągania znaczących zysków. Rynek jako
+taki, ani prowadzenie transakcji nie jest niczym złym. Pamiętać jednak
+należy, że podobnie jak w przypadku jazdy samochodem gdzie warto
+najpierw nauczyć się jeździć na kursie by potem czerpać przyjemność z
+samodzielnej jazdy tak i w przypadku samodzielnych operacji na rynku
+finansowym należy unikać „przygód„ samodzielnych prób i błędów, które
+to błędy i pomyłki mogą być kosztowne.
 
 Dostępność operacji jest duża i należy zwrócić uwagę na jeszcze jeden
 aspekt samodzielnej działalności na rynkach finansowych. Dokonując

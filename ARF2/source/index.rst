@@ -14,22 +14,25 @@ Praktyczny wstęp do komputerowej analizy Rynków Finansowych
    wstep              
    wstep_tech           
    tech
-   ryzyko
+   wartosc_pieniadza
+   instrumenty_stalego_dochodu
+   forex
    opcje
    opcje-wycena
    Instrumenty_syntetyczne
-   stopy_procentowe
+   kontrakty_terminowe
+   ryzyko
    Hedging
    var*
    binarne
-   wartosc_pieniadza
-   kontrakty_terminowe
-   forex
-   czas_julianski
-   procent
-  
 
-.. only::  html
 
-    Wersja do druku: `PDF <analiza_rynków_finansowych.pdf>`_.
+
+..   czas_julianski
+..   procent
+..   stopy_procentowe  
+
+.. .. only::  html
+
+..    Wersja do druku: `PDF <analiza_rynków_finansowych.pdf>`_.
 
