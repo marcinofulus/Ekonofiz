@@ -550,8 +550,8 @@ cenę obligacji przy zmianie oprocentowania o 1%.  Otrzymamy
 następującą tabelę wiążącą zmiany stopy procentowej i cenę obligacji
 biorąc pod uwagę zmiany o 1%:
 
-Związek między ceną obligacji a jej rentownością przypomina krzywa
-na rysunku obok.!!!!!! Rysunek to wykres zrobiony przez ciebie!!!!!
+Związek między ceną obligacji a jej rentownością pokazuje krzywa
+na rysunku:
 
 .. sagecellserver::
 
@@ -574,8 +574,7 @@ okresie życia. Zatem są bardziej wrażliwe na zmiany rynkowych stóp
 procentowych niż te o krótszym życiu . Zatem czas do zapadalności
 nie jest najlepszą miarą wrażliwości obligacji. W tym miejscu można
 zadać jeszcze jedno pytanie czy zmiana stopy o +1% ma taki sam wpływ
-na cenę jak o jak o-1%???
-
+na cenę jak o jak o-1%?
 
 Aby ocenić ryzyko zmiany stóp procentowych  w przypadku obligacji można użyć kilku metod.
 
@@ -703,7 +702,7 @@ obligacje opisana jest wzorem:
 
 .. math:: 
 
-   P_o=\sum\limits_{i=1}^n\frac{C_i/m}{(1+r/m)^i} +\frac{P_N}{(1+r/m)^n}
+   P_o = \sum\limits_{i=1}^n\frac{C_i/m}{(1+r/m)^i} +\frac{P_N}{(1+r/m)^n}
 
 
 Jeśli policzymy pierwszą pochodną ceny względem stopy to otrzymamy:
@@ -711,7 +710,7 @@ Jeśli policzymy pierwszą pochodną ceny względem stopy to otrzymamy:
 
 .. math::
 
-   dp/dr=\sum\limits_{i=1}^n\frac{(-i/m)C_i/m}{(1+r/m)^i+1} +\frac{P_N}{(1+r/m)^n+1}
+   \frac{dp}{dr} = \sum\limits_{i=1}^n\frac{(-i/m)C_i/m}{(1+r/m)^i+1} +\frac{P_N}{(1+r/m)^n+1}
 
 Wyłączając czynnik :math:`\frac{1}{1+y/m}` przed nawias a następnie
 dzieląc obie strony przez cenę obligacji możemy przekształcić wzór do
@@ -719,7 +718,7 @@ postaci:
 
 .. math::
 
-    (dp/dr)1/P=\sum\limits_{i=1}^n\frac{(-i/m)C/m}{(1+r/m)^i} 1/P+\frac{P_N}{(1+r/m)^n}1/P
+    \frac{dp}{dr}1/P=\sum\limits_{i=1}^n\frac{(-i/m)C/m}{(1+r/m)^i} 1/P+\frac{P_N}{(1+r/m)^n}1/P
  
 Patrząc na wyrażenie po prawej stronie równania widać, że jest to nic
 inne jak Duration :math:`D` zdefiniowana już poprzednio jako średni
@@ -729,21 +728,39 @@ Czyli, z dokładnością do znaku,
 
 .. math:: 
 
-   (dp/dr)1/P=D\frac{1}{1+r}
+   \frac{dp}{dr}\frac{1}{P}=-D\frac{1}{1+r}
 
 Lewa strona równania określa elastyczność ceny względem zmiany stopy
-procentowej.
-
-Rysunek obok ilustruje sens duration na wykresie lnP w zależności od
-logarytmu naturalnego stopy procentowej (YTM)
-
-.. figure:: figs/D10000.png 
-
-   Brak rysunku!!!!!
-
-Duration ilustruje stromość, nachylenie krzywej w punkcie :math:`r`.
+procentowej. Duration ilustruje stromość, nachylenie krzywej w punkcie :math:`r`.
 Oznacza to, że aktywa o takiej samej duration są tak samo czułe na zmianę stopy
 procentowej.
+
+.. admonition:: Poeksperymentuj z duration!
+
+   Możemy wykonać obliczenia Duration dla pewnej obligacji z FV=100 i kuponie PMT=12.0.
+
+
+.. sagecellserver::
+    :linked: false
+
+    N = 7
+    var('r')
+    FV = 100
+    PMT =  12
+    obligacja = [PMT/(1+r)^i for i in range(1,N+1)]
+    obligacja[-1] += FV/(1+r)^N
+    PV = sum(obligacja)
+    D = sum([pv*(i+1) for i,pv in enumerate(obligacja)])/PV
+    dpdr = -PV* (1/(1+r))*D
+    @interact
+    def _(r0 =slider(0.01,0.3,0.01)):
+        dpdr0 = dpdr.subs(r==r0)
+        plt = plot(PV,(r,0,0.3),figsize=(6,3),gridlines=[[],[FV]])
+        plt += point((r0,PV.subs(r==r0)),size=30,color='red')
+        plt += plot(dpdr0*(r-r0)+PV.subs(r==r0),(r,r0-0.1,r0+0.1),color='green')
+        plt.show()
+
+
 
 Zmodyfikowane  duration :math:`M_D`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

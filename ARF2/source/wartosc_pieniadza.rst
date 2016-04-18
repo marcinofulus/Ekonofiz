@@ -548,14 +548,46 @@ ten przyniesie zysk już za rok - pewnej stałej wartości nominalnej,
 tak, że NPV jest dodatnie i wyjdziemy na swoje. Jednak jeśli stopa
 procentowa wzrośnie, to może się okazać że kredyt będzie nasz
 kosztował więcej niż zysk z inwestycji. W finansach stosuje się
-pojęcie wewnętrzej stopy zwrotu (ang. IRR). Z definicji jest to taka
-stopa przy której :math:`NVP=0`. Obliczenie IRR sprowadza się
-matematycznie do znalezienia miejsca zerowego wielomianu. Jak
+pojęcie wewnętrzej stopy zwrotu (ang. Internal Rate of Return, IRR). 
+Z definicji jest to taka stopa przy której :math:`NVP=0`. Obliczenie IRR sprowadza się matematycznie do znalezienia miejsca zerowego wielomianu. Jak
 rozwiązań :math:`NPV=0` może być wiele, ale w tym przypadku interesuje
 nas najmniejsze dodatnie miejsce zerowe. Ponieważ mamy do czynienia z
 wielomianem rzędu większego od czterech do rozwiązywania stosujemy
 metody przybliżone.
 
+.. admonition:: Poeksperymentuj z komputerem!
+
+    Pożyczamy 5000zł w zamian za wypłatę sześciu kwot po 1000zł na koniec każdego roku. Zobacz jak wygląda NPV w funkcji stopy procentowej dla takiej inwestycji.  Stosując funkcję w Sage :code:`find_root` można znaleźć jej miejsce zerowe  - czyli IRR.
+       
+
+ .. sagecellserver::
+   :linked: false
+
+    var('r')
+    c = lambda x,y:x/(1+r)^y
+    NPV = -5000+sum( [c(cf_,i+1) for i,cf_ in enumerate(CF)])
+    show(NPV)
+    print find_root(NPV,0,1)
+    plot(NPV,(r,0,.15),figsize=4 )
+
+
+.. admonition:: Poeksperymentuj z komputerem!
+
+    Nie zawsze NPV ma jedno zero! 
+    
+ .. sagecellserver::
+   :linked: false
+
+    var('r')
+    CF = [-12.,-669.,477]
+    c = lambda x,y:x/(1+r)^y
+    NPV = 205+sum( [c(cf_,i+1) for i,cf_ in enumerate(CF)])
+    
+    print find_root( NPV, 1e-5,0.1)
+    print find_root( NPV, .1,0.2)
+    plot(NPV,(r,0,.15),figsize=4 )
+    
+    
 
 Obliczanie  wartości pieniadza w czasie
 ---------------------------------------
@@ -576,20 +608,47 @@ Komisję. Przykładowo kalkulatory finansowe HP 10BII oraz 12C Platinum
 zostały dopuszczone do używania podczas egzaminów na doradców
 inwestycyjnych.
 
-.. admonition:: Przykład
+.. admonition:: Przykład 1
 
- Jaka jest wartość aktualna (bieżąca) kwoty 1000 PLN którą otrzymamy
- za 15 lat jeśli dzisiaj oferują nam depozyt na 7% rocznie?
+  Jaka jest wartość aktualna (bieżąca) kwoty 1000 PLN którą otrzymamy
+  za 15 lat jeśli dzisiaj oferują nam depozyt na 7% rocznie?
  
- Przewidywana cena samochodu za  siedem lat wynosi  40 000.
+  Rozwiązanie:
+  
+.. sagecellserver::
+  :linked: false
+  
+   1000/(1+0.07)^15
+  
  
- a) Ile musisz odkładać  rocznie na konto oprocentowane 10% rocznie  by móc oszczędzić tę kwote przez  te  7 lat?
  
- b) Jeśli masz dzisiaj 15 000 na ten cel, to jaka musi być stopa zwrotu z tej , Twojej, inwestycji by  za 7 lat wyniosła ona   40 000?
+.. admonition:: Przykład 2
+ 
+  Przewidywana cena samochodu za  siedem lat wynosi  40 000.
+ 
+    a) Ile musisz odkładać  rocznie na konto oprocentowane 10% rocznie  by móc   
+       oszczędzić tę kwote przez  te  7 lat?
+    b) Jeśli masz dzisiaj 15 000 na ten cel, to jaka musi być stopa zwrotu z tej , 
+       Twojej, inwestycji by  za 7 lat wyniosła ona   40 000?
+       
+       
+  Rozwiązanie:
+  
+  .. sagecellserver::
+     :linked: false
+  
+      print 40000/sum(  [ (1+0.1)^i for i in range(7)] ) 
+  
+  .. sagecellserver::
+     :linked: false
+    
+      print (40000-15000*(1+0.1)^7)/sum(  [ (1+0.1)^i for i in range(7)] ) 
  
 Na pytania te mozna odpowiedzieć korzystając z  wyliczen matematyki finansowej w zakresie wartości pieniadza w czasie.
 Kłopotem moze być wyliczenie sum wyrazów o dość wysokich potęgach, ale od czego jest kalkulator.
 Można udzielić odpowiedzi korzystajac z akusza kalkulacyjnego, kodów pokazanych powyżej w Sage oraz wspomnianych kalkulatorów finansowych, gdzie te i podobne zagadnienie wylicza się bardzo prosto wprowadzajac wiadome w postaci danych, a to; stopy procentowej, raty spłaty, ilości spłat, wartości początkowej lub wartości końcowej i wyliczeniu brakującj a szukanej wielkości poprzez naciśnięcie odpowiedniego przycisku. 
+
+
 
 
 
@@ -865,7 +924,7 @@ nieskończoności Otrzymujemy
 
 .. math:: 
 
-   PV=\sum\limits_{i=1}^n\frac{Ci_i }{(1+r)^i} 
+   PV=\sum\limits_{i=1}^n\frac{C_i }{(1+r)^i} 
 
 
 Model powyższy określania ceny godziwej akcji jest zwany modelem
@@ -1026,25 +1085,87 @@ Albo inaczej:
 
 A ten wzór opisuje  kredyt wzięty dzisiaj o wartości bieżącej sumy n spłat płaconych w przyszłości w kolejnych okresach.
 
-Renta płatna  na początku okresów
-+++++++++++++++++++++++++++++++++
 
-.. todo MK z sage teoria procentu 
+Suma szeregu geometrycznego a cztery przydatne wzory na rentę
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Może być taka sytuacja, że płatności nie występują na końcu okresu ale
-na jego początku. Innymi słowy w chwili t=o następuje płatność za
-okres1 a w chwili =2 płatność za okres 1. Czyli wartość przyszła jest
-kapitalizowana o jeden okres więcej czyli:
+Dla renty możemy wyliczyć wartość przyszłą i aktualną. Ponadto mamy rentę płatną na początku okresu, zwaną czasem rentą z góry, oraz rentę zwykłą czyli płatną na końcu okresu  Daje to w sumie cztery kombinacje, dla których są cztery oddzielne  wzory. Wszystkie one jednak pochodzą ze znanego z lekcji matematyki jednego wzoru na sumę częściową szeregu geometrycznego:
 
-.. math:: 
 
-   FV_2=FV_1 (1+r)
+   
 
-Gdzie :math:`FV_{2}` to wartość przyszła płatności na początku okresu
-a :math:`FV_{2}` to wartość ptrzyszła płatności na końcu okresu.
-Wzory na wartość bieżąca można prosto wyliczyć podobnie.  Wyliczenia
-wydaja się intuicyjnie proste bo następuje przesuniecie płatności o
-jeden okres
+   
+.. math::
+
+     S_n = \sum_{k=1}^n a_k = \sum_{k=1}^n q^{k-1}a_0 = \frac{a_0(1-q^n)}{1-q} = a_0\frac{(q^n-1)}{q-1}
+     
+
+Łatwo zauważyć, że :math:`a_0` to płatność, nazywna w powyższych wzorach przez :math:`C` a na kalkulatorach finansowych - PMT. Iloraz szeregu w zależności od sytuacji będzie czynnikiem dyskontującym albo kapitalizującym.
+
+
+Mamy więc:
+
+1. Wartość aktualną (PV) dla renty zwykłej czyli płatnej na końcu okresu. 
+
+   Bierzemy sumę  :math:`S_{n+1}` bez pierwszego wyrazu a za iloraz szeregu geometrycznego wstawiamy: :math:`q=\frac{1}{1+r}`.
+
+
+
+ .. math::
+
+    PV = S_{n+1}-a_0 = a_0 \frac{1-\frac{1}{\left(r + 1\right)^{N}} }{r}
+
+2. Wartość przyszłą  FV  dla renty zwykłej czyli płatnej na końcu okresu.
+
+   Bierzemy sumę  :math:`S_{n}` a za iloraz szeregu geometrycznego wstawiamy:      
+   :math:`q=1+r`.
+
+   .. math::
+     
+     FV = S_n =  a_0 \frac{{\left(r + 1\right)}^{N} - 1}{r}
+
+
+3. Wartość aktualną (PV) dla renty z góry czyli płatnej na początku okresu.
+
+   Bierzemy sumę  :math:`S_n`  a za iloraz szeregu   
+   geometrycznego wstawiamy: :math:`q=\frac{1}{1+r}`.
+
+   .. math::
+
+     PV = S_n =  a_0 \frac{\frac{1}{{\left(r + 1\right)}^{N}} - 1}{\frac{1}{r + 1} - 1}
+
+
+4. Wartość przyszłą (FV) dla renty z góry czyli płatnej na początku okresu.
+
+  Bierzemy sumę  :math:`S_{n+1}` bez pierwszego wyrazu a za iloraz szeregu 
+  geometrycznego wstawiamy: :math:`q=1+r`.
+
+  .. math::
+
+    FV =S_{n+1}-a_0=a_0\frac{{\left(r + 1\right)}^{{\left(N + 1\right)}} - 1}{r} - 1
+
+
+
+W Sage możemy łatwo zapisać i wyliczyć  powyższe wzory:
+
+.. sagecellserver::
+
+    var('q r N')
+    S(N) = (1-q^N)/(1-q)
+    show(S(N))
+    
+    print "PV renta zwykła:" 
+    (S(N+1)-1 ).subs(q==1/(1+r)).full_simplify().show()
+    print "FV renta zwykła:"
+    S(N).subs(q==(1+r)).full_simplify().show()        
+    print "PV renta z góry:"
+    S(N).subs(q==1/(1+r)).simplify().show()
+    print "FV renta z góry:"
+    (S(N+1)-1).subs(q==(1+r)).simplify().show()    
+
+
+
+
 
 Kredyty
 ~~~~~~~

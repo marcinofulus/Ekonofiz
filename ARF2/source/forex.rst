@@ -1,7 +1,7 @@
 ﻿Pewne aspekty wymiany walut
 ---------------------------
 
-Rynek wymiany walut istnieje skutkiem globalnego zasięgu handlu i
+Handel jako  wymiana dóbr posługuje się pieniądzem jako środkiem usprawniajacym wymianę towarów. Nad pieniądzem, jego wartością czuwa Państwo lub Zwiazek Państw. Tylko na swoim terenie jest bowiem w stanie sprawować  nadzór nad pieniądzem. Rynek wymiany walut istnieje skutkiem globalnego zasięgu handlu i
 lokalnego zasięgu waluty. To jedna z najstarszych usług oferowanych
 przez rynki finansowe. Wiele firm oferuje możliwość prowadzenia
 transakcji na tym rynku. W Internecie można znaleźć szereg
