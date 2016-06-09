@@ -233,8 +233,6 @@ inwestycji w pewnym okresie czasu jeśli oprocentowana będzie procentem
 składanym przy danej stopie odsetek.
 
  
-Wyliczanie wartości przyszłej wymaga poruszania sie w przód po osi
-czasu i naliczania odsetek. Innymi słowy, jest to kapitalizacja.
 
 .. admonition:: Przykład 
 
@@ -309,7 +307,7 @@ równa stopie oprocentowania.
 
 Ostatnia prezentowana zależność pozwala nam obliczyć wartość pieniędzy
 w przyszłości - „wartość przyszłą”, znając wartość aktualną
-(bieżącą). Proces ten,już wcześniej nazywamy był, kapitalizacją.
+(bieżącą). 
 
 Z powyższego wzoru możemy też wyliczyć wartość dzisiejszą (aktualną)
 znając wartość przyszłą. Taki proces , posuwania sie w czasie wstecz, zwany jest dyskontowaniem. 
@@ -1031,10 +1029,10 @@ lat wcześniej równoważny model została zaprezentowany przez
 J.B.Williams’a w „Theory of Investment Value”( Cambridge, MA: Harvard
 University Press, 1938).
 
-Na pytanie co w przypadku gdy g jest większe od r???  odsyłamy do
+Ciekawych odpowiedzi na pytanie co w przypadku gdy g jest większe od r??? - odsyłamy do
 rozważań przedstawionych w pozycjach : Ramesh Rao „Financial
-Management” –Uniwersity of TexasSoth Western College Publishing1995i
-lub R.A.Brealey, S.T.Myers-„ Priciple of corporate Finance” McGraw
+Management” –Uniwersity of Texas South Western College Publishing1995
+lub R.A.Brealey, S.T.Myers-„ Principles of corporate Finance” McGraw
 HillComp-1996.
 
 

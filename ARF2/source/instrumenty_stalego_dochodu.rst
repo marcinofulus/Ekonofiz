@@ -215,7 +215,7 @@ Więc cena godziwa:
     
 jest to sumą szeregu geometrycznego. 
 
-... admonition:: 
+.. admonition:: 
 
  Pierwsze tego typu obligacje wyemitował rząd brytyjski by finansować
  nimi działania wojenne przeciw Napoleonowi Bonaparte.
