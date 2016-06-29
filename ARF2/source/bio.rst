@@ -38,8 +38,7 @@ Zespołowi ds. Standardów.
 Marcin Kostur
 -------------
 
-Marcin Kostur, fizyk, profesor nadzwyczajny Uniwersytetu
-Śląskiego. Stypendysta DAAD, Fundacji na Rzecz Nauki
+Marcin Kostur, fizyk. Stypendysta DAAD, Fundacji na Rzecz Nauki
 Polskiej. Pracował na Uniwersytetach w Anglii, Niemczech, USA i
 RPA. Laureat Center for Nanoscience w Monachium za publikację roku w
 2007 i 2008.

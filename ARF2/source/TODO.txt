@@ -1,3 +1,5 @@
 1. kontrakty term. - sprawdzic
 2. wartosc_pieniadza - chk + rysunki z Worda
+3. gdzie są binarne na numpy???
+4. html.table broken down!
 

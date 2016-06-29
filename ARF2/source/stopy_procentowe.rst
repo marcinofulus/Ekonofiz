@@ -567,7 +567,7 @@ procentową. Algorytm, można zapisać w trzech liniach:
 .. code-block:: python
 
    SP = gen_recombining(N,delta1=0.7,delta2=0.2)
-   all_paths = map(lambda x:[0]+np.cumsum(x).tolist(), CartesianProduct(*( N*[[0,1]]) ).list() )
+   all_paths = map(lambda x:[0]+np.cumsum(x).tolist(), map(list,cartesian_product(N*[[0,1]]).list() ))
    mean( [prod([(1+0.01*SP[i][p]) for i,p in enumerate(path_)]) for path_ in all_paths] ) 
 
 
@@ -583,7 +583,7 @@ procentową. Algorytm, można zapisać w trzech liniach:
      stopy w odpowiednim okresie. W przykładzie, w trzecim okresie
      mamy stopę numer "2" na liście stóp. Obliczenia te wyokrzystują
      iloczyn kartezjanski, który w Sage mamy w postaci funkcji np. dla
-     dwóch list: :code:`CartesianProduct([0,1],[0,1])`
+     dwóch list: :code:`cartesian_product([[0,1],[0,1]])`
   
       - zauważmy, że pierwsza gwiazdka "rozpakowywuje argumenty" z :code:`N*[[0,1]]`.
 
@@ -605,7 +605,7 @@ przeliczonym w uprzednio :ref:`przykładzie <_przyklad_drzewa>`:
    N = 2
    try:
        SP = gen_recombining(N,delta1=0.7,delta2=0.2)
-       all_paths = map(lambda x:[0]+np.cumsum(x).tolist(), CartesianProduct(*( N*[[0,1]]) ).list() )
+       all_paths = map(lambda x:[0]+np.cumsum(x).tolist(), map(list,cartesian_product(N*[[0,1]]).list() ))
        R = mean( [prod([(1+0.01*SP[i][p]) for i,p in enumerate(path_)]) for path_ in all_paths] )
        print "Srednia zannualizowana stopa wynosi:", (R^(1/(N+1)) - 1)*100
    except:
@@ -658,15 +658,17 @@ funkcji, w której parametrem będzie właśnie liczba okresów.
     def forward_rate(N = 2,**kpars):
 
         SP = gen_recombining(N,**kpars)
-        all_paths = map(lambda x:[0]+np.cumsum(x).tolist(),CartesianProduct(*( N*[[0,1]]) ).list() )
+    
+        all_paths = map(lambda x:[0]+np.cumsum(x).tolist(), map(list,cartesian_product(N*[[0,1]]).list() ))
+    
 
         r_avg = mean( [prod([(1+0.01*SP[i][p]) for i,p in enumerate(path_)]) for path_ in all_paths] ) 
         rs  =((r_avg)^(1/(N+1))-1)*100
         return  rs
 
 
-    point( [(i,forward_rate(i,q=0.1)) for i in range(12)],figsize=5)+\
-     point( [(i,forward_rate(i,q=0.2)) for i in range(12)],color='red')
+    point( [(i,forward_rate(i,q=0.1)) for i in range(1,12)],figsize=5)+\
+     point( [(i,forward_rate(i,q=0.2)) for i in range(1,12)],color='red')
 
 
 

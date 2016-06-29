@@ -207,13 +207,15 @@ uwydatnia tą własność:
 
 .. sagecellserver::
 
-    nbins=100
-    plst = []
-    for r,c in zip([r_rel,r_log],['red','blue']):
-        H = np.histogram(r,bins=nbins)
-        normalizacja = H[0].sum()*(H[1].max()-H[1].min())/nbins
-        plst.append(line( zip(H[1],H[0]/normalizacja),color=c,figsize=(4,2)))
-    html.table([["Zwroty wzgledne","Log-zwroty"],plst])
+   nbins=100
+   plst = []
+   for r,c,title in zip([r_rel,r_log],['red','blue'],["Zwroty wzgledne","Log-zwroty"]):
+       H = np.histogram(r,bins=nbins)
+       normalizacja = H[0].sum()*(H[1].max()-H[1].min())/nbins
+       plst.append(line( zip(H[1],H[0]/normalizacja),color=c,figsize=(4,2),title=title))
+   show(plst[0])
+   show(plst[1])
+
 
 
 .. admonition:: Poeksperymentuj z komputerem
@@ -221,6 +223,7 @@ uwydatnia tą własność:
    Zbadaj jak wyglądałby histogram dla różnych wartości parametry
    :code:`nbins`. Czy bardzo duże i bardzo małe wartości mają sens?
    Jaki jest użyteczny zakres tego parametru?
+
 
 
 Stacjonarność danych

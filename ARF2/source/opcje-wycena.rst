@@ -25,10 +25,10 @@ opcję call na akcje spółki nie wypłacającej dywidendę.
 W modelu dwumianowym czas pozostały do wygaśnięcia opcji dzieli się na
 dyskretne przedziały. Po każdy okresie czasu cena aktywa :math:`P`
 zmienia się przyjmując jeden z dwu możliwych stanów. Może wzrosnąć do
-wartości Pu (z prawdopodobieństwem p) lub zmaleć do wartości Pd (z
-prawdopodobieństwem :math:`1-p`), gdzie :math:`u > 1`, :math:`d <
-1`. Mając zbiór cen aktywa (np. akcji) w postaci drzewka, można
-wycenić opcję przeprowadzając rachunek wstecz, począwszy od daty
+wartości Pu (z prawdopodobieństwem p) lub zmaleć do wartości
+:math:`P_d` (z prawdopodobieństwem :math:`1-p`), gdzie :math:`u > 1`,
+:math:`d < 1`. Mając zbiór cen aktywa (np. akcji) w postaci drzewka,
+można wycenić opcję przeprowadzając rachunek wstecz, począwszy od daty
 wygaśnięcia.  Obliczenia wykonuje się w kierunku początku drzewa od
 chwili :math:`T` do :math:`T-1`, dyskontując w tym przedziale czasowym
 wartość portfela bezpiecznego składającego się z aktywa i opcji, po
@@ -199,12 +199,12 @@ miesiącach, przyjmując jeden okres modelu jako jeden miesiąc:
 
 Niech roczna stopa procentowa wynosi 10% a cena wykupu opcji
 :math:`K=50`. Łatwo się przekonać, że takie drzewo jest wolne od
-arbitrażu dla miary określonej przez :math:`q=0.5073`.
+arbitrażu dla miary określonej przez :math:`p=0.5073`.
 
 .. sagecellserver::
 
-   q = 0.5073
-   Q = [q,1-q]
+   p = 0.5073
+   Q = [p,1-p]
    K = 50
    r = 10.0
    C  = exp(r/100*1/12.).n()
@@ -239,7 +239,7 @@ ten sposób możemy otrzymać całe drzewo cen:
 
    OP = [ [max(0,s-K) for s in SP[N]] ]
    for idx in range(N):
-       el = [ 1/C*(q*OP[-1][i]+(1-q)*OP[-1][i+1]) for i in range(len(OP[-1])-1)] 
+       el = [ 1/C*(p*OP[-1][i]+(1-p)*OP[-1][i+1]) for i in range(len(OP[-1])-1)] 
        OP.append(el)
    OP.reverse()
 
@@ -383,6 +383,49 @@ zasymulowania numerycznego.
    sum([line(enumerate(S[i,:]),thickness=0.2,figsize=4) for i in range(M)])
 
 
+
+
+Opcję europejską możemy wycenić korzystając z symulacji procesu
+losowego.  W tym celu generujemy :math:`M` trajektorii ceny
+instrumentu podstawowego i obliczamy średnią z funkcji wyceny opcji w
+chwili zapadalności. Używając powyższego schematu do symulacji
+dynamiki instrumentu podstawowego jako geometrycznego ruchu Browna,
+wystarczy wykonać operację uśredniania, która w przedstawia się
+następująco:
+
+
+.. code-block:: python
+    
+    np.exp(-r*T)*np.mean( np.maximum(S[:,N-1]-K,0) )  
+
+
+Pełna procedura wyceny metodą Monte-Carlo wygląda następująco:
+
+
+.. sagecellserver::
+
+    
+    K = 125.0
+    r,T,sigma = 0.1, 1, 0.1
+    S0 = 120   
+
+    import numpy as np 
+    N = 100
+    M = 1000
+    h = T/N;
+    S = np.zeros((M,N))
+    S[:,0] = S0*np.ones(M); 
+    for i in range(1,N):
+      S[:,i] = S[:,i-1] + r*S[:,i-1]*h + sigma*np.sqrt(h)*S[:,i-1]*np.random.randn(M)
+
+    call_MC = np.exp(-r*T)*np.mean( np.maximum(S[:,N-1]-K,0) )
+    put_MC = np.exp(-r*T)*np.mean( np.maximum(K-S[:,N-1],0) )
+    print "Wycena z symulacji Monte-Carlo, opcja Call:",call_MC," opcja Put:",put_MC
+
+    # sum([line(enumerate(S[i,:]),thickness=0.2,figsize=4) for i in range(123)])
+
+
+
 Kolejnym elementem analizy jest określenie związku między modelami
 ciągłym a drzewami dyskretnymi.
 
@@ -462,8 +505,8 @@ przypadek w którym przyjmiemy:
    d = \frac{1}{u}.
 
 
-Taki wariant drzewa binarnego jest znany jako model Cox-a, Ross-a i
-Rubinstein-a (CRR). Rozwiązując układ równań :eq:`eq:crr1`, w
+Taki wariant drzewa binarnego jest znany jako model **Coxa, Rossa i
+Rubinsteina (CRR)**. Rozwiązując układ równań :eq:`eq:crr1`, w
 przybliżenie małego czasu :math:`t`, otrzymujemy wzory wiążące model ciągły z  drzewem binarnym:
 
 
@@ -713,10 +756,26 @@ Powyższe wzory możemy wprowadzić do systemu Sage i zbadać ich własności:
         p.show(figsize=6)
 
 
-Opcję europejską możemy wycenić zarówno korzystając z analitycznego
-wzoru jak i bezpośrednio z symulacji procesu losowego. W tym celu
-generujemy :math:`M` trajektorii ceny instrumentu podstawowego i
-obliczamy średnią z funkcji wyceny opcji w ostatnim momencie czasu.
+
+Wycena ze wzorów Blacka-Scholesa a wycena Monte-Carlo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+W modelu Blacka-Scholesa zakłada się, że instrument podstawowy
+zachowuję się jak geometryczny ruch Browna. Można więc przypuszczać,
+że wycena opcji metodą Monte-Carlo, stosując model ciągły powinna
+odtworzyć liczby pochodzące ze wzorów Blacka-Scholesa. 
+
+
+.. admonition: Poeksperymentuj z komputerem 
+
+   Sprawdź jak działa wycena różnymi metodami w praktyce:
+
+     - wykonaj poniższą komórkę
+     - sprawdź czy otrzymałeś ten sam wynik
+     - co można zrobić by poprawić dokładność wyniku z symulacji Monte-Carlo?
+     - ile czasu potrzeba by wycenić poniższą opcję z dokładnością do jednego procenta?
+
 
 
 .. sagecellserver::
@@ -736,19 +795,21 @@ obliczamy średnią z funkcji wyceny opcji w ostatnim momencie czasu.
     print "Wycena ze wzoru:",C(S0,K,r,T,sigma).n()
 
     import numpy as np 
-    N=100
-    M=1000
-    h=T/N;
-    S=np.zeros((M,N))
-    S[:,0]=S0*np.ones(M); 
+    N = 100
+    M = 1000
+    h = T/N;
+    S = np.zeros((M,N))
+    S[:,0] = S0*np.ones(M); 
     for i in range(1,N):
-      S[:,i]=S[:,i-1] + r*S[:,i-1]*h + sigma*np.sqrt(h)*S[:,i-1]*np.random.randn(M)
+      S[:,i] = S[:,i-1] + r*S[:,i-1]*h + sigma*np.sqrt(h)*S[:,i-1]*np.random.randn(M)
 
-    call_MC=np.exp(-r*T)*np.mean( np.maximum(S[:,N-1]-K,0) )
-    put_MC=np.exp(-r*T)*np.mean( np.maximum(K-S[:,N-1],0) )
+    call_MC = np.exp(-r*T)*np.mean( np.maximum(S[:,N-1]-K,0) )
+    put_MC = np.exp(-r*T)*np.mean( np.maximum(K-S[:,N-1],0) )
     print "Wycena z symulacji Monte-Carlo:",call_MC,put_MC
 
-    sum([line(enumerate(S[i,:]),thickness=0.2,figsize=4) for i in range(123)])
+    # sum([line(enumerate(S[i,:]),thickness=0.2,figsize=4) for i in range(123)])
+
+
 
 
 
@@ -1146,9 +1207,7 @@ nią. Posiadacz tego prawa musi zadecydować kiedy będzie chciał z tego
 prawa skorzystać.
 
 Procedura wyceny takiej opcji, będzie korzystała z pełnej informacji o
-historii zmian ceny instrumentu. Innymi słowy, w języku trajektorii
-oznacza to, że będziemy obliczać maximum po całej trajektorii a nie
-tylko po wartości końcowej. 
+historii zmian ceny instrumentu. 
 
 Algorytm wyznaczania ceny opcji korzysta z warunku braku
 arbitrażu. Postępujemy podobnie jak przy wycenie opcji europejskiej na
@@ -1192,7 +1251,9 @@ algorytmu:
     
 
 Widzimy, że wartość opcji amerykańskiej przy podanych parametrach
-różni się znacznie od opcji europejskiej. Mozna się przypatrzeć na drzewie w których miejscach wartość wewnętrzna będzie większa od wartości arbitrażowej. Zobaczmy:
+różni się znacznie od opcji europejskiej. Mozna się przypatrzeć na
+drzewie w których miejscach wartość wewnętrzna będzie większa od
+wartości arbitrażowej. Zobaczmy:
 
 
 .. sagecellserver::

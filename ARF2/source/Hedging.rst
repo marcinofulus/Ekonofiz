@@ -1788,7 +1788,9 @@ zestawić wykres z wykresem ceny opcji.
 
     delta_tree = [np.diff(np.array(op))/np.diff(np.array(sp)) for op,sp in zip(OP[1:],SP[1:])]
     delta_tree.append([0]*len(SP[-1]))
-    html.table([[plot_tree2(SP,delta_tree),plot_tree2(SP,OP)]])
+    show(plot_tree2(SP,delta_tree))
+    show(plot_tree2(SP,OP) ) 
+
 
 
 Strategia delta hedge zakłada, że w każdym momencie powinniśmy mieć
@@ -1818,7 +1820,8 @@ w elementcie interaktywnym obliczamy kolejne portfele.
             Pt.append( (delta,Pt[-1][1]-x*SP[i][k],SP[i+1][k_next]) )    
         return (Pt[-1][0]*Pt[-1][2]+Pt[-1][1]-max(c*( Pt[-1][2]-K),0),Pt)
 
-    all_paths = map(lambda x:[0]+np.cumsum(x).tolist(),CartesianProduct(*( N*[[0,1]])).list() )
+    all_paths = map(lambda x:[0]+np.cumsum(x).tolist(),map(list,cartesian_product( N*[[0,1]]).list()) )
+
     @interact 
     def _(path = all_paths):
         p = plot_tree2(SP,OP)
@@ -1827,7 +1830,7 @@ w elementcie interaktywnym obliczamy kolejne portfele.
             print "Opcja jest w cenie i musimy doplacic", SP[-1][path[-1]]-K
         else:
             print "Opcja jest bezwartościowa"
-        html.table( calculate_evo(SP,OP,path,depo=16)[1])
+        table( calculate_evo(SP,OP,path,depo=16)[1])
         print "W czasie wykonania mamy w sumie:",calculate_evo(SP,OP,path,depo=16)[0]
         p.show(figsize=3)
 

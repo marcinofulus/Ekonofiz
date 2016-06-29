@@ -428,8 +428,7 @@ W przypadku stopy oprocentowania rachunku, która jest jedyną miarą
 inwestycji, w przypadku YTM nie można powiedzieć, że jest to jedyna i
 ostateczna wielkość pomiaru wartości inwestycji.  W kontekście
 porównania do rachunku bankowego należy wskazać trzy zasadnicze
-miejsca gdzie analogia załamuje się (s.Homer i L.Leibowitz-
-Inside yield curve-N.Y Insitute of Finance).
+miejsca gdzie analogia załamuje się (S. Homer i L. Leibowitz-Inside yield curve-N.Y Insitute of Finance).
 
 Pierwszy punkt to, to, że inwestor sam dowolnie decyduje o wypłatach
 ze swojego konta, (co do wielkości i terminów). Tak nie jest w
@@ -831,10 +830,14 @@ gdzie :math:`C`  - jest wypukłością  obligacji.
 Można wykazać, że wypukłość wzrasta z kwadratem zapadalności. Maleje
 ze wzrostem wartości kuponu i rentowności.
 
-..figure::
-  :caption: Krzywe bieżącej ceny a wypukłość.
 
-   brak rysunku!!!!!
+.. figure:: figs/convexity_thesameduration.jpg
+
+  :caption: Krzywe bieżącej ceny a wypukłość.
+  :align: center
+  :figwidth: 629px
+
+
    
 
 Rysunek obok pokazuje cechy tej miary ryzyka stopy procentowej na
@@ -849,8 +852,8 @@ rynku. Jeśli, przykładowo stopy wzrastają, cena B spadnie mniej niż
 cena A, a jeśli stopy spadają, cena B rośnie więcej niż wzrasta
 cena A.
 
-Wysoka wypukłość to niezwykle pożądana cecha obligacji szczególnie
-przydatna przy ocenie ryzyka.
+Wysoka wypukłość to niezwykle pożądana cecha obligacji z punktu
+widzenia ryzyka.
 
 
 

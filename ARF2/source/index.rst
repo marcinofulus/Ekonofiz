@@ -25,12 +25,12 @@ Praktyczny wstęp do komputerowej analizy Rynków Finansowych
    Hedging
    var*
    binarne
-
+   stopy_procentowe    
 
 
 ..   czas_julianski
 ..   procent
-..   stopy_procentowe  
+..   stopy_procentowe    
 
 .. .. only::  html
 

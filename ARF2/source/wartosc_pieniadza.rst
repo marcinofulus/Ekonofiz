@@ -561,12 +561,13 @@ metody przybliżone.
  .. sagecellserver::
    :linked: false
 
-    var('r')
-    c = lambda x,y:x/(1+r)^y
-    NPV = -5000+sum( [c(cf_,i+1) for i,cf_ in enumerate(CF)])
-    show(NPV)
-    print find_root(NPV,0,1)
-    plot(NPV,(r,0,.15),figsize=4 )
+   var('r')
+   CF = [1000,1000,1000,1000,1000,1000]
+   c = lambda x,y:x/(1+r)^y
+   NPV = -5000+sum( [c(cf_,i+1) for i,cf_ in enumerate(CF)])
+   show(NPV)
+   print find_root(NPV,0,1)
+   plot(NPV,(r,0,.15),figsize=4 )
 
 
 .. admonition:: Poeksperymentuj z komputerem!
@@ -576,14 +577,14 @@ metody przybliżone.
  .. sagecellserver::
    :linked: false
 
-    var('r')
-    CF = [-12.,-669.,477]
-    c = lambda x,y:x/(1+r)^y
-    NPV = 205+sum( [c(cf_,i+1) for i,cf_ in enumerate(CF)])
-    
-    print find_root( NPV, 1e-5,0.1)
-    print find_root( NPV, .1,0.2)
-    plot(NPV,(r,0,.15),figsize=4 )
+   var('r')
+   CF = [-12.,-669.,477]
+   c = lambda x,y:x/(1+r)^y
+   NPV = 205+sum( [c(cf_,i+1) for i,cf_ in enumerate(CF)])
+   
+   print find_root( NPV, 1e-5,0.1)
+   print find_root( NPV, .1,0.2)
+   plot(NPV,(r,0,.15),figsize=4 )
     
     
 
@@ -642,7 +643,7 @@ inwestycyjnych.
     
       print (40000-15000*(1+0.1)^7)/sum(  [ (1+0.1)^i for i in range(7)] ) 
  
-Na pytania te mozna odpowiedzieć korzystając z  wyliczen matematyki finansowej w zakresie wartości pieniadza w czasie.
+Na pytania te mozna odpowiedzieć korzystając z  wyliczeń matematyki finansowej w zakresie wartości pieniadza w czasie.
 Kłopotem moze być wyliczenie sum wyrazów o dość wysokich potęgach, ale od czego jest kalkulator.
 Można udzielić odpowiedzi korzystajac z akusza kalkulacyjnego, kodów pokazanych powyżej w Sage oraz wspomnianych kalkulatorów finansowych, gdzie te i podobne zagadnienie wylicza się bardzo prosto wprowadzajac wiadome w postaci danych, a to; stopy procentowej, raty spłaty, ilości spłat, wartości początkowej lub wartości końcowej i wyliczeniu brakującj a szukanej wielkości poprzez naciśnięcie odpowiedniego przycisku. 
 

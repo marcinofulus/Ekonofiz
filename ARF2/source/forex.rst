@@ -350,7 +350,7 @@ Jeśli rynek jest w równowadze to inwestycje w czasowe depozyty w
 różnych walutach powinny dać ten sam wynik finansowy, w tym samym
 czasie. Nominalna stopa zwrotu będzie taka sama.
 
-Cytując H. Allen i M. Taylora w ich artykule [allentaylor]_:
+Cytując H. Allen i M. Taylora w ich artykule [2]_:
 
 *"podczas gdy prawa fizyki sa stałe i dobrze zdefiniowane, prawa
 rządzące rynkami finansowymi pozostawaj dużej mierze tajemnicą"*
@@ -379,5 +379,11 @@ rynków.
 
  
 
-.. [1] Michael R. Pakko & Patricia S. Pollard, 2004. "Burger survey provides taste of international economics," The Regional Economist, Federal Reserve Bank of St. Louis, issue Jan. `(pdf) <https://research.stlouisfed.org/publications/review/03/11/pakko.pdf>`_
-.. [allentaylor] H. Allen, M. Taylor, "Charts, Noise and Fundamentals in the London Exchange Market - Economic Journal .1990 no. 100 Suplement.-
+.. [1] Michael R. Pakko & Patricia S. Pollard, 2004. "Burger survey
+       provides taste of international economics," The Regional
+       Economist, Federal Reserve Bank of St. Louis, issue Jan. `(pdf)
+       <https://research.stlouisfed.org/publications/review/03/11/pakko.pdf>`_
+
+.. [2] H. Allen, M. Taylor, "Charts, Noise and Fundamentals in the
+       London Exchange Market - Economic Journal .1990 no. 100
+       Suplement.-
