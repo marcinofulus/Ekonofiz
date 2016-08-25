@@ -10,7 +10,7 @@ głównym motywem jaki przyświeca nam w prowadzonych
 zajęciach. Bezpieczeństwo rynków i etyka ich uczestników jest bowiem
 podstawą zaufania do tych rynków. Kwoty pieniężne transformowane przez
 instrumenty na rynkach finansowych to nie szeregi cyfr i ciekawe
-pomysły intelektualno matematyczne, ale czyjeś ciężko zarobione
+pomysły intelektualno - matematyczne, ale czyjeś ciężko zarobione
 pieniądze zabezpieczające przyszłość. Nadzieja na lepszą przyszłość,
 ambitne plany, marzenia i również bezpieczeństwo codziennego
 życia. Czyli należna jest im należyta troska i rozwaga oraz głęboko

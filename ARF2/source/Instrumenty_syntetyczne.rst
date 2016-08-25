@@ -123,7 +123,7 @@ czasie :math:`t=0`.
 
 Wzór ten powinien zachodzić dla wycen opcji, sprawdźmy więc czy
 rzeczywiście tak jest. Możemy wykorzystać system algebry komputerowej
-by wykonal mozolną robotę za nas.
+by wykonał mozolną robotę za nas.
 
 .. admonition:: Poeksperymentuj z Sage!
 
@@ -226,7 +226,7 @@ równanie :eq:`putcall` jako równość wartości dwu portfeli.
    pieniężne, które w chwili z wygaśnięcia musza być równe cenie
    wykonania aktywa pozwalając na wykonanie opcji.
 
- - Drugi portfel składa się z opcji put z ta samą ceną wykonania jak
+ - Drugi portfel składa się z opcji put z tą samą ceną wykonania jak
    opcja call i aktywa, które w chwili wykonania ma wartość ceny
    wykonania.
 
@@ -416,7 +416,7 @@ parytetu powoduje, że obie linie się pokrywają.
 
 
 Korzystając ze wzoru :eq:`IS1` możemy tworzyć instrumenty syntetyczne
-korzystając z czterech "cegieł" wymienionych powyżej.
+korzystając z czterech "cegiełek" wymienionych powyżej.
 
 
 .. admonition:: Poeksperymentuj z komputerem!
@@ -427,14 +427,14 @@ korzystając z czterech "cegieł" wymienionych powyżej.
       :math:`P_p=5.94`. Przeprowadźmy te same obliczenia i zobaczmy
       czy parytet Put-Call dalej będzie spełniony!
 
-   #. Napisz własne programy rysujące pozostałe pięc instrumentów syntetycznych.
+   #. Napisz własne programy rysujące pozostałe pięć instrumentów syntetycznych.
 
 
 Syntetyczna pozycja Long Stock
 ------------------------------
 
 Można stworzyć syntetyczną pozycję posiadania akcji poprzez kupienie
-Call, sprzedaż Put, i zainwestowanie ceny wykonania na stopę wolna od
+Call, sprzedaż Put, i zainwestowanie ceny wykonania na stopę wolną od
 ryzyka do wygaśnięcia.
 
 .. math::
@@ -454,7 +454,7 @@ Syntetyczny Long Call
 ---------------------
 
 Można zbudować pozycje syntetyczną long Call poprzez kupienie Put,
-kupienie akcji za pożyczoną kwotę równa cenie wykonania i spłacanej w
+kupienie akcji za pożyczoną kwotę równą cenie wykonania i spłacanej w
 chwili wygaśnięcia przy stopie wolnej od ryzyka.
 
 .. math::
@@ -947,7 +947,7 @@ Swapcja typu amerykańskiego daje większą elastyczność w wyborze
 najlepszego czasu wykonania niż swapcja europejska co ma odbicie w
 cenie. Swapcje amerykańskie są znacznie droższe od europejskich.
 
-Wysokość premii za swapcje jest ustalana między nabywcą a
+Wysokość premii za swapcję jest ustalana między nabywcą a
 sprzedającym. Swapcja jest instrumentem OTC, czyli umową zawieraną
 pomiędzy bankiem specjalizującym się w transakcjach swap a klientem.
 Zależy ona od stóp procentowych, ich zmienności i czasu do

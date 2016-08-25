@@ -1,7 +1,7 @@
 ﻿Pewne aspekty wymiany walut
 ---------------------------
 
-Handel jako  wymiana dóbr posługuje się pieniądzem jako środkiem usprawniajacym wymianę towarów. Nad pieniądzem, jego wartością czuwa Państwo lub Zwiazek Państw. Tylko na swoim terenie jest bowiem w stanie sprawować  nadzór nad pieniądzem. Rynek wymiany walut istnieje skutkiem globalnego zasięgu handlu i
+Handel jako  wymiana dóbr posługuje się pieniądzem jako środkiem usprawniajacym wymianę towarów. Nad pieniądzem, jego wartością czuwa Państwo lub Zwiazek Państw, które to, tylko na swoim terenie jest w stanie sprawować  nadzór nad pieniądzem. Rynek wymiany walut istnieje skutkiem globalnego zasięgu handlu i
 lokalnego zasięgu waluty. To jedna z najstarszych usług oferowanych
 przez rynki finansowe. Wiele firm oferuje możliwość prowadzenia
 transakcji na tym rynku. W Internecie można znaleźć szereg
@@ -41,7 +41,7 @@ obu państw.
 
 W `poprzednich tekstach
 <http://el.us.edu.pl/ekonofizyka/index.php/RF:Rynek_wymiany_walut>`_
-dotyczących wymiany walut rozdziale dotyczącym rynku wymiany walut
+dotyczących wymiany walut w rozdziale dotyczącym rynku wymiany walut
 można było zauważyć powiązanie miedzy przyszłym kursem wymiany a stopą
 procentową depozytów w krajach walut.  Widać powiązanie, ale nie jest
 to wiedza w pełni pozwalająca przewidzieć przyszłe zmiany wartości
@@ -53,10 +53,10 @@ względnej walut.
  
 
 Na wykresie pokazano zmiany kursu złotówki względem Euro w ciągu
-części wybranego dnia (12.08.2013). Widać zmienność kursu.
+części wybranego dnia (12.08.2013). Widać  znaczną zmienność kursu.
 
 Powstaje pytanie co decyduje o cenie walut? Oraz prostsze, ale
-bardziej praktyczne która waluta jest niedoszacowana lub
+bardziej praktyczne, która waluta jest niedoszacowana lub
 przeszacowana?
 
 Przejrzyjmy kilka sposobów funkcjonujących na rynku i pozwalających na
@@ -125,7 +125,7 @@ szanse na wygenerowanie dochodu z operacji kupna/sprzedaży.
     Niestety nie mamy pewności czy takie kwotowanie nadal będzie
     akceptowane przez strony transakcji. Tak było przed chwilą ale nie
     wiemy czy będzie za chwilę. Systemy komputerowe transakcji
-    arbitrażowych pracują bez przerwy.
+    arbitrażowych pracują na rynku światowym bez przerwy.
 
 
 .. note:: Równowaga szczegółowa
@@ -194,7 +194,7 @@ Więcej na temat tego indeksu można znaleźć:
 http://www.economist.com/media/audio/burgernomics.ram 
 
 Porównywanie siły nabywczej waluty (PPP) przy pomocy Big Maca wydaję
-się być ryzykowną podstawa inwestycji na rynku Forex.  Ale jest to
+się być ryzykowną podstawą inwestycji na rynku Forex.  Ale jest to
 jakaś metoda wyceny. Pakko i Pollard [1]_ wykazali w swych badaniach, że
 zasada siły nabywczej na podstawie hamburgera obowiązuje w długim
 okresie czasu jednakże odchylenia kursów walut również otrzymują się

@@ -13,15 +13,14 @@ zależy (pochodzi) od ceny innego aktywa.
 
 Opcje to instrument finansowy, którego popularność szybko
 rośnie. Opcje to instrument mądry, użyteczny ale i
-niebezpieczny. Opcje to instrumenty coraz częściej stosowane. Ten
-wzrost stosowania opcji ma swe źródło w szczególnych cechach opcji.
+niebezpieczny.  Ten wzrost stosowania opcji ma swe źródło w szczególnych cechach opcji.
 
 
 
 Opcje:
 
 - Stwarzają na rynku możliwości do korygowania ryzyka lub zmieniania
-  przepływów przychodów co bez ich istnienia nie byłoby możliwe.
+  przepływów przychodów, co bez ich istnienia nie byłoby możliwe.
 - Stwarzają możliwość  stosowania dźwigni finansowej. 
 - Mogą być używane jako generator dodatkowego dochodu z portfela
   inwestycyjnego.
@@ -371,7 +370,7 @@ wystawienie.
 .. note::
 
    W poniższym kodzie definiujemy funkcje :code:`C` i :code:`P`, które
-   są słynnymi wzrorami Blacka-Scholesa na cenę opcji Call i Put,
+   są słynnymi wzorami Blacka-Scholesa na cenę opcji Call i Put,
    odpowiednio. W tym momencie przyjmijmy, że reprezentują one cenę
    godziwą opcji. Ich wyprowadzenie będzie omówione w następnym
    rozdziale.
@@ -650,7 +649,7 @@ Opcje i lekcja na ich temat,  jaka wynika z kłopotów  polskich firm z opcjami 
 
 
 
-W każdym rozdziale niniejszego opracowania, tam gdzie wspomina się o
+W każdym rozdziale niniejszego opracowania, tam gdzie, wspomina się o
 opcjach podkreślane jest, że opcja to świetny instrument do
 zabezpieczania się przed ryzykiem ale jeśli chodzi o relacje do tego
 ryzyka - asymetryczny. Asymetryczność przejawia się m.in. w tym, że
@@ -711,7 +710,7 @@ uzyskania zysku a nie straty. Zaleca się jednak by czytający ten tekst
 nie wystawiali opcji tak długo, jak długo będą odkrywać jakieś istotne
 informacje w niniejszym opracowaniu. Jeśli bowiem ich doświadczenie i
 wiedza o rynku będzie tak duża, że nie będą korzystać z takich
-opracowań, niech wystawiają opcje. Na rynku finansowym, jak i w życiu,
+opracowań, mogą rozważać możliwość wystawienia opcji. Na rynku finansowym, jak i w życiu,
 nie można osiągnąć nic więcej bez podjęcia ryzyka. Tylko należy mieć
 świadomość istnienia ryzyka i umieć oszacować koszty podjęcia tego
 ryzyka i zarządzania nim tak by, ewentualne straty mieściły się w
@@ -802,16 +801,16 @@ Zaproponowana transakcja wygląda następująco:
                 zadawalają klienta. Ponadto firma Export S.A nie musi
                 martwić się wzrastającą wartością
                 złotówki. Rozwiązanie wydaje się idealne. Co prawda
-                przykład jest teoretyczny wiec cena opcji sprzedaży i
+                przykład jest teoretyczny więc cena opcji sprzedaży i
                 kupna są identyczne. W praktyce tak nie jest ale od
                 czego są specjaliści od finansów. Można bowiem
                 regulować tak kwotą sprzedawanych przez klienta
                 bankowi dolarów aby kwoty opłat za opcje były równe
                 czego oczekuje klient.  Zadowolenie klienta -
-                wartością naczelna dla banku. To ze Klient ma sprzedać
+                wartością naczelną dla banku. To, że Klient ma sprzedać
                 więcej dolarów bankowi niż bank zobowiązuję w swej
                 opcji kupić jest szczegółem. Przecież wystarczy
-                popatrzeć na wykres by zobaczyć, ze PLN się umacnia
+                popatrzeć na wykres by zobaczyć, że PLN się umacnia
                 czyli bank i tak nie wykorzysta swej opcji.
 
 
@@ -838,7 +837,7 @@ złoty uległ nagłemu osłabieniu.
 
 Wtedy pojawił się problem dla posiadaczy złożonych opcji, kiedy
 wartość złotego idzie w dół. 1 milion dolarów jaki zarobi firma Export
-S.A.  bank International kupiłby po kursie 3,50 PLN za 1 USD. Tylko,
+S.A.  Bank International kupiłby po kursie 3,50 PLN za 1 USD. Tylko,
 że Firma Export S.A.  nie ma już wyboru – musi sprzedać swoje
 pieniądze bankowi International po kursie 2,50 za 1 USD. Ponadto
 często więcej dolarów niż zabezpieczała sobie kupując opcje put (
@@ -860,7 +859,7 @@ znaczna. Patrz wykres poniżej.
 
 
 Firmy wpadły w kłopoty finansowe. W mediach pojawiło się określenie
-„toksyczne opcje” jako określenie umów określenie umów zawieranych z
+„toksyczne opcje” jako określenie umów zawieranych z
 bankami przez polskie przedsiębiorstwa w 2008 roku, które często
 doprowadzały je do kłopotów finansowych, z bankructwem włącznie. Jak
 to bywa z mediami określenie nie było precyzyjne bo firmy zawierały
@@ -873,28 +872,28 @@ Konkluzje prawie wszystkich opracowań były zgodne i
 podobne. Wypracowując opisaną strategie zabezpieczającą przed ryzykiem
 kursowym i podpisując umowy z bankami firmy przyjęły na siebie jeszcze
 większe ryzyko kursowe niż to, przed którym szukały ochrony. 
-Ponadto, asymetria umów, w których nominał opcji wystawionych
-przewyższa nominał opcji nabytych, wskazywał na brak orientacji w
+Ponadto, asymetria umów, w których nominał waluty opcji wystawionych
+przewyższa nominał waluty opcji nabytych, wskazywał na brak orientacji w
 działaniu opcji albo brak zrozumienia wykonywanych transakcji(co
 wydaje się mało prawdopodobne) albo na działania spekulacyjne. Firmy
 jako podmioty nie zajmujące się działalnością na rynkach finansowych
 nie powinny były wystawiać opcji.  
 
 Zawsze, w każdej działalności, należy kierować się zasadą
-ograniczonego zaufania do partnerów ( a szczególnie finansowych a szczególnie gdy
+ograniczonego zaufania do partnerów ( a szczególnie finansowych, i szczególnie gdy
 oferowane jest " coś za darmo") i nigdy nie wchodzić posiadanie
 instrumentów finansowych, których działania do końca się nie rozumie.
 Na rynku pojawiają się ciągle coraz bardziej skomplikowane i wymyślne
-instrumenty finansowe projektowane przez świetne wyszkolonych
+instrumenty finansowe projektowane przez świetnie wyszkolonych
 specjalistów posiadających znakomita wiedzę matematyczno- numeryczną,
 których działanie nie wszyscy do końca rozumieją a ryzyka których nie
 jest w pełni znane.
  
-Jednak należy podkreślić jedna pozytywną element omawianej
+Jednak należy podkreślić jeden pozytywny element omawianej
 sytuacji. Firmy nie finansowe podeszły aktywnie do zarządzania ryzykiem
 finansowym, w tym przypadku , kursowym. Omówiony został przypadek firm, 
 które nie zrobiły tego idealnie i popełniły pewne błędy na słusznej
-drodze słusznych decyzji o zabezpieczeniu. W powyższym przypadku nie
+drodze, słusznych decyzji o zabezpieczeniu. W powyższym przypadku nie
 mówiono o firmach, które zrobiły to zabezpieczenie właściwie.
 
 .. rubric:: Footnotes

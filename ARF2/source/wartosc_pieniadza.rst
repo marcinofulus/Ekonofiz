@@ -15,14 +15,14 @@ Aktywo, jego wartość, wycena
 
 
 Aktywo to ta cześć zasobów, która generuje strumień przepływów
-pieniężnych.  Aktywo posiada charakterystyczną cechę, która jest jego
+pieniężnych.  Aktywo posiada charakterystyczną cechę, którą jest jego
 wartość.  Wartość aktywa określa rynek.
 
 Najczęściej ta wycena odbywa się metodą aukcji, gdzie aktywo zyskuje
 ten, który ofiaruje za niego najwyższą cenę czyli ustala jego
-najwyższą wartość.  Porównywaniu wartości aktywów zanim poddane
+najwyższą wartość.  Oszacowaniu wartości aktywów zanim poddane
 zostaną testowi aukcji rynkowej służy matematyka. Matematyka pozwala
-na porównywanie wartości oraz na przewidywanie ich wartości rynkowej
+na porównywanie wartości oraz na przewidywanie ich prawdopodobnej wartości rynkowej
 dzięki oferowaniu pewnych zasad i modeli przydatnych do
 wyceny. Matematyczne wyrafinowanie metod i modeli wyceny wzrasta
 bardzo szybko. Komputery ułatwiają przeprowadzanie skomplikowanych
@@ -36,7 +36,7 @@ pieniądza. Używając pieniądza do wyceny odkryć można szereg jego
 specyficznych cech, o których będzie poniżej.
 
 Pierwsza uwaga dotyczy praktycznego spostrzeżenia, że poszukując
-danych finansowych ceny w różnych źródłach znajduje się szeregi (
+danych finansowych np. ceny, w różnych źródłach znajduje się szeregi (
 najczęściej czasowe) danych ceny.  Jeśli dokonuje się porównywania
 tych danych należy mieć pewność, że mamy do czynienia z tą samą
 wielkością oraz że wielkości te występującą w tych samych jednostkach
@@ -74,8 +74,8 @@ inflacja. Często obserwuje się wzrost cen w czasie. Nagroda wspomniana
 powinna rekompensować zmianę tego poziomu cen. Drugi powód to ryzyko
 tego, że pożyczkobiorca nie zwróci pożyczonej sumy.  Nagroda powinna
 rekompensować ryzyko niespłacenia długu. Trzeci powód to utrata
-możliwości. Pożyczając pieniądze nie możemy zrealizować wspaniałych
-możliwości jakie mogą się pojawić czasie gdy nie mamy pieniędzy i
+możliwości swobodnej decyzji alokacji. Pożyczając pieniądze nie możemy zrealizować wspaniałych
+możliwości jakie mogą się pojawić czasie gdy nie mamy pieniędzy we własnej gestii i
 czekamy na ich zwrot. Nagroda wspomniana ma za zadanie rekompensować
 wszelkie, możliwe, stracone możliwości. Nawet jeśli dwa pierwsze
 powody nie występują, trzeci - wpływa na zmianę wartości pieniądza w
@@ -134,9 +134,9 @@ czas gdy może będą nam bardziej potrzebne?
 Jeśli już nie przeznaczamy ich na konsumpcję, to w dalszym ciągu
 myślimy jak je przechować do chwili późniejszej.  Chwila refleksji
 podsunie nam dość naturalna obawę czy trzymanie pieniędzy w portfelu
-(czy tez innym bezpiecznym miejscu, przykładowa skarpeta czy pod
+(czy też innym bezpiecznym miejscu, przykładowa skarpeta czy pod
 materacem) to najlepsze sposób na nasze pieniądze bo przecież inflacja
-zmniejszać będzie ich wartość. Możemy te pieniądze zainwestować i
+zmniejszać będzie ich wartość. Możemy też, te pieniądze zainwestować i
 spowodować by "pracowały" dla nas. Inwestowanie to oddanie własnych
 pieniędzy innym, którzy w zamian za użyczenie naszych pieniędzy na
 pewien okres zapłacą nam w postaci odsetek od pożyczonego kapitału i
@@ -157,7 +157,7 @@ Procent prosty
 
 Przykładowo:
 
-Jesli kwote 100 PLN umieścimy na depozycie wypłacajacym 3% rocznie  to:
+Jeśli kwotę 100 PLN umieścimy na depozycie wypłacajacym 3% rocznie  to:
 
  - po 1 roku otrzymamy odsetki w wysokosci 3 PLN - które odprowadzamy
    na osobne konto
@@ -174,16 +174,15 @@ procent prosty.
 Procent składany
 ~~~~~~~~~~~~~~~~
 
-Stosując procent prosty można by wpłacić odsetki na tak samo
-oprocentowane konto. Jest to równoważne dodaniem odsetek do kapitału
+To zabieg polegajacy na wpłacaniu odsetek na tak samo
+oprocentowane konto po każdym okresie. Jest to równoważne dodaniu odsetek do kapitału
 po każdym okresie. Taki zabieg zwany jest procentem składanym.
 
 Procent składany to sposób oprocentowania kapitału, polegający na tym,
 że odsetki są doliczane do wartości początkowej kapitału i procentują
 wraz z nim w kolejnym okresie bazowym. Odsetki otrzymane po upływie
 każdego okresu bazowego są natychmiast reinwestowane na tych samych
-warunkach co kapitał początkowy (odsetki są kapitalizowane -
-dopisywane do kapitału).
+warunkach co kapitał początkowy. 
 
 Przykładowo wpłacajac kwote :math:`P` na konto depozytowe
 (oszczędnościowe) oprocentowane rocznie procentem :math:`r`.  Po roku
@@ -310,7 +309,7 @@ w przyszłości - „wartość przyszłą”, znając wartość aktualną
 (bieżącą). 
 
 Z powyższego wzoru możemy też wyliczyć wartość dzisiejszą (aktualną)
-znając wartość przyszłą. Taki proces , posuwania sie w czasie wstecz, zwany jest dyskontowaniem. 
+znając wartość przyszłą. Taki proces,  posuwania sie w czasie wstecz, zwany jest dyskontowaniem. 
 
 W obu przypadkach należy znać stopę procentową. Stopę tę określa
 każdorazowo rynek.
@@ -333,7 +332,7 @@ przepływy finansowe. Przepływy mogą być
    wypłaty pieniężnej (zwrot zaciągniętej pożyczki albo wpływ ze
    sprzedaży akcji)
 
-Ponieważ przepływy są odległe od siebie w czasie ich dzisiejsza
+Ponieważ przepływy są odległe od siebie w czasie ich dzisiejszą
 wartość musimy obliczyć uwzględniając wartość pieniądza w czasie.
 
 
@@ -547,8 +546,7 @@ tak, że NPV jest dodatnie i wyjdziemy na swoje. Jednak jeśli stopa
 procentowa wzrośnie, to może się okazać że kredyt będzie nasz
 kosztował więcej niż zysk z inwestycji. W finansach stosuje się
 pojęcie wewnętrzej stopy zwrotu (ang. Internal Rate of Return, IRR). 
-Z definicji jest to taka stopa przy której :math:`NVP=0`. Obliczenie IRR sprowadza się matematycznie do znalezienia miejsca zerowego wielomianu. Jak
-rozwiązań :math:`NPV=0` może być wiele, ale w tym przypadku interesuje
+Z definicji jest to taka stopa przy której :math:`NVP=0`. Obliczenie IRR sprowadza się matematycznie do znalezienia miejsca zerowego wielomianu. Rozwiązań :math:`NPV=0` może być wiele, ale w takim przypadku interesuje
 nas najmniejsze dodatnie miejsce zerowe. Ponieważ mamy do czynienia z
 wielomianem rzędu większego od czterech do rozwiązywania stosujemy
 metody przybliżone.
@@ -588,16 +586,16 @@ metody przybliżone.
     
     
 
-Obliczanie  wartości pieniadza w czasie
+Obliczanie  wartości pieniądza w czasie
 ---------------------------------------
 
 Poniżej pokazane będą dwa przykłady obliczeń z tego zakresu. Nie
-wymagają bardzo użycia bardzo skomplikowanych metod obliczeń ale mają
+wymagają użycia bardzo skomplikowanych metod obliczeń ale mają
 za zadanie pokazać specyfikę tego rodzaju obliczeń i przydatność w tym
 celu komputera oraz wymaganych na wielu egzaminach zawodowych
 umiejętności posługiwania sie kalkulatorem finansowym, które to
 urządzenie ma wbudowane możliwości liczenia szeregów geometrycznych i
-jest niezwykle przydatne w finansach. Warto zapoznać sie z tym
+jest niezwykle przydatne w finansach. Warto zapoznać się z tym
 urządzeniem i umieć dokonywać na nim różnych obliczeń.
 
 Zgodnie z komunikatem nr 8 Komisji Egzaminacyjnej dla doradców
@@ -643,8 +641,8 @@ inwestycyjnych.
     
       print (40000-15000*(1+0.1)^7)/sum(  [ (1+0.1)^i for i in range(7)] ) 
  
-Na pytania te mozna odpowiedzieć korzystając z  wyliczeń matematyki finansowej w zakresie wartości pieniadza w czasie.
-Kłopotem moze być wyliczenie sum wyrazów o dość wysokich potęgach, ale od czego jest kalkulator.
+Na pytania te można odpowiedzieć korzystając z  wyliczeń matematyki finansowej w zakresie wartości pieniadza w czasie.
+Kłopotem może być wyliczenie sum wyrazów o dość wysokich potęgach, ale od czego jest kalkulator.
 Można udzielić odpowiedzi korzystajac z akusza kalkulacyjnego, kodów pokazanych powyżej w Sage oraz wspomnianych kalkulatorów finansowych, gdzie te i podobne zagadnienie wylicza się bardzo prosto wprowadzajac wiadome w postaci danych, a to; stopy procentowej, raty spłaty, ilości spłat, wartości początkowej lub wartości końcowej i wyliczeniu brakującj a szukanej wielkości poprzez naciśnięcie odpowiedniego przycisku. 
 
 
@@ -702,7 +700,7 @@ python można wykorzystać moduł datetime w następujący sposób:
    
 
 
-Wyliczmy jeszcze ile mamy dni pracujących począwszy od 1 października 2014 do
+Wyliczmy ile jest dni roboczych, począwszy od 1 października 2014 do
 17 lutego 2015 - czyli w semestrze zimowym: 
 
 
@@ -726,7 +724,8 @@ Ilość dni pracujących - dni roboczych ma istotne znaczenie dla różnych
 obliczeń na rynkach finansowych. Dlatego umiejętność takich obliczeń
 jest bardzo istotna.  Przy takich obliczeniach należy pamiętać o
 różnych kulturach i różnych dniach świątecznych obowiązujących na
-świecie jeśli nasze rozliczenia dotyczą różnych krajów.  Dla obliczeń
+świecie jeśli nasze rozliczenia dotyczą różnych krajów.
+Dla obliczeń
 instrumentów finansowych przyjmuje się różne ilości dni w
 roku. Długość roku kalendarzowego wymosi 365/366 dni. Taki rok
 charakteryzuje pewne instrumenty szczególnie popularne na rynku
@@ -752,11 +751,13 @@ Standardy liczenia dni w praktyce finansowej
 W matematyce finansowej spotkać można kilka standardów na określanie
 odległości w czasie.
 
-1.  Dokładna liczba dni Przyjmuje się, że rok liczy 365/366 dni a
-    ilość dni liczy sie przykładowo tak ja w powyżej pokazano. Każdy
+1.  Dokładna liczba dni.
+    Przyjmuje się, że rok liczy 365/366 dni a
+    ilość dni liczy sie przykładowo tak jak powyżej pokazano. Każdy
     miesiąc ma tyle dni ile przewiduje kalendarz. Ilość lat określa
     się dzieląc ilość dni między datami przez ilość dni w roku.
-2.  Zasada równych miesięcy. Według tej zasady rok liczy 360 dni i dzieli
+2.  Zasada równych miesięcy.
+    Według tej zasady rok liczy 360 dni i dzieli
     się na 12 miesięcy po 30 dni. Tzn. w lutym jest data 29luty oraz
     30luty.  A 31 nie występuje w żadnym miesiącu.  Zasada ta
     stosowana jest w 3 wersjach:
@@ -811,7 +812,7 @@ Renty
 
 Renta to jest ciąg płatności. Zazwyczaj płatności występują
 regularnie (równe okresy) i zazwyczaj w równej wielkości. Źródłem
-takich strumieni finansowych mogą być np;, obligacje (płatności
+takich strumieni finansowych mogą być np; obligacje (płatności
 kuponowe), opłaty czynszowe wpływające za wynajem lokalu, akcje
 wypłacające regularnie dywidendę, odsetki od lokat terminowych etc. .
 
@@ -858,7 +859,7 @@ Stąd
   PV= \frac{C}{r} 
 
 
-Wartość bieżąca takiego instrument to cena tegoż instrument zwana też
+Wartość bieżąca takiego instrumentu to cena tegoż instrumentu zwana też
 wartością godziwą.
 
  - :math:`PV` - to tyle ile jest warty taki  instrument
@@ -879,11 +880,14 @@ Zastosowanie renty do określenia wartości godziwej akcji czyli renta wieczysta
 Zanim zostanie opisane zachowanie się aktywa zwanego akcją czyli
 instrumentu własnościowego rozważyć należ przypadek jak wycenić rentę
 wieczystą, której wartość raty w czasie będzie wzrastała. Wzrost
-następuje co okres o g %. Innymi słowy:
-w po okresie 1 rata jest
+następuje co okres o g %.
+
+Innymi słowy:
+Po okresie 1 rata jest
 równa C,
 po okresie 2 rata to :math:`\frac{C}{(1+g)}` 
 a po okresi 3 rata jest równa :math:`\frac{C}{(1+g)^2}` etc.
+
 
 Wartość bieżąca czyli cena będzie równa sumie zdyskontowanych rat:
 
@@ -917,7 +921,7 @@ dywidendy. Dywidenda to udział w zysku.  Należy pamiętać, że jeśli
 akcje kupujemy na nieznany okres to należy traktować spółkę jako
 źródło dywidendy na okres nieskończony. Spółka bowiem nie ma
 zdefiniowanego czasu życia. Raczej należy myślec tu o czasie
-nieskończonym a nie o skończonym ciągu rat.  Jeśli tak to w tym
+nieskończonym a nie o skończonym ciągu rat.  Jeśli tak, to w tym
 przypadku :math:`n\to\infty` to dla skończonej ceny w
 nieskończoności Otrzymujemy 
 
@@ -928,10 +932,10 @@ nieskończoności Otrzymujemy
 
 Model powyższy określania ceny godziwej akcji jest zwany modelem
 dyskontowanej dywidendy.  Należy podkreślić w tym miejscu kilka
-aspektów stosowania modeli. Pierwszy aspekt, należy pamiętać, ze jest
-to model. Założenie nieskończonego życia spółki powoduje, ze wycenę
+aspektów stosowania modelu. Pierwszy aspekt, należy pamiętać, że jest
+to model. Założenie nieskończonego życia spółki powoduje, że wycena
 dzisiejszej wartości spółki nie wymaga znajomości przyszłej ceny
-akcji. Model ten wskazuje, że w cenie aktualnej akcji są „zawarte”
+akcji. Model ten wskazuje, że w cenie aktualnej akcji jest „zawarty”
 nieskończony ciąg przyszłych dywidend.
 
 Jeśli weźmie się do analizy zyski firmy to uwaga, że
@@ -945,7 +949,7 @@ rosną, to dywidenda też powinna rosnąć w tym samym tempie.
 Przypadek stałego wzrostu. Wzrost zerowy dywidendy
 ++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Załóżmy, że spółka płaci stała dywidendę nie ma szans na jej wzrost w
+Załóżmy, że spółka płaci stałą dywidendę i nie ma szans na jej wzrost w
 rozsądnej przyszłości.  Czyli:
  
 .. math::
@@ -954,7 +958,7 @@ rozsądnej przyszłości.  Czyli:
 
 Gdzie :math:`D_i` to i-ta dywidenda.
 
-Jeśli ma stała wartość :math:`C`, to stały strumień pieniądza
+Jeśli ma stałą wartość :math:`C`, to stały strumień pieniądza
 generowany przez wypłatę dywidend do nieskończoności jako sumy szeregu
 nieskończonego daje wynik:
 
@@ -967,7 +971,7 @@ Czyli mamy przypadek renty wieczystej.
 
 Innymi słowy cena akcji jest równa wartości wieczystej dywidendy
 dzielonej przez stopę dyskontową. Jeśli stopa dyskontowa jest stopą
-rynkową dyskonta (właściwą dla ryzyka inwestycji w tą akcje) to tak
+rynkową dyskonta (właściwą dla ryzyka inwestycji w tą akcję) to tak
 uzyskana cena jest ceną rynkową. Chociaż liczba firm wypłacających w
 nieskończoność stałą dywidendę jest praktycznie raczej niewielka, to
 ten model jest przydatny do wyceny jeśli aktualnie wypłacane dywidendy
@@ -1015,7 +1019,7 @@ Dla  i-tego roku
   D_i=(D_0 )(1+g)^i
 
 Wstawiając tak wyliczoną i-tą dywidende do wzoru na cene akcji w
-modelu dyskontowania dywidendy otrzymamy tosamo co dla wzrostu renty
+modelu dyskontowania dywidendy otrzymamy to samo co dla wzrostu renty
 wieczystej o czynnik g:
 
 .. math::
@@ -1042,7 +1046,7 @@ Renta dla skończonej ilości okresów
 +++++++++++++++++++++++++++++++++++
 
 
-Jeśli mamy do czynienia ze skończona liczbą rat to wartość
+Jeśli mamy do czynienia ze skończoną liczbą rat to wartość
 aktualną takiego szeregu możemy policzyć.  Możemy postąpić na przykład w 
 taki sposób: Kupujemy rentę wieczystą a po n okresach jej posiadania
 sprzedajemy ją na rynku. Tak więc z nieskończonego ciągu rat
@@ -1099,7 +1103,7 @@ Dla renty możemy wyliczyć wartość przyszłą i aktualną. Ponadto mamy rent�
      S_n = \sum_{k=1}^n a_k = \sum_{k=1}^n q^{k-1}a_0 = \frac{a_0(1-q^n)}{1-q} = a_0\frac{(q^n-1)}{q-1}
      
 
-Łatwo zauważyć, że :math:`a_0` to płatność, nazywna w powyższych wzorach przez :math:`C` a na kalkulatorach finansowych - PMT. Iloraz szeregu w zależności od sytuacji będzie czynnikiem dyskontującym albo kapitalizującym.
+Łatwo zauważyć, że :math:`a_0` to płatność, nazywana w powyższych wzorach przez :math:`C` a na kalkulatorach finansowych - PMT. Iloraz szeregu w zależności od sytuacji będzie czynnikiem dyskontującym albo kapitalizującym.
 
 
 Mamy więc:
@@ -1169,7 +1173,7 @@ W Sage możemy łatwo zapisać i wyliczyć  powyższe wzory:
 Kredyty
 ~~~~~~~
 
-Wyliczenia wartości aktualnej przyszłych, równych strumienie
+Wyliczenia wartości aktualnej przyszłych, równych strumieni
 pieniężnych, tak jak w przypadku renty, może zostać zastosowane do
 wyliczenia spłaty kredytu.  Kredyt bowiem to kwota pieniędzy
 otrzymywana dzisiaj od kredytodawcy i spłacana w przyszłości
@@ -1200,7 +1204,7 @@ Innym sposobem spłacania kredytu, stosowanym przez banki, jest sposób
 spłacania równymi ratami kapitałowymi.  W tym sposobie wysokość
 okresowej raty spłacania kredytu obliczana jest w następujący sposób:
 Wielkość pożyczonej kwoty jest dzielona przez ilość okresów
-spłaty. Otrzyma w ten sposób wielkość rata kapitałowa. Kapitał
+spłaty. Otrzymana w ten sposób wielkość rata kapitałowa. Kapitał
 pożyczony w ramach kredytu jest spłacany równymi ratami
 kapitałowymi. Do tej raty należy doliczyć koszty pieniądza czasie
 czyli koszt odsetek od pożyczonego (a nie zwróconego jeszcze)
@@ -1261,7 +1265,7 @@ Porównanie spłaty kredytów  omówionymi metodami pokazują  przeliczenia  pon
       Kt.append( [kredyt+odsetki - PMT, PMT, odsetki, PMT-odsetki])
    table(Kt)
    
-Porównując  powyższe harmonogramy spłat kredytu dwoma sposobami należy pamiętać, że z punktu matematyki finansowej i wartości pieniądza w czasie te dwa rodzaje spłaty są sobie równe.  Czyli koszt kredytu jest prawie taki sam, niezależnie, czy wybierzemy formę spłat równych, czy malejących. Nie mniej jednak raty płacone nie są sobie równe i pojawia się pytanie który sposób jest (??) lepszy?
+Porównując  powyższe harmonogramy spłat kredytu dwoma sposobami należy pamiętać, że z punktu matematyki finansowej i wartości pieniądza w czasie te dwa rodzaje spłaty są sobie równe.  Czyli koszt kredytu jest prawie taki sam, niezależnie, czy wybierzemy formę spłat równych, czy malejących. Nie mniej jednak raty płacone nie są sobie równe i pojawia się pytanie który sposób jest (??) lepszy i dla kogo?
 
 Rozważmy porównanie w sytuacji  stałej stopy procentowej w czasie spłacania kredytu. Ponadto z punktu czysto praktycznego przyjmijmy, że kredyt spłacany jest w ratach miesięcznych.
 

@@ -19,7 +19,7 @@ najczęściej inna niż stron, które ten kontrakt zawarły. Kontrakt
 forward jest z natury swojej, kontraktem mało płynnym.
 
 Kontrakt futures to kontrakt terminowy, wystandaryzowany pod względem
-jakości tego co jest uznane za dostawę, ilości i daty
+jakości tego co jest dostarczane, ilości i daty
 dostawy. Standaryzacja kontrakty futures polega na zdefiniowaniu:
 
  * "Podstawowego" towaru lub instrumentu. To może być zarówno,
@@ -136,7 +136,7 @@ kontraktu. Ma ono miejsce wtedy gdy kontrakt nie zostanie zlikwidowany
 dostawy. Proces ten jest zwykle szczegółowo opisany w regulaminie
 giełdy składa się z sekwencji działań jakie należy podjąć określonym
 porządku. Istotną rolę odgrywa Izba Rozliczeniowa, instytucja
-obsługująca transakcje giełdowe.  Izby Rozliczeniowe jako, ze są
+obsługująca transakcje giełdowe.  Izby Rozliczeniowe jako, że są
 stroną każdego kontraktu są również włączone w ten proces. Generalnie
 Izba czuwa by strona „short” transakcji dostarczyła stronie „long”
 godziwe dobro z rynku fizycznego. Czasem rozliczenie może być robione
@@ -228,7 +228,7 @@ skorzystania z tych rynków aby osiągnąć zysk.
  2. Ponieważ nie posiada gotówki w dniu „ zero” pożycza pieniądze w
     kwocie równej cenie aktywa na rynku spot.  Kupuje aktywa na rynku
     kasowym. Nie lubiąc ryzyka sprzedaje kontrakt futures na datę
-    dostawy i juz wie jaką cenę uzyska za aktywo w dniu dostawy.  Jego
+    dostawy i już wie jaką cenę uzyska za aktywo w dniu dostawy.  Jego
     zysk to różnica miedzy ceną kontraktu spot a ceną kontraktu
     futures pomniejszona o wartość odsetek od pożyczonych pieniędzy na
     kupno początkowego kontraktu.
@@ -267,7 +267,7 @@ powodu pełnej pewności nie ma potrzeby pobierania „initial margin”
 czyli depozytu zabezpieczającego ani depozyt ten nie będzie się
 zmieniał. Czyli w strategii 1 nie wystąpią żadne wypływy pieniężne ani
 wpływy w czasie życia inwestycji. Również koszty przechowywania nie
-występują w kontrakcie futures całe koszty przechowywania są związane
+występują w kontrakcie futures i całe koszty są związane
 z transakcją na rynku kasowym i nie wystąpią do końca okresu.
 
 W przypadku strategii 2 sytuacja jest bardziej skomplikowana, mimo, że
@@ -287,7 +287,7 @@ Należy jeszcze wspomnieć o jeszcze innym aspekcie posiadania
 fizycznego aktywa. Czasem w przypadku pewnych aktywów w trakcie ich
 posiadania mogą pojawić się pewne beneficja. Jeśli przykładowo
 posiadamy fizyczna benzynę możemy ją zatankować gdy na stacjach jej
-braknie jeśli posiadamy fizyczny portfel akcji możemy otrzymać
+braknie, jeśli posiadamy fizyczny portfel akcji możemy otrzymać
 dywidendę należną posiadaczom akcji.  Posiadacze fizycznego złota w
 czasie zawieruchy dziejowej czują swą przewagę nad posiadaczami
 kontraktu na dostawę tegoż w terminie późniejszym. Jest to dodatkowy
@@ -467,7 +467,7 @@ Ten wzór można przekształcić do bardziej przydatnej formy:
 
 .. math:: 
 
-  frac\{Pf_o - P_s}{P_s}=r_e-r_d 
+  \frac{Pf_o - P_s}{P_s}=r_e-r_d 
 
 Jest to tzw. Równanie parytetu stop procentowych. Mówi ono, że wzrost
 terminowego kurs wymiany jest równy różnicy stóp procentowych rynków
@@ -650,8 +650,12 @@ podstawą kontraktu futures, zainwestować otrzymana gotówkę przy stopie
 :math:`r` na czas :math:`T`. Cash Flow dla :math:`T=0`, :math:`CF0`,
 jest zero. Natomiast po okresie :math:`T` Cash flow :math:`C`:
 
-.. math:: CF_T= Pse^rT-Pf_o>0
+.. math:: CF_T= Pse^{rT}-Pf_o>0
 
-Warto zastanowić sie co stanie sie na rynku z cenami jeśli wielu
-inwestorów zastosuje taką strategię?? :math:`Ps` powinno maleć a
-:math:`Pf` wzrastać. I co wtedy z naszym arbitrażem?
+Warto zastanowić się, co stanie sie na rynku z cenami jeśli wielu
+inwestorów zastosuje taką strategię??
+
+:math:`Ps` powinno maleć a
+:math:`Pf` wzrastać.
+
+I co wtedy z naszym arbitrażem?

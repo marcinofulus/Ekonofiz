@@ -37,7 +37,7 @@ prawdopodobnych scenariuszy opartych na odkrytych trakcie obserwacji
 zasadach i prawach. Nie wszystkie są prawami
 deterministycznymi. Często wspomagać się musimy prawdopodobnymi
 scenariuszami. Niedoskonałość naszych zmysłów nie pozwala nam patrzeć
-„w przód” w czasie tak jak to robimy w przestrzeni. Tą niedoskonałość
+„w przód” w czasie tak jak to robimy spogladając w różznych kierunkach w trójwymiarowej, "klasycznej"  przestrzeni. Tą niedoskonałość
 rekompensujemy sobie tworzeniem modeli, analizą statystyczną danych
 przeszłości, tak, aby znaleźć przesłanki o przyszłości i przewidzieć
 ją najlepiej.
@@ -66,9 +66,10 @@ trzy obszary naszej wiedzy i doświadczenia:
 2. Wiemy, czego nie wiemy
 
    W tym obszarze mieszczą się nasze uświadomione ograniczenia. Musimy podjąć działania by zdobyć potrzebne informacje.
-   Nie wiemy ale potrafimy zaplanować nasze działania na wypadek gdyby zdarzyło się to coś o czym nie wiemy.
+   Nie wiemy albo nie posiadamy informacji o pewnych danych czy faktach, ale potrafimy zaplanować nasze działania na
+   wypadek gdyby zdarzyło się to coś o czym akurat  nie wiemy a może mieć wpływ na nasze działania.
    Przygotować możemy scenariusz działań na wypadek, gdyby to coś się zdarzyło i jak sobie wyobrażamy mogłoby przebiegać.  
-   W tym obszarze mieszczą się ludzkie błędy
+   W tym obszarze mieszczą się  również ludzkie błędy
    oraz odmienne od przewidywanych zachowania ludzkie spowodowane
    przykładowo zaistnieniem konfliktu interesów.
 
@@ -94,7 +95,7 @@ Risk. New York: John Wiley & Sons. ISBN 0-471-12104-5.  )
 
 
 Zarządzanie ryzykiem jest podejmowane, by zredukować lub wyeliminować
-ryzyko wystąpienia pewnych zdarzeń, mogących mieć wpływ (negatywny)
+skutek wystąpienia pewnych zdarzeń, mogących mieć wpływ (negatywny)
 na działalność organizacji.  Często działania zarządzania ryzykiem
 koncentrują się na umożliwieniu przetrwania i funkcjonowania
 organizacji oraz ograniczenia ryzyka finansowego. Niemniej jednak
@@ -110,7 +111,7 @@ organizacji i wszelkich ryzyk jakie występują lub mogą
 występować. Ryzyk wystąpienia zdarzeń i efektów niepożądanych. Co jest
 zdarzeniem i efektem niepożądanym zależy od szerokiego wachlarza
 przyczyn i jest definiowane zazwyczaj przez organizacje i zależy od
-jej celów i obszaru działania i środowiska. Środowisko naturalne,
+jej celów, obszaru działania i środowiska. Środowisko naturalne,
 oczywiście, też jest brane pod uwagę. A katastrofy takie jak
 Czarnobyl, wypływ ropy naftowej do wód morskich są tylko przykładem
 tego, że efekt niezamierzony może powodować skutki przekraczające
@@ -119,10 +120,11 @@ wąskie, techniczne spojrzeniu na działalność firmy.
 W liczbie ryzyk należy też uwzględnić niezamierzone efekty jakie może
 przynieść utrata reputacji, zaufania, klientów etc.
 
-Zarządzanie ryzykiem w ostatnich latach staje się coraz powszechniej
+Zarządzanie ryzykiem (ZR) w ostatnich latach staje się coraz powszechniej
 praktykowanym postępowaniem w firmach, organizacjach a nawet agendach
 rządowych nie wspominając o naszym, osobistym, codziennym życiu.
-Zakres działania ewoluował w czasie i pojawiały się nowe narzędzia i
+
+Zakres działania ZR ewoluował w czasie i pojawiały się nowe narzędzia i
 techniki zarządzania oraz metody oceny ryzyka. Zarządzanie ryzykiem z
 czasem nabierało znaczenia i stawało się znaczącą częścią działań
 organizacji i firm. Osoby odpowiedzialne za tą działalność zaczęły być
@@ -174,7 +176,7 @@ działalność finansowa wytworzyła znaczące narzędzia do zarządzania
 ryzykiem.
 
 Około roku 1938 pojawiła się idea duration jako sposobu
-porównywania instrumentów dłużnych (obligacji.  Bardzo trudno jest
+porównywania instrumentów dłużnych (obligacji).  Bardzo trudno jest
 porównywać różne obligacje bo mimo, że posiadają często szereg
 podobnych parametrów je opisujących, jednak różnią się w relacji do
 ryzyka. Jak będzie wykazane w rozdiale dotyczącym obligacji, duration pozwalała 
@@ -215,7 +217,7 @@ testów w warunkach ekstremalnych, stress test a następnie Value at
 Risk, zmodyfikowana i rozwinięta jako Risk Metrics, z czasem dotycząca
 też ryzyka kredytowego.
 
-Koniec wieku to połączenie ryzyka kredytowego
+Koniec wieku to połączenie ryzyka kredytowego z
 rynkowym (rynki finansowe) oraz z ryzykiem operacyjnym.
 
 Od początku
@@ -223,7 +225,7 @@ wieku XXI proces zarządzania ryzykiem dotyczy wszelkich obszarów
 działania organizacji i zarządzania ryzykami występującymi w tych
 obszarach.
 
-Rodzaje ryzyk.Obszary wystepowania
+Rodzaje ryzyk. Obszary wystepowania
 
 W działaniach organizacji należy
 zidentyfikować wszelkie możliwe, występujące ryzyka. Identyfikacja
@@ -239,7 +241,7 @@ mobbing, napastowanie seksualne i możliwość roszczeń w
 przypadku błędnego czy niewłaściwego wykonania pracy, usługi etc.
 Ryzyka również wiążą się z działalnością zawodową, zjawiskami na
 rynkach finansowych, niepowodzeniami projektów, 
-oraz bezpieczeństwem bazy danych i systemów komputerowych.
+oraz bezpieczeństwem bazy danych i systemów komputerowych. Zarządzanie ryzykiem nie ogranicza sie do ryzyka finansowego.
 
 Czym jest zarządzanie ryzykiem?  
 -------------------------------
@@ -310,7 +312,7 @@ operują głównie kapitałem klientów wiec szczególna ostrożność
 prowadzenia operacji jest wymagana.  Bezpieczeństwo systemu bankowego
 i jego operacji zostało omówione w rozdziale „Bezpieczeństwo systemu
 finansowego- Wprowadzenie do funkcjonowania rynków
-finansowych. Zarządzanie ryzykiem banki opierają na zasadach Nowej
+finansowych". Zarządzanie ryzykiem banki opierają na zasadach Nowej
 Umowy Kapitałowej (Basel II i III). W kształtowaniu zarządzania
 ryzykiem Bank BIS odgrywa wiodąca rolę.
 
@@ -403,7 +405,7 @@ instytucji co niewątpliwie polepsza możliwości współpracy.
 
 Proces wdrażania Zarządzania Ryzykiem (ZR) zaczyna się od zrozumienia
 celów organizacji, sposobów działania i osiągania celów. W trakcie
-tego etapu należy analizować co może nie pozwolić na pełne i efektywne
+tego etapu należy analizować, co może nie pozwolić na pełne i efektywne
 osiąganie celów. Te okoliczności to ryzyka. Wiele z nich to ryzyka
 strategiczne.  
 
@@ -456,7 +458,7 @@ Przy pomiarze ryzyka  wykorzystuje sie zazwyczaj  miary zmienności (volatility)
 
 Mając ustalone ryzyka należy sporządzić plan przeciwdziałanie każdemu zidentyfikowanemu ryzyku, biorąc pod uwagę dostępne środki - techniczne, finansowe, zasoby ludzkie etc.  Porównanie ryzyk i ustalenie priorytetów (strategiczne, operacyjne) pod kątem ich skutków  ustala się tak, że dla każdego ryzyka ocenić należy prawdopodobieństwo danego skutku Pi,  ocenić kwotowo  straty związane z danym skutkiem wystąpienia ryzyka Si i mnożąc Pi x Si  otrzymuje się kwotę wystawioną na ryzyko niechcianego skutku.  Otrzymywana kwota jest porównywana w przypadku różnych działań  mających na celu łagodzenie skutków ryzyka (analiza scenariuszy) i kolejny krok to wyliczenie  dźwigni ryzyka  czyli (kwoty skutku przed  obniżeniem ryzyka - kwota skutku po obniżeniu ryzyka ) / (koszty obniżenia ryzyka ).
 
-Ochrona przed ryzykiem  wiąże się z kosztami a zdrowy rozsądek  obowiązuje  zawsze, więc ekonomizacja działań jest wręcz intuicyjnym zabiegiem. Ustalenie priorytetu i kosztów przeciwdziałania  pozwala świadomie ocenić poziom akceptowalnego ryzyka.
+Ochrona przed ryzykiem  wiąże się z kosztami a zdrowy rozsądek  obowiązuje  zawsze, więc ekonomizacja działań jest wręcz intuicyjnym ale ważnym zabiegiem. Ustalenie priorytetu i kosztów przeciwdziałania  pozwala świadomie ocenić poziom akceptowalnego ryzyka.
 
 Kontrolowanie ryzyka
 --------------------
@@ -470,7 +472,7 @@ Jeśli  ryzyka zostają zidentyfikowane i pomierzone (porównane) należy zastan
 
 Celem  myślenia jest  obniżenie ryzyka  wszędzie tam gdzie jest to możliwe i wskazane. 
 
-Obniżyć ryzyko można  próbując go uniknąć. Podjęte działanie w takim przypadku to  modyfikacja  założeń  działania.  Inną ewentualnością jest transfer ryzyka. Transfer  polega na przeniesieniu niejako skutków tego ryzyka do innego systemu, poza organizacje, której ryzykiem zarządzamy. Przykładem takiego działania  jest ubezpieczenie się od ryzyka u ubezpieczyciela  wykupując polisę pokrywającą straty wynikłe w skutku ryzyka.  Chętnych do brania ryzyka jest na rynku więcej  i wiele firm na kupowaniu ryzyka oparło swój sposób na  funkcjonowanie. Rynek instrumentów pochodnych to możliwość  transferu ryzyka. Dzięki takim rynkom i  firmom na nich działających,  możliwy jest hedging czyli  zabezpieczanie się przed ryzykiem zmiany ceny.   
+Obniżyć ryzyko można  próbując go uniknąć. Podjęte działanie w takim przypadku to  modyfikacja  założeń  działania.  Inną ewentualnością jest transfer ryzyka. Transfer  polega na przeniesieniu niejako skutków tego ryzyka do innego systemu, poza organizacje, której ryzykiem zarządzamy. Przykładem takiego działania  jest ubezpieczenie się od ryzyka u ubezpieczyciela  wykupując polisę pokrywającą straty wynikłe w skutku  zaistnienia ryzyka.  Chętnych do brania ryzyka jest na rynku więcej  i wiele firm na kupowaniu ryzyka oparło swój sposób na  funkcjonowanie. Rynek instrumentów pochodnych to możliwość  transferu ryzyka. Dzięki takim rynkom i  firmom na nich działających,  możliwy jest hedging czyli  zabezpieczanie się przed ryzykiem zmiany ceny.   
 
 Obniżanie ewentualnych negatywnych skutków ryzyka  daje proces zwany  łagodzeniem (mitygacją) skutków ryzyka. Łagodzenie to działania wyprzedzające umożliwiające  zmniejszenie prawdopodobieństwa  wystąpienia ryzyka albo minimalizacje jego skutków.  Transakcje hedgingowe  mają podobne działanie. Jednak  zawierając takie transakcje  należy pamiętać, że wymagają one  dodatkowej troski. Zawarte dzisiaj  łagodzą skutki ryzyk z dzisiejszego punktu widzenia ale należy pamiętać zabezpieczeniu skutków  rozkładu prawdopodobieństwa wartości przyszłej (np. grube ogony).  
 
@@ -487,7 +489,7 @@ Oczywiście  procedury awaryjne i postępowania w sytuacjach kryzysowych wymagaj
    eksperymentu potrzebny będzie stoper albo inne urządzenie do
    pomiaru czasu. Proszę na wstępie odpowiedzieć na pytanie: Kiedy
    ostatni raz braliście udział w ćwiczeniach działań na wypadek
-   pożaru w instytucji, w której akurat przebywacie?
+   pożaru w instytucji, miejscu, w której akurat przebywacie?
 
    Spodziewamy się uśmiechu i chyba znamy odpowiedź.
   
@@ -557,11 +559,11 @@ do osób odpowiedzialnych za zarządzanie ryzykiem.
 Jeśli w czasie monitorowania zauważone zostają ryzyka, które mogą
 spowodować kłopoty dla klientów, firma powinna o tym poinformować
 swoich klientów.  Powodem takiego działania jest słowo- " swoich". Na
-rynku każdy działa na własny ryzyko i swoja odpowiedzialność.  Ale
+rynku każdy działa na własny ryzyko i swoją odpowiedzialność.  Ale
 zawsze, jeśli klient nie do końca rozumie wyrafinowane transakcje
 finansowe jakie za pomocą „ swojej” instytucji zawiera a które doprowadzą do strat,w każdym
 przypadku (przykład - opcje sprzedawana polskim firmom w 2008 roku,
-Orange County, itd.) klient w przypadku strat będzie na drodze sadowej
+Orange County, itd.) klient w przypadku strat będzie na drodze sądowej
 starał się dochodzić zadośćuczynienie od „ swojej” instytucji
 finansowe.  Bez względu na to czy klient ma racje albo inaczej czy
 racje jego uzna sąd, reputacja „Waszej” instytucji jest narażona na
@@ -586,16 +588,16 @@ proces. Wiele regulacji prawnych w wielu krajach nakłada na Zarząd
 (instytucji finansowych) obowiązek i odpowiedzialność za zarządzanie
 ryzykiem w firmie.
 
-Na każdym poziomie operacyjnymi, w każdej operacji powinna być obecna
+Na każdym poziomie operacyjnym i w każdej operacji powinna być obecna
 kultura zarządzania ryzykiem i świadomość jego występowania oraz konieczność
 kontrolowania. Zasady funkcjonowania organizacji powinny być jasne,
-transparentne szczególnie sposoby podejmowania decyzji. Unikanie konfliktu
+transparentne a szczególnie sposoby podejmowania decyzji. Unikanie konfliktu
 interesów powinno być podstawą myślenia o strukturze działań
 organizacji. W trudnych przypadkach najczęściej zawodzi
 człowiek. Zawodzi głównie dlatego, że uwikłany jest w konflikt
 interesów nie zawsze z własnej winy. Ten konflikt może przejawiać się
 w bardzo pozornie niewinnych zachowaniach. Patrząc na przykłady
-kłopotów Orange County, Barings Banku Societe Generale widać, że
+kłopotów Orange County, Barings Banku, Societe Generale widać, że
 „bohaterami „ tych historii byli wybitni specjaliści. Osoby uznawane
 za najlepsze. Każdy człowiek bardzo chce być uznawany za dobrego w tym
 co robi, tak wiec w chwili pomyłki stara się, najczęściej, ją ukryć by naprawić ją w
@@ -604,7 +606,7 @@ poczuciu solidarności kryją jego błędy obserwując jak stara się odrobić
 straty. Stają się z czasem współwinnymi i kryją błąd dalej. To z
 reguły doprowadza do tego, że błąd, kiedyś mały staje się
 dużym. Często prowadzącym do upadku wielkich organizacji. W wymienionych
-wyżej przykładach upadków widać, ze niemożliwym jest by ich „
+wyżej przykładach upadków widać, że niemożliwym jest by ich „
 bohaterowie „ działali samotnie bez wiedzy i wsparcia kolegów z
 pracy. Gdyby ich błąd wykazał system zarządzana ryzykiem zaraz na
 początku, ewentualna strata byłaby mała i łatwa do odrobienia albo
@@ -630,7 +632,7 @@ Organizując  zarządzanie ryzykiem w instytucji finansowej   należy sobie post
   -  **Pomiar** - jak pomierzyć ryzyko? 
 
      Jaki system software będziemy wykorzystywać do tego celu. Z kim (
-     jaką instytucją powinniśmy być kompatybilni? Często bowiem nasza
+     jaką instytucją) powinniśmy być kompatybilni? Często bowiem nasza
      jednostka organizacyjna wchodzi w skład innych jednostek
      organizacyjnych i przyjmujemy wspólny system obrabiania danych.
      Najczęściej pomiarem ryzyka będzie jakaś odmiana Value at Risk. Ta

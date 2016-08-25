@@ -86,7 +86,7 @@ krzywej.  Ten zbiór danych powinien zawierać wszystkie kolejne daty
 zapadalności.  Największy problem to właśnie założenie istnienia jednorodnego
 zbioru obligacji o różnej zapadalności. Obligacje raczej nie są
 jednorodne czyli mogą charakteryzować się nie tym samym ryzykiem
-i nie musi charakteryzować ich dużą i taka sama płynnością.  Z tych przykładowo
+i nie musi charakteryzować ich dużą i taka sama płynność.  Z tych przykładowo
 powodów strukturę terminowa stóp procentowych określa się na podstawie
 krzywej dochodowości dla wybranych obligacji, przykładowo o tym samym
 oprocentowaniu, czy też biorąc pod uwagę stopę zwrotu do zapadalności.
@@ -251,7 +251,7 @@ Stąd
 
 czyli :math:`S(2) = 2.7\%`. 
 
-W ostatnim przykładzie wyliczona stopa spot jest średnia geometryczna
+W ostatnim przykładzie wyliczona stopa spot jest średnią geometryczną
 stóp zwrotu forward.  Czego należało się spodziewać, mając na uwadze
 wzór :eq:`srednia_roczna`.  
 
@@ -263,7 +263,7 @@ Wiedząc, że:
    \sqrt[n]{a_1 a_2\dots a_n} \le \frac{1}{n}\sum_{i=1}^n a_i
 
 
-Możemy używać średniej matematycznej szacowania średniej
+Możemy używać średniej matematycznej do szacowania średniej
 geometrycznej. 
 
 
@@ -284,7 +284,7 @@ Stopy forward pokazują ewolucje stóp na rynku. Więc należy tą ewolucje
 śledzić mając na uwadze efektywne zarządzanie portfelem instrumentów
 dłużnych. Temu celowi służy tworzenie modelu aby wyjaśnić ruch stóp
 forward. Następnie wyliczamy krzywą rentowności wynikającą ze stóp
-forward i porównujemy ja z krzywą stóp aktualnych.  Modelowanie polega
+forward i porównujemy ją z krzywą stóp aktualnych.  Modelowanie polega
 przykładowo na stworzeniu modelu dwumiennego (stopa zmieniać się może
 okresowo poprzez wzrost lub zmalenie) albo modelu trójmiennego, gdy
 wartośc stopy w kolejnym okresie czasu z określonym

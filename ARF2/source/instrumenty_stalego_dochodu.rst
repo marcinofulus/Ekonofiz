@@ -26,7 +26,7 @@ Gdzie:
  * n = ilość dni pomiędzy początkiem okresu depozytu a jego zapadalnością 
 
 
-Należy zwrócić uwagę,ze przyjęto tutaj standard roku liczącego 360
+Należy zwrócić uwagę, że przyjęto tutaj standard roku liczącego 360
 dni.  Gdyby standard był inny (a jest to częsty przypadek) należy
 uwzględniać inną wartość dni w roku.  Efektywną stopę zwrotu na
 depozycie można wyliczyć ze wzoru na wartość pieniądza w czasie.
@@ -156,7 +156,7 @@ oraz David Blake - Financial Market Analysis- McGraw- Hill.
 Cena godziwa (fair price)
 -------------------------
 
-Instrument ten generuje zdefiniowane strumienie pieniężne w
+Aktywo , jakim jest obligacja, generuje zdefiniowane strumienie pieniężne w
 czasie. Inwestor kupuje te strumienie oceniając ich wartość dla
 siebie. Jeśli mamy obligację, której emitent zobowiązuje się do
 płacenia odsetek regularnie raz do roku i zamierza zwrócić zaciągnięte
@@ -284,7 +284,7 @@ Rentowność obligacji
 
 
 Obligacja jest instrumentem dłużnym. Jeśli inwestor zainwestował
-pieniądze w czyjś dług spodziewa się sie nagrody za czas, w którym
+pieniądze w czyjś dług spodziewa się nagrody za czas, w którym
 jego pieniędzmi dysponuje ktoś inny. Oczywiście w przypadku obligacji
 inwestor oprócz kwoty nominalnej pożyczki, której zwrot następuje po
 zakończeniu życia zobowiązania, dostaje regularnie wypłacane, co okres
@@ -342,7 +342,7 @@ Stopa zwrotu z obligacji
 Ze względu na często skomplikowane strumienie pieniężne, jakie
 generują obligacje, trudne jest je (obligacje) porównywać na podstawie
 ceny, raczej robi się to poprzez porównywania stopy zwrotu. Istnieje
-kila różnych stóp zwrotu.
+kilka różnych stóp zwrotu.
 
  
 Stopa bieżąca
@@ -428,7 +428,7 @@ W przypadku stopy oprocentowania rachunku, która jest jedyną miarą
 inwestycji, w przypadku YTM nie można powiedzieć, że jest to jedyna i
 ostateczna wielkość pomiaru wartości inwestycji.  W kontekście
 porównania do rachunku bankowego należy wskazać trzy zasadnicze
-miejsca gdzie analogia załamuje się (S. Homer i L. Leibowitz-Inside yield curve-N.Y Insitute of Finance).
+miejsca gdzie analogia załamuje się (S. Homer i L. Leibowitz-"Inside yield book"-PRENTICE -HALL, Inc & N.Y Insitute of Finance).
 
 Pierwszy punkt to, to, że inwestor sam dowolnie decyduje o wypłatach
 ze swojego konta, (co do wielkości i terminów). Tak nie jest w
@@ -457,7 +457,7 @@ obligacje wie jedynie, że rynek obligacji stwarza możliwości i ryzyka
 związane z jego kapitałem w czasie do zapadalności.
  
 Należy jeszcze zwrócić uwagę na jeden aspekt. YTM, jako stopa
-procentowa w określeniu wartości przyszłej dzisiejszej inwestycji. W
+procentowa w określeniu wartości przyszłej, dzisiejszej inwestycji. W
 tym miejscu często popełniane są błędy.  W określeniu wartości
 przyszłej stopa procentowa jest stopą, po której zostanie
 zainwestowany (reinwestowany) kupon w chwili, kiedy stanie się
@@ -480,7 +480,7 @@ Ryzyka inwestycji w obligacje
 
 Ryzyko inwestycji w obligacji wiążę się z kilkoma jego źródłami.
 
-Ryzyko wiąże się z:
+Ryzyko wiąże się, bowiem, z:
 
  * Możliwością niedotrzymania umowy przez emitenta (ryzyko
    bilansu)(default risk)
@@ -597,7 +597,7 @@ myśląc o ryzyku stopy procentowej.
    obligacji i czas do zapadalności są z sobą związane. )
  * Zmiana ceny będąca skutkiem równego wzrostu/zmalenia rentowności
    (YTM) obligacji jest asymetryczna.
- * Czas życia obligacji (czas do zapadalności ) nie jest najlepsza
+ * Czas życia obligacji (czas do zapadalności ) nie jest najlepszą
    miarą ryzyka.  Jak widać bowiem im dłuższy czas do zapadalności tym
    więcej strumieni płatności generuje obligacja i wzór na jej wartość
    staje się wielomianem coraz to wyższego rządu.
@@ -615,14 +615,14 @@ ich wartością bieżącą (wynikającą z wartości pieniądza w
 czasie). Należy więc skonstruować wielkość pozwalającą na porównywanie
 tych strumieni.
 
-W tym celu wprowadzono średnią, ważoną pieniędzmi (kapitałem) czas do
+W tym celu wprowadzono średni, ważony pieniędzmi (kapitałem) czas do
 zapadalności. Wielkość taką nazywa się "duration". 
 
 
 Duration
 ~~~~~~~~
 
-Ze względu na efekt ważenia będzie to moment czasu przypadający miedzy
+Ze względu na efekt ważenia będzie to moment czasu przypadający między
 pierwszą a ostatnią płatnością. Obligacja kuponowa będzie miała
 duration krótsze od czasu do zapadalności.
 

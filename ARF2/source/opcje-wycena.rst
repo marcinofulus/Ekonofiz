@@ -761,7 +761,7 @@ Wycena ze wzorów Blacka-Scholesa a wycena Monte-Carlo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-W modelu Blacka-Scholesa zakłada się, że instrument podstawowy
+W modelu Blacka-Scholesa zakłada się, że instrument podstawowy ( zmiana jego ceny)
 zachowuję się jak geometryczny ruch Browna. Można więc przypuszczać,
 że wycena opcji metodą Monte-Carlo, stosując model ciągły powinna
 odtworzyć liczby pochodzące ze wzorów Blacka-Scholesa. 
@@ -895,7 +895,7 @@ dowolnej opcji zawsze możemy zapisać:
 
    \Delta V \simeq \frac{\partial V}{\partial T} \Delta T + \frac{\partial V}{\partial S} \Delta S + \frac{1}{2} \frac{\partial ^2 V}{\partial S^2}(\Delta S)^2 + \frac{\partial V}{\partial \sigma} \Delta \sigma + \frac{\partial V}{\partial r} \Delta r .
 
-Współczynniki w powyższym wzorze można łatwo obliczyć, jeśli danay jest
+Współczynniki w powyższym wzorze można łatwo obliczyć, jeśli dana jest
 formuła  analityczna na cenę opcji. Najczęsciej spotykanym przypadkiem są
 wzory  Blacka-Scholesa dla europejskich opcji kupna i
 sprzedaży.
