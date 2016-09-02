@@ -1,11 +1,11 @@
-﻿Struktura  terminowa stóp procentowych
+Struktura  terminowa stóp procentowych
 ======================================
 
 Podstawowe zależności
 ---------------------
 
 Jeśli mamy do czynienie z instrumentem dłużnym generującym określoną
-stopę zwrotu w określonym czasie . Ponadto, jeśli inwestujemy kwotę
+stopę zwrotu w określonym czasie. Ponadto, jeśli inwestujemy kwotę
 inwestycji na końcu każdego etapu na okres następny, w którym stopa
 procentowa może być inna albo taka sama to mamy do czynienia z
 inwestycją wieloetapową.
@@ -71,8 +71,7 @@ są to raczej średnie arytmetyczne. Średnia arytmetyczna w przypadku
 wieloetapowej inwestycji w instrument stałego dochodu była by średnią
 arytmetyczną gdyby w każdym etapie inwestowana była ta sama wartość
 portfela. Dla takich samych :math:`r_i` i  takich samych :math:`i` 
-średnia geometryczna stopa zwrotu jest zawsze mniejsza lub równa średniej arytmetycznej
-stopie zwrotu.  
+średnia geometryczna stopa zwrotu jest zawsze mniejsza lub równa średniej arytmetycznej stopie zwrotu.  
 
 
 Krzywa dochodowości
@@ -267,11 +266,9 @@ Możemy używać średniej matematycznej do szacowania średniej
 geometrycznej. 
 
 
-Modelowanie ewolucji stóp procentowych
---------------------------------------
+Modele dyskretne ewolucji stóp procentowych
+-------------------------------------------
 
-Modele dyskretne (drzewa binarne)
-+++++++++++++++++++++++++++++++++
 
 Stopa forward to stopa terminowa czyli "pojawiająca" się za pewien
 czas. Można interpretować ją jako ewolucje stopy spot. Gdyby nie
@@ -581,7 +578,7 @@ procentową. Algorytm, można zapisać w trzech liniach:
    - **linia 2:** - wyliczamy wszystkie ścieżki w formacie
      np. [0,1,2,1,...], gdzie kolejne liczby oznaczają pozycję danej
      stopy w odpowiednim okresie. W przykładzie, w trzecim okresie
-     mamy stopę numer "2" na liście stóp. Obliczenia te wyokrzystują
+     mamy stopę numer "2" na liście stóp. Obliczenia te wykorzystują
      iloczyn kartezjanski, który w Sage mamy w postaci funkcji np. dla
      dwóch list: :code:`cartesian_product([[0,1],[0,1]])`
   
@@ -619,8 +616,8 @@ scieżek rośnie wykładniczo jak :math:`2^N`! A w następnym rozdziale
 będziemy potrzebowali wyników dla :math:`N>10`.
 
 
-Krzywa dochodowości
--------------------
+Krzywa dochodowości w modelu dyskretnym
++++++++++++++++++++++++++++++++++++++++
 
 Mając napisany algorytm do oblicznania średniej zanualizowanej stopy,
 możemy policzyć krzywą dochodowości w modelu dwumiennym. W tym celu
@@ -677,8 +674,8 @@ funkcji, w której parametrem będzie właśnie liczba okresów.
 
 
 
-Modele ciągłe
-+++++++++++++
+Modele ciągłe ewolucji stóp procentowych
+----------------------------------------
 
 Ewolucję stopy procentowej można też modelować procesem losowym z
 czasem ciągłym. Modele takie dzielą się na:
@@ -686,24 +683,132 @@ czasem ciągłym. Modele takie dzielą się na:
  - jednofaktorowe: takie w których mamy jedno równanie stochastyczne 
  - wielofaktorowe: mamy dwa lub więcej równań stochastycznych
 
-Jednym z podstawowych modeli jednofaktorowych jest tzw. model
-Vasicek'a, w którym chwilowa stopa zwrotu dana jest równaniem:
+Wszystkie te modele są zbudowane na podstawie teorii o bardzo podobnych założeniach jak model Blacka-Scholesa. 
+Rozważmy, bezkuponową obligację skarbową istniejący na rynku z ciągła kapitalizacją odsetek. *Yield to Maturity* takiej obligacji spełnia równanie:
+
+.. math::
+    :label: P_YTM
+    P(t,t+T) = e^{-Y(t,T) T},
+    
+gdzie :math:`P(t,t+T)` to cena tej obligacji w chwili :math:`t` a :math:`T` to okres czasu po jakim on zapada. Rozwiązując to równanie na YTM dostajemy:
+
+.. math::
+    :label: YTM_P
+
+    Y(t,T) = -\frac{1}{T}\log(P(t,t+T)).
+    
+Z drugiej strony średnia po czasie z ciągłej stopy forward daje wewnętrzną stopę zwrotu w okresie do zapadalności:
+
+.. math::
+    :label: YTM_F
+
+    Y(t,T) = \frac{1}{T}\int_t^{t+T} F(t,s)ds.
+    
+
+Z powyższych dwóch równań otrzymujemy związek między ciągłą stopą forward a ceną rozważanej obilgacji:
+
+.. math::
+    :label: F_YTM
+
+    F(t,s) = -\frac{\partial}{\partial s} \log P(t,s).
+    
+ 
+Załóżmy, że chwilowa stopa procentowa jest procesem losowym spełniającym następujące równanie stochastyczne
+
+
+.. math::
+    :label: sde
+
+    dr = \mu(r,t) dt + \sigma(r,t) dW
+    
+    
+    
+Ponieważ cena obligacji jest funkcją tego procesu, zastosujemy wzór Ito (patrz skrypt  `Dynamika Stochastyczna <http://prac.us.edu.pl/~ekonofiz//skrypty/StochDyn/ch3/chIII030.html#rachunek-rozniczkowy-ito>`_:
+
+
+.. math::
+
+    dP = \left(  \frac{\partial P}{\partial t} + \mu(r,t) \frac{\partial P}{\partial r} +\frac{\sigma(r,t)^2}{2} \frac{\partial^2 P}{\partial r^2} \right) dt +  \sigma(r,t)\frac{\partial P}{\partial r} dW 
+    
+    
+Dzieląc przez :math:`dt` i uśredniając  po realizacjach procesu losowego otrzymujemy:
+
+
+.. math::
+    :label: dPdt
+
+    \langle \frac{dP}{dt}\rangle = \frac{\partial P}{\partial t} + \mu(r,t) \frac{\partial P}{\partial r} +\frac{\sigma(r,t)^2}{2} \frac{\partial^2 P}{\partial r^2}
+    
+  
+Teraz należy poczynić założenia co do ewolucji wielkości oczekiwanej: :math:`\langle \frac{dP}{dt}\rangle`. Można by przypuszczać, że średnia cena takiej obligacji powinna rosnąć zgodnie z równaniem:
+
+
+.. math::
+
+     \langle \frac{dP}{dt}\rangle = r P,
+     
+     
+Jednak przyjmuje się, że w sytuacji gdy mamy ryzyko wzrost ten powinien być większy by skompensować ewentualne straty. Dlatego wprowadza się dodatkowy parametr, który jest zwany *risk premium* i równanie to przybiera postać:
+
+.. math::
+    :label: riskpremium
+    
+     \langle \frac{dP}{dt}\rangle = r (1-\lambda) P.
+     
+     
+Podstawiając do równanie :eq:`riskpremium` do :eq:`dPdt` otrzymujemy cząstkowe równanie różniczkowe na cenę obligacji bezkuponowej z losową stopą procentową daną przez :eq:`sde`. 
+
+
+
+.. math::
+   :label: PDE_bon
+
+   \frac{\partial P}{\partial t} + \mu(r,t) \frac{\partial P}{\partial r} +\frac{\sigma(r,t)^2}{2} \frac{\partial^2 P}{\partial r^2} - r (1-\lambda) P
+   
+   
+Powyższe rozważania są dość ogólne, zauważmy, że nie podaliśmy jawnych postaci funkcji :math:`\sigma(r,t)` i :math:`\mu(r,t)`. Jednym z podstawowych modeli jednofaktorowych jest tzw. model Vasicek'a, w którym chwilowa stopa zwrotu dana jest równaniem:
 
 .. math::
    :label: vasicek_sde
 
-   \frac{dr}{dt} = \lambda \left( \mu  - r(t) \right) + \sigma \xi(t),
+   \frac{dr}{dt} = \alpha \left( \gamma  - r(t) \right) + \sigma \xi(t),
 
 
 gdzie: 
 
  - :math:`r(t)` - chwilowa stopa zwrotu
  - :math:`\lambda` - prędkość relaksacji
- - :math:`\mu` -   wartość asymptotyczna procesu
+ - :math:`\gamma` -   wartość asymptotyczna procesu
  - :math:`\xi(t)` - biały szum Gaussowski z funkcją korelacji: 
    :math:`\langle x(t) x(t+\tau) \rangle = \delta(\tau)`
    
-.. note:: Proces ten jest też zwany procesem Ornsteina-Uhlenbecka.
+.. note:: Proces ten jest też zwany procesem Ornsteina-Uhlenbecka i w fizyce może być interpretowany jako dynamika przetłumionego oscylatora harmonicznego z szumem.
+
+Jesli zastosujemy model Vasicka :eq:`vasicek_sde`  to równanie :eq:`PDE_bon` upraszcza się do:
+
+.. math::
+   :label: vasicek_pde
+   
+   \frac{\partial P}{\partial t} + \alpha \left( \gamma  - r \right) \frac{\partial P}{\partial r} +\frac{\sigma^2}{2} \frac{\partial^2 P}{\partial r^2} - r (1-\lambda)P
+   
+   
+Okazuje się, że to równanie można rozwązać dokładnie i rozwiązanie bez czynnika *risk premium* jest w postaci:
+
+
+.. math::
+
+   P(r,0,T) = Ae^{-Br},
+   
+gdzie:
+
+    
+.. math::
+ 
+   B = \frac{1}{\alpha} (1-e^{-\alpha T}) \\
+   A = \exp\left\{ (\gamma-\frac{\sigma^2}{2 \alpha^2}) (B-T) - \frac{\sigma^2}{4\alpha} B^2 \right\}
+
+Uwzględnienie czynnika :math:`\lambda`
+
 
 Możemy sobie łatwo skonstruować algorytm, który będzie symulował to
 równanie stochastyczne. Ponieważ potrzebujemy wiele realizacji procesu
@@ -756,9 +861,34 @@ Poniższy kod wykonuje :math:`N` kroków symulacji:
        początkowe dla wszystkich realizacji - :code:`x[:,0]=S0*np.ones(M)`  
 
     * wykonujemy równoczesną symulację :math:`N` trajektorii
-    * obliczamy średnie stopy zwrotu po trajaketoriach
+    * obliczamy średnie stopy zwrotu po trajektoriach
 
+
+Krzywa dochodowości w modelu dyskretnym
++++++++++++++++++++++++++++++++++++++++
+
+todo
    
+
+Wnioski
+-------
+
+Struktura terminowa rynku stóp procentowych jest jednoznacznie opisana przez każdą z poniższych wielkości:
+
+ - cenę obligacji zerokuponowych :math:`P(t,s)`
+ - *Yield to Maturity* tych obligacji :math:`Y(t,s)`
+ - stopy forward :math:`F(t,s)`
+ 
+Formuły  :eq:`P_YTM` :eq:`YTM_P` :eq:`F_YTM` :eq:`YTM_F`, oraz ich dyskretne odpowiedniki umożliwiają przeliczenie jednej wielkości w drugą. 
+
+W modelowaniu struktury stop procentowych zazwyczaj zakłada się pewien model ewolucji stochastycznej chwilowej stopy procentowe. Z tego modelu metodami analitycznymi lub poprzez symulacje  wycenia się obligaję zerokuponową. Mając wyznaczoną tą wielkość (:math:`P(t,s)`) struktura terminowa rynku stop procentowych jednoznacznie określona. 
+
+
+Stopy forwards są potrzebne do obliczania parametrów FRA
+
+
+
+
 
 
 

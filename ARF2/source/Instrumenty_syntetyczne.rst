@@ -895,7 +895,7 @@ zmienne oprocentowanie, lub odwrotnie.
 Forward Rate Agreement (FRA)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Transakcja FRA (opisana w `skrypcie
+Transakcja FRA (opisana w `skrypcie Rynki Finansowe
 <http://el.us.edu.pl/ekonofizyka/index.php/RF:Rynek_wymiany_walut#FRA_.28Forward_Rate_Agreement.29>`_)
 to terminowa transakcja stopy procentowej polegająca na ustaleniu w
 dniu jej zawarcia wysokości stopy procentowej dla przyszłego okresu
@@ -914,10 +914,9 @@ przyszłości. Jedna ze stron takiego kontraktu ustala sobie stałe
 oprocentowanie a druga zmienne. Kwota główna nie zostaje "przesuwana”
 między stronami, natomiast w dacie umowy jedna strona dokonuje wpłaty
 by skompensować drugiej stronie różnicę pomiędzy uzgodnionym
-oprocentowaniem a stopą spot w dniu zawarcia.
-
-Jak to było zilustrowane w `skrypcie
-<http://el.us.edu.pl/ekonofizyka/index.php/RF:Rynek_wymiany_walut#FRA_.28Forward_Rate_Agreement.29>`_);
+oprocentowaniem a stopą spot w dniu zawarcia. Ilustracja funkcjonowania tego instrumentu została pokazana w
+`skrypcie Rynki Finansowe.
+<http://el.us.edu.pl/ekonofizyka/index.php/RF:Rynek_wymiany_walut#FRA_.28Forward_Rate_Agreement.29>`_
 
 Jeśli chcemy ustalić przyszłą stopę oprocentowania kredytu otrzymujemy
 zmienną a płacimy stałą (kupujemy FRA). Jeśli chcemy ustabilizować

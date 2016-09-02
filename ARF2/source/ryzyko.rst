@@ -225,8 +225,6 @@ wieku XXI proces zarządzania ryzykiem dotyczy wszelkich obszarów
 działania organizacji i zarządzania ryzykami występującymi w tych
 obszarach.
 
-Rodzaje ryzyk. Obszary wystepowania
-
 W działaniach organizacji należy
 zidentyfikować wszelkie możliwe, występujące ryzyka. Identyfikacja
 ryzyk to ważny element zarządzania ryzkiem. Jest to proces, który
@@ -286,7 +284,7 @@ Natura ryzyka na rynkach finansowych
 
 Ryzyko operacji na rynkach finansowych ma wiele postaci i wiele źródeł pochodzenia. 
 
-Literatura fachowa podaje wiele ich klasyfikacji. Przykładowo zaproponowana przez Bank Rozrachunków Międzynarodowych (Bank for International Settlements - BIS) <ref> http://www.bis.org.</ref> definicja ryzyka wiąże je z  podejmowaniem decyzji finansowych, dotyczących sposobów finansowania działalności instytucji finansowej. BIS zaproponował wyodrębnienie pięciu podstawowych pod kategorii ryzyka finansowego:
+Literatura fachowa podaje wiele ich klasyfikacji. Przykładowo zaproponowana przez Bank Rozrachunków Międzynarodowych (Bank for International Settlements - `BIS <http://www.bis.org>`_ definicja ryzyka wiąże je z  podejmowaniem decyzji finansowych, dotyczących sposobów finansowania działalności instytucji finansowej. BIS zaproponował wyodrębnienie pięciu podstawowych pod kategorii ryzyka finansowego:
 
  - **Ryzyko kredytowe** - rozumiane jako ewentualność, że Klient, druga
    strona transakcji może nie wywiązać się z warunków umowy.

@@ -1,8 +1,6 @@
-===========================================================
-Praktyczny wstęp do komputerowej analizy Rynków Finansowych
-===========================================================
-
-
+=============================================================
+Analiza Rynków Finansowych - praktyczne podejście komputerowe
+=============================================================
 
 
 .. toctree::
@@ -16,6 +14,7 @@ Praktyczny wstęp do komputerowej analizy Rynków Finansowych
    tech
    wartosc_pieniadza
    instrumenty_stalego_dochodu
+   stopy_procentowe
    forex
    opcje
    opcje-wycena
@@ -25,7 +24,7 @@ Praktyczny wstęp do komputerowej analizy Rynków Finansowych
    Hedging
    var*
    binarne
-   stopy_procentowe    
+       
 
 
 ..   czas_julianski
