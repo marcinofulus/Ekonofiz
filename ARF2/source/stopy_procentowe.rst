@@ -807,41 +807,67 @@ gdzie:
    B = \frac{1}{\alpha} (1-e^{-\alpha T}) \\
    A = \exp\left\{ (\gamma-\frac{\sigma^2}{2 \alpha^2}) (B-T) - \frac{\sigma^2}{4\alpha} B^2 \right\}
 
-Uwzględnienie czynnika :math:`\lambda`
+Uwzględnienie czynnika :math:`\lambda` sprowadza się do zastąpienia pamametrów :math:`\alpha,\gamma`:
+
+.. math::
+
+    \alpha \to \alpha + \lambda\sigma \\
+    \gamma \to \alpha \frac{\gamma}{\alpha+\lambda \sigma}
 
 
-Możemy sobie łatwo skonstruować algorytm, który będzie symulował to
-równanie stochastyczne. Ponieważ potrzebujemy wiele realizacji procesu
-losowego, najlepiej będzie symulować jednocześnie :math:`M`
-tajektorii. 
-
-Poniższy kod wykonuje :math:`N` kroków symulacji:
 
 
 .. sagecellserver::
 
+    def Bvas(r,alfa=1.0,gama=0.06,sigma=0.02,T=1.0,lamb=0.667):
+
+        alfa, gama = alfa + lamb*sigma, alfa*gama/(alfa+lamb*sigma)
+        B = 1/alfa*(1-exp(-alfa*T))
+        A = exp( (gama-sigma^2/(2*alfa^2))*(B-T) - sigma^2/(4*alfa)*B^2 )
+        return A*exp(-B*r)
+
+.. admonition:: Poeksperymentuj sam
+
+   Wykonaj poniższy kod implementujący wzór na cenę zerokuponowej obligacji. Narysuj krzywą dochodowości, 
+   czyli *Yield to Maturity* dla tej obligacji. Poeksperymentuj z poniższą komórką i parametrami.
+
+.. sagecellserver::
+
+    Rexact = [(t,-log( Bvas(r=0.03,alfa=1.0,gama=0.06,sigma=0.02,T=t,lamb=0.667))/t) for t in srange(0.01,15,.1)]
+    point ( Rexact,color='red') 
+
+
+
+Możemy sobie łatwo skonstruować algorytm, który będzie symulował to
+równanie stochastyczne :eq:`vasicek_sde`. Ponieważ potrzebujemy wiele realizacji procesu
+losowego, najlepiej będzie symulować jednocześnie :math:`M` trajektorii. 
+
+
+.. sagecellserver::
+
+ 
     import numpy as np
 
-    N = 1000
-    M = 1000
-    T = 100.
-    h = T/N
-    time = np.linspace(0.,1.,N)
+    N = 4400
+    M = 2301
+    T = 13.
+    h = T/(N-1)
+    time = np.linspace(0,T,N)
+    r0 = 0.03
+    sigma = 0.02
+    gama = 0.06
+    alfa = 1.0
+    lamb = 0.667
 
-    S0 = 8
-    sigma = 0.2
-    k = 0.1
-    theta = 6.0
+
+    alfa1 = alfa + lamb*sigma
+    gama1 = alfa*gama/(alfa+lamb*sigma)
+
     x = np.zeros((M,N))
-    x[:,0] = S0*np.ones(M)
+    x[:,0] = r0*np.ones(M)
     for i in range(1,N):
-      x[:,i] = x[:,i-1] + k*(theta-x[:,i-1])*h + sigma*np.sqrt(h)*np.random.randn(M)
+      x[:,i] = x[:,i-1] + alfa1*(gama1-x[:,i-1])*h + sigma*np.sqrt(h)*np.random.randn(M)
 
-    line( zip(time,x[13,:]) ) + point(zip(time[::100],x[13,::100]),color='red')
-
-    rav  = np.average(x[:,::100],axis=0)*0.01
-
-    point([(n,100*(np.prod(1+rav[:n])**(1.0/n)-1)) for n in range(1,100+1)])
 
 
 .. admonition:: Opis programu
@@ -857,21 +883,45 @@ Poniższy kod wykonuje :math:`N` kroków symulacji:
 
     *  inicjalizujemy macierz :code:`x` w której będziemy przechowywać wszystkie
        :math:`N` kroków dla :math:`M` trajektorii
-    * w pierwszej kolumnie tej macierzy umieszczamy wartości
-       początkowe dla wszystkich realizacji - :code:`x[:,0]=S0*np.ones(M)`  
-
-    * wykonujemy równoczesną symulację :math:`N` trajektorii
-    * obliczamy średnie stopy zwrotu po trajektoriach
+    *  w pierwszej kolumnie tej macierzy umieszczamy wartości
+       początkowe dla wszystkich realizacji - :code:`x[:,0] = r0*np.ones(M)`  
 
 
-Krzywa dochodowości w modelu dyskretnym
-+++++++++++++++++++++++++++++++++++++++
+Mając już wygenerowane trajektorie możemy je narysować:
 
-todo
+.. sagecellserver::
+
+   sum([line( zip(time[::1],x[i,::1]),thickness=0.1 ) for i in range(20)])
    
 
-Wnioski
--------
+Pozostaje tylko obliczenie krzywej dochodowości z symulacji stochastycznej i porównanie jej z wynikiem analitycznym:
+
+
+
+.. sagecellserver::
+
+    P = np.average(np.exp(-np.cumsum(x,axis=1)*h),axis=0)
+    pDR = -np.log(P)[1:]/time[1:]
+    
+    pltMC = line( zip(time,pDR),gridlines=[[],[gama+sigma*lamb/alfa-sigma^2/(2*alfa^2)] ])
+    Rexact = [(t,-log( Bvas(r=r0,alfa=alfa,gama=gama,sigma=sigma,T=t,lamb=0.667))/t) for t in srange(0.01,15,.1)]
+    point ( Rexact,color='red')+   pltMC
+
+.. admonition:: Opis programu
+  
+    * wykonujemy równoczesną symulację :math:`N` trajektorii
+    * w linii :code:`P = np.average(np.exp(-np.cumsum(x,axis=1)*h),axis=0)` obliczamy cenę obligacji 
+      dla każdej z realizacji procesu stopy i uśredniamy 
+    * linia  :code:`pDR = -np.log(P)[1:]/time[1:]` oblicza YTM dla obligacji z jej ceny.
+    
+
+
+
+
+   
+
+Podsumowanie
+------------
 
 Struktura terminowa rynku stóp procentowych jest jednoznacznie opisana przez każdą z poniższych wielkości:
 
