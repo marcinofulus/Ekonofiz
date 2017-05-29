@@ -748,8 +748,8 @@ na S\&P500 w ostatnim dniu - czyli 2002-09-19.
 
     import urllib2
     import numpy as np
-    file = "https://dl.dropboxusercontent.com/u/11718006/hedgefutures2.txt"
-    file = "https://dl.dropboxusercontent.com/u/11718006/SP500_porfolio.txt"
+    file = "https://www.dropbox.com/s/qzmgf54wvchtga4/hedgefutures2.txt?dl=1"
+    file = "https://www.dropbox.com/s/1cra3tt8f97mezu/SP500_porfolio.txt?dl=1"
     data = np.loadtxt(urllib2.urlopen(file))
     plt = line(enumerate(data[:,0]/data[-1,0]),figsize=(8,2))
     plt += line(enumerate(data[:,1]/data[-1,1]),color='green')
@@ -831,16 +831,6 @@ korelacja pomiędzy tymi surowcami. Rzeczywiście, ich historyczne
 comiesięczne notowania wyglądają następującą:
 
 
-
-    ..
-       import urllib2
-       import numpy as np
-       file = "https://dl.dropboxusercontent.com/u/11718006/hedgefutures.txt"
-       data = np.loadtxt(urllib2.urlopen(file))
-       plt = line(enumerate(data[:,0]),figsize=(8,2))
-       plt += line(enumerate(data[:,1]),color='green')
-       plt += line(enumerate(data[:,2]),color='red')
-       plt.show()
 
 
 .. sagecellserver::

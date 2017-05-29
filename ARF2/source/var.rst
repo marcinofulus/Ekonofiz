@@ -745,9 +745,9 @@ ich dziennych zmian.
    import numpy as np 
    import scipy.linalg
 
-   fp  = urllib.urlopen("https://dl.dropboxusercontent.com/u/11718006/COMARCH.mst")
+   fp  = urllib.urlopen("https://www.dropbox.com/s/eemrayeer8kfwxn/COMARCH.mst?dl=1")
    d1 = np.loadtxt(fp,skiprows=1,usecols=range(1,7),delimiter=',')
-   fp  = urllib.urlopen("https://dl.dropboxusercontent.com/u/11718006/COLIAN.mst")
+   fp  = urllib.urlopen("https://www.dropbox.com/s/m015q77ro58jxqy/COLIAN.mst?dl=1")
    d2 = np.loadtxt(fp,skiprows=1,usecols=range(1,7),delimiter=',')
 
    # ostatni rok
