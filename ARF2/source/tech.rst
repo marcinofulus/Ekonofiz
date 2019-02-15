@@ -177,7 +177,7 @@ pakietu :code:`numpy`.
     import numpy as np
     import urllib
 
-    fp  = urllib.urlopen("https://dl.dropboxusercontent.com/u/11718006/COMARCH.mst")
+    fp  = urllib.urlopen("https://www.dropbox.com/s/eemrayeer8kfwxn/COMARCH.mst?dl=1")
     data = np.loadtxt(fp,skiprows=1,usecols=[2],delimiter=',')
     N = data.shape[0]
     t = np.arange(N)
