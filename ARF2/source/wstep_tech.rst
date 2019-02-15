@@ -65,7 +65,7 @@ to definicje utworzone podczas wykonania jednej są dostępne w drugiej.
 
 .. admonition:: Poeksperymentuj z komputerem
 
-   Wykonaj najpiejw piewszą komórkę a potem drugą. Następnie przeładuj
+   Wykonaj najpierw piewszą komórkę a potem drugą. Następnie przeładuj
    stronę i wykonaj najpierw druga a potem pierwszą. 
 
    Zauważ, że przeładowawanie strony powoduje skasowanie informacji o
