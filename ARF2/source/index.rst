@@ -16,10 +16,10 @@ Analiza Rynków Finansowych - praktyczne podejście komputerowe
    instrumenty_stalego_dochodu
    stopy_procentowe
    forex
+   kontrakty_terminowe
    opcje
    opcje-wycena
    Instrumenty_syntetyczne
-   kontrakty_terminowe
    ryzyko
    Hedging
    var*
