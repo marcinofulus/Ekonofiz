@@ -115,7 +115,7 @@ kwantyla dla danych parametrów numerycznie. Niestety, widzimy, że wzór
 
    T = RealDistribution('gaussian',1.0)
    k =  T.cum_distribution_function_inv(0.05)
-   print k
+   print( k )
 
 
 Teraz, sprawdźmy, że rzeczywiście wycałkowanie funkcji gęstości od
@@ -123,7 +123,7 @@ minus nieskończoności do :math:`k` daje 0.05:
    
 .. sagecellserver::
 
-   numerical_integral(T.distribution_function,(-oo,k))
+   numerical_integral(lambda x:T.distribution_function(x),-oo,k)
    
 
 Kwantyl możemy obliczyć nie tylko dla normalnej zmiennej
@@ -142,8 +142,8 @@ na wejsciu :math:`p \times 100\%`. Sprawdźmy sami:
       import numpy as np
       X = np.random.randn(100000)
       X.sort()
-      print X[5000]
-      print "Wbudowana funkcja w numpy, daje:", np.percentile(X,int(5))
+      print( X[5000] )
+      print( "Wbudowana funkcja w numpy, daje:", np.percentile(X,int(5)) )
 
 Przy małej liczbie danych widać pewne różnice pomiędzy `np.percentile`
 a naszą procedurą, wynikającą ze sposobu interpolacji. Warto też
@@ -498,12 +498,12 @@ metody wariancji-kowariancji.
    sigma_X = 0.01
    sigma_Y = 0.02
    sigmaP = sqrt(w_X^2*sigma_X^2+w_Y^2*sigma_Y^2 + 2*w_X*w_Y*rho*sigma_X*sigma_Y)
-   print sigmaP
+   print( sigmaP )
    T = RealDistribution('gaussian', 1.0)
    k =  T.cum_distribution_function_inv(0.05) 
-   print 'k = ',k 
-   print "VaR procentowy= ",sigmaP*k 
-   print "VaR pieniężny = ", 100000*sigmaP*k
+   print( 'k = ',k )
+   print( "VaR procentowy= ",sigmaP*k )
+   print( "VaR pieniężny = ", 100000*sigmaP*k )
 
 
 
@@ -741,13 +741,13 @@ ich dziennych zmian.
 
 .. sagecellserver::
 
-   import urllib
+   from  urllib import request
    import numpy as np 
    import scipy.linalg
 
-   fp  = urllib.urlopen("https://www.dropbox.com/s/eemrayeer8kfwxn/COMARCH.mst?dl=1")
+   fp  = request.urlopen("https://www.dropbox.com/s/eemrayeer8kfwxn/COMARCH.mst?dl=1")
    d1 = np.loadtxt(fp,skiprows=1,usecols=range(1,7),delimiter=',')
-   fp  = urllib.urlopen("https://www.dropbox.com/s/m015q77ro58jxqy/COLIAN.mst?dl=1")
+   fp  = request.urlopen("https://www.dropbox.com/s/m015q77ro58jxqy/COLIAN.mst?dl=1")
    d2 = np.loadtxt(fp,skiprows=1,usecols=range(1,7),delimiter=',')
 
    # ostatni rok
@@ -786,7 +786,7 @@ chwilach.
    P = np.array([1,21])
    mrkt = np.array( [ 87.01,   3.01] )
   
-   print "Wartość portfela",P," dla notowań",mrkt,"wynosi:",valueP(P,mrkt)
+   print( "Wartość portfela",P," dla notowań",mrkt,"wynosi:",valueP(P,mrkt) )
 
 
 
@@ -806,7 +806,7 @@ wartości rynku i wziąć piąty kwantyl.
    dataVAR_dx = np.diff(dataVAR,axis=0)
    hist_sim = mrkt+dataVAR_dx
    changes = valueP(P,hist_sim) - valueP(P,mrkt)
-   print "VaR, metoda historyczna",np.percentile(changes,int(5))
+   print( "VaR, metoda historyczna",np.percentile(changes,int(5)) )
 
 
 Metoda wariancji kowariancji
@@ -829,7 +829,7 @@ wyliczamy odpowiedni kwantyl rozkładu normalnego w tymi wartościami.
 
    T = RealDistribution('gaussian', 1.0)
    k =  T.cum_distribution_function_inv(0.05)
-   print "VaR metodą wariancji-kowariancji:", muP + np.sqrt(sigma2P)*k
+   print( "VaR metodą wariancji-kowariancji:", muP + np.sqrt(sigma2P)*k )
 
 
 Metoda symulacji Monte-Carlo
@@ -855,7 +855,7 @@ z dostępnej historii.
    sqrtCov =  np.real_if_close(scipy.linalg.sqrtm(Cov))
    values = np.array([ valueP(P,mrkt + avg + \
     np.dot(sqrtCov,np.random.randn(N))) for i in range(10000)])
-   print "VaR, MC:",np.percentile(values-valueP(P,mrkt),int(5))
+   print( "VaR, MC:",np.percentile(values-valueP(P,mrkt),int(5)) )
 
 
 Porównanie wyników
@@ -873,7 +873,7 @@ indeksów. Najlepiej zobaczyć do na wykresie:
 .. sagecellserver::
 
     Gaussian(x,mu,sigma) = 1/sqrt(2*pi*sigma^2)*exp(-(x-mu)^2/(2*sigma^2))
-    print muP,sigma2P
+    print( muP,sigma2P )
     nbins = 100
     H = np.histogram(values-valueP(P,mrkt),bins=nbins)
     normalizacja = H[0].sum()*(H[1].max()-H[1].min())/nbins

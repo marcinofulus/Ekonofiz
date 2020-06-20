@@ -158,7 +158,7 @@ Sprawdźmy te obliczenia wykorzystując Sage:
         100060 == 15500/(1 + r1)+115500/((1+r1)*(1+r2)),\
         100680 == 16200/(1+r1)+16200/((1+r1)*(1+r2))+116200/((1+r1)*(1+r2)*(1+r3)) ] ,[r1,r2,r3] )
 
-   print map(lambda x:x.rhs().n()*100,s[0])
+   print( list( map(lambda x:x.rhs().n()*100,s[0])) )
 
 
 Przy czym należy podkreślić, że :math:`r_2` to stopa roczna dla roku
@@ -426,7 +426,7 @@ działanie zawsze prowadzi do drzewa rekombinującego.
                 tmp+= [ s-delta2]
             SP.append(tmp)
         return SP
-    print "Na przyklad gen_recombining(3) daje:"
+    print( "Na przyklad gen_recombining(3) daje:" )
     table(gen_recombining(3))
 
 
@@ -518,7 +518,7 @@ Teraz możemy narysować drzewo do np. czwartej generacji i tak wywołanie:
 
 .. code-block:: python
 
-   print gen_recombining(SP=4,3)
+   print( gen_recombining(SP=4,3) )
 
 powinno dać:
 
@@ -604,9 +604,9 @@ przeliczonym w uprzednio :ref:`przykładzie <_przyklad_drzewa>`:
        SP = gen_recombining(N,delta1=0.7,delta2=0.2)
        all_paths = map(lambda x:[0]+np.cumsum(x).tolist(), map(list,cartesian_product(N*[[0,1]]).list() ))
        R = mean( [prod([(1+0.01*SP[i][p]) for i,p in enumerate(path_)]) for path_ in all_paths] )
-       print "Srednia zannualizowana stopa wynosi:", (R^(1/(N+1)) - 1)*100
+       print( "Srednia zannualizowana stopa wynosi:", (R^(1/(N+1)) - 1)*100 )
    except:
-       print "załaduj definicję get_recombining"
+       print( "załaduj definicję get_recombining" )
 
 
 Wykonując powyższą komórkę powinniśmy otrzymać wynik taki sam jak w

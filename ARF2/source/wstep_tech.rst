@@ -80,10 +80,10 @@ to definicje utworzone podczas wykonania jednej są dostępne w drugiej.
 
    try:
        show( formula ) 
-       print "pochodna wynosi:"
+       show("pochodna wynosi:")
        show( formula.diff(x) )
    except:
-       print "Nie zdefiniowano zmiennej!"
+       print( "Nie zdefiniowano zmiennej!" )
 
 
 .. attention::

@@ -488,7 +488,7 @@ gdzie:
 	    plt = line(pkts,color='green',marker='o')
 	    plt += plot(100*exp(x*rate/100.),(x,0,years),color='red')
 	    sd,sc = pkts[-1][1],100*exp(years*rate/100.)
-	    print sd,sc,round((sc-sd)/((sc+sd)*0.5)*100,2),"%"
+	    print(sd, sc, round((sc-sd)/((sc+sd)*0.5)*100,2), "%")
 	    plt.show(figsize=(6,2))
 
 
@@ -564,7 +564,7 @@ metody przybliżone.
    c = lambda x,y:x/(1+r)^y
    NPV = -5000+sum( [c(cf_,i+1) for i,cf_ in enumerate(CF)])
    show(NPV)
-   print find_root(NPV,0,1)
+   print(find_root(NPV,0,1))
    plot(NPV,(r,0,.15),figsize=4 )
 
 
@@ -580,8 +580,8 @@ metody przybliżone.
    c = lambda x,y:x/(1+r)^y
    NPV = 205+sum( [c(cf_,i+1) for i,cf_ in enumerate(CF)])
    
-   print find_root( NPV, 1e-5,0.1)
-   print find_root( NPV, .1,0.2)
+   print(find_root( NPV, 1e-5,0.1))
+   print(find_root( NPV, .1,0.2))
    plot(NPV,(r,0,.15),figsize=4 )
     
     
@@ -634,12 +634,12 @@ inwestycyjnych.
   .. sagecellserver::
      :linked: false
   
-      print 40000/sum(  [ (1+0.1)^i for i in range(7)] ) 
+      print( 40000/sum(  [ (1+0.1)^i for i in range(7)] ) )
   
   .. sagecellserver::
      :linked: false
     
-      print (40000-15000*(1+0.1)^7)/sum(  [ (1+0.1)^i for i in range(7)] ) 
+      print( (40000-15000*(1+0.1)^7)/sum(  [ (1+0.1)^i for i in range(7)] ) )
  
 Na pytania te można odpowiedzieć korzystając z  wyliczeń matematyki finansowej w zakresie wartości pieniadza w czasie.
 Kłopotem może być wyliczenie sum wyrazów o dość wysokich potęgach, ale od czego jest kalkulator.
@@ -695,7 +695,7 @@ python można wykorzystać moduł datetime w następujący sposób:
 
    from datetime import date
    data1,data2 = (1980,10,31), (1989,5,1)
-   print date(*data2)-date(*data1)
+   print( date(*data2)-date(*data1) )
 
    
 
@@ -714,10 +714,10 @@ Wyliczmy ile jest dni roboczych, począwszy od 1 października 2014 do
 
     while d<=date(*data2):
         if  d.weekday()<5:
-            print d,d.strftime("%A")
+            print( d,d.strftime("%A") )
         d += timedelta(days=int(1))
         c+=1
-    print c
+    print( c )
 
 
 Ilość dni pracujących - dni roboczych ma istotne znaczenie dla różnych
@@ -741,7 +741,7 @@ jaki format dni w roku jest stosowny dla tego instrumentu.
 
 .. sagecellserver::
 
-   print "liczba wtorków:"
+   print( "liczba wtorków:" )
 
 
 Standardy liczenia dni w praktyce finansowej
@@ -1157,13 +1157,13 @@ W Sage możemy łatwo zapisać i wyliczyć  powyższe wzory:
     S(N) = (1-q^N)/(1-q)
     show(S(N))
     
-    print "PV renta zwykła:" 
+    print( "PV renta zwykła:"  )
     (S(N+1)-1 ).subs(q==1/(1+r)).full_simplify().show()
-    print "FV renta zwykła:"
+    print( "FV renta zwykła:" )
     S(N).subs(q==(1+r)).full_simplify().show()        
-    print "PV renta z góry:"
+    print( "PV renta z góry:" )
     S(N).subs(q==1/(1+r)).simplify().show()
-    print "FV renta z góry:"
+    print( "FV renta z góry:" )
     (S(N+1)-1).subs(q==(1+r)).simplify().show()    
 
 
@@ -1256,13 +1256,14 @@ Porównanie spłaty kredytów  omówionymi metodami pokazują  przeliczenia  pon
    r = 0.2
    N = 5
    Kt=[["winny","rata","odsetki","rata kapitalowa"],[K,0.,0.,0.]]
-   for i in range(1,N+1):
-      kredyt = Kt[-1][0]
-      odsetki = kredyt*r
-      rata_kapitalowa = 200
-      PMT = rata_kapitalowa + odsetki
 
-      Kt.append( [kredyt+odsetki - PMT, PMT, odsetki, PMT-odsetki])
+   for i in range(1,N+1):
+       kredyt = Kt[-1][0]
+       odsetki = kredyt*r
+       rata_kapitalowa = 200
+       PMT = rata_kapitalowa + odsetki
+       Kt.append( [kredyt+odsetki - PMT, PMT, odsetki, PMT-odsetki])
+       
    table(Kt)
    
 Porównując  powyższe harmonogramy spłat kredytu dwoma sposobami należy pamiętać, że z punktu matematyki finansowej i wartości pieniądza w czasie te dwa rodzaje spłaty są sobie równe.  Czyli koszt kredytu jest prawie taki sam, niezależnie, czy wybierzemy formę spłat równych, czy malejących. Nie mniej jednak raty płacone nie są sobie równe i pojawia się pytanie który sposób jest (??) lepszy i dla kogo?

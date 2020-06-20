@@ -746,11 +746,11 @@ na S\&P500 w ostatnim dniu - czyli 2002-09-19.
 
 .. sagecellserver::
 
-    import urllib2
+    from urllib import request
     import numpy as np
     file = "https://www.dropbox.com/s/qzmgf54wvchtga4/hedgefutures2.txt?dl=1"
     file = "https://www.dropbox.com/s/1cra3tt8f97mezu/SP500_porfolio.txt?dl=1"
-    data = np.loadtxt(urllib2.urlopen(file))
+    data = np.loadtxt(request.urlopen(file))
     plt = line(enumerate(data[:,0]/data[-1,0]),figsize=(8,2))
     plt += line(enumerate(data[:,1]/data[-1,1]),color='green')
     plt.show()
@@ -772,9 +772,9 @@ Współczynnik dopasowania obliczamy ze wzoru:
 
 .. sagecellserver::
 
-    print "Wspolczynnik korelacji:",np.cov(dP,dSP500, bias=1)[0,1]/(np.std(dP)*np.std(dSP500))
-    print	"h=",np.cov(dP,dSP500, bias=1)[0,1]/(np.std(dSP500)**2)
-    print "Ilosc kontraktów na SP500:",data[-1,0]/(data[-1,1]*250) * np.cov(dP,dSP500)[0,1]/(dSP500.std()**2)
+    print( "Wspolczynnik korelacji:",np.cov(dP,dSP500, bias=1)[0,1]/(np.std(dP)*np.std(dSP500)) )
+    print(	"h=",np.cov(dP,dSP500, bias=1)[0,1]/(np.std(dSP500)**2) )
+    print( "Ilosc kontraktów na SP500:",data[-1,0]/(data[-1,1]*250) * np.cov(dP,dSP500)[0,1]/(dSP500.std()**2) )
 
 Zauważmy, że mając obliczone "hedge ratio" - :math:`h`, liczbę
 kontraktów wyliczamy mnożąc :math:`h` przez ilość jednostek S\&P500,
@@ -790,7 +790,7 @@ wynik:
 
 		var('a b x')
 		model(x) = a * x + b
-		data = zip(dSP500,dP)
+		data = list( zip(dSP500,dP) )
 		find_fit(data,model)
 
 
@@ -882,9 +882,9 @@ współczynnik kolelacji:
 
 .. sagecellserver::
 
-   print "Macierz kowariancji:"
+   print( "Macierz kowariancji:" )
    show(matrix(np.cov(dJet,dOil)))
-   print "Współczynnik korelacji:",np.cov(dJet,dOil)[0,1]/(np.std(dJet)*np.std(dOil))
+   print( "Współczynnik korelacji:",np.cov(dJet,dOil)[0,1]/(np.std(dJet)*np.std(dOil)) )
 
 
 Jaki będzie współczynnik zabezpieczenia? Gdyby udało nam się uzyskać
@@ -904,7 +904,7 @@ historycznych:
 
 		var('h')
 		plot( lambda h:np.mean( (dJet-h*dOil)**2), (h,-3,4) ).show(figsize=3)
-		print "Rozwiazujac rownanie:",solve( diff( np.mean( (dJet-h*dOil)**2),h), h)[0].rhs().n()
+		print( "Rozwiazujac rownanie:",solve( diff( np.mean( (dJet-h*dOil)**2),h), h)[0].rhs().n() )
 
 
 Taki sam wynik otrzymamy dopasowując dane przyrostów cen do siebie w
@@ -915,7 +915,7 @@ modelu liniowych (co jest czasem zwane regresją liniową):
 
 		var('a b x')
 		model(x) = a * x + b
-		data = zip(dOil,dJet)
+		data = list( zip(dOil,dJet) )
 		find_fit(data,model)
 
 
@@ -1724,7 +1724,7 @@ Zacznijmy od zdefiniowania kilku pomocniczych funkcji:
         plt.axes_labels(["rok","wartosc"])
         plt.axes_range(xmin=-.2, xmax = len(SP)-1+0.2,ymin=0,ymax=SP[-1][0]+1)
         return plt
-    print "Wczytano funkcje pomocnicze"
+    print( "Wczytano funkcje pomocnicze" )
 
 
 Wygenerujmy więc nasze eksperymentalne drzewo cen aktywa i narysujmy
@@ -1756,7 +1756,7 @@ tak:
         el = [ (p*OP[-1][i]+(1-p)*OP[-1][i+1]) for i in range(len(OP[-1])-1)] 
         OP.append(el)
     OP.reverse()
-    print "Cena opcji Call wynosi:",OP[0]
+    print( "Cena opcji Call wynosi:",OP[0] )
     plot_tree2(SP,OP)
 
 Mając ceny opcji i aktywa w każdym miejscu drzewa, możemy wyliczyć
@@ -1813,15 +1813,15 @@ w elementcie interaktywnym obliczamy kolejne portfele.
     all_paths = map(lambda x:[0]+np.cumsum(x).tolist(),map(list,cartesian_product( N*[[0,1]]).list()) )
 
     @interact 
-    def _(path = all_paths):
+    def _(path = list(all_paths)):
         p = plot_tree2(SP,OP)
         p += line( [( i,SP[i][p_] ) for i,p_ in enumerate(path)],color='red')
         if SP[-1][path[-1]]>K:
-            print "Opcja jest w cenie i musimy doplacic", SP[-1][path[-1]]-K
+            print( "Opcja jest w cenie i musimy doplacic", SP[-1][path[-1]]-K )
         else:
-            print "Opcja jest bezwartościowa"
+            print( "Opcja jest bezwartościowa" )
         table( calculate_evo(SP,OP,path,depo=16)[1])
-        print "W czasie wykonania mamy w sumie:",calculate_evo(SP,OP,path,depo=16)[0]
+        print( "W czasie wykonania mamy w sumie:",calculate_evo(SP,OP,path,depo=16)[0] )
         p.show(figsize=3)
 
 

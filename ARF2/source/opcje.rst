@@ -423,7 +423,7 @@ wystawienie.
          p += text(r"$S_0$",(S0,k*2))
          return p
 
-     print "Wczytano funkcje pomocnicze!"
+     print("Wczytano funkcje pomocnicze!")
 
 
 
@@ -455,7 +455,7 @@ Kupujemy opcję Call
              p.set_axes_range(xmin=100,xmax=140,ymin=-20,ymax=20)
              p.show(figsize=5)
      except:
-         print "Wykonaj pierwszą komórkę!"
+         print("Wykonaj pierwszą komórkę!")
 
 
 .. only:: latex
@@ -496,7 +496,7 @@ Sprzedajemy opcję Call
             p.set_axes_range(xmin=100,xmax=140,ymin=-10,ymax=20)
             p.show(figsize=5)
     except:
-        print "Wykonaj pierwszą komórkę!"
+        print("Wykonaj pierwszą komórkę!")
 
 
 Kupujemy opcję Put
@@ -527,7 +527,7 @@ Kupujemy opcję Put
             p.set_axes_range(xmin=100,xmax=140,ymin=-20,ymax=20)
             p.show(figsize=5)
     except:
-        print "Wykonaj pierwszą komórkę!"
+        print("Wykonaj pierwszą komórkę!")
 
 
 Sprzedajemy opcję Put
@@ -558,7 +558,7 @@ Sprzedajemy opcję Put
             p.set_axes_range(xmin=100,xmax=140,ymin=-10,ymax=20)
             p.show(figsize=5)
     except:
-        print "Wykonaj pierwszą komórkę!"
+        print("Wykonaj pierwszą komórkę!")
 
 
 

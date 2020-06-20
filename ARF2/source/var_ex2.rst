@@ -76,7 +76,7 @@ Na przykład dnia 13.1.1997 było:
 
 .. sagecellserver::
 
-   print dataVAR[12]
+   print( dataVAR[12] )
    
 Wyobraźmy sobie, że jest 10.2.1997 i mamy portfel dwóch akcji i
 jesteśmy dłużni jedną obligację na sto jednostek waluty zagranicznej z
@@ -101,7 +101,7 @@ zdefiniujmy funkcję wyceny portfela :code:`valueP`:
         return stock+bond
 
 
-    print "Wartość portfela na 10 Feb 1997",valueP(P,mrkt10Feb97)[0]
+    print( "Wartość portfela na 10 Feb 1997",valueP(P,mrkt10Feb97)[0] )
 
 
 Metoda historyczna
@@ -116,7 +116,7 @@ przykładzie z liniową funkcją wyceny:
     dataVAR_dx = np.diff(dataVAR,axis=0)
     hist_sim = mrkt10Feb97+dataVAR_dx
     changes = valueP(P,hist_sim)-valueP(P,mrkt10Feb97)
-    print "Metoda historyczna",np.percentile(changes,int(20))
+    print( "Metoda historyczna",np.percentile(changes,int(20)) )
 
 
 Metoda wariancji kowariancji
@@ -146,7 +146,7 @@ W tej metodzie mamy znaczną różnicę, nie obowiązują bowiem proste formuły
     sigma2P = dP.dot(Cov).dot(dP.T)
     T = RealDistribution('gaussian', 1.0)
     k =  T.cum_distribution_function_inv(0.2)
-    print "VaR, metoda wariancji kowariancji:",muP + np.sqrt(sigma2P)*k
+    print( "VaR, metoda wariancji kowariancji:",muP + np.sqrt(sigma2P)*k )
 
 
 Metoda Monte Carlo
@@ -160,7 +160,7 @@ Metoda Monte Carlo
     values = np.array([ valueP(P,mrkt10Feb97 + avg + \
       np.dot(sqrtCov,np.random.randn(4)))[0] for i in range(10000)])
 
-    print "VaR, MC:",np.percentile(values-valueP(P,mrkt10Feb97)[0],int(20))
+    print( "VaR, MC:",np.percentile(values-valueP(P,mrkt10Feb97)[0],int(20)) )
 
 
 Porównanie
@@ -172,7 +172,7 @@ Porównanie
 
 
     Gaussian(x,mu,sigma) = 1/sqrt(2*pi*sigma^2)*exp(-(x-mu)^2/(2*sigma^2))
-    print muP,sigma2P
+    print( muP,sigma2P )
     nbins = 20
     H = np.histogram(np.diff(valueP(P,dataVAR)),bins=np.linspace(-12,12,nbins))
 

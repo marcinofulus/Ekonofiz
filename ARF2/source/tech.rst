@@ -175,9 +175,9 @@ pakietu :code:`numpy`.
 
 
     import numpy as np
-    import urllib
-
-    fp  = urllib.urlopen("https://www.dropbox.com/s/eemrayeer8kfwxn/COMARCH.mst?dl=1")
+    from urllib import request
+    
+    fp  = request.urlopen("https://www.dropbox.com/s/eemrayeer8kfwxn/COMARCH.mst?dl=1")
     data = np.loadtxt(fp,skiprows=1,usecols=[2],delimiter=',')
     N = data.shape[0]
     t = np.arange(N)
@@ -247,7 +247,7 @@ Sprawdźmy jak dobrze jest spełniony warunek stacjonarności :math:`r,\sigma^2`
 
 .. sagecellserver::
 
-   print np.std(r_log[:1000]),np.std(r_log[1000:2000])
+   print(np.std(r_log[:1000]),np.std(r_log[1000:2000]))
 
 
 Widzimy, że jest kiepsko spełniona! Widać to już całkiem nieźle z wykresu
@@ -304,7 +304,7 @@ tzn. większe wartości daleko od zera. Zobaczmy sami:
      Gaussian(x,mu,sigma) = 1/sqrt(2*pi*sigma^2)*exp(-(x-mu)^2/(2*sigma^2))
      X = r_rel[400:1200]
      mu,sigma = np.average(X),np.std(X)
-     H = np.histogram(X,bins=nbins,range=[-.13,.13])
+     H = np.histogram(X,bins=nbins,range=[-.13r,.13r])
      normalizacja = H[0].sum()*(H[1].max()-H[1].min())/nbins
      p = line( zip(H[1],H[0]),color='red',figsize=(7,4))
      mu,sigma = np.average(X),np.std(X)

@@ -370,11 +370,11 @@ Blacka-Scholesa:
         return max_symbolic(K-S,0)-P
     var('sigma,S0,K,T,r')
     cdf(x) = 1/2*(1+erf(x/sqrt(2)))
-    d1=(log(S0/K)+(r+sigma**2/2)*T)/(sigma*sqrt(T))
-    d2=d1-sigma*sqrt(T)
+    d1 = (log(S0/K)+(r+sigma**2/2)*T)/(sigma*sqrt(T))
+    d2 = d1-sigma*sqrt(T)
     C(S0,K,r,T,sigma) = S0*cdf(d1)-K*exp(-r*T)*cdf(d2)
     P(S0,K,r,T,sigma) = K*exp(-r*T)*cdf(-d2)-S0*cdf(-d1)
-    print "Wczytano definicje!"
+    print( "Wczytano definicje!" )
 
 Rozważmy aktywo o wartości chwilowej (cena spot ) :math:`S=50` i
 zmienności (volatility) :math:`\sigma=0.5`. Ponadto, niech wolna od
@@ -386,23 +386,23 @@ Blacka-Scholesa:
 .. sagecellserver::
 
     P_c,P_p = C(50,50,.05,90/365.,0.3).n(),P(50,50,.05,90/365.,0.3).n()
-    print P_c,P_p
+    print( P_c,P_p )
 
 
 .. sagecellserver::
 
-    p3= plot( longCALL(S,50,0)-P_c,(S,0,100),color='red',aspect_ratio=1)+\
+    p3 = plot( longCALL(S,50,0)-P_c,(S,0,100),color='red',aspect_ratio=1)+\
      plot( - (S-50),(S,0,100),color='green',aspect_ratio=1)+\
      plot( ( 50-50*exp(-0.05*90/365.) ) ,(S,0,100),color='blue',aspect_ratio=1,figsize=4)
     show(p3)
 
 .. sagecellserver::
 
-   p2=plot( longCALL(S,50,0)-P_c-( S-50) + ( 50-50*exp(-0.05*90/365.) ),(S,0,100),color='black',aspect_ratio=1,zorder=10)
+   p2 = plot( longCALL(S,50,0)-P_c-( S-50) + ( 50-50*exp(-0.05*90/365.) ),(S,0,100),color='black',aspect_ratio=1,zorder=10)
    p2 += plot( longPUT(S,50,0)-P_p,(S,0,100),color='pink',thickness=5,figsize=4)
-   print "Instrumenty bazowe"
+   print( "Instrumenty bazowe" )
    p3.show()
-   print "Instrument syntetyczny"
+   print( "Instrument syntetyczny" )
    p2.show()
 
 

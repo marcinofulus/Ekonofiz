@@ -180,7 +180,8 @@ rekombinujące i multiplikatywne:
 
 .. sagecellserver::
 
-   plot_tree(gen_recombining(4,SP=30,q=0.1)),plot_tree(gen_all(4,SP=30,q=0.1))
+   show(plot_tree(gen_recombining(4,SP=30,q=0.1)))
+   show(plot_tree(gen_all(4,SP=30,q=0.1)))
 
 
 Zauważmy, że w pełnym drzewie binarnym mamy w :math:`n`-tym okresie
@@ -235,7 +236,7 @@ Możemy go samodzielnie uruchomić:
     plt_sp = plot_tree(SP)
     plt_sp.set_axes_range(ymax=170)
     plt_sp.show()
-    print SP
+    print( SP )
 
 Mając drzewo w postaci struktury zagnieżdżonej listy, możemy
 wygenerować sobie wszystkie scenariusze ewolucji na tym drzewie:
@@ -244,8 +245,8 @@ wygenerować sobie wszystkie scenariusze ewolucji na tym drzewie:
 
     .. sagecellserver::
 
-        all_paths = map(lambda x:[0]+np.cumsum(x).tolist(),CartesianProduct(*( N*[[0,1]])).list() )
-        print all_paths
+        all_paths = list( map(lambda x:[0]+np.cumsum(x).tolist(),CartesianProduct(*( N*[[0,1]])).list() ) )
+        print( all_paths )
 
 
 .. only:: late
@@ -397,9 +398,9 @@ Zobaczmy czy sumują się one do jedności:
 .. code-block:: python
 
     sage: try:
-    ...       print sum(map(prod,Qmoves)).full_simplify()
+    ...       print(  sum(map(prod,Qmoves)).full_simplify() )
     sage: except:
-    ...       print sum(map(prod,Qmoves))
+    ...       print( sum(map(prod,Qmoves)) )
     1
 
 .. end of output
@@ -458,7 +459,7 @@ Możemy teraz obliczyć średnią z ceny aktywa po ścieżkach:
 .. code-block:: python
 
     sage: for q_,p_,in zip(Qmoves,all_paths):
-    ...       print q_,p_,round( prod(q_)*SP[N][p_[N]] )
+    ...       print( q_,p_,round( prod(q_)*SP[N][p_[N]] ) )
     [1/2, 1/2, 1/2] [0, 0, 0, 0] 20
     [1/2, 1/2, 1/2] [0, 0, 0, 1] 15
     [1/2, 1/2, 1/2] [0, 0, 1, 1] 15
@@ -527,7 +528,7 @@ policzmy jak zmienia się cena aktywa na pewnej ścieżce:
 .. code-block:: python
 
     sage: for i,p_ in enumerate(all_paths[6]):
-    ...       print "czas:",i,"cena",SP[i][p_]
+    ...       print( "czas:",i,"cena",SP[i][p_] )
     czas: 0 cena 100
     czas: 1 cena 80
     czas: 2 cena 60
@@ -553,7 +554,7 @@ co graficznie możemy przedstawić:
     sage: r = 0
     sage: P = [1,123]
     sage: for i,p_ in enumerate(all_paths[6]):
-    ...       print "czas:",i,"cena",SP[i][p_],"wartość portfela:",P[0]*SP[i][p_]+P[1]*(1+r)^i
+    ...       print(  "czas:",i,"cena",SP[i][p_],"wartość portfela:",P[0]*SP[i][p_]+P[1]*(1+r)^i )
     czas: 0 cena 100 wartość portfela: 223
     czas: 1 cena 80 wartość portfela: 203
     czas: 2 cena 60 wartość portfela: 183
@@ -654,7 +655,7 @@ OP.
     sage: for i,(k,k_next) in enumerate(zip(p_,p_[1:])):
     ...       delta = (OP[i+1][k]-OP[i+1][k+1])/(SP[i+1][k]-SP[i+1][k+1])
     ...       x = delta - Pt[-1][0]
-    ...       print  k,delta,Pt[-1][0]
+    ...       print(  k,delta,Pt[-1][0] )
     ...       Pt.append( (delta,Pt[-1][1]-x*SP[i][k],SP[i+1][k_next]) )
     0 1/2 0
     0 3/4 1/2
@@ -678,9 +679,9 @@ OP.
 
 .. code-block:: python
 
-    sage: print "mamy akje szt.:",Pt[-1][0],"po",Pt[-1][2]
-    sage: print "oraz depozyt/dlug:",Pt[-1][1]
-    sage: print "i obiecankę za opcję:",-max( Pt[-1][2]-K,0)
+    sage: print( "mamy akje szt.:",Pt[-1][0],"po",Pt[-1][2] )
+    sage: print( "oraz depozyt/dlug:",Pt[-1][1] )
+    sage: print( "i obiecankę za opcję:",-max( Pt[-1][2]-K,0) )
     mamy akje szt.: 1/2 po 80
     oraz depozyt/dlug: -39
     i obiecankę za opcję: 0
@@ -732,7 +733,7 @@ OP.
 .. code-block:: python
 
     sage: for path in all_paths:
-    ...       print SP[-1][path[-1]],calculate_evo(SP,OP,path)[0],-max(SP[-1][path[-1]]-K,0)
+    ...       print( SP[-1][path[-1]],calculate_evo(SP,OP,path)[0],-max(SP[-1][path[-1]]-K,0) )
     160 -15 -60
     120 -15 -20
     120 -15 -20
@@ -788,7 +789,7 @@ Generujemy drzewko prawdopodobieństw arbitrażowych:
     sage: for k in range(N):
     ...       q_ = [ (sp*C-sp1)/(sp0-sp1) for j,(sp,sp0,sp1) in enumerate(zip(SP[k],SP[k+1
     sage: ],SP[k+1][1:]))]
-    ...          # print k,j,sp,sp0,sp1,(sp*C-sp1)/(sp0-sp1)
+    ...          # print( k,j,sp,sp0,sp1,(sp*C-sp1)/(sp0-sp1) )
     ...       QP.append(q_)
 
 
@@ -897,7 +898,7 @@ Generacja drzewka prawdopodobienstw  :math:`q=q_t`
     ...       for i,(k,k_next) in enumerate(zip(p_,p_[1:])):
     ...           delta = c*(OP[i+1][k]-OP[i+1][k+1])/(SP[i+1][k]-SP[i+1][k+1])
     ...           x = delta - Pt[-1][0]
-    ...           #print delta,x,-x*SP[i][k]
+    ...           #print( delta,x,-x*SP[i][k] )
     ...           Pt.append( (delta,C*( Pt[-1][1]-x*SP[i][k]),SP[i+1][k_next]) )    
     ...       return (Pt[-1][0]*Pt[-1][2]+Pt[-1][1]-c*max(c*( Pt[-1][2]-K),0),Pt)
 
@@ -951,7 +952,7 @@ Efekt zabezpieczenia \- każdy scenariusz prowadzi do tego samego wyniku finanso
 .. code-block:: python
 
     sage: for path in all_paths:
-    ...       print path,SP[-1][path[-1]],calculate_evo(SP,OP,path,c=-1,rate=28.59)[0]
+    ...       print( path,SP[-1][path[-1]],calculate_evo(SP,OP,path,c=-1,rate=28.59)[0] )
     [0, 0, 0, 0] 160 4.17544866397274
     [0, 0, 0, 1] 120 4.17544866397274
     [0, 0, 1, 1] 120 4.17605944912340

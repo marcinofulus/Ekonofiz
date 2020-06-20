@@ -182,7 +182,7 @@ Wycena opcji na drzewie binarnym
            plt.axes_range(xmin=-.2, xmax = len(SP)-1+0.2,ymin=0,ymax=SP[-1][0]+1)
            return plt
 
-       print  "OK - wczytano funkcje pomocnicze"
+       print(  "OK - wczytano funkcje pomocnicze" )
 
    .. end of output
 
@@ -243,7 +243,7 @@ ten sposób możemy otrzymać całe drzewo cen:
        OP.append(el)
    OP.reverse()
 
-   print "Cena opcji:",OP[0]
+   print( "Cena opcji:",OP[0] )
    plot_tree2(SP,OP)
 
 
@@ -292,7 +292,7 @@ Implementacja tego wzoru w Sage jest bardzo prosta:
    u = 1.1224
    d = 1/u
    N = 5
-   print exp(-r*T).n()*sum([ binomial(N,j)*p^(j)*(1-p)^(N-j)*max(S0*u^j*d^(N-j)-K,0) for j in range(N+1)])
+   print( exp(-r*T).n()*sum([ binomial(N,j)*p^(j)*(1-p)^(N-j)*max(S0*u^j*d^(N-j)-K,0) for j in range(N+1)]) )
 
 
 Wykonując ostatnią komórkę powinniśmy dostać tą samą liczbę jak w
@@ -420,7 +420,7 @@ Pełna procedura wyceny metodą Monte-Carlo wygląda następująco:
 
     call_MC = np.exp(-r*T)*np.mean( np.maximum(S[:,N-1]-K,0) )
     put_MC = np.exp(-r*T)*np.mean( np.maximum(K-S[:,N-1],0) )
-    print "Wycena z symulacji Monte-Carlo, opcja Call:",call_MC," opcja Put:",put_MC
+    print( "Wycena z symulacji Monte-Carlo, opcja Call:",call_MC," opcja Put:",put_MC )
 
     # sum([line(enumerate(S[i,:]),thickness=0.2,figsize=4) for i in range(123)])
 
@@ -585,12 +585,12 @@ rozwinięcia w szereg wyników oraz rozwinięcia równań :eq:`eq:JR`:
 .. sagecellserver::
 
    sols = solve([eq1.subs(p==1/2),eq2.subs(p==1/2)],[u,d])
-   print "pełne rozwiązanie:"
+   print( "pełne rozwiązanie:")
    show(sols[1])
-   print "Rozwinięcia w t=0:"
+   print( "Rozwinięcia w t=0:" )
    sols[1][0].rhs().taylor(t,0,1).show()
    sols[1][1].rhs().taylor(t,0,1).show()
-   print "Rozwinięcia wzorów w  t=0:"
+   print( "Rozwinięcia wzorów w  t=0:"  )
    exp(sigma*sqrt(t)+(r-sigma^2/2)*t).taylor(t,0,1).show()
    exp(-sigma*sqrt(t)+(r-sigma^2/2)*t).taylor(t,0,1).show()
 
@@ -628,7 +628,7 @@ Przykład - wyceny opcji z danymi z rynku ciągłego.
    for idx in range(N):
        el = [ 1/C*(p*OP[-1][i]+(1-p)*OP[-1][i+1]) for i in range(len(OP[-1])-1)] 
        OP.append(el)
-   print OP[-1]
+   print( OP[-1] )
 
 
 
@@ -792,7 +792,7 @@ odtworzyć liczby pochodzące ze wzorów Blacka-Scholesa.
     
     r,T,sigma = 0.1, 1, 0.1
     S0 = 120   
-    print "Wycena ze wzoru:",C(S0,K,r,T,sigma).n()
+    print( "Wycena ze wzoru:",C(S0,K,r,T,sigma).n() )
 
     import numpy as np 
     N = 100
@@ -805,7 +805,7 @@ odtworzyć liczby pochodzące ze wzorów Blacka-Scholesa.
 
     call_MC = np.exp(-r*T)*np.mean( np.maximum(S[:,N-1]-K,0) )
     put_MC = np.exp(-r*T)*np.mean( np.maximum(K-S[:,N-1],0) )
-    print "Wycena z symulacji Monte-Carlo:",call_MC,put_MC
+    print( "Wycena z symulacji Monte-Carlo:",call_MC,put_MC )
 
     # sum([line(enumerate(S[i,:]),thickness=0.2,figsize=4) for i in range(123)])
 
@@ -954,11 +954,11 @@ Po pierwsze wczytajmy sobie wzory Blacka-Scholesa:
 .. sagecellserver::
 
     try:
-        print bool( C.diff(S0) == cdf(d1) ) 
-        print bool( P.diff(S0) == cdf(d1)-1 ) 
-        print bool( C.diff(S0) - P.diff(S0) == 1 ) 
+        print( bool( C.diff(S0) == cdf(d1) )  )
+        print( bool( P.diff(S0) == cdf(d1)-1 )  )
+        print( bool( C.diff(S0) - P.diff(S0) == 1 ) ) 
     except:
-        print "Wczytaj wzory Blacka-Scholesa!"
+        print( "Wczytaj wzory Blacka-Scholesa!" )
 
 
 Widać, że zachodzi własność:
@@ -988,7 +988,7 @@ bazowego:
         p += plot( C(0.1,S0,120,1,0.03)/10,(S0,90,150),color='gray')
         p.show()
     except:
-        print "Wczytaj wzory Blacka-Scholesa!"
+        print( "Wczytaj wzory Blacka-Scholesa!" )
 
 
 
@@ -1016,7 +1016,7 @@ Współczynnik gamma jest zatem miarą niestabilności współczynnika delta.
         p += plot( C(0.1,S0,120,1,0.03)/100,(S0,90,150),color='gray')
         p.show()
     except:
-        print "Wczytaj wzory Blacka-Scholesa!"
+        print( "Wczytaj wzory Blacka-Scholesa!" )
 
 
 Interpretacja 
@@ -1091,7 +1091,7 @@ Ze wzoru Blacka Scholes można wyliczyć wartość:
         p += plot( C(0.1,S0,120,1,0.03)/10,(S0,90,150),color='gray')
         p.show()
     except:
-        print "Wczytaj wzory Blacka-Scholesa!"
+        print( "Wczytaj wzory Blacka-Scholesa!" )
 
 
 Liczenie  Theta - interpretacja 
@@ -1192,7 +1192,7 @@ niewiele.
         p += plot( C(0.1,S0,120,1,0.03)/10,(S0,90,150),color='gray')
         p.show()
     except:
-        print "Wczytaj wzory Blacka-Scholesa!"
+        print( "Wczytaj wzory Blacka-Scholesa!" )
 
 
 
@@ -1247,7 +1247,7 @@ algorytmu:
         p = (exp(r*T/N)-d)/(u-d)
         return exp(-r*T).n()*sum([binomial(N,j)*p^j*(1-p)^(N-j)*max(K-S0*u^j*d^(N-j),0) for j in range(N+1)])
 
-    print "Opcja amerykańska:",OP[0],"Opcja europejska:",Bin_Put(N,sigma,S0,K,T,r)
+    print( "Opcja amerykańska:",OP[0],"Opcja europejska:",Bin_Put(N,sigma,S0,K,T,r) )
     
 
 Widzimy, że wartość opcji amerykańskiej przy podanych parametrach
