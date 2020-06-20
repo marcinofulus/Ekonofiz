@@ -245,11 +245,11 @@ wygenerować sobie wszystkie scenariusze ewolucji na tym drzewie:
 
     .. sagecellserver::
 
-        all_paths = list( map(lambda x:[0]+np.cumsum(x).tolist(),CartesianProduct(*( N*[[0,1]])).list() ) )
+        all_paths = list ( map(lambda x:[0]+np.cumsum(x).tolist(),cartesian_product( N*[[0,1]] ).list() ) )
         print( all_paths )
 
 
-.. only:: late
+.. only:: latex
 
     .. code-block:: python
 
